@@ -1,0 +1,2348 @@
+[
+{
+"id": "bundesliga:2026-08-28:Bayern_Munich:Stuttgart",
+"domain": "bundesliga",
+"kind": "football",
+"question": "Bayern Munich v Stuttgart, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-28T00:00:00+00:00",
+"home": "Bayern Munich",
+"away": "Stuttgart",
+"avg": [
+1.2,
+7.38,
+10.37
+],
+"max": [
+1.25,
+8.0,
+12.0
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": 1.4000000000000001,
+"sot_diff": 2.3999999999999986,
+"form_ready": true,
+"matches_seen": [
+9,
+9
+]
+},
+{
+"id": "bundesliga:2026-08-29:Elversberg:Leverkusen",
+"domain": "bundesliga",
+"kind": "football",
+"question": "Elversberg v Leverkusen, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-29T00:00:00+00:00",
+"home": "Elversberg",
+"away": "Leverkusen",
+"avg": [
+4.9,
+4.41,
+1.57
+],
+"max": [
+5.25,
+4.6,
+1.6
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": null,
+"sot_diff": null,
+"form_ready": false,
+"matches_seen": [
+0,
+9
+]
+},
+{
+"id": "bundesliga:2026-08-29:FC_Koln:Hoffenheim",
+"domain": "bundesliga",
+"kind": "football",
+"question": "FC Koln v Hoffenheim, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-29T00:00:00+00:00",
+"home": "FC Koln",
+"away": "Hoffenheim",
+"avg": [
+2.83,
+3.69,
+2.25
+],
+"max": [
+2.92,
+3.8,
+2.3
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": -1.6,
+"sot_diff": -1.2000000000000002,
+"form_ready": true,
+"matches_seen": [
+9,
+9
+]
+},
+{
+"id": "bundesliga:2026-08-29:Mainz:Paderborn",
+"domain": "bundesliga",
+"kind": "football",
+"question": "Mainz v Paderborn, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-29T00:00:00+00:00",
+"home": "Mainz",
+"away": "Paderborn",
+"avg": [
+1.66,
+3.98,
+4.71
+],
+"max": [
+1.69,
+4.2,
+5.0
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": null,
+"sot_diff": null,
+"form_ready": false,
+"matches_seen": [
+9,
+0
+]
+},
+{
+"id": "bundesliga:2026-08-29:RB_Leipzig:M'gladbach",
+"domain": "bundesliga",
+"kind": "football",
+"question": "RB Leipzig v M'gladbach, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-29T00:00:00+00:00",
+"home": "RB Leipzig",
+"away": "M'gladbach",
+"avg": [
+1.54,
+4.45,
+5.19
+],
+"max": [
+1.57,
+4.6,
+5.5
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": 0.19999999999999996,
+"sot_diff": 3.3999999999999995,
+"form_ready": true,
+"matches_seen": [
+9,
+9
+]
+},
+{
+"id": "bundesliga:2026-08-29:Union_Berlin:Ein_Frankfurt",
+"domain": "bundesliga",
+"kind": "football",
+"question": "Union Berlin v Ein Frankfurt, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-29T00:00:00+00:00",
+"home": "Union Berlin",
+"away": "Ein Frankfurt",
+"avg": [
+2.55,
+3.57,
+2.52
+],
+"max": [
+2.6,
+3.75,
+2.6
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": 0.9999999999999999,
+"sot_diff": 1.7999999999999998,
+"form_ready": true,
+"matches_seen": [
+9,
+9
+]
+},
+{
+"id": "bundesliga:2026-08-29:Dortmund:Hamburg",
+"domain": "bundesliga",
+"kind": "football",
+"question": "Dortmund v Hamburg, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-29T00:00:00+00:00",
+"home": "Dortmund",
+"away": "Hamburg",
+"avg": [
+1.31,
+5.4,
+8.58
+],
+"max": [
+1.34,
+5.75,
+9.8
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": 0.40000000000000013,
+"sot_diff": 3.5999999999999996,
+"form_ready": true,
+"matches_seen": [
+9,
+9
+]
+},
+{
+"id": "bundesliga:2026-08-30:Freiburg:Werder_Bremen",
+"domain": "bundesliga",
+"kind": "football",
+"question": "Freiburg v Werder Bremen, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-30T00:00:00+00:00",
+"home": "Freiburg",
+"away": "Werder Bremen",
+"avg": [
+1.94,
+3.59,
+3.66
+],
+"max": [
+2.0,
+3.75,
+4.0
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": 0.5999999999999999,
+"sot_diff": 0.39999999999999947,
+"form_ready": true,
+"matches_seen": [
+9,
+9
+]
+},
+{
+"id": "bundesliga:2026-08-30:Augsburg:Schalke_04",
+"domain": "bundesliga",
+"kind": "football",
+"question": "Augsburg v Schalke 04, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-30T00:00:00+00:00",
+"home": "Augsburg",
+"away": "Schalke 04",
+"avg": [
+2.13,
+3.59,
+3.09
+],
+"max": [
+2.2,
+3.75,
+3.25
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": null,
+"sot_diff": null,
+"form_ready": false,
+"matches_seen": [
+9,
+0
+]
+},
+{
+"id": "epl:2026-08-28:Crystal_Palace:Man_City",
+"domain": "epl",
+"kind": "football",
+"question": "Crystal Palace v Man City, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-28T00:00:00+00:00",
+"home": "Crystal Palace",
+"away": "Man City",
+"avg": [
+4.83,
+3.95,
+1.67
+],
+"max": [
+5.0,
+4.05,
+1.7
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": -1.6,
+"sot_diff": -3.1999999999999993,
+"form_ready": true,
+"matches_seen": [
+10,
+10
+]
+},
+{
+"id": "epl:2026-08-29:Liverpool:Nott'm_Forest",
+"domain": "epl",
+"kind": "football",
+"question": "Liverpool v Nott'm Forest, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-29T00:00:00+00:00",
+"home": "Liverpool",
+"away": "Nott'm Forest",
+"avg": [
+1.57,
+4.39,
+5.53
+],
+"max": [
+2.25,
+4.6,
+6.0
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": -0.4,
+"sot_diff": 1.7999999999999998,
+"form_ready": true,
+"matches_seen": [
+10,
+10
+]
+},
+{
+"id": "epl:2026-08-29:Bournemouth:Everton",
+"domain": "epl",
+"kind": "football",
+"question": "Bournemouth v Everton, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-29T00:00:00+00:00",
+"home": "Bournemouth",
+"away": "Everton",
+"avg": [
+2.1,
+3.5,
+3.41
+],
+"max": [
+2.6,
+3.6,
+3.6
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": 0.6000000000000001,
+"sot_diff": 0.40000000000000036,
+"form_ready": true,
+"matches_seen": [
+10,
+10
+]
+},
+{
+"id": "epl:2026-08-29:Coventry:Hull",
+"domain": "epl",
+"kind": "football",
+"question": "Coventry v Hull, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-29T00:00:00+00:00",
+"home": "Coventry",
+"away": "Hull",
+"avg": [
+1.87,
+3.53,
+4.19
+],
+"max": [
+1.92,
+3.6,
+4.33
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": -3.0,
+"sot_diff": -4.0,
+"form_ready": false,
+"matches_seen": [
+1,
+1
+]
+},
+{
+"id": "epl:2026-08-29:Tottenham:Newcastle",
+"domain": "epl",
+"kind": "football",
+"question": "Tottenham v Newcastle, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-29T00:00:00+00:00",
+"home": "Tottenham",
+"away": "Newcastle",
+"avg": [
+2.25,
+3.65,
+2.88
+],
+"max": [
+2.3,
+3.75,
+2.98
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": -0.20000000000000018,
+"sot_diff": 1.4000000000000004,
+"form_ready": true,
+"matches_seen": [
+10,
+10
+]
+},
+{
+"id": "epl:2026-08-30:Chelsea:Brighton",
+"domain": "epl",
+"kind": "football",
+"question": "Chelsea v Brighton, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-30T00:00:00+00:00",
+"home": "Chelsea",
+"away": "Brighton",
+"avg": [
+1.82,
+3.85,
+3.93
+],
+"max": [
+1.88,
+4.0,
+4.0
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": 0.19999999999999996,
+"sot_diff": -2.0000000000000004,
+"form_ready": true,
+"matches_seen": [
+10,
+10
+]
+},
+{
+"id": "epl:2026-08-30:Leeds:Brentford",
+"domain": "epl",
+"kind": "football",
+"question": "Leeds v Brentford, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-30T00:00:00+00:00",
+"home": "Leeds",
+"away": "Brentford",
+"avg": [
+2.58,
+3.36,
+2.67
+],
+"max": [
+2.88,
+3.5,
+2.75
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": 0.3999999999999999,
+"sot_diff": 0.7999999999999998,
+"form_ready": true,
+"matches_seen": [
+10,
+10
+]
+},
+{
+"id": "epl:2026-08-30:Sunderland:Fulham",
+"domain": "epl",
+"kind": "football",
+"question": "Sunderland v Fulham, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-30T00:00:00+00:00",
+"home": "Sunderland",
+"away": "Fulham",
+"avg": [
+2.39,
+3.24,
+2.96
+],
+"max": [
+2.45,
+3.4,
+3.1
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": 0.8,
+"sot_diff": 0.7999999999999998,
+"form_ready": true,
+"matches_seen": [
+10,
+10
+]
+},
+{
+"id": "epl:2026-08-30:Man_United:Ipswich",
+"domain": "epl",
+"kind": "football",
+"question": "Man United v Ipswich, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-30T00:00:00+00:00",
+"home": "Man United",
+"away": "Ipswich",
+"avg": [
+1.4,
+4.82,
+6.94
+],
+"max": [
+1.43,
+5.0,
+7.8
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": -1.0,
+"sot_diff": 2.6000000000000005,
+"form_ready": false,
+"matches_seen": [
+10,
+1
+]
+},
+{
+"id": "epl:2026-08-31:Aston_Villa:Arsenal",
+"domain": "epl",
+"kind": "football",
+"question": "Aston Villa v Arsenal, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-31T00:00:00+00:00",
+"home": "Aston Villa",
+"away": "Arsenal",
+"avg": [
+5.99,
+4.11,
+1.52
+],
+"max": [
+6.5,
+4.2,
+1.55
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": -1.6,
+"sot_diff": -4.799999999999999,
+"form_ready": true,
+"matches_seen": [
+10,
+9
+]
+},
+{
+"id": "championship:2026-08-28:Wrexham:Birmingham",
+"domain": "championship",
+"kind": "football",
+"question": "Wrexham v Birmingham, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-28T00:00:00+00:00",
+"home": "Wrexham",
+"away": "Birmingham",
+"avg": [
+2.2,
+3.36,
+3.24
+],
+"max": [
+2.25,
+3.5,
+3.35
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": -0.6000000000000001,
+"sot_diff": -0.6000000000000001,
+"form_ready": true,
+"matches_seen": [
+12,
+11
+]
+},
+{
+"id": "championship:2026-08-29:Derby:Swansea",
+"domain": "championship",
+"kind": "football",
+"question": "Derby v Swansea, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-29T00:00:00+00:00",
+"home": "Derby",
+"away": "Swansea",
+"avg": [
+2.28,
+3.29,
+3.1
+],
+"max": [
+2.35,
+3.4,
+3.2
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": -1.4000000000000001,
+"sot_diff": -2.8000000000000007,
+"form_ready": true,
+"matches_seen": [
+11,
+11
+]
+},
+{
+"id": "championship:2026-08-29:Middlesbrough:West_Brom",
+"domain": "championship",
+"kind": "football",
+"question": "Middlesbrough v West Brom, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-29T00:00:00+00:00",
+"home": "Middlesbrough",
+"away": "West Brom",
+"avg": [
+1.74,
+3.76,
+4.5
+],
+"max": [
+1.77,
+3.85,
+4.65
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": 0.0,
+"sot_diff": 0.40000000000000036,
+"form_ready": true,
+"matches_seen": [
+11,
+12
+]
+},
+{
+"id": "championship:2026-08-29:Wolves:Stoke",
+"domain": "championship",
+"kind": "football",
+"question": "Wolves v Stoke, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-29T00:00:00+00:00",
+"home": "Wolves",
+"away": "Stoke",
+"avg": [
+1.5,
+4.3,
+6.11
+],
+"max": [
+1.53,
+4.5,
+6.5
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": 2.0,
+"sot_diff": 2.4999999999999996,
+"form_ready": false,
+"matches_seen": [
+2,
+11
+]
+},
+{
+"id": "championship:2026-08-29:Blackburn:QPR",
+"domain": "championship",
+"kind": "football",
+"question": "Blackburn v QPR, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-29T00:00:00+00:00",
+"home": "Blackburn",
+"away": "QPR",
+"avg": [
+2.48,
+3.29,
+2.78
+],
+"max": [
+2.63,
+3.4,
+2.88
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": 0.8,
+"sot_diff": -2.2,
+"form_ready": true,
+"matches_seen": [
+12,
+11
+]
+},
+{
+"id": "championship:2026-08-29:Bolton:Lincoln",
+"domain": "championship",
+"kind": "football",
+"question": "Bolton v Lincoln, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-29T00:00:00+00:00",
+"home": "Bolton",
+"away": "Lincoln",
+"avg": [
+2.42,
+3.3,
+2.87
+],
+"max": [
+2.48,
+3.4,
+3.0
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": 2.0,
+"sot_diff": 0.5,
+"form_ready": false,
+"matches_seen": [
+2,
+2
+]
+},
+{
+"id": "championship:2026-08-29:Bristol_City:Portsmouth",
+"domain": "championship",
+"kind": "football",
+"question": "Bristol City v Portsmouth, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-29T00:00:00+00:00",
+"home": "Bristol City",
+"away": "Portsmouth",
+"avg": [
+2.15,
+3.34,
+3.3
+],
+"max": [
+2.24,
+3.4,
+3.4
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": -0.3999999999999999,
+"sot_diff": 0.7999999999999998,
+"form_ready": true,
+"matches_seen": [
+11,
+12
+]
+},
+{
+"id": "championship:2026-08-29:Cardiff:Sheffield_United",
+"domain": "championship",
+"kind": "football",
+"question": "Cardiff v Sheffield United, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-29T00:00:00+00:00",
+"home": "Cardiff",
+"away": "Sheffield United",
+"avg": [
+2.55,
+3.53,
+2.57
+],
+"max": [
+2.65,
+3.6,
+2.62
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": 0.0,
+"sot_diff": -2.1,
+"form_ready": false,
+"matches_seen": [
+2,
+12
+]
+},
+{
+"id": "championship:2026-08-29:Charlton:Preston",
+"domain": "championship",
+"kind": "football",
+"question": "Charlton v Preston, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-29T00:00:00+00:00",
+"home": "Charlton",
+"away": "Preston",
+"avg": [
+2.09,
+3.28,
+3.55
+],
+"max": [
+2.15,
+3.3,
+3.65
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": 1.2000000000000002,
+"sot_diff": -1.2000000000000002,
+"form_ready": true,
+"matches_seen": [
+11,
+12
+]
+},
+{
+"id": "championship:2026-08-29:Norwich:Burnley",
+"domain": "championship",
+"kind": "football",
+"question": "Norwich v Burnley, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-29T00:00:00+00:00",
+"home": "Norwich",
+"away": "Burnley",
+"avg": [
+2.24,
+3.52,
+3.0
+],
+"max": [
+2.35,
+3.6,
+3.05
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": 0.30000000000000004,
+"sot_diff": -0.40000000000000036,
+"form_ready": false,
+"matches_seen": [
+13,
+2
+]
+},
+{
+"id": "championship:2026-08-29:Southampton:Millwall",
+"domain": "championship",
+"kind": "football",
+"question": "Southampton v Millwall, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-29T00:00:00+00:00",
+"home": "Southampton",
+"away": "Millwall",
+"avg": [
+1.96,
+3.58,
+3.62
+],
+"max": [
+2.02,
+3.75,
+3.75
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": -1.0,
+"sot_diff": -4.199999999999999,
+"form_ready": true,
+"matches_seen": [
+13,
+11
+]
+},
+{
+"id": "championship:2026-08-29:Watford:West_Ham",
+"domain": "championship",
+"kind": "football",
+"question": "Watford v West Ham, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-29T00:00:00+00:00",
+"home": "Watford",
+"away": "West Ham",
+"avg": [
+3.8,
+3.78,
+1.86
+],
+"max": [
+3.95,
+3.8,
+1.9
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": 0.30000000000000004,
+"sot_diff": -1.6000000000000005,
+"form_ready": false,
+"matches_seen": [
+12,
+2
+]
+},
+{
+"id": "ligue1:2026-08-28:Lille:Paris_SG",
+"domain": "ligue1",
+"kind": "football",
+"question": "Lille v Paris SG, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-28T00:00:00+00:00",
+"home": "Lille",
+"away": "Paris SG",
+"avg": [
+4.81,
+3.86,
+1.69
+],
+"max": [
+5.0,
+4.0,
+1.73
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": 0.3999999999999999,
+"sot_diff": 3.8000000000000003,
+"form_ready": true,
+"matches_seen": [
+10,
+10
+]
+},
+{
+"id": "ligue1:2026-08-29:Strasbourg:Lens",
+"domain": "ligue1",
+"kind": "football",
+"question": "Strasbourg v Lens, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-29T00:00:00+00:00",
+"home": "Strasbourg",
+"away": "Lens",
+"avg": [
+3.39,
+3.55,
+2.04
+],
+"max": [
+3.55,
+3.7,
+2.1
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": -0.6000000000000001,
+"sot_diff": -4.800000000000001,
+"form_ready": true,
+"matches_seen": [
+10,
+10
+]
+},
+{
+"id": "ligue1:2026-08-29:Auxerre:Angers",
+"domain": "ligue1",
+"kind": "football",
+"question": "Auxerre v Angers, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-29T00:00:00+00:00",
+"home": "Auxerre",
+"away": "Angers",
+"avg": [
+1.93,
+3.47,
+3.88
+],
+"max": [
+1.98,
+3.5,
+4.1
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": 1.4,
+"sot_diff": 4.8,
+"form_ready": true,
+"matches_seen": [
+10,
+10
+]
+},
+{
+"id": "ligue1:2026-08-29:Brest:Toulouse",
+"domain": "ligue1",
+"kind": "football",
+"question": "Brest v Toulouse, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-29T00:00:00+00:00",
+"home": "Brest",
+"away": "Toulouse",
+"avg": [
+2.62,
+3.32,
+2.61
+],
+"max": [
+2.68,
+3.4,
+2.68
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": -1.2000000000000002,
+"sot_diff": -1.7999999999999998,
+"form_ready": true,
+"matches_seen": [
+10,
+10
+]
+},
+{
+"id": "ligue1:2026-08-29:Lorient:Troyes",
+"domain": "ligue1",
+"kind": "football",
+"question": "Lorient v Troyes, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-29T00:00:00+00:00",
+"home": "Lorient",
+"away": "Troyes",
+"avg": [
+1.84,
+3.5,
+4.17
+],
+"max": [
+1.9,
+3.6,
+4.5
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": 0.0,
+"sot_diff": -0.6000000000000001,
+"form_ready": false,
+"matches_seen": [
+10,
+1
+]
+},
+{
+"id": "ligue1:2026-08-29:Lyon:Le_Havre",
+"domain": "ligue1",
+"kind": "football",
+"question": "Lyon v Le Havre, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-29T00:00:00+00:00",
+"home": "Lyon",
+"away": "Le Havre",
+"avg": [
+1.45,
+4.43,
+6.58
+],
+"max": [
+1.5,
+4.7,
+7.75
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": 0.8,
+"sot_diff": 3.2000000000000006,
+"form_ready": true,
+"matches_seen": [
+10,
+10
+]
+},
+{
+"id": "ligue1:2026-08-30:Paris_FC:Nice",
+"domain": "ligue1",
+"kind": "football",
+"question": "Paris FC v Nice, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-30T00:00:00+00:00",
+"home": "Paris FC",
+"away": "Nice",
+"avg": [
+2.07,
+3.29,
+3.57
+],
+"max": [
+2.18,
+3.4,
+3.8
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": 0.5999999999999999,
+"sot_diff": 2.4000000000000004,
+"form_ready": true,
+"matches_seen": [
+10,
+10
+]
+},
+{
+"id": "ligue1:2026-08-30:Rennes:Le_Mans",
+"domain": "ligue1",
+"kind": "football",
+"question": "Rennes v Le Mans, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-30T00:00:00+00:00",
+"home": "Rennes",
+"away": "Le Mans",
+"avg": [
+1.42,
+4.67,
+6.63
+],
+"max": [
+1.47,
+5.0,
+7.0
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": 0.3999999999999999,
+"sot_diff": 0.0,
+"form_ready": false,
+"matches_seen": [
+10,
+1
+]
+},
+{
+"id": "ligue1:2026-08-30:Monaco:Marseille",
+"domain": "ligue1",
+"kind": "football",
+"question": "Monaco v Marseille, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-30T00:00:00+00:00",
+"home": "Monaco",
+"away": "Marseille",
+"avg": [
+2.38,
+3.68,
+2.66
+],
+"max": [
+2.5,
+3.8,
+2.75
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": -0.6000000000000001,
+"sot_diff": -2.1999999999999997,
+"form_ready": true,
+"matches_seen": [
+10,
+10
+]
+},
+{
+"id": "seriea:2026-08-28:Milan:Venezia",
+"domain": "seriea",
+"kind": "football",
+"question": "Milan v Venezia, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-28T00:00:00+00:00",
+"home": "Milan",
+"away": "Venezia",
+"avg": [
+1.46,
+4.42,
+6.7
+],
+"max": [
+1.5,
+4.6,
+7.2
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": 1.2,
+"sot_diff": -1.8000000000000007,
+"form_ready": false,
+"matches_seen": [
+11,
+1
+]
+},
+{
+"id": "seriea:2026-08-29:Fiorentina:Frosinone",
+"domain": "seriea",
+"kind": "football",
+"question": "Fiorentina v Frosinone, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-29T00:00:00+00:00",
+"home": "Fiorentina",
+"away": "Frosinone",
+"avg": [
+1.62,
+4.0,
+5.1
+],
+"max": [
+1.66,
+4.1,
+5.5
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": 1.0,
+"sot_diff": -0.7999999999999998,
+"form_ready": false,
+"matches_seen": [
+11,
+1
+]
+},
+{
+"id": "seriea:2026-08-29:Monza:Udinese",
+"domain": "seriea",
+"kind": "football",
+"question": "Monza v Udinese, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-29T00:00:00+00:00",
+"home": "Monza",
+"away": "Udinese",
+"avg": [
+3.12,
+3.12,
+2.38
+],
+"max": [
+3.2,
+3.25,
+2.4
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": -1.4,
+"sot_diff": -2.0,
+"form_ready": false,
+"matches_seen": [
+1,
+11
+]
+},
+{
+"id": "seriea:2026-08-29:Sassuolo:Torino",
+"domain": "seriea",
+"kind": "football",
+"question": "Sassuolo v Torino, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-29T00:00:00+00:00",
+"home": "Sassuolo",
+"away": "Torino",
+"avg": [
+2.25,
+3.28,
+3.21
+],
+"max": [
+2.3,
+3.4,
+3.33
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": -0.20000000000000007,
+"sot_diff": 3.6000000000000005,
+"form_ready": true,
+"matches_seen": [
+11,
+11
+]
+},
+{
+"id": "seriea:2026-08-29:Juventus:Parma",
+"domain": "seriea",
+"kind": "football",
+"question": "Juventus v Parma, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-29T00:00:00+00:00",
+"home": "Juventus",
+"away": "Parma",
+"avg": [
+1.22,
+6.17,
+13.19
+],
+"max": [
+1.24,
+6.5,
+15.0
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": 1.0,
+"sot_diff": 5.800000000000001,
+"form_ready": true,
+"matches_seen": [
+11,
+11
+]
+},
+{
+"id": "seriea:2026-08-30:Napoli:Como",
+"domain": "seriea",
+"kind": "football",
+"question": "Napoli v Como, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-30T00:00:00+00:00",
+"home": "Napoli",
+"away": "Como",
+"avg": [
+2.47,
+3.08,
+2.96
+],
+"max": [
+2.7,
+3.2,
+3.1
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": -0.20000000000000018,
+"sot_diff": -2.5999999999999996,
+"form_ready": true,
+"matches_seen": [
+11,
+11
+]
+},
+{
+"id": "seriea:2026-08-30:Cagliari:Inter",
+"domain": "seriea",
+"kind": "football",
+"question": "Cagliari v Inter, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-30T00:00:00+00:00",
+"home": "Cagliari",
+"away": "Inter",
+"avg": [
+7.42,
+4.35,
+1.42
+],
+"max": [
+8.2,
+4.5,
+1.46
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": -0.20000000000000018,
+"sot_diff": -0.3999999999999999,
+"form_ready": true,
+"matches_seen": [
+11,
+11
+]
+},
+{
+"id": "seriea:2026-08-30:Lazio:Genoa",
+"domain": "seriea",
+"kind": "football",
+"question": "Lazio v Genoa, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-30T00:00:00+00:00",
+"home": "Lazio",
+"away": "Genoa",
+"avg": [
+1.97,
+3.13,
+4.15
+],
+"max": [
+2.0,
+3.25,
+4.33
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": 1.4,
+"sot_diff": 2.000000000000001,
+"form_ready": true,
+"matches_seen": [
+11,
+11
+]
+},
+{
+"id": "seriea:2026-08-31:Lecce:Roma",
+"domain": "seriea",
+"kind": "football",
+"question": "Lecce v Roma, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-31T00:00:00+00:00",
+"home": "Lecce",
+"away": "Roma",
+"avg": [
+7.28,
+4.05,
+1.46
+],
+"max": [
+8.0,
+4.2,
+1.5
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": -0.6000000000000001,
+"sot_diff": -5.6,
+"form_ready": true,
+"matches_seen": [
+11,
+11
+]
+},
+{
+"id": "seriea:2026-08-31:Atalanta:Bologna",
+"domain": "seriea",
+"kind": "football",
+"question": "Atalanta v Bologna, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-31T00:00:00+00:00",
+"home": "Atalanta",
+"away": "Bologna",
+"avg": [
+1.88,
+3.55,
+3.95
+],
+"max": [
+1.91,
+3.75,
+4.1
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": 0.0,
+"sot_diff": -1.3999999999999995,
+"form_ready": true,
+"matches_seen": [
+11,
+11
+]
+},
+{
+"id": "laliga:2026-08-28:Santander:Elche",
+"domain": "laliga",
+"kind": "football",
+"question": "Santander v Elche, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-28T00:00:00+00:00",
+"home": "Santander",
+"away": "Elche",
+"avg": [
+2.04,
+3.54,
+3.51
+],
+"max": [
+2.12,
+3.6,
+3.6
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": -0.5,
+"sot_diff": 1.0,
+"form_ready": false,
+"matches_seen": [
+2,
+13
+]
+},
+{
+"id": "laliga:2026-08-28:Alaves:Villarreal",
+"domain": "laliga",
+"kind": "football",
+"question": "Alaves v Villarreal, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-28T00:00:00+00:00",
+"home": "Alaves",
+"away": "Villarreal",
+"avg": [
+3.1,
+3.49,
+2.23
+],
+"max": [
+3.2,
+3.6,
+2.3
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": 1.0,
+"sot_diff": 1.9999999999999996,
+"form_ready": true,
+"matches_seen": [
+13,
+13
+]
+},
+{
+"id": "laliga:2026-08-29:Levante:Betis",
+"domain": "laliga",
+"kind": "football",
+"question": "Levante v Betis, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-29T00:00:00+00:00",
+"home": "Levante",
+"away": "Betis",
+"avg": [
+3.28,
+3.33,
+2.19
+],
+"max": [
+3.4,
+3.5,
+2.25
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": -1.0,
+"sot_diff": -3.2000000000000006,
+"form_ready": true,
+"matches_seen": [
+13,
+13
+]
+},
+{
+"id": "laliga:2026-08-29:Sociedad:Espanol",
+"domain": "laliga",
+"kind": "football",
+"question": "Sociedad v Espanol, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-29T00:00:00+00:00",
+"home": "Sociedad",
+"away": "Espanol",
+"avg": [
+1.88,
+3.64,
+3.92
+],
+"max": [
+1.91,
+3.75,
+4.0
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": -1.6,
+"sot_diff": -4.4,
+"form_ready": true,
+"matches_seen": [
+13,
+13
+]
+},
+{
+"id": "laliga:2026-08-29:Sevilla:Ath_Madrid",
+"domain": "laliga",
+"kind": "football",
+"question": "Sevilla v Ath Madrid, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-29T00:00:00+00:00",
+"home": "Sevilla",
+"away": "Ath Madrid",
+"avg": [
+3.46,
+3.39,
+2.09
+],
+"max": [
+3.6,
+3.5,
+2.15
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": -0.19999999999999996,
+"sot_diff": 2.2,
+"form_ready": true,
+"matches_seen": [
+13,
+13
+]
+},
+{
+"id": "laliga:2026-08-30:Real_Madrid:Malaga",
+"domain": "laliga",
+"kind": "football",
+"question": "Real Madrid v Malaga, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-30T00:00:00+00:00",
+"home": "Real Madrid",
+"away": "Malaga",
+"avg": [
+1.11,
+8.86,
+18.31
+],
+"max": [
+1.14,
+10.0,
+21.0
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": 2.5,
+"sot_diff": 7.5,
+"form_ready": false,
+"matches_seen": [
+13,
+2
+]
+},
+{
+"id": "laliga:2026-08-30:La_Coruna:Valencia",
+"domain": "laliga",
+"kind": "football",
+"question": "La Coruna v Valencia, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-30T00:00:00+00:00",
+"home": "La Coruna",
+"away": "Valencia",
+"avg": [
+2.53,
+3.02,
+2.91
+],
+"max": [
+2.66,
+3.1,
+3.1
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": -0.6000000000000001,
+"sot_diff": -1.2999999999999998,
+"form_ready": false,
+"matches_seen": [
+2,
+13
+]
+},
+{
+"id": "laliga:2026-08-30:Celta:Ath_Bilbao",
+"domain": "laliga",
+"kind": "football",
+"question": "Celta v Ath Bilbao, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-30T00:00:00+00:00",
+"home": "Celta",
+"away": "Ath Bilbao",
+"avg": [
+2.36,
+3.23,
+2.97
+],
+"max": [
+2.45,
+3.3,
+3.15
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": 0.8,
+"sot_diff": -0.39999999999999947,
+"form_ready": true,
+"matches_seen": [
+13,
+13
+]
+},
+{
+"id": "laliga:2026-08-31:Osasuna:Getafe",
+"domain": "laliga",
+"kind": "football",
+"question": "Osasuna v Getafe, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-31T00:00:00+00:00",
+"home": "Osasuna",
+"away": "Getafe",
+"avg": [
+2.2,
+2.94,
+3.64
+],
+"max": [
+2.26,
+3.0,
+3.75
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": -1.0,
+"sot_diff": 5.6,
+"form_ready": true,
+"matches_seen": [
+13,
+13
+]
+},
+{
+"id": "laliga:2026-08-31:Barcelona:Vallecano",
+"domain": "laliga",
+"kind": "football",
+"question": "Barcelona v Vallecano, full time result",
+"outcomes": [
+"H",
+"D",
+"A"
+],
+"kickoff": "2026-08-31T00:00:00+00:00",
+"home": "Barcelona",
+"away": "Vallecano",
+"avg": [
+1.16,
+7.46,
+14.04
+],
+"max": [
+1.2,
+8.0,
+15.0
+],
+"ps": [
+null,
+null,
+null
+],
+"result": null,
+"pts_diff": 0.19999999999999996,
+"sot_diff": 3.4,
+"form_ready": true,
+"matches_seen": [
+13,
+13
+]
+},
+{
+"id": "crypto_1h:BTCUSDT:1788040800000",
+"domain": "crypto_1h",
+"kind": "crypto",
+"question": "BTCUSDT direction over the next 1 hour",
+"outcomes": [
+"UP",
+"DOWN"
+],
+"symbol": "BTCUSDT",
+"horizon_h": 1,
+"opened_at": "2026-08-29T22:00:00+00:00",
+"reference_close": 78156.64522669006,
+"result": null,
+"mom6": 0.003857692047538608,
+"mom24": 0.010480058090239108,
+"last": 0.00040753980574992354,
+"rv": 0.0017995693964465108,
+"volr": 1.0,
+"funding": null
+},
+{
+"id": "crypto_24h:BTCUSDT:1788040800000",
+"domain": "crypto_24h",
+"kind": "crypto",
+"question": "BTCUSDT direction over the next 24 hours",
+"outcomes": [
+"UP",
+"DOWN"
+],
+"symbol": "BTCUSDT",
+"horizon_h": 24,
+"opened_at": "2026-08-29T22:00:00+00:00",
+"reference_close": 78156.64522669006,
+"result": null,
+"mom6": 0.003857692047538608,
+"mom24": 0.010480058090239108,
+"last": 0.00040753980574992354,
+"rv": 0.0017995693964465108,
+"volr": 1.0,
+"funding": null
+},
+{
+"id": "crypto_1h:ETHUSDT:1788040800000",
+"domain": "crypto_1h",
+"kind": "crypto",
+"question": "ETHUSDT direction over the next 1 hour",
+"outcomes": [
+"UP",
+"DOWN"
+],
+"symbol": "ETHUSDT",
+"horizon_h": 1,
+"opened_at": "2026-08-29T22:00:00+00:00",
+"reference_close": 2451.2406488075612,
+"result": null,
+"mom6": 0.002703675530546512,
+"mom24": 0.011286048930537307,
+"last": -0.0005667883116745598,
+"rv": 0.0021072983326911967,
+"volr": 1.0,
+"funding": null
+},
+{
+"id": "crypto_24h:ETHUSDT:1788040800000",
+"domain": "crypto_24h",
+"kind": "crypto",
+"question": "ETHUSDT direction over the next 24 hours",
+"outcomes": [
+"UP",
+"DOWN"
+],
+"symbol": "ETHUSDT",
+"horizon_h": 24,
+"opened_at": "2026-08-29T22:00:00+00:00",
+"reference_close": 2451.2406488075612,
+"result": null,
+"mom6": 0.002703675530546512,
+"mom24": 0.011286048930537307,
+"last": -0.0005667883116745598,
+"rv": 0.0021072983326911967,
+"volr": 1.0,
+"funding": null
+},
+{
+"id": "crypto_1h:SOLUSDT:1788040800000",
+"domain": "crypto_1h",
+"kind": "crypto",
+"question": "SOLUSDT direction over the next 1 hour",
+"outcomes": [
+"UP",
+"DOWN"
+],
+"symbol": "SOLUSDT",
+"horizon_h": 1,
+"opened_at": "2026-08-29T22:00:00+00:00",
+"reference_close": 105.04195058510898,
+"result": null,
+"mom6": 0.0002402735946223089,
+"mom24": 0.01567705715786616,
+"last": -0.0018015671676885336,
+"rv": 0.0037825479909439205,
+"volr": 1.0,
+"funding": null
+},
+{
+"id": "crypto_24h:SOLUSDT:1788040800000",
+"domain": "crypto_24h",
+"kind": "crypto",
+"question": "SOLUSDT direction over the next 24 hours",
+"outcomes": [
+"UP",
+"DOWN"
+],
+"symbol": "SOLUSDT",
+"horizon_h": 24,
+"opened_at": "2026-08-29T22:00:00+00:00",
+"reference_close": 105.04195058510898,
+"result": null,
+"mom6": 0.0002402735946223089,
+"mom24": 0.01567705715786616,
+"last": -0.0018015671676885336,
+"rv": 0.0037825479909439205,
+"volr": 1.0,
+"funding": null
+}
+]

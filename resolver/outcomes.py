@@ -40,9 +40,18 @@ _FOOTBALL_CACHE: dict[str, str] | None = None
 
 
 def _football_index(refresh: bool = False) -> dict[str, str]:
-    """(domain, date, home, away) -> result, for the current season."""
+    """(domain, date, home, away) -> result, for the current season.
+
+    RECEIPTS_RESULTS_FILE points this at a committed snapshot so the test suite
+    is deterministic and offline.
+    """
     global _FOOTBALL_CACHE
     if _FOOTBALL_CACHE is not None and not refresh:
+        return _FOOTBALL_CACHE
+    import os as _os
+    frozen = _os.environ.get("RECEIPTS_RESULTS_FILE")
+    if frozen:
+        _FOOTBALL_CACHE = json.loads(open(frozen).read())
         return _FOOTBALL_CACHE
     idx: dict[str, str] = {}
     for code, domain in LEAGUES.items():
