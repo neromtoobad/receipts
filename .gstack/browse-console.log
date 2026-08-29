@@ -1,0 +1,34 @@
+[2026-08-28T22:51:53.225Z] [warning] Error with Permissions-Policy header: Unrecognized feature: 'ambient-light-sensor'.
+[2026-08-28T22:51:53.227Z] [warning] Error with Permissions-Policy header: Unrecognized feature: 'battery'.
+[2026-08-28T22:51:53.227Z] [warning] Error with Permissions-Policy header: Unrecognized feature: 'document-domain'.
+[2026-08-28T22:51:53.227Z] [warning] Error with Permissions-Policy header: Unrecognized feature: 'execution-while-not-rendered'.
+[2026-08-28T22:51:53.227Z] [warning] Error with Permissions-Policy header: Unrecognized feature: 'execution-while-out-of-viewport'.
+[2026-08-28T22:51:53.227Z] [warning] Error with Permissions-Policy header: Unrecognized feature: 'speaker-selection'.
+[2026-08-28T22:51:53.227Z] [warning] Error with Permissions-Policy header: Unrecognized feature: 'web-share'.
+[2026-08-28T22:51:53.861Z] [error] Failed to load resource: the server responded with a status of 401 ()
+[2026-08-28T22:51:53.863Z] [log] PAT challenge aborted.
+[2026-08-28T22:51:54.134Z] [error] Failed to load resource: the server responded with a status of 404 ()
+[2026-08-28T22:51:54.150Z] [log] Challenge: BRAYx8XB55FLwa8t => cf066d2d63f05fb73931ea9ec41a6e90fa95f3de6e18b7b1d3ede49bddd6301a
+[2026-08-28T22:51:54.173Z] [log] found answer: 28
+[2026-08-28T22:51:54.504Z] [error] Failed to load resource: the server responded with a status of 404 ()
+[2026-08-28T22:52:21.074Z] [error] Failed to load resource: the server responded with a status of 401 ()
+[2026-08-28T23:21:39.383Z] [error] Failed to fetch visitor session ID TimeoutError: signal timed out
+[2026-08-28T23:21:45.407Z] [log] JQMIGRATE: Migrate is installed, version 3.4.1
+[2026-08-28T23:22:31.608Z] [error] Failed to load resource: the server responded with a status of 404 ()
+[2026-08-28T23:22:39.081Z] [error] Failed to load resource: the server responded with a status of 404 ()
+[2026-08-28T23:23:11.785Z] [error] Failed to load resource: the server responded with a status of 401 ()
+[2026-08-28T23:24:15.001Z] [error] Failed to load resource: the server responded with a status of 404 ()
+[2026-08-28T23:24:21.973Z] [error] Failed to load resource: the server responded with a status of 404 ()
+[2026-08-28T23:24:33.434Z] [log] DOM isReady:  6193
+[2026-08-28T23:24:33.575Z] [log] %c[DWP Loader]%c Using version from LaunchDarkly: %s color: #0063e5; font-weight: bold color: inherit 0.4.5
+[2026-08-28T23:24:41.297Z] [log] 23:24:41.294 [Playback Service: Device Detection:] Library Detection and User Agent Detection Do Not Match
+[2026-08-28T23:24:41.297Z] [log] 23:24:41.295 [Playback Service: Device Detection:] Library Detected: undefined, UA Detected: chrome
+[2026-08-28T23:24:41.298Z] [debug] Device platform found: chrome
+[2026-08-28T23:24:43.049Z] [warning] Datadog Browser SDK: SDK is loaded more than once. This is unsupported and might have unexpected behavior.
+[2026-08-28T23:24:44.304Z] [warning] The resource https://a.espncdn.com/fonts/_BentonSans/BentonSansBlack.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+[2026-08-28T23:24:44.304Z] [warning] The resource https://a.espncdn.com/fonts/_BentonSansCond/BentonSansCondBold.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+[2026-08-28T23:24:44.304Z] [warning] The resource https://a.espncdn.com/fonts/_BentonSans/BentonSansRegular.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+[2026-08-28T23:24:45.367Z] [error] Access to fetch at 'https://trc.taboola.com/sg/espnnetwork-espn/1/consent-check' from origin 'https://www.espn.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+[2026-08-28T23:24:45.368Z] [error] Failed to load resource: net::ERR_FAILED
+[2026-08-28T23:24:46.416Z] [error] requestStorageAccess: Permission denied.
+[2026-08-28T23:24:50.231Z] [warning] The resource https://cdn.registerdisney.go.com/v4/asset/bundler/ESPN/v4/images/v2/espn-red-logo.svg was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.

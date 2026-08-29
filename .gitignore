@@ -1,0 +1,38 @@
+# secrets — never commit
+.env
+.env.*
+*.key
+*.pem
+credentials.json
+wallet*.json
+
+# sibyl memory stores
+*.db
+*.db-journal
+*.db-wal
+memory/
+
+# python
+.venv/
+__pycache__/
+*.pyc
+
+# node / next
+node_modules/
+.next/
+out/
+
+# foundry
+contracts/out/
+contracts/cache/
+contracts/broadcast/
+
+# corpus raw downloads (regenerate with corpus/build.py)
+corpus/raw/
+corpus/raw_crypto/
+
+# workflow docs, deleted before submission
+PHASE_0_CHECKLIST.md
+BUILD_GUIDE.md
+
+.DS_Store
