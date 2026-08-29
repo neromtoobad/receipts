@@ -235,3 +235,39 @@ mid-run prune.
 `MemoryClient.local(path)` opens tenant `00000000-…-0001`, not the account UUID that
 the activated default database uses. `agent/memory.py` sets the tenant explicitly on
 every call so a pundit can never silently write to the wrong identity.
+
+---
+
+# x402 on Base Sepolia — settled shapes, verified 2026-08-29 (day 2)
+
+The path is proven end to end against the live `x402.org` facilitator. The only
+thing missing is testnet USDC in the agent wallet.
+
+Final error from `/verify` and `/settle`, on a freshly created empty wallet:
+
+```
+The contract function "transferWithAuthorization" reverted with the following
+reason: ERC20: transfer amount exceeds balance
+```
+
+That is the correct terminal error. The facilitator parsed the payload, recovered
+the signature, and simulated `transferWithAuthorization` against the real USDC
+contract on Base Sepolia. It failed only because the wallet is empty.
+
+## Four things that cost time, all runtime failures rather than import errors
+
+| Wrong | Right | How it fails |
+|---|---|---|
+| `X-PAYMENT` header | **`PAYMENT-SIGNATURE`** | silently unpaid |
+| `"base-sepolia"` | **`"eip155:84532"`** (CAIP-2) | `No facilitator registered for scheme: exact and network: base-sepolia` |
+| payload without an `accepted` block | payload **echoes `accepted`** | `Cannot read properties of undefined (reading 'scheme')` |
+| `maxAmountRequired`, numeric ints | **`amount`**, and every numeric a **string** | mis-parsed amounts |
+
+`assetTransferMethod` belongs inside `extra`, not at the top level.
+
+The facilitator envelope is `{x402Version, paymentPayload, paymentRequirements}`,
+where `paymentRequirements` is a single `accepted` block and not the whole 402 body.
+Sending the whole body yields `scheme: undefined and network: undefined`.
+
+**`/verify` is worth calling before serving.** It checks balance and simulates the
+transfer, so the service learns a payment will fail before it hands over evidence.

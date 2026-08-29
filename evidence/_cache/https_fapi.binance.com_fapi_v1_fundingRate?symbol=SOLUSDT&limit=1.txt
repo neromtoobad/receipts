@@ -1,0 +1,1 @@
+[{"symbol":"SOLUSDT","fundingTime":1787961600000,"fundingRate":"0.00006690","markPrice":"104.09644251","rateType":"Regular"}]
