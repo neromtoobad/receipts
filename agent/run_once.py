@@ -24,6 +24,7 @@ from agent import wallet
 from agent.buyer import Buyer
 from agent.forecast import BENCH_MODEL, LIVE_MODEL, SYSTEM_SHA, forecast
 from agent.memory import Memory
+from agent.sources import ARMS, explain, select
 from evidence.catalogue import CATALOGUE, write_reference
 
 
@@ -45,6 +46,9 @@ def main() -> int:
                     help="deterministic stand-in forecaster, for plumbing only")
     ap.add_argument("--evidence-url", default=None)
     ap.add_argument("--quiet", action="store_true")
+    ap.add_argument("--arm", choices=ARMS, default="sibyl",
+                    help="sibyl: domain-scoped memory. flat: memory with no domain "
+                         "scoping. amnesiac: no memory, buys what it can afford.")
     a = ap.parse_args()
 
     t0 = time.perf_counter()
@@ -82,30 +86,33 @@ def main() -> int:
 
     candidates = [iid for iid, entry in CATALOGUE.items() if domain in entry["answers_on"]]
     mem.set_working_set(market["id"], {
-        "domain": domain, "budget": a.budget, "candidates": candidates,
+        "domain": domain, "budget": a.budget, "arm": a.arm, "candidates": candidates,
         "remembered": {k: v.get("trust") for k, v in remembered.items()},
         "question": market["question"],
     })
 
+    priced = {iid: CATALOGUE[iid]["price_usdc"] for iid in candidates}
+    choices = select(mem, domain, priced, a.budget, arm=a.arm)
+    say(f"[{a.agent}] {explain(choices, priced, a.budget)}")
+    if not choices:
+        say(f"[{a.agent}] nothing here is worth its price. buying nothing.")
+
     evidence, spent = [], 0.0
-    for iid in candidates:                       # phase 3: buy everything affordable
-        price = CATALOGUE[iid]["price_usdc"]
-        if spent + price > a.budget:
-            continue
-        got = buyer.buy(iid, market["id"])
+    for ch in choices:
+        got = buyer.buy(ch.source, market["id"])
         if not got.get("ok"):
-            say(f"[{a.agent}]   {iid:14} unavailable: {got.get('error')}")
+            say(f"[{a.agent}]   {ch.source:14} unavailable: {got.get('error')}")
             continue
         spent += got["price"]
-        trust = (remembered.get(iid) or {}).get("trust")
-        mem.log_consultation(market["id"], iid, domain, got["price"], trust,
+        mem.log_consultation(market["id"], ch.source, domain, got["price"], ch.trust,
                              payload=got.get("payload"))
         if got.get("covered"):
-            evidence.append({"source": iid, "payload": got["payload"], "trust": trust})
-            say(f"[{a.agent}]   bought {iid:14} {got['price']:.4f} "
-                f"trust={'-' if trust is None else f'{trust:.2f}'}")
+            evidence.append({"source": ch.source, "payload": got["payload"],
+                             "trust": ch.trust})
+            say(f"[{a.agent}]   bought {ch.source:14} {got['price']:.4f}  {ch.reason}")
         else:
-            say(f"[{a.agent}]   bought {iid:14} {got['price']:.4f} but it has no data here")
+            say(f"[{a.agent}]   bought {ch.source:14} {got['price']:.4f} "
+                f"but it has no data here")
 
     out = forecast(market, base_rate, evidence, model=model, offline=a.offline)
     mem.log_forecast(market["id"], domain, out["probabilities"], out["confidence"],
@@ -117,8 +124,8 @@ def main() -> int:
         f" confidence {out['confidence']:.2f}")
     say(f"[{a.agent}] spent {spent:.4f} USDC over {len(buyer.receipts)} calls, "
         f"{settled} settled onchain, wallet {'funded' if buyer.funded else 'UNFUNDED'}")
-    say(f"[{a.agent}] {(time.perf_counter() - t0) * 1000:.0f}ms, model={out['model']}, "
-        f"prompt={SYSTEM_SHA[:12]}")
+    say(f"[{a.agent}] {(time.perf_counter() - t0) * 1000:.0f}ms, arm={a.arm}, "
+        f"model={out['model']}, prompt={SYSTEM_SHA[:12]}")
     buyer.close()
     return 0
 
