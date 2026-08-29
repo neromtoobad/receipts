@@ -108,6 +108,9 @@ def test_paying_for_nothing_is_recorded_but_does_not_score(played):
 
 
 def test_the_commons_learns_which_pundit_is_sharp(played):
+    # The commons is shared by design, so it persists between runs. A test that
+    # asserts a count has to own its state or it passes once and fails after.
+    _wipe("commons")
     commons = Commons()
     mem = _wipe("t_res_peer")
     for mid, actual in played[:PROMOTE_N]:
