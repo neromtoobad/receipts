@@ -36,3 +36,11 @@ PHASE_0_CHECKLIST.md
 BUILD_GUIDE.md
 
 .DS_Store
+
+# tooling noise
+.gstack/
+prep/__pycache__/
+spike/__pycache__/
+
+# private playbook, not part of the submission
+HACKATHON_WORKFLOW.md
