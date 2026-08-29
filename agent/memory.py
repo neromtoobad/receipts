@@ -185,6 +185,22 @@ class Memory:
             self.c.set_state(self._provisional_key(source, domain), body)
         return body
 
+    def observe_miss(self, source: str, domain: str, cost: float) -> None:
+        """Paid for, and it had nothing. Not a bad answer, so it must not pollute
+        the Brier average, but it IS wasted money and the agent should learn it."""
+        key = self._key(source, domain)
+        body = self.get_reliability(source, domain) or self.get_provisional(source, domain)
+        if not body:
+            body = {"source": source, "domain": domain, "n": 0, "brier_sum": 0.0,
+                    "spend_total": 0.0, "first_seen": _now(), "status": "provisional"}
+        body["misses"] = body.get("misses", 0) + 1
+        body["spend_total"] = round(body.get("spend_total", 0.0) + cost, 6)
+        body["last_seen"] = _now()
+        if body.get("status") == "established":
+            self.c.set_entity(CAT_SOURCE, key, body)
+        else:
+            self.c.set_state(self._provisional_key(source, domain), body)
+
     def sweep_stale(self) -> list[str]:
         """Archive sources that have gone quiet. Recoverable on purpose."""
         archived = []
@@ -233,15 +249,29 @@ class Memory:
     # ---------- COLD: the journal ----------
 
     def log_consultation(self, market_id: str, source: str, domain: str,
-                         cost: float, trust: float | None) -> str:
+                         cost: float, trust: float | None,
+                         payload: dict[str, float] | None = None) -> str:
         """Lean on purpose. Measured at 2,983 bytes for a traced event, so the
         per-consultation record stays small and one fat event per forecast
-        carries the reasoning."""
+        carries the reasoning.
+
+        The payload is what the source actually said, and it is not optional
+        decoration: the resolver scores each source against the outcome, and it
+        can only do that from what was bought at the time. Re-querying later
+        would score a different answer, because the odds have moved. A
+        probability triple costs about sixty bytes, so this stays lean.
+        """
         return self.c.write_event(
             acted=[f"bought {source} for {market_id} at {cost:.4f} USDC"],
             extra={"kind": "consultation", "market": market_id, "source": source,
-                   "domain": domain, "cost": cost, "trust": trust},
+                   "domain": domain, "cost": cost, "trust": trust, "said": payload},
         )
+
+    def mark_resolved(self, market_id: str, body: dict[str, Any]) -> None:
+        self.c.set_state(f"resolved:{market_id}", body)
+
+    def is_resolved(self, market_id: str) -> bool:
+        return self._state_body(f"resolved:{market_id}") is not None
 
     def log_forecast(self, market_id: str, domain: str, probabilities: dict[str, float],
                      confidence: float, reasoning: str, leaned_on: list[str],

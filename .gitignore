@@ -44,3 +44,6 @@ spike/__pycache__/
 
 # private playbook, not part of the submission
 HACKATHON_WORKFLOW.md
+
+# on-disk http cache, regenerated on demand
+evidence/_cache/

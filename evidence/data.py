@@ -40,12 +40,29 @@ def _num(row, key):
         return None
 
 
-def _get(url: str, ttl: int = 900) -> str:
-    """Cache on disk. The tick loop runs often and these feeds change slowly."""
+def _get(url: str, ttl: int = 900, *, fast: bool = False) -> str:
+    """Cache on disk. The tick loop runs often and these feeds change slowly.
+
+    `fast` skips the retries and shortens the timeout. Use it for the first
+    source in a fallback chain: retrying three times against a DNS that is
+    refusing the domain just multiplies the wait before the fallback runs.
+    """
     key = CACHE / (url.replace("://", "_").replace("/", "_") + ".txt")
     if key.exists() and time.time() - key.stat().st_mtime < ttl:
         return key.read_text().lstrip("\ufeff")
-    text = httpx.get(url, timeout=30, headers={"User-Agent": "receipts/0.1"}).text
+    attempts = 1 if fast else 3
+    last = None
+    for attempt in range(attempts):
+        try:
+            text = httpx.get(url, timeout=5 if fast else 30,
+                             headers={"User-Agent": "receipts/0.1"}).text
+            break
+        except Exception as exc:                  # a DNS blip should not stall a tick
+            last = exc
+            if attempt + 1 < attempts:
+                time.sleep(0.5 * (attempt + 1))
+    else:
+        raise last
     text = text.lstrip("\ufeff")   # football-data serves a BOM; csv.DictReader keeps it in the first header
     key.write_text(text)
     return text
@@ -155,16 +172,19 @@ def crypto_markets(horizons=(1, 24)) -> list[dict[str, Any]]:
     """Current direction markets, one per symbol per horizon."""
     out = []
     for sym in SYMS:
+        from evidence.crypto_source import funding_rate, hourly_closes
+        now_ms = int(time.time() * 1000) // 3600000 * 3600000
         try:
-            k = json.loads(_get(
-                f"https://api.binance.com/api/v3/klines?symbol={sym}&interval=1h&limit=48", ttl=300))
-            fr = json.loads(_get(
-                f"https://fapi.binance.com/fapi/v1/fundingRate?symbol={sym}&limit=1", ttl=300))
+            by_open, _src = hourly_closes(sym, now_ms - 48 * 3600000, now_ms)
         except Exception:
             continue
-        closes = [float(r[4]) for r in k]
-        vols = [float(r[5]) for r in k]
-        t_ms = int(k[-1][0])
+        keys = sorted(by_open)
+        if len(keys) < 26:
+            continue
+        closes = [by_open[k] for k in keys]
+        vols = [1.0] * len(closes)      # the fallback source has no volume; volr falls back to 1.0
+        t_ms = keys[-1]
+        fr = funding_rate(sym)
         rets = [closes[j] / closes[j - 1] - 1.0 for j in range(len(closes) - 24, len(closes))]
         feats = {
             "mom6": closes[-1] / closes[-7] - 1.0,
@@ -172,7 +192,7 @@ def crypto_markets(horizons=(1, 24)) -> list[dict[str, Any]]:
             "last": rets[-1],
             "rv": (sum(x * x for x in rets) / len(rets)) ** 0.5,
             "volr": vols[-1] / (sum(vols[-25:-1]) / 24) if sum(vols[-25:-1]) else 1.0,
-            "funding": float(fr[0]["fundingRate"]) if fr else None,
+            "funding": fr,   # None when the futures feed is blocked: a real coverage gap
         }
         for h in horizons:
             out.append({

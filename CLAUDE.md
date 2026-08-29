@@ -141,7 +141,7 @@ Promotion: a `(source, domain)` pair enters as HOT state, promotes to a WARM ent
 - [x] **Phase 1 (Day 1)** Foundation. Git identity, uv 3.11, Sibyl activated, `agent/memory.py`, cross-process proof and lifecycle tests green.
 - [~] **Phase 2 (Day 2)** Evidence layer built and the x402 path proven against the live facilitator. **Not closed until a settlement lands**: the multiplier needs an executed onchain action, and the wallet is unfunded.
 - [x] **Phase 3 (Day 3)** Agent runtime. Boot, forecast, die. Buys everything, learns nothing.
-- [ ] **Phase 4 (Day 4)** Resolver and reliability memory. Promotion, decay, archival.
+- [x] **Phase 4 (Day 4)** Resolver and reliability memory. Promotion, decay, archival.
 - [ ] **Phase 5 (Day 5)** Source selection from memory. **Critical path. This is the gate.**
 - [ ] **Phase 6 (Day 6)** Replay bench and the deletion chart. **Critical path. This is the proof.**
 - [ ] **Phase 7 (Day 7)** Virtuals ACP registration and job handler. Secures the second multiplier.

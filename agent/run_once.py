@@ -98,7 +98,8 @@ def main() -> int:
             continue
         spent += got["price"]
         trust = (remembered.get(iid) or {}).get("trust")
-        mem.log_consultation(market["id"], iid, domain, got["price"], trust)
+        mem.log_consultation(market["id"], iid, domain, got["price"], trust,
+                             payload=got.get("payload"))
         if got.get("covered"):
             evidence.append({"source": iid, "payload": got["payload"], "trust": trust})
             say(f"[{a.agent}]   bought {iid:14} {got['price']:.4f} "
