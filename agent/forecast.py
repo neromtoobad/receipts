@@ -1,0 +1,137 @@
+"""The forecast call. Identical across every benchmark arm.
+
+SYSTEM is byte-identical for sibyl, flat-json and amnesiac, and identical across
+both event families. It holds no informant reliabilities, no league knowledge and
+no priors beyond what arrives in the message. What differs between arms is the
+evidence bundle, and only that.
+
+SYSTEM_SHA is asserted by the bench before any arm runs, so editing this prompt
+mid-benchmark aborts the run instead of quietly invalidating the comparison.
+"""
+from __future__ import annotations
+
+import hashlib
+import json
+import os
+import re
+from typing import Any
+
+LIVE_MODEL = "claude-sonnet-5"
+BENCH_MODEL = "claude-haiku-4-5-20251001"
+
+SYSTEM = """You are a forecaster. You are scored by Brier score, so calibration \
+matters more than boldness: a confident wrong answer costs you far more than an \
+honest uncertain one.
+
+You will be given a market with a fixed set of possible outcomes, the base rate \
+for those outcomes, and zero or more pieces of purchased evidence.
+
+Each piece of evidence may carry a trust weight between 0 and 1. That weight is \
+this forecaster's own record of how much that source has been worth listening to \
+on this kind of market. Weight the evidence accordingly. A source with a low \
+weight should move you very little even when it is emphatic. A source with no \
+weight stated is unproven, not trustworthy by default.
+
+If the evidence sources disagree, do not split the difference mechanically. \
+Prefer the higher-weighted source and say so.
+
+If you were given no evidence at all, that is a legitimate position, not a \
+failure. Return the base rate. Do not invent a signal you do not have, and do \
+not drift away from the base rate to look decisive.
+
+Never assume that a source which cost more is better. Price is what a vendor \
+charges and carries no information about quality.
+
+Return strict JSON and nothing else:
+
+{"probabilities": {"<outcome>": <float>, ...},
+ "confidence": <float 0-1>,
+ "reasoning": "<two sentences at most: what moved you and what you discounted>",
+ "leaned_on": ["<source id>", ...]}
+
+The probabilities must cover exactly the outcomes given and sum to 1.0. \
+"confidence" is how much better than the base rate you believe this forecast to \
+be, where 0 means you are simply restating the base rate. "leaned_on" lists the \
+sources that actually changed your answer, which may be empty."""
+
+SYSTEM_SHA = hashlib.sha256(SYSTEM.encode()).hexdigest()
+
+
+def build_user_message(market: dict, base_rate: dict[str, float],
+                       evidence: list[dict]) -> str:
+    lines = [
+        f"MARKET: {market['question']}",
+        f"domain: {market['domain']}",
+        f"outcomes: {', '.join(market['outcomes'])}",
+        "base rate: " + ", ".join(f"{k} {v:.3f}" for k, v in base_rate.items()),
+        "",
+    ]
+    if not evidence:
+        lines.append("EVIDENCE: none purchased for this market.")
+    else:
+        lines.append(f"EVIDENCE ({len(evidence)} sources purchased):")
+        for e in evidence:
+            trust = e.get("trust")
+            tag = f"trust {trust:.2f}" if trust is not None else "trust unproven"
+            lines.append(f"- {e['source']} [{tag}]: "
+                         f"{json.dumps(e['payload'], separators=(',', ':'))}")
+    return "\n".join(lines)
+
+
+def _normalise(probs: dict[str, float], outcomes: list[str]) -> dict[str, float]:
+    vals = {o: max(0.0, float(probs.get(o, 0.0))) for o in outcomes}
+    s = sum(vals.values())
+    if s <= 0:
+        return {o: 1.0 / len(outcomes) for o in outcomes}
+    return {o: v / s for o, v in vals.items()}
+
+
+def _offline(market, base_rate, evidence) -> dict[str, Any]:
+    """Deterministic stand-in for plumbing tests ONLY.
+
+    It is a trust-weighted average of whatever was bought. It is NOT the
+    forecaster and must never produce a benchmark number: bench/run.py refuses
+    to run against it, and every record it writes is stamped model="offline".
+    """
+    outs = market["outcomes"]
+    parts = [(e["payload"], max(e.get("trust") or 0.0, 0.05)) for e in evidence
+             if isinstance(e.get("payload"), dict)]
+    parts = [(p, w) for p, w in parts if all(o in p for o in outs)]
+    if not parts:
+        return {"probabilities": dict(base_rate), "confidence": 0.0,
+                "reasoning": "No usable evidence, so the base rate stands.",
+                "leaned_on": []}
+    tw = sum(w for _, w in parts)
+    probs = {o: sum(float(p[o]) * w for p, w in parts) / tw for o in outs}
+    lead = max(parts, key=lambda x: x[1])
+    return {"probabilities": _normalise(probs, outs),
+            "confidence": round(min(0.9, tw / (tw + 1)), 3),
+            "reasoning": "Trust-weighted blend of purchased evidence.",
+            "leaned_on": [e["source"] for e in evidence
+                          if (e.get("trust") or 0) >= (lead[1] - 1e-9)]}
+
+
+def forecast(market: dict, base_rate: dict[str, float], evidence: list[dict], *,
+             model: str = LIVE_MODEL, offline: bool = False) -> dict[str, Any]:
+    """One forecast. Returns probabilities, confidence, reasoning, leaned_on."""
+    if offline:
+        return {**_offline(market, base_rate, evidence), "model": "offline"}
+
+    import anthropic
+    client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
+    msg = client.messages.create(
+        model=model, max_tokens=600, temperature=0.0, system=SYSTEM,
+        messages=[{"role": "user",
+                   "content": build_user_message(market, base_rate, evidence)}],
+    )
+    text = "".join(b.text for b in msg.content if getattr(b, "type", "") == "text")
+    m = re.search(r"\{.*\}", text, re.S)
+    if not m:
+        raise ValueError(f"model did not return JSON: {text[:200]}")
+    out = json.loads(m.group(0))
+    out["probabilities"] = _normalise(out.get("probabilities", {}), market["outcomes"])
+    out["confidence"] = float(out.get("confidence", 0.0))
+    out["reasoning"] = str(out.get("reasoning", ""))[:400]
+    out["leaned_on"] = [s for s in out.get("leaned_on", []) if isinstance(s, str)]
+    out["model"] = model
+    return out

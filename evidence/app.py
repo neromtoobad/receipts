@@ -21,7 +21,17 @@ from evidence import data, x402
 from evidence.catalogue import CATALOGUE
 from evidence.signals import INFORMANTS, load_fitted, outcomes_for
 
+BASE_RATES: dict[str, dict[str, float]] = {}
+_br = os.path.join(os.path.dirname(__file__), "base_rates.json")
+if os.path.exists(_br):
+    import json as _json
+    BASE_RATES = _json.loads(open(_br).read())
+
 PAY_TO = os.environ.get("EVIDENCE_PAY_TO", "0x0000000000000000000000000000000000000001")
+# Settlement is a network round trip per purchase. The bench replays thousands of
+# forecasts and must never touch the facilitator, so it is switchable. When it is
+# off the response says so rather than implying a payment landed.
+SETTLE = os.environ.get("EVIDENCE_SETTLE", "1") != "0"
 MARKET_TTL = 300
 
 app = FastAPI(title="RECEIPTS evidence", version="0.1")
@@ -46,8 +56,9 @@ def health():
 def list_markets(domain: str | None = None):
     ms = [m for m in markets().values() if not domain or m["domain"] == domain]
     return {"count": len(ms), "markets": [
-        {k: v for k, v in m.items() if k in
-         ("id", "domain", "kind", "question", "outcomes", "kickoff", "opened_at")} for m in ms]}
+        {**{k: v for k, v in m.items() if k in
+            ("id", "domain", "kind", "question", "outcomes", "kickoff", "opened_at")},
+         "base_rate": BASE_RATES.get(m["domain"], {})} for m in ms]}
 
 
 @app.get("/catalogue")
@@ -91,7 +102,9 @@ def buy(informant_id: str, market: str, request: Request,
                              "covered": False, "reason": "no data for this market",
                              "paid": verified["value_usdc"]}, status_code=200)
 
-    settlement = x402.settle(verified, reqs)
+    settlement = (x402.settle(verified, reqs) if SETTLE
+                  else {"settled": False, "tx_hash": None,
+                        "reason": "settlement disabled (EVIDENCE_SETTLE=0)"})
     body = {"informant": informant_id, "market": market, "domain": m["domain"],
             "covered": True, "outcomes": list(outcomes_for(m["domain"])),
             "probabilities": payload, "price_usdc": inf.price,

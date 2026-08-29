@@ -31,5 +31,18 @@ else:
 S.fit_all(fb_fit, cr_fit)
 out = S.FITTED_PATH if not holdout else S.FITTED_PATH.with_name("fitted_holdout.json")
 S.save_fitted(out)
+
+# Base rates per domain, from the same rows. A forecaster with no evidence must
+# have something honest to fall back to, and it must not be invented at runtime.
+import json as _json
+from collections import Counter as _Counter
+rates = {}
+for rows in (fb_fit, cr_fit):
+    for d in {r["domain"] for r in rows}:
+        c = _Counter(r["result"] for r in rows if r["domain"] == d)
+        tot = sum(c.values())
+        rates[d] = {o: round(n / tot, 4) for o, n in c.items()}
+(out.parent / "base_rates.json").write_text(_json.dumps(rates, indent=1))
+print(f"base rates for {len(rates)} domains -> base_rates.json")
 print(f"fitted on {len(fb_fit)} football rows and {len(cr_fit)} crypto rows "
       f"({'held-out splits' if holdout else 'full corpus'}) -> {out.name}")

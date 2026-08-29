@@ -140,7 +140,7 @@ Promotion: a `(source, domain)` pair enters as HOT state, promotes to a WARM ent
 
 - [x] **Phase 1 (Day 1)** Foundation. Git identity, uv 3.11, Sibyl activated, `agent/memory.py`, cross-process proof and lifecycle tests green.
 - [ ] **Phase 2 (Day 2)** Evidence layer and x402 on Base Sepolia. Secures the Base multiplier early.
-- [ ] **Phase 3 (Day 3)** Agent runtime. Boot, forecast, die. Buys everything, learns nothing.
+- [x] **Phase 3 (Day 3)** Agent runtime. Boot, forecast, die. Buys everything, learns nothing.
 - [ ] **Phase 4 (Day 4)** Resolver and reliability memory. Promotion, decay, archival.
 - [ ] **Phase 5 (Day 5)** Source selection from memory. **Critical path. This is the gate.**
 - [ ] **Phase 6 (Day 6)** Replay bench and the deletion chart. **Critical path. This is the proof.**

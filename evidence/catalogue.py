@@ -95,14 +95,18 @@ CATALOGUE = {
 #   - price is uncorrelated with quality: the dearest is not the best value in
 #     any single domain, and the second dearest is the worst source in the league
 
-def write_reference(memory, tenant):
-    """Called once on first boot. REFERENCE tier: stable, looked up by name."""
-    memory.set_reference(tenant, "informant_catalogue", CATALOGUE)
-    memory.set_reference(tenant, "domain_taxonomy", {
+def write_reference(memory):
+    """Called once on first boot. REFERENCE tier: stable, looked up by name.
+
+    The tenant is bound to the Memory instance, never passed here: agent/memory.py
+    is the only place that knows which identity is writing.
+    """
+    memory.set_reference("informant_catalogue", CATALOGUE)
+    memory.set_reference("domain_taxonomy", {
         "football": ["epl", "championship", "bundesliga", "seriea", "laliga", "ligue1"],
         "crypto":   ["crypto_1h", "crypto_24h"],
     })
-    memory.set_reference(tenant, "pricing_note",
+    memory.set_reference("pricing_note",
         "Price is what a vendor charges. It is not a quality signal and must never "
         "be used as one. What a source is worth is only ever established by "
         "consulting it and scoring what resolved.")
