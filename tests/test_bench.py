@@ -79,3 +79,20 @@ def test_the_corpus_spans_both_families(replay):
     domains = {e["domain"] for e in events}
     assert any(d.startswith("crypto") for d in domains)
     assert len([d for d in domains if not d.startswith("crypto")]) >= 4
+
+
+def test_provider_dispatch_does_not_touch_the_prompt():
+    """A free Gemini key is a legitimate way to run the bench, but only if the
+    model sees the identical prompt. Gemini gets SYSTEM as system_instruction,
+    Claude gets it as system: same bytes, same sha, either way."""
+    from agent.forecast import SYSTEM, provider_for
+    import hashlib
+    assert provider_for("claude-haiku-4-5-20251001") == "anthropic"
+    assert provider_for("gemini-2.5-flash") == "google"
+    assert hashlib.sha256(SYSTEM.encode()).hexdigest() == EXPECTED_SYSTEM_SHA
+
+
+def test_an_unknown_model_is_refused_rather_than_guessed():
+    from agent.forecast import provider_for
+    with pytest.raises(ValueError, match="unknown model"):
+        provider_for("gpt-4o")

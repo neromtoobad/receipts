@@ -16,8 +16,24 @@ import os
 import re
 from typing import Any
 
-LIVE_MODEL = "claude-sonnet-5"
-BENCH_MODEL = "claude-haiku-4-5-20251001"
+LIVE_MODEL = os.environ.get("RECEIPTS_LIVE_MODEL", "claude-sonnet-5")
+BENCH_MODEL = os.environ.get("RECEIPTS_BENCH_MODEL", "claude-haiku-4-5-20251001")
+
+
+def provider_for(model: str) -> str:
+    """Which API serves this model.
+
+    The benchmark's rule is that every arm sees the SAME model and a
+    byte-identical prompt. It has never been that the model must be Claude, so a
+    free Gemini key is a legitimate way to run it. Whatever is used gets stamped
+    into the report and asserted equal across arms.
+    """
+    m = model.lower()
+    if m.startswith(("gemini", "models/gemini")):
+        return "google"
+    if m.startswith("claude"):
+        return "anthropic"
+    raise ValueError(f"unknown model {model!r}: expected a claude-* or gemini-* id")
 
 SYSTEM = """You are a forecaster. You are scored by Brier score, so calibration \
 matters more than boldness: a confident wrong answer costs you far more than an \
@@ -117,14 +133,32 @@ def forecast(market: dict, base_rate: dict[str, float], evidence: list[dict], *,
     if offline:
         return {**_offline(market, base_rate, evidence), "model": "offline"}
 
-    import anthropic
-    client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
-    msg = client.messages.create(
-        model=model, max_tokens=600, temperature=0.0, system=SYSTEM,
-        messages=[{"role": "user",
-                   "content": build_user_message(market, base_rate, evidence)}],
-    )
-    text = "".join(b.text for b in msg.content if getattr(b, "type", "") == "text")
+    user = build_user_message(market, base_rate, evidence)
+    provider = provider_for(model)
+
+    if provider == "anthropic":
+        import anthropic
+        client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
+        msg = client.messages.create(
+            model=model, max_tokens=600, temperature=0.0, system=SYSTEM,
+            messages=[{"role": "user", "content": user}],
+        )
+        text = "".join(b.text for b in msg.content if getattr(b, "type", "") == "text")
+    else:
+        from google import genai
+        from google.genai import types
+        key = (os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY"))
+        client = genai.Client(api_key=key)
+        # system_instruction carries SYSTEM verbatim, so the prompt the model sees
+        # is byte-identical to the one Claude sees. That is the whole control.
+        resp = client.models.generate_content(
+            model=model, contents=user,
+            config=types.GenerateContentConfig(
+                system_instruction=SYSTEM, temperature=0.0,
+                max_output_tokens=600, response_mime_type="application/json"),
+        )
+        text = resp.text or ""
+
     m = re.search(r"\{.*\}", text, re.S)
     if not m:
         raise ValueError(f"model did not return JSON: {text[:200]}")
@@ -134,4 +168,5 @@ def forecast(market: dict, base_rate: dict[str, float], evidence: list[dict], *,
     out["reasoning"] = str(out.get("reasoning", ""))[:400]
     out["leaned_on"] = [s for s in out.get("leaned_on", []) if isinstance(s, str)]
     out["model"] = model
+    out["provider"] = provider
     return out

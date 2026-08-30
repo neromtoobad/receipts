@@ -30,7 +30,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from agent.forecast import BENCH_MODEL, SYSTEM_SHA, forecast
+from agent.forecast import BENCH_MODEL, SYSTEM_SHA, forecast, provider_for
 from agent.memory import Memory
 from agent.sources import ARMS, select
 from bench.corpus import load_replay
@@ -57,7 +57,7 @@ def base_rates(events) -> tuple[dict, dict]:
     return rates, bb
 
 
-def run_arm(arm: str, events, rates, bb, model, offline, quiet=False) -> dict:
+def run_arm(arm: str, events, rates, bb, model, offline, quiet=False, rpm: float = 0.0) -> dict:
     """One arm, walking the corpus in time order with a fresh empty memory."""
     with tempfile.TemporaryDirectory() as tmp:
         mem = Memory(f"bench_{arm}", db_path=Path(tmp) / f"{arm}.db")
@@ -88,6 +88,8 @@ def run_arm(arm: str, events, rates, bb, model, offline, quiet=False) -> dict:
                     stats["empty_buys"] += 1
                     mem.observe_miss(ch.source, domain, ch.price)
 
+            if rpm:
+                time.sleep(60.0 / rpm)
             out = forecast({"domain": domain, "question": e["question"],
                             "outcomes": e["outcomes"]},
                            rates[domain], evidence, model=model, offline=offline)
@@ -124,6 +126,10 @@ def main() -> int:
                          "result is stamped INVALID and nothing is written to proof/.")
     ap.add_argument("--out", default=str(ROOT / "proof" / "BENCH.md"))
     ap.add_argument("--quiet", action="store_true")
+    ap.add_argument("--rpm", type=float, default=0.0,
+                    help="throttle to this many model calls per minute. Free tiers "
+                         "rate-limit hard, and a 429 halfway through a run wastes "
+                         "everything before it.")
     ap.add_argument("--even-sample", action="store_true",
                     help="sample the corpus in natural proportion (76%% crypto). The "
                          "default stratifies by family instead, because an even sample "
@@ -145,6 +151,20 @@ def main() -> int:
               "average, not the model. SELECTION figures below are still valid;\n"
               "QUALITY figures are NOT and nothing will be written to proof/.\n",
               file=sys.stderr)
+
+    if not offline:
+        try:
+            prov = provider_for(a.model)
+        except ValueError as exc:
+            print(f"ABORT: {exc}", file=sys.stderr)
+            return 2
+        import os as _os
+        needed = ("ANTHROPIC_API_KEY",) if prov == "anthropic" else ("GEMINI_API_KEY", "GOOGLE_API_KEY")
+        if not any(_os.environ.get(k) for k in needed):
+            print(f"ABORT: {a.model} needs one of {' or '.join(needed)} in the environment.",
+                  file=sys.stderr)
+            return 2
+        print(f"provider: {prov}", file=sys.stderr)
 
     fb_fit, cr_fit, events = load_replay()
     fit_all(fb_fit, cr_fit)
@@ -172,7 +192,7 @@ def main() -> int:
     t0 = time.perf_counter()
     with cf.ThreadPoolExecutor(max_workers=len(arms)) as ex:
         futures = {ex.submit(run_arm, arm, events, rates, bb, a.model, offline,
-                             a.quiet): arm for arm in arms}
+                             a.quiet, a.rpm / max(len(arms), 1)): arm for arm in arms}
         results = {futures[f]: f.result() for f in cf.as_completed(futures)}
     elapsed = time.perf_counter() - t0
 
