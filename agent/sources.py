@@ -28,7 +28,9 @@ from typing import Any
 
 MIN_SKILL = 0.005        # below this a source is noise and must not be paid for
 MARGINAL_GAIN = 0.01     # a new source must beat what we hold by this to be worth money
-EXPLORE_FRACTION = 0.25  # at most this much of the budget on unproven sources
+EXPLORE_FRACTION = 0.25  # of the budget, on unproven sources, once a domain is known
+EXPLORE_FRACTION_COLD = 0.60   # while a domain is still mostly unknown
+KNOWN_ENOUGH = 3         # established sources after which a domain counts as known
 
 ARMS = ("sibyl", "flat", "amnesiac")
 
@@ -84,8 +86,11 @@ def select(mem, domain: str, candidates: dict[str, float], budget: float,
                 spent += price
         return chosen
 
-    known = ({s: mem.get_reliability(s, domain) for s in candidates} if arm == "sibyl"
-             else {s: _global_view(mem).get(s) for s in candidates})
+    if arm == "sibyl":
+        known = {s: mem.get_reliability(s, domain) for s in candidates}
+    else:
+        view = _global_view(mem)          # once per call, not once per candidate
+        known = {s: view.get(s) for s in candidates}
 
     ranked, unproven = [], []
     for src, price in candidates.items():
@@ -111,15 +116,20 @@ def select(mem, domain: str, candidates: dict[str, float], budget: float,
         best = max(best, skill)
 
     # Whatever is left, up to the exploration slice, goes on the least-tried
-    # candidate. A source can only prove itself by being bought.
-    explore_cap = min(budget * EXPLORE_FRACTION, budget - spent)
+    # candidates. A source can only prove itself by being bought, and a domain
+    # with eight sources cannot be learned one purchase at a time: explore harder
+    # while a domain is cold, then taper once enough of it is established.
+    established = sum(1 for b in known.values() if b)
+    fraction = EXPLORE_FRACTION if established >= KNOWN_ENOUGH else EXPLORE_FRACTION_COLD
+    explore_cap = min(budget * fraction, budget - spent)
     if unproven and explore_cap > 0:
         unproven.sort()
         for price, src in unproven:
-            if price <= explore_cap:
-                chosen.append(Choice(src, price, None, None, "unproven, exploring"))
-                spent += price
-                break
+            if price > explore_cap:
+                continue
+            chosen.append(Choice(src, price, None, None, "unproven, exploring"))
+            spent += price
+            explore_cap -= price
 
     return chosen
 
