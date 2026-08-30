@@ -11,7 +11,8 @@ import pytest
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 from agent.memory import Memory, MEMORY_DIR, PROMOTE_N
-from agent.sources import MIN_SKILL, Choice, select
+from agent.sources import (EXPLORE_FRACTION, EXPLORE_FRACTION_COLD, KNOWN_ENOUGH,
+                           MIN_SKILL, Choice, select)
 
 FOOTBALL_BASE, CRYPTO_BASE = 0.6487, 0.5000
 PRICES = {"sharp_desk": 0.045, "island_desk": 0.012, "boot_room": 0.012,
@@ -102,12 +103,32 @@ def test_an_unproven_source_gets_explored():
     assert any(c.reason.startswith("unproven") for c in chosen)
 
 
-def test_exploration_cannot_eat_the_budget():
-    m = _mem("s_explore_cap")
+def _explored(chosen):
+    return sum(c.price for c in chosen if c.reason.startswith("unproven"))
+
+
+def test_exploration_is_capped_while_a_domain_is_cold():
+    """A domain with eight sources cannot be learned one purchase at a time, so
+    a cold domain explores hard. It still must not eat the whole budget."""
+    m = _mem("s_explore_cold")
     _teach(m, "island_desk", "epl", 0.089, FOOTBALL_BASE, 0.012)
     chosen = select(m, "epl", PRICES, 0.060)
-    explored = sum(c.price for c in chosen if c.reason.startswith("unproven"))
-    assert explored <= 0.060 * 0.25 + 1e-9
+    assert _explored(chosen) <= 0.060 * EXPLORE_FRACTION_COLD + 1e-9
+    assert sum(c.price for c in chosen) <= 0.060 + 1e-9
+
+
+def test_exploration_tapers_once_a_domain_is_known():
+    """Once enough sources are established the agent should be exploiting, not
+    still spending most of its budget probing."""
+    m = _mem("s_explore_warm")
+    for src, sk in (("island_desk", 0.089), ("boot_room", 0.060),
+                    ("calcio_desk", 0.044), ("formline", 0.031)):
+        _teach(m, src, "epl", sk, FOOTBALL_BASE, PRICES.get(src, 0.012))
+    established = len([b for b in
+                       (m.get_reliability(s, "epl") for s in PRICES) if b])
+    assert established >= KNOWN_ENOUGH
+    chosen = select(m, "epl", PRICES, 0.060)
+    assert _explored(chosen) <= 0.060 * EXPLORE_FRACTION + 1e-9
 
 
 def test_no_memory_at_all_still_produces_a_decision():
