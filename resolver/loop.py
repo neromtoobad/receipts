@@ -41,8 +41,17 @@ def base_brier(domain: str) -> float:
     return sum(p * brier(prior, o) for o, p in prior.items())
 
 
+# Test runs leave databases behind in memory/. The resolver must not treat them
+# as league members, or a test fixture ends up in the standings.
+NOT_A_PUNDIT = ("commons", "probe", "scratch", "demo")
+TEST_PREFIXES = ("t_", "s_", "arm_", "bench_")
+
+
 def pundit_ids() -> list[str]:
-    return sorted(p.stem for p in MEMORY_DIR.glob("*.db") if p.stem != "commons")
+    return sorted(p.stem for p in MEMORY_DIR.glob("*.db")
+                  if p.stem not in NOT_A_PUNDIT
+                  and not p.stem.startswith(TEST_PREFIXES)
+                  and not p.stem.startswith("demo"))
 
 
 def _preload_crypto(market_ids) -> dict[str, dict[int, float]]:

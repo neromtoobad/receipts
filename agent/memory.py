@@ -231,6 +231,43 @@ class Memory:
             con.close()
         return [dict(r) for r in rows]
 
+    def all_reliability_including_archived(self) -> list[dict[str, Any]]:
+        """Active plus archived, tagged. The trust map shows archived sources
+        greyed rather than hiding them: 'this one went quiet' is information."""
+        import json as _json
+        out = [{**b, "archived": False} for b in self.all_reliability()]
+        for r in self.list_archived():
+            body = r.get("body")
+            body = _json.loads(body) if isinstance(body, str) else (body or {})
+            if body:
+                out.append({**body, "archived": True, "trust": 0.0})
+        return out
+
+    def provisional_sources(self) -> list[dict[str, Any]]:
+        """Sources being explored but not yet promoted. They belong on the map,
+        because 'paid for, not yet proven' is a real state."""
+        out = []
+        import sqlite3 as _sq
+        con = _sq.connect(str(self.path)); con.row_factory = _sq.Row
+        try:
+            rows = con.execute(
+                "SELECT document_key AS key, body FROM state_documents "
+                "WHERE tenant_id = ? AND document_key LIKE 'provisional:%'",
+                (self.tenant,)).fetchall()
+        except _sq.OperationalError:
+            return []
+        finally:
+            con.close()
+        import json as _json
+        for r in rows:
+            try:
+                b = _json.loads(r["body"]) if isinstance(r["body"], str) else r["body"]
+            except Exception:
+                continue
+            if b and b.get("source"):
+                out.append({**b, "provisional": True, "trust": None})
+        return out
+
     def restore(self, source: str, domain: str) -> dict[str, Any] | None:
         """Bring an archived source back. This is what makes archive != delete."""
         import json

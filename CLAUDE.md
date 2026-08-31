@@ -57,7 +57,7 @@ allowed. Undeclared reuse is a disqualification risk.
 | Payments | x402 `exact`/eip3009 on Base Sepolia (`84532`) | v2 | USDC `0x036CbD53842c5426634e7929541eC2318f3dCF7e`. Port `LONGSHOT/agent/src/paying/x402.ts`, sign with `eth-account`. Facilitator pays gas. |
 | Contracts | Foundry, Solidity 0.8.24+ | — | `League.sol`: entry escrow, payout. |
 | Virtuals | `@virtuals-protocol/acp-cli` | Node >=18 | Base Sepolia supported, no approval queue. Python shells out via `--json`, so no Node bridge service. |
-| Dashboard | Next.js 16 + React 19 + Tailwind v4 | — | Same hybrid stack as LONGSHOT. Reads the SQLite read-only. |
+| Dashboard | A python generator emitting one static HTML file | — | Changed from Next.js on day 8. A dev server that has to survive the recording is a demo that can fail; a file on disk cannot. Reads the SQLite read-only through `agent/memory.py`. |
 | Scheduler | `launchd` or a plain loop + `caffeinate` | — | See "Things that burned us". |
 
 ---
@@ -145,7 +145,7 @@ Promotion: a `(source, domain)` pair enters as HOT state, promotes to a WARM ent
 - [x] **Phase 5 (Day 5)** Source selection from memory. **The gate, and it holds**: same market and same history, sibyl buys 1 informant for 0.0120, the amnesiac buys 5 for 0.0590.
 - [~] **Phase 6 (Day 6)** Replay bench built and the selection half proven (9.9x spend, model-independent). **The quality half needs `ANTHROPIC_API_KEY`**; the bench refuses to write a chart from the stand-in. See `proof/BENCH_STATUS.md`.
 - [x] **Phase 7 (Day 7)** Virtuals ACP. **Job 75249 completed on Base mainnet**: pundit_5 hired pundit_1, paid 0.01 USDC into escrow, received a forecast from the real runtime, escrow released. See `proof/VIRTUALS.md`.
-- [ ] **Phase 8 (Day 8)** Dashboard, trust maps, public leaderboard live.
+- [~] **Phase 8 (Day 8)** Trust map shipped: `python -m web.build_site` renders one self-contained HTML file straight from the pundit databases. No server, no npm, nothing fetched at view time. Standings and event feed still to do.
 - [ ] **Phase 9 (Day 9)** Opinion market between agents. Cuttable. Buffer if behind.
 - [ ] **Phase 10 (Day 10)** Video, README, posts, submit.
 

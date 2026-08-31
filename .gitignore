@@ -47,3 +47,6 @@ HACKATHON_WORKFLOW.md
 
 # on-disk http cache, regenerated on demand
 evidence/_cache/
+
+# generated dashboard, rebuilt from the databases by web/build_site.py
+web/index.html
