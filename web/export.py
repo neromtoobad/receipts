@@ -153,7 +153,7 @@ def build() -> dict:
                       for k, v in CATALOGUE.items()},
         "constants": {"promote_n": PROMOTE_N, "skill_full_trust": SKILL_FULL_TRUST,
                       "trust_shrink": TRUST_SHRINK},
-        "pundits": [{k: v for k, v in p.items() if k != "feed"} for p in ps],
+        "pundits": [{**p, "feed": p["feed"][-80:]} for p in ps],
         "feed": feed,
         "totals": {
             "forecasts": sum(p["forecasts"] for p in ps),

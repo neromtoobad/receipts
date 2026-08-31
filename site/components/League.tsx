@@ -12,12 +12,17 @@ import { RC, alpha } from '../lib/theme'
 import type { FeedItem, League as L, Pundit } from '../lib/data'
 import { PunditView } from './PunditView'
 import { Feed } from './Feed'
+import { Roster } from './Roster'
+import { Calls } from './Calls'
+import { identityOf } from '../lib/pundits'
 
 type Frames = Record<string, any[]>
 
 export function League({ league, frames }: { league: L; frames: Frames }) {
   const [sel, setSel] = useState(league.pundits[0]?.id ?? '')
+  const [tab, setTab] = useState<'map' | 'calls'>('map')
   const p = league.pundits.find(x => x.id === sel) ?? league.pundits[0]
+  const id = identityOf(p?.id ?? '')
 
   return (
     <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) 372px', gap: 26,
@@ -31,30 +36,31 @@ export function League({ league, frames }: { league: L; frames: Frames }) {
           never a hit rate.
         </p>
 
-        <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginBottom: 16 }}>
-          {league.pundits.map(x => {
-            const on = x.id === sel
-            const trusted = Object.values(x.cells).filter(c => (c.skill ?? 0) > 0).length
-            const burned = Object.values(x.cells).filter(c => c.skill != null && c.skill <= 0).length
-            return (
-              <button key={x.id} onClick={() => setSel(x.id)}
-                style={{ background: on ? alpha(RC.brand, .14) : RC.surface,
-                         border: `1px solid ${on ? alpha(RC.brand, .45) : RC.line}`,
-                         color: on ? RC.ink : RC.ink3, borderRadius: 8, padding: '8px 12px',
-                         cursor: 'pointer', fontFamily: 'inherit', textAlign: 'left', lineHeight: 1.3 }}>
-                <div className="mono" style={{ fontSize: 12.5 }}>{x.id}</div>
-                <div className="mono" style={{ fontSize: 10.5, color: RC.ink4, marginTop: 2 }}>
-                  {x.resolutions} resolved
-                  {trusted > 0 && <span style={{ color: RC.green }}> · {trusted}✓</span>}
-                  {burned > 0 && <span style={{ color: RC.red }}> · {burned}✕</span>}
-                </div>
-              </button>
-            )
-          })}
-        </div>
+        <Roster pundits={league.pundits} selected={sel} onSelect={setSel} />
 
-        {p && <PunditView p={p} domains={league.domains} catalogue={league.catalogue as any}
-                          frames={frames[p.id] ?? []} />}
+        {p && (
+          <div style={{ marginTop: 26 }}>
+            <div style={{ display: 'flex', gap: 6, marginBottom: 14, alignItems: 'center' }}>
+              {(['map', 'calls'] as const).map(t => (
+                <button key={t} onClick={() => setTab(t)}
+                  style={{ background: tab === t ? alpha(id.color, .16) : 'transparent',
+                           border: `1px solid ${tab === t ? alpha(id.color, .45) : RC.line}`,
+                           color: tab === t ? RC.ink : RC.ink3, borderRadius: 999,
+                           padding: '5px 14px', fontSize: 12, cursor: 'pointer',
+                           fontFamily: 'inherit' }}>
+                  {t === 'map' ? 'trust map' : `calls (${p.forecasts})`}
+                </button>
+              ))}
+              <span className="mono" style={{ marginLeft: 'auto', fontSize: 11, color: RC.ink4 }}>
+                same model, same prompt as every other seat
+              </span>
+            </div>
+            {tab === 'map'
+              ? <PunditView p={p} domains={league.domains} catalogue={league.catalogue as any}
+                            frames={frames[p.id] ?? []} />
+              : <Calls items={(p as any).feed ?? []} color={id.color} />}
+          </div>
+        )}
       </div>
 
       <div style={{ position: 'sticky', top: 18 }}>
