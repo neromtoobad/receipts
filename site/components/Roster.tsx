@@ -49,7 +49,7 @@ export function Roster({ pundits, selected, onSelect }:
                      borderRadius: 11, padding: 13, display: 'grid', gap: 10,
                      boxShadow: on ? `0 0 0 1px ${alpha(id.color, .18)}` : 'none' }}>
             <div style={{ display: 'flex', gap: 11, alignItems: 'center' }}>
-              <Avatar name={id.name} color={id.color} />
+              <Avatar name={id.name} color={id.color} portrait={id.portrait} size={58} />
               <div style={{ minWidth: 0, flex: 1 }}>
                 <div style={{ display: 'flex', alignItems: 'baseline', gap: 7 }}>
                   <span className="display" style={{ fontSize: 17, color: RC.ink,

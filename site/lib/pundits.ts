@@ -17,20 +17,20 @@
  */
 import type { Cell, Pundit } from './data'
 
-export type Identity = { id: string; name: string; color: string; seat: string }
+export type Identity = { id: string; name: string; color: string; seat: string; portrait: string }
 
 export const PUNDITS: Identity[] = [
-  { id: 'pundit_1', name: 'CHAIRMAN', color: '#E8A33D', seat: 'seat one' },
-  { id: 'pundit_2', name: 'PROF',     color: '#59B7E8', seat: 'seat two' },
-  { id: 'pundit_3', name: 'OGA',      color: '#35C47F', seat: 'seat three' },
-  { id: 'pundit_4', name: 'BABA',     color: '#C77DD8', seat: 'seat four' },
-  { id: 'pundit_5', name: 'SHARP',    color: '#E0645A', seat: 'seat five' },
-  { id: 'pundit_6', name: 'COACH',    color: '#8FBF52', seat: 'seat six' },
+  { id: 'pundit_1', name: 'CHAIRMAN', color: '#E8A33D', seat: 'seat one' , portrait: '/pundits/chairman.png' },
+  { id: 'pundit_2', name: 'PROF',     color: '#59B7E8', seat: 'seat two' , portrait: '/pundits/prof.png' },
+  { id: 'pundit_3', name: 'OGA',      color: '#35C47F', seat: 'seat three' , portrait: '/pundits/oga.png' },
+  { id: 'pundit_4', name: 'BABA',     color: '#C77DD8', seat: 'seat four' , portrait: '/pundits/baba.png' },
+  { id: 'pundit_5', name: 'SHARP',    color: '#E0645A', seat: 'seat five' , portrait: '/pundits/sharp.png' },
+  { id: 'pundit_6', name: 'COACH',    color: '#8FBF52', seat: 'seat six' , portrait: '/pundits/coach.png' },
 ]
 
 export const identityOf = (id: string): Identity =>
   PUNDITS.find(p => p.id === id) ??
-  { id, name: id.toUpperCase(), color: '#9C9184', seat: '' }
+  { id, name: id.toUpperCase(), color: '#9C9184', seat: '', portrait: '' }
 
 /** How far this pundit has drifted from the rest, measured on what it believes.
  *  Early on the answer is zero, and saying so is more honest — and a better

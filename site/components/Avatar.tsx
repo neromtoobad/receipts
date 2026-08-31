@@ -6,7 +6,22 @@
 //
 // It is a ticket stub: this project is called RECEIPTS.
 
-export function Avatar({ name, color, size = 46 }: { name: string; color: string; size?: number }) {
+export function Avatar({ name, color, size = 46, portrait }:
+  { name: string; color: string; size?: number; portrait?: string }) {
+  if (portrait) {
+    const base = process.env.NODE_ENV === 'production' ? '/receipts' : ''
+    return (
+      <img src={`${base}${portrait}`} alt="" width={size} height={size}
+           style={{ borderRadius: 9, flex: '0 0 auto', objectFit: 'cover',
+                    border: `1px solid ${color}55`,
+                    boxShadow: `0 0 0 1px rgba(0,0,0,.5), 0 6px 18px rgba(0,0,0,.45)` }} />
+    )
+  }
+  return <Sigil name={name} color={color} size={size} />
+}
+
+/** Fallback mark, drawn inline, so a missing portrait never blanks a card. */
+function Sigil({ name, color, size }: { name: string; color: string; size: number }) {
   let h = 0
   for (const ch of name) h = (h * 31 + ch.charCodeAt(0)) >>> 0
   const rows = 5, cols = 5
