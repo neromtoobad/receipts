@@ -53,3 +53,8 @@ web/index.html
 
 # league runtime logs
 logs/
+
+# next.js build artefacts (docs/ is the committed export)
+site/.next/
+site/out/
+site/node_modules/
