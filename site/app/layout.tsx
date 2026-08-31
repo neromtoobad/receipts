@@ -36,9 +36,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           html,body { margin:0; padding:0; background:var(--rc-bg); color:var(--rc-ink);
             font-family:Inter,system-ui,sans-serif; -webkit-font-smoothing:antialiased;
             text-rendering:optimizeLegibility }
-          /* A viewing centre is a dim room with a lit screen. */
+          /* A viewing centre is a dim room with a lit screen. Two lights, not one:
+             a warm wash from the screen and a cold spill from the side, so surfaces
+             have somewhere to fall away to. */
           body::before { content:''; position:fixed; inset:0; pointer-events:none; z-index:0;
-            background:radial-gradient(120% 80% at 50% -10%, rgba(232,163,61,.055), transparent 60%) }
+            background:
+              radial-gradient(110% 62% at 50% -6%, rgba(232,163,61,.10), transparent 58%),
+              radial-gradient(70% 50% at 96% 8%, rgba(89,183,232,.055), transparent 62%),
+              radial-gradient(90% 60% at 4% 42%, rgba(53,196,127,.035), transparent 60%) }
+          /* Fine grain stops large dark fields banding and reads as film rather than flat. */
+          body::after { content:''; position:fixed; inset:0; pointer-events:none; z-index:0;
+            opacity:.5; mix-blend-mode:overlay;
+            background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.28'/%3E%3C/svg%3E") }
           a { color:inherit; text-decoration:none }
           ::selection { background:var(--rc-brand); color:var(--rc-bg) }
           .mono { font-family:'JetBrains Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums }
@@ -46,7 +55,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           .wrap { max-width:1180px; margin:0 auto; padding:0 24px; position:relative; z-index:1 }
           .eyebrow { font-size:11px; letter-spacing:.18em; text-transform:uppercase;
             color:var(--rc-ink-3); font-weight:600 }
-          .card { background:var(--rc-surface); border:1px solid var(--rc-line); border-radius:10px }
+          .card { background:linear-gradient(180deg, rgba(255,255,255,.028), rgba(255,255,255,.008));
+            border:1px solid var(--rc-line); border-radius:12px;
+            box-shadow:0 1px 0 rgba(255,255,255,.03) inset, 0 12px 32px -18px rgba(0,0,0,.9) }
+          /* One motion language across the page: the same spring, everywhere. */
+          .lift { transition:transform 220ms cubic-bezier(.16,1,.3,1),
+                             box-shadow 220ms cubic-bezier(.16,1,.3,1),
+                             border-color 220ms }
+          .lift:hover { transform:translateY(-2px);
+            box-shadow:0 18px 44px -22px rgba(0,0,0,.95), 0 0 0 1px rgba(232,163,61,.10) }
+          button:focus-visible, a:focus-visible, input:focus-visible {
+            outline:2px solid var(--rc-brand); outline-offset:2px; border-radius:8px }
+          input[type=range]{ height:22px }
           @media (max-width:820px){ .wrap{padding:0 16px} }
         `}</style>
       </head>

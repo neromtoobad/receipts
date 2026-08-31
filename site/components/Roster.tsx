@@ -42,7 +42,7 @@ export function Roster({ pundits, selected, onSelect }:
         const trusted = cells.filter(c => (c.skill ?? 0) > 0).length
         const burned = cells.filter(c => c.skill != null && c.skill <= 0).length
         return (
-          <button key={p.id} onClick={() => onSelect(p.id)}
+          <button key={p.id} onClick={() => onSelect(p.id)} className="lift"
             style={{ textAlign: 'left', cursor: 'pointer', fontFamily: 'inherit',
                      background: on ? alpha(id.color, .07) : RC.surface,
                      border: `1px solid ${on ? alpha(id.color, .5) : RC.line}`,

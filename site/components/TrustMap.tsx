@@ -27,11 +27,11 @@ export function TrustMap({ cells, domains, catalogue }: Props) {
     <div>
       <div style={{ overflowX: 'auto' }}>
         <table style={{ borderCollapse: 'separate', borderSpacing: 0, width: '100%',
-                        background: RC.surface, border: `1px solid ${RC.line}`, borderRadius: 10 }}>
+                        background: 'transparent' }}>
           <thead>
             <tr>
-              <th style={{ ...th, textAlign: 'left', width: 176, position: 'sticky', left: 0,
-                           background: RC.surface2, zIndex: 1 }}>informant</th>
+              <th style={{ ...th, textAlign: 'left', width: 172, position: 'sticky', left: 0,
+                           background: RC.bg, zIndex: 1 }}>informant</th>
               {domains.map(d => (
                 <th key={d} style={th} title={d}>{shortDomain(d)}</th>
               ))}
@@ -42,8 +42,9 @@ export function TrustMap({ cells, domains, catalogue }: Props) {
               const covers = new Set(catalogue[src].answers_on)
               return (
                 <tr key={src}>
-                  <th style={{ ...td, textAlign: 'left', fontWeight: 500, color: RC.ink,
-                               position: 'sticky', left: 0, background: RC.surface2, zIndex: 1 }}>
+                  <th style={{ ...td, textAlign: 'left', fontWeight: 500, color: RC.ink2,
+                               padding: '3px 10px 3px 0', fontSize: 12.5,
+                               position: 'sticky', left: 0, background: RC.bg, zIndex: 1 }}>
                     {src}
                     <span className="mono" style={{ float: 'right', color: RC.ink4, fontSize: 11 }}>
                       {catalogue[src].price.toFixed(4)}
@@ -55,15 +56,25 @@ export function TrustMap({ cells, domains, catalogue }: Props) {
                     const s = cellStyle(c, covers.has(d))
                     const isHot = hover?.key === key
                     return (
-                      <td key={d}
+                      <td key={d} style={td}
                           onMouseEnter={() => c && setHover({ key, src, dom: d })}
-                          onMouseLeave={() => setHover(null)}
-                          className="mono"
-                          style={{ ...td, textAlign: 'center', background: s.bg, color: s.fg,
-                                   cursor: c ? 'pointer' : 'default', fontSize: 11,
-                                   outline: isHot ? `1px solid ${RC.brand}` : 'none',
-                                   opacity: s.kind === 'na' ? .3 : 1 }}>
-                        {s.label}
+                          onMouseLeave={() => setHover(null)}>
+                        <div className="mono" style={{
+                          height: 36, borderRadius: 7, display: 'grid', placeItems: 'center',
+                          color: s.fg, fontSize: 11.5, fontWeight: 600,
+                          cursor: c ? 'pointer' : 'default',
+                          // An unbought cell should recede, not read as an empty
+                          // form field. Most of this grid is unbought early on.
+                          background: c ? s.bg : alpha(RC.ink, .022),
+                          border: 0,
+                          boxShadow: s.kind === 'established' && (c?.skill ?? 0) > 0
+                            ? `0 0 18px -6px ${RC.green}, inset 0 0 0 1px rgba(255,255,255,.06)`
+                            : 'none',
+                          transform: isHot ? 'scale(1.09)' : 'scale(1)',
+                          outline: isHot ? `1px solid ${RC.brand}` : 'none',
+                          transition: 'transform 160ms cubic-bezier(.16,1,.3,1), box-shadow 200ms',
+                          opacity: s.kind === 'na' ? .18 : 1,
+                        }}>{s.label}</div>
                       </td>
                     )
                   })}
@@ -128,11 +139,11 @@ export function TrustMap({ cells, domains, catalogue }: Props) {
 }
 
 const th: React.CSSProperties = {
-  padding: '9px 8px', fontSize: 10, letterSpacing: '.08em', textTransform: 'uppercase',
-  color: RC.ink3, fontWeight: 600, borderBottom: `1px solid ${RC.line}`, background: RC.surface2,
+  padding: '10px 6px', fontSize: 9.5, letterSpacing: '.09em', textTransform: 'uppercase',
+  color: RC.ink3, fontWeight: 600, background: 'transparent',
 }
 const td: React.CSSProperties = {
-  padding: '8px 9px', fontSize: 12, borderBottom: `1px solid ${RC.line}`, whiteSpace: 'nowrap',
+  padding: 3, fontSize: 12, whiteSpace: 'nowrap', border: 0,
 }
 
 function Fact({ k, v, c }: { k: string; v: string; c?: string }) {

@@ -1,6 +1,7 @@
 import { RC, alpha } from '../lib/theme'
 import { LEAGUE } from '../lib/data'
 import { League } from '../components/League'
+import { DeletionChart } from '../components/DeletionChart'
 import punditFrames from '../../web/data/league.json'
 
 export default function Home() {
@@ -27,7 +28,7 @@ export default function Home() {
             The process dies after every forecast, so the only thing that survives is what it wrote
             to memory.
           </p>
-          <div style={{ display: 'flex', gap: 26, flexWrap: 'wrap', marginTop: 26 }}>
+          <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginTop: 30 }}>
             <Stat k="calls on record" v={String(L.totals.forecasts)} />
             <Stat k="resolved" v={String(L.totals.resolutions)} />
             <Stat k="informants bought" v={String(L.totals.buys)} />
@@ -46,27 +47,12 @@ export default function Home() {
             times as many informants and spends ten times as much, for the same forecast.
             1,000 held-out events, 3,000 local model calls, zero failures.
           </p>
-          <div style={{ overflowX: 'auto' }}>
-            <table className="mono" style={{ borderCollapse: 'collapse', fontSize: 13, minWidth: 520 }}>
-              <thead><tr>
-                {['arm', 'bought / call', 'spend / call', '1,000 calls', 'brier'].map(h => (
-                  <th key={h} style={{ textAlign: 'left', padding: '7px 16px 7px 0', color: RC.ink3,
-                                       fontSize: 10, letterSpacing: '.1em', textTransform: 'uppercase',
-                                       borderBottom: `1px solid ${RC.line}` }}>{h}</th>))}
-              </tr></thead>
-              <tbody>
-                <Arm n="domain-scoped memory" a="0.56" b="0.0053" c="$5.34" d="0.5653" hi />
-                <Arm n="memory, no domain scoping" a="0.10" b="0.0010" c="$1.04" d="0.5691" />
-                <Arm n="no memory" a="4.50" b="0.0530" c="$53.00" d="0.5667" bad />
-              </tbody>
-            </table>
-          </div>
-          <p style={{ fontSize: 12.5, color: RC.ink4, marginTop: 14, maxWidth: 760, lineHeight: 1.6 }}>
-            9.9x on spend. Football alone 6.0x, crypto alone 67x, where the memory arm learns there
-            is nothing worth paying for and nearly stops buying. The Brier column is a tie and is
-            reported as one: the memory arm leads in every split but by at most 0.0019, which is too
-            small to call a quality win. The claim is <b style={{ color: RC.ink2 }}>the same forecast
-            for a tenth of the cost</b>.
+          <DeletionChart />
+          <p style={{ fontSize: 12.5, color: RC.ink4, marginTop: 18, maxWidth: 780, lineHeight: 1.65 }}>
+            The Brier column is a tie and is reported as one: the memory arm leads in every split
+            but by at most 0.0019, too small to call a quality win. The claim is{' '}
+            <b style={{ color: RC.ink2 }}>the same forecast for a tenth of the cost</b> — which is
+            the one that survives a judge's follow-up question.
           </p>
         </section>
 
@@ -89,11 +75,12 @@ export default function Home() {
 
 function Stat({ k, v, unit }: { k: string; v: string; unit?: string }) {
   return (
-    <div>
-      <div className="mono display" style={{ fontSize: 30, color: RC.ink, lineHeight: 1 }}>
-        {v}{unit && <span style={{ fontSize: 13, color: RC.ink4 }}> {unit}</span>}
+    <div className="card lift" style={{ padding: '13px 16px', minWidth: 132 }}>
+      <div className="mono display" style={{ fontSize: 32, color: RC.ink, lineHeight: 1,
+                                             letterSpacing: '-.02em' }}>
+        {v}{unit && <span style={{ fontSize: 12, color: RC.ink4 }}> {unit}</span>}
       </div>
-      <div className="eyebrow" style={{ marginTop: 5 }}>{k}</div>
+      <div className="eyebrow" style={{ marginTop: 7 }}>{k}</div>
     </div>
   )
 }
