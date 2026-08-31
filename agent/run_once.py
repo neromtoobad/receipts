@@ -31,9 +31,16 @@ from agent.sources import ARMS, explain, select
 from evidence.catalogue import CATALOGUE, write_reference
 
 
-def pick_market(buyer: Buyer, domain: str | None) -> dict | None:
-    ms = buyer.markets(domain)
-    return ms[0] if ms else None
+def pick_market(buyer: Buyer, domain: str | None, mem) -> dict | None:
+    """The first open market this pundit has not already forecast.
+
+    Six pundits share the market list on purpose: same markets, same budget,
+    different memories is the whole comparison.
+    """
+    for m in buyer.markets(domain):
+        if not mem.has_forecast(m["id"]):
+            return m
+    return None
 
 
 def main() -> int:
@@ -70,11 +77,11 @@ def main() -> int:
     if a.market:
         market = next((m for m in buyer.markets() if m["id"] == a.market), None)
     elif a.pick:
-        market = pick_market(buyer, a.domain)
+        market = pick_market(buyer, a.domain, mem)
     if market is None:
-        print(f"[{a.agent}] no market to forecast", file=sys.stderr)
+        say(f"[{a.agent}] nothing new to forecast")
         buyer.close()
-        return 2
+        return 0        # not a miss: it has simply caught up with the fixture list
 
     domain = market["domain"]
     base_rate = market.get("base_rate") or {}
@@ -118,6 +125,7 @@ def main() -> int:
                 f"but it has no data here")
 
     out = forecast(market, base_rate, evidence, model=model, offline=a.offline)
+    mem.mark_forecast(market["id"])
     mem.log_forecast(market["id"], domain, out["probabilities"], out["confidence"],
                      out["reasoning"], out["leaned_on"],
                      [e["source"] for e in evidence], spent)

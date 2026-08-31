@@ -304,6 +304,15 @@ class Memory:
                    "domain": domain, "cost": cost, "trust": trust, "said": payload},
         )
 
+    def mark_forecast(self, market_id: str) -> None:
+        """A pundit forecasts each market once. Without this the tick loop would
+        re-forecast whatever is first in the list every twenty minutes and learn
+        nothing from ten days of running."""
+        self.c.set_state(f"forecast:{market_id}", {"at": _now()})
+
+    def has_forecast(self, market_id: str) -> bool:
+        return self._state_body(f"forecast:{market_id}") is not None
+
     def mark_resolved(self, market_id: str, body: dict[str, Any]) -> None:
         self.c.set_state(f"resolved:{market_id}", body)
 
