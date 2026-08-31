@@ -139,7 +139,7 @@ Promotion: a `(source, domain)` pair enters as HOT state, promotes to a WARM ent
 ## Build phases
 
 - [x] **Phase 1 (Day 1)** Foundation. Git identity, uv 3.11, Sibyl activated, `agent/memory.py`, cross-process proof and lifecycle tests green.
-- [~] **Phase 2 (Day 2)** Evidence layer built and the x402 path proven against the live facilitator. **Not closed until a settlement lands**: the multiplier needs an executed onchain action, and the wallet is unfunded.
+- [x] **Phase 2 (Day 2)** Evidence layer and x402 on Base Sepolia. **Settled onchain**: tx `0xb0cc50db…64eebc`, 0.012 USDC, block 46195402, gas paid by the facilitator. See `proof/ONCHAIN.md`.
 - [x] **Phase 3 (Day 3)** Agent runtime. Boot, forecast, die. Buys everything, learns nothing.
 - [x] **Phase 4 (Day 4)** Resolver and reliability memory. Promotion, decay, archival.
 - [x] **Phase 5 (Day 5)** Source selection from memory. **The gate, and it holds**: same market and same history, sibyl buys 1 informant for 0.0120, the amnesiac buys 5 for 0.0590.

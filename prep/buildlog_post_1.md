@@ -27,7 +27,7 @@ Every piece of evidence costs real money. There is no free path.
 
 x402 on Base Sepolia, USDC per call, prices from 0.003 to 0.045.
 
-First settlement: [TX HASH]
+First settlement: 0xb0cc50dbf1530884b0789f15b0498632bb50d6a74b74336b58659fefd864eebc
 
 **3/**
 
@@ -98,13 +98,13 @@ Ten days. Repo and standings going up as it runs.
 >
 > Same forecast quality, 15x the cost.
 >
-> Evidence is x402-gated on @base, first settlement [TX HASH].
+> Evidence is x402-gated on @base, first settlement 0xb0cc50db…64eebc.
 
 ---
 
 ## Checks before posting
 
-- [ ] The tx hash resolves on Basescan Sepolia
+- [x] The tx hash resolves on Basescan Sepolia (verified: SUCCESS, block 46195402)
 - [ ] Every number matches `proof/DOMAINS.md` exactly
 - [ ] `@sibylcap` and `@base` both tagged
 - [ ] No claim about Virtuals until an ACP job has actually run
