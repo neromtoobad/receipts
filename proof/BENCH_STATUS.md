@@ -94,3 +94,25 @@ the chart and should be checked on a small run before a long one.
 
 The SELECTION half is unaffected by any of this. Selection never touches the
 forecaster.
+
+### AionLabs, measured 2026-08-31
+
+Free tier is **20,000 tokens per day**. A forecast call runs about 650 prompt plus
+400 completion tokens, so roughly **19 calls a day** — the same wall as Google,
+reached by a different route. Both providers advertise a per-minute rate that is
+not the binding constraint; the daily cap is.
+
+| tier | req/min | tokens/min | daily tokens |
+|---|---|---|---|
+| Free | 15 | 20,000 | 20,000 |
+| 1 (any credit top-up) | 50 | 1,000,000 | **Unlimited** |
+
+**Any top-up unlocks tier 1.** At $0.80/M prompt and $1.60/M completion, a
+300-event three-arm run (900 calls) costs about **$1**, and 1,000 events about
+$3.50. The models emit reasoning tokens you are billed for: a request returning
+`{"ok": true}` used 98 completion tokens, so completion cost is higher than the
+visible answer suggests.
+
+**The general lesson, now hit twice.** Check the DAILY token or request cap before
+planning a run, not the per-minute rate. A key that authenticates and answers a
+smoke test tells you nothing about whether it can finish 900 calls.

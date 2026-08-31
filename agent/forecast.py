@@ -167,7 +167,7 @@ def _retry_after(exc) -> float | None:
     return float(m.group(1)) + 1.0 if m else None
 
 
-def _with_retry(call, attempts: int = 6):
+def _with_retry(call, attempts: int = 8):
     """Free tiers 503 and 429 hard. A thousand-event bench that dies two thirds
     of the way through has wasted everything before it, so transient failures
     wait however long the server asked for and try again."""
@@ -180,7 +180,9 @@ def _with_retry(call, attempts: int = 6):
             last = exc
             if not any(t.lower() in str(exc).lower() for t in RETRYABLE):
                 raise
-            _t.sleep(_retry_after(exc) or min(2 ** i, 30))
+            # Providers that send no retryDelay still mean a per-minute window,
+            # so back off toward a full minute rather than capping at 30s.
+            _t.sleep(_retry_after(exc) or min(5 * (i + 1), 65))
     raise last
 
 

@@ -194,6 +194,12 @@ def main() -> int:
     rates, bb = base_rates(events)
 
     arms = [x.strip() for x in a.arms.split(",") if x.strip()]
+    # ~650 prompt + ~400 completion per forecast, measured on real calls. Say the
+    # number out loud before a long run: free tiers cap DAILY tokens, and that is
+    # what stops a bench, not the per-minute rate.
+    est_calls = len(events) * len(arms)
+    print(f"~{est_calls} model calls, roughly {est_calls * 1050 // 1000}k tokens\n",
+          file=sys.stderr)
     print(f"corpus {len(events)} resolved events | budget {BUDGET:.3f} | "
           f"model {'OFFLINE STAND-IN' if offline else a.model} | prompt {SYSTEM_SHA[:12]}\n")
 
