@@ -146,7 +146,7 @@ Promotion: a `(source, domain)` pair enters as HOT state, promotes to a WARM ent
 - [x] **Phase 6 (Day 6)** Replay bench and the deletion chart. **1,000 held-out events, 3,000 local model calls, zero failures**: 9.9x on spend for the same Brier (0.5653 against 0.5667). See `proof/BENCH.md`.
 - [x] **Phase 7 (Day 7)** Virtuals ACP. **Job 75249 completed on Base mainnet**: pundit_5 hired pundit_1, paid 0.01 USDC into escrow, received a forecast from the real runtime, escrow released. See `proof/VIRTUALS.md`.
 - [~] **Phase 8 (Day 8)** Trust map shipped: `python -m web.build_site` renders one self-contained HTML file straight from the pundit databases. No server, no npm, nothing fetched at view time. Standings and event feed still to do.
-- [ ] **Phase 9 (Day 9)** Opinion market between agents. Cuttable. Buffer if behind.
+- [x] **Phase 9 (Day 9)** Opinion market. A pundit buys a peer's take through the same x402 gate when the **commons** rates that peer in this domain. Verified live: pundit_5 ranked `peer:pundit_3` first at 0.0080 on a measured +0.102 skill.
 - [ ] **Phase 10 (Day 10)** Video, README, posts, submit.
 
 ---

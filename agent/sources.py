@@ -71,8 +71,14 @@ def _global_view(mem) -> dict[str, dict]:
 
 
 def select(mem, domain: str, candidates: dict[str, float], budget: float,
-           arm: str = "sibyl") -> list[Choice]:
-    """candidates: {source_id: price}. Returns what to buy, in order."""
+           arm: str = "sibyl", peer_beliefs: dict[str, dict] | None = None) -> list[Choice]:
+    """candidates: {source_id: price}. Returns what to buy, in order.
+
+    peer_beliefs carries reliability for other pundits, read from the COMMONS
+    rather than this pundit's private store. That is the coordination: what the
+    league learned about pundit_3 from pundit_3's own resolved calls is what
+    pundit_5 uses to decide whether pundit_3's take is worth buying.
+    """
     if arm not in ARMS:
         raise ValueError(f"unknown arm {arm!r}")
 
@@ -91,6 +97,14 @@ def select(mem, domain: str, candidates: dict[str, float], budget: float,
     else:
         view = _global_view(mem)          # once per call, not once per candidate
         known = {s: view.get(s) for s in candidates}
+
+    # A peer's record is shared knowledge, so it overlays the private one. The
+    # amnesiac arm gets none of it, which is the point: without memory there is
+    # no way to know which peer is worth hearing from either.
+    if peer_beliefs and arm != "amnesiac":
+        for src, body in peer_beliefs.items():
+            if src in candidates and not known.get(src):
+                known[src] = body
 
     ranked, unproven = [], []
     for src, price in candidates.items():

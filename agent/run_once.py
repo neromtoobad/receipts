@@ -27,7 +27,8 @@ from agent import wallet
 _load_env()
 from agent.buyer import Buyer
 from agent.forecast import BENCH_MODEL, LIVE_MODEL, SYSTEM_SHA, forecast
-from agent.memory import Memory
+from agent.memory import Commons, Memory
+from agent.peers import PEER_PRICE, offers
 from agent.sources import ARMS, explain, select
 from evidence.catalogue import CATALOGUE, write_reference
 
@@ -75,6 +76,8 @@ def main() -> int:
                     help="deterministic stand-in forecaster, for plumbing only")
     ap.add_argument("--evidence-url", default=None)
     ap.add_argument("--quiet", action="store_true")
+    ap.add_argument("--no-peers", action="store_true",
+                    help="ignore the opinion market and buy only from informants")
     ap.add_argument("--arm", choices=ARMS, default="sibyl",
                     help="sibyl: domain-scoped memory. flat: memory with no domain "
                          "scoping. amnesiac: no memory, buys what it can afford.")
@@ -121,7 +124,22 @@ def main() -> int:
     })
 
     priced = {iid: CATALOGUE[iid]["price_usdc"] for iid in candidates}
-    choices = select(mem, domain, priced, a.budget, arm=a.arm)
+
+    # The opinion market. Ask the commons which peers the league rates in this
+    # domain, and put their takes on the shelf next to the informants.
+    peer_beliefs: dict[str, dict] = {}
+    if a.arm != "amnesiac" and not a.no_peers:
+        try:
+            memory_dir = mem.path.parent
+            roster = sorted(f.stem for f in memory_dir.glob("*.db")
+                            if f.stem.startswith("pundit_"))
+            peer_beliefs = offers(Commons(), a.agent, domain, roster)
+            for src in peer_beliefs:
+                priced[src] = PEER_PRICE
+        except Exception as exc:
+            say(f"[{a.agent}] peer lookup unavailable: {exc}")
+
+    choices = select(mem, domain, priced, a.budget, arm=a.arm, peer_beliefs=peer_beliefs)
     say(f"[{a.agent}] {explain(choices, priced, a.budget)}")
     if not choices:
         say(f"[{a.agent}] nothing here is worth its price. buying nothing.")
@@ -138,7 +156,8 @@ def main() -> int:
         if got.get("covered"):
             evidence.append({"source": ch.source, "payload": got["payload"],
                              "trust": ch.trust})
-            say(f"[{a.agent}]   bought {ch.source:14} {got['price']:.4f}  {ch.reason}")
+            tag = " (a peer's take)" if ch.source.startswith("peer:") else ""
+            say(f"[{a.agent}]   bought {ch.source:14} {got['price']:.4f}  {ch.reason}{tag}")
         else:
             say(f"[{a.agent}]   bought {ch.source:14} {got['price']:.4f} "
                 f"but it has no data here")

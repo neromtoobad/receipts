@@ -79,6 +79,55 @@ def catalogue():
     return {"informants": CATALOGUE}
 
 
+@app.get("/peer/{pundit_id}")
+def buy_peer(pundit_id: str, market: str, request: Request,
+             payment_signature: str | None = Header(default=None, alias="PAYMENT-SIGNATURE"),
+             x_payment: str | None = Header(default=None, alias="X-PAYMENT")):
+    """Sell one pundit's forecast to another. Same 402 gate as an informant:
+    there is no free path to another agent's opinion either."""
+    import sys
+    sys.path.insert(0, str(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+    from agent.memory import Memory
+    from agent.peers import PEER_PRICE
+
+    m = markets().get(market)
+    if m is None:
+        return JSONResponse({"error": f"no open market {market!r}"}, status_code=404)
+
+    try:
+        mem = Memory(pundit_id)
+        call = next((e["extra"] for e in mem.recent_events(limit=400)
+                     if (e.get("extra") or {}).get("kind") == "forecast"
+                     and e["extra"].get("market") == market), None)
+    except Exception as exc:
+        return JSONResponse({"error": f"cannot read {pundit_id}: {exc}"}, status_code=404)
+    if not call:
+        return JSONResponse({"error": f"{pundit_id} has not called {market}"}, status_code=404)
+
+    resource = str(request.url.path) + f"?market={market}"
+    reqs = x402.payment_requirements(resource, PEER_PRICE, PAY_TO,
+                                     f"{pundit_id}'s take on this market")
+    header = payment_signature or x_payment
+    if not header:
+        return JSONResponse(reqs, status_code=402)
+    try:
+        verified = x402.verify_payment(header, reqs)
+    except x402.PaymentError as exc:
+        return JSONResponse({**reqs, "error": str(exc)}, status_code=402)
+
+    settlement = (x402.settle(verified, reqs) if SETTLE
+                  else {"settled": False, "tx_hash": None,
+                        "reason": "settlement disabled (EVIDENCE_SETTLE=0)"})
+    return JSONResponse({"informant": f"peer:{pundit_id}", "market": market,
+                         "domain": m["domain"], "covered": True,
+                         "outcomes": list(outcomes_for(m["domain"])),
+                         "probabilities": call["probabilities"],
+                         "confidence": call.get("confidence"),
+                         "reasoning": call.get("reasoning"),
+                         "price_usdc": PEER_PRICE, "payer": verified["payer"],
+                         "settlement": settlement})
+
+
 @app.get("/informant/{informant_id}")
 def buy(informant_id: str, market: str, request: Request,
         payment_signature: str | None = Header(default=None, alias="PAYMENT-SIGNATURE"),

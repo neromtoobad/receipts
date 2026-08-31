@@ -50,7 +50,11 @@ class Buyer:
     # ---------------- the paid path ----------------
 
     def buy(self, informant_id: str, market_id: str) -> dict[str, Any]:
-        url = f"{self.base_url}/informant/{informant_id}"
+        # A peer's take is bought exactly like an informant's, through the same
+        # 402. The only difference is which endpoint sells it.
+        from agent.peers import is_peer, pundit_of
+        url = (f"{self.base_url}/peer/{pundit_of(informant_id)}" if is_peer(informant_id)
+               else f"{self.base_url}/informant/{informant_id}")
         params = {"market": market_id}
         first = self.http.get(url, params=params)
 

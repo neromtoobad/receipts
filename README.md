@@ -89,6 +89,17 @@ that lesson and the football one at the same time: the flat-log arm carries
 negative in all six leagues. An agent with memory stops buying it. An agent
 without has no way to know.
 
+**And it will buy another agent's opinion when that is better value.** Once the
+league has rated a pundit in a domain, its take goes on the shelf beside the
+informants at 0.008 USDC, sold through the same 402. Verified live: `pundit_5`
+ranked `peer:pundit_3` first, on a skill of +0.102 the commons had measured from
+pundit_3's own resolved calls.
+
+That standing lives in `memory/commons.db`, not in the buyer's private store, so
+what pundit_2's outcomes taught the league about pundit_3 is what pundit_5 spends
+on. Reading another agent's record to decide whether to pay it is the
+coordination pattern, and there is no free path to a peer's opinion either.
+
 ---
 
 ## Proof
