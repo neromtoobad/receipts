@@ -92,7 +92,20 @@ def test_provider_dispatch_does_not_touch_the_prompt():
     assert hashlib.sha256(SYSTEM.encode()).hexdigest() == EXPECTED_SYSTEM_SHA
 
 
-def test_an_unknown_model_is_refused_rather_than_guessed():
+def test_an_unknown_model_is_refused_when_no_endpoint_is_configured(monkeypatch):
+    """With RECEIPTS_OPENAI_BASE_URL set, an unfamiliar id legitimately routes to
+    that endpoint. With nothing configured it must be refused rather than guessed."""
     from agent.forecast import provider_for
+    monkeypatch.delenv("RECEIPTS_OPENAI_BASE_URL", raising=False)
     with pytest.raises(ValueError, match="unknown model"):
         provider_for("gpt-4o")
+
+
+def test_an_unknown_model_routes_to_a_configured_endpoint(monkeypatch):
+    from agent.forecast import provider_for
+    monkeypatch.setenv("RECEIPTS_OPENAI_BASE_URL", "http://localhost:11434/v1")
+    assert provider_for("qwen2.5:7b-instruct") == "openai"
+    assert provider_for("gpt-4o") == "openai"
+    # a known provider is never overridden by the presence of a base url
+    assert provider_for("claude-haiku-4-5-20251001") == "anthropic"
+    assert provider_for("gemini-flash-latest") == "google"
