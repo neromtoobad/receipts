@@ -168,7 +168,11 @@ def main() -> int:
         needed = {"anthropic": ("ANTHROPIC_API_KEY",),
                   "google": ("GEMINI_API_KEY", "GOOGLE_API_KEY"),
                   "openai": ("RECEIPTS_OPENAI_API_KEY", "AION_API_KEY", "OPENAI_API_KEY")}[prov]
-        if not any(_os.environ.get(k) for k in needed):
+        local = _os.environ.get("RECEIPTS_OPENAI_BASE_URL", "").startswith(
+            ("http://localhost", "http://127.0.0.1"))
+        if prov == "openai" and local:
+            needed = ()
+        if needed and not any(_os.environ.get(k) for k in needed):
             print(f"ABORT: {a.model} needs one of {' or '.join(needed)} in the environment.",
                   file=sys.stderr)
             return 2

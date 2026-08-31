@@ -200,8 +200,10 @@ def forecast(market: dict, base_rate: dict[str, float], evidence: list[dict], *,
         import httpx
         base = os.environ.get("RECEIPTS_OPENAI_BASE_URL", "").rstrip("/")
         key = openai_key()
-        if not key:
+        local = base.startswith(("http://localhost", "http://127.0.0.1"))
+        if not key and not local:
             raise RuntimeError("no key: set RECEIPTS_OPENAI_API_KEY or AION_API_KEY")
+        key = key or "local"      # Ollama and friends ignore the header entirely
         body = {"model": model, "temperature": 0.0, "max_tokens": 2048,
                 "messages": [{"role": "system", "content": SYSTEM},
                              {"role": "user", "content": user}]}
