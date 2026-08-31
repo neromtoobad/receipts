@@ -27,20 +27,39 @@ LIVE_MODEL = os.environ.get("RECEIPTS_LIVE_MODEL", "claude-sonnet-5")
 BENCH_MODEL = os.environ.get("RECEIPTS_BENCH_MODEL", "claude-haiku-4-5-20251001")
 
 
+OPENAI_BASE_URL = os.environ.get("RECEIPTS_OPENAI_BASE_URL", "")
+
+
+def openai_key() -> str | None:
+    for k in ("RECEIPTS_OPENAI_API_KEY", "AION_API_KEY", "OPENAI_API_KEY"):
+        if os.environ.get(k):
+            return os.environ[k]
+    return None
+
+
 def provider_for(model: str) -> str:
     """Which API serves this model.
 
     The benchmark's rule is that every arm sees the SAME model and a
-    byte-identical prompt. It has never been that the model must be Claude, so a
-    free Gemini key is a legitimate way to run it. Whatever is used gets stamped
-    into the report and asserted equal across arms.
+    byte-identical prompt. It has never been that the model must be Claude, so
+    any provider is legitimate. Whatever runs is stamped into the report and
+    asserted equal across arms.
+
+    Anything that is not a claude-* or gemini-* id is treated as an
+    OpenAI-compatible endpoint, which covers AionLabs and most other providers.
+    That needs RECEIPTS_OPENAI_BASE_URL set, so an unknown id is still refused
+    rather than guessed at.
     """
     m = model.lower()
     if m.startswith(("gemini", "models/gemini")):
         return "google"
     if m.startswith("claude"):
         return "anthropic"
-    raise ValueError(f"unknown model {model!r}: expected a claude-* or gemini-* id")
+    if os.environ.get("RECEIPTS_OPENAI_BASE_URL"):
+        return "openai"
+    raise ValueError(
+        f"unknown model {model!r}: expected claude-*, gemini-*, or an "
+        "OpenAI-compatible id with RECEIPTS_OPENAI_BASE_URL set")
 
 SYSTEM = """You are a forecaster. You are scored by Brier score, so calibration \
 matters more than boldness: a confident wrong answer costs you far more than an \
@@ -175,7 +194,35 @@ def forecast(market: dict, base_rate: dict[str, float], evidence: list[dict], *,
     provider = provider_for(model)
 
     resolved = model
-    if provider == "anthropic":
+    if provider == "openai":
+        import httpx
+        base = os.environ.get("RECEIPTS_OPENAI_BASE_URL", "").rstrip("/")
+        key = openai_key()
+        if not key:
+            raise RuntimeError("no key: set RECEIPTS_OPENAI_API_KEY or AION_API_KEY")
+        body = {"model": model, "temperature": 0.0, "max_tokens": 2048,
+                "messages": [{"role": "system", "content": SYSTEM},
+                             {"role": "user", "content": user}]}
+
+        def _post(payload):
+            r = httpx.post(f"{base}/chat/completions", json=payload, timeout=120,
+                           headers={"Authorization": f"Bearer {key}"})
+            if r.status_code >= 400:
+                raise RuntimeError(f"{r.status_code}: {r.text[:300]}")
+            return r.json()
+
+        try:
+            data = _with_retry(lambda: _post({**body,
+                                              "response_format": {"type": "json_object"}}))
+        except Exception as exc:
+            # Not every OpenAI-compatible endpoint implements response_format.
+            # The prompt already demands strict JSON, so drop it and carry on.
+            if "response_format" not in str(exc) and "400" not in str(exc):
+                raise
+            data = _with_retry(lambda: _post(body))
+        text = (data["choices"][0]["message"].get("content") or "").strip()
+        resolved = data.get("model") or model
+    elif provider == "anthropic":
         import anthropic
         client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
         msg = _with_retry(lambda: client.messages.create(

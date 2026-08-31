@@ -165,7 +165,9 @@ def main() -> int:
             print(f"ABORT: {exc}", file=sys.stderr)
             return 2
         import os as _os
-        needed = ("ANTHROPIC_API_KEY",) if prov == "anthropic" else ("GEMINI_API_KEY", "GOOGLE_API_KEY")
+        needed = {"anthropic": ("ANTHROPIC_API_KEY",),
+                  "google": ("GEMINI_API_KEY", "GOOGLE_API_KEY"),
+                  "openai": ("RECEIPTS_OPENAI_API_KEY", "AION_API_KEY", "OPENAI_API_KEY")}[prov]
         if not any(_os.environ.get(k) for k in needed):
             print(f"ABORT: {a.model} needs one of {' or '.join(needed)} in the environment.",
                   file=sys.stderr)
