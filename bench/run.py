@@ -43,6 +43,12 @@ from evidence.signals import INFORMANTS, fit_all, outcomes_for
 BUDGET = 0.060
 EXPECTED_SYSTEM_SHA = "33495af058e60a30f2215dd7a348a4a4570a839abfdb9636366dd4d92cbb5da7"
 
+# proof/BENCH.md IS the chart. A smoke run must never be able to write it: at a
+# dozen events the arms have not learned anything yet, so the numbers are noise
+# and the arms are indistinguishable. 200 is the floor at which each of the eight
+# domains has seen enough resolutions for promotion to have happened at all.
+MIN_PUBLISH_RUNS = 200
+
 
 def brier(probs: dict[str, float], actual: str) -> float:
     return sum((p - (1.0 if o == actual else 0.0)) ** 2 for o, p in probs.items())
@@ -131,6 +137,9 @@ def main() -> int:
                     help="run the plumbing with the stand-in forecaster. Every "
                          "result is stamped INVALID and nothing is written to proof/.")
     ap.add_argument("--out", default=str(ROOT / "proof" / "BENCH.md"))
+    ap.add_argument("--publish-anyway", action="store_true",
+                    help="write proof/BENCH.md from a run below MIN_PUBLISH_RUNS. "
+                         "Only for deliberately reporting a small-n result.")
     ap.add_argument("--quiet", action="store_true")
     ap.add_argument("--rpm", type=float, default=0.0,
                     help="throttle to this many model calls per minute. Free tiers "
@@ -270,6 +279,15 @@ def main() -> int:
               file=sys.stderr)
         return 0
 
+    if len(events) < MIN_PUBLISH_RUNS and not a.publish_anyway:
+        print(f"\nNot written to proof/: {len(events)} events is below the "
+              f"{MIN_PUBLISH_RUNS}-event floor for publishing.\n"
+              "At this size no arm has learned anything yet, so the arms are\n"
+              "indistinguishable and the quality numbers are noise. The run still\n"
+              "proves the pipeline works. Use --publish-anyway to override.",
+              file=sys.stderr)
+        return 0
+
     out = Path(a.out)
     out.write_text(_report(ordered, results, events, a.model, elapsed))
     print(f"\nwrote {out}")
@@ -286,6 +304,9 @@ def _report(ordered, results, events, model, elapsed) -> str:
              "Same corpus, same budget, same informants at the same prices, same prompt, "
              "same model. The only difference between arms is what each is allowed to "
              "remember.", "",
+             (f"**n = {len(events)}**." if len(events) >= MIN_PUBLISH_RUNS else
+              f"**n = {len(events)}, below the {MIN_PUBLISH_RUNS}-event floor. "
+              "Treat every quality figure here as noise.**"), "",
              "| arm | accuracy | brier | bought/call | spend/call | total spend |",
              "|---|---|---|---|---|---|"]
     for s in ordered:
