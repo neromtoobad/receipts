@@ -31,9 +31,10 @@ contracts/broadcast/
 corpus/raw/
 corpus/raw_crypto/
 
-# workflow docs, deleted before submission
+# private build docs, not part of the submission
 PHASE_0_CHECKLIST.md
 BUILD_GUIDE.md
+EXECUTION_PLAN.md
 
 .DS_Store
 

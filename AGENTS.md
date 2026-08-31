@@ -2,7 +2,7 @@
 
 **A league of AI pundits that learn which informants to trust, and pay for the privilege.**
 
-Rename this file to `AGENTS.md` before submitting. Never commit it as `CLAUDE.md`.
+The project brain. Read this first: it carries what was decided, what was measured, and what already went wrong so it does not go wrong again.
 
 ---
 
