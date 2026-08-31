@@ -14,6 +14,13 @@ import hashlib
 import json
 import os
 import re
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from agent.env import load as _load_env
+
+_load_env()
 from typing import Any
 
 LIVE_MODEL = os.environ.get("RECEIPTS_LIVE_MODEL", "claude-sonnet-5")
@@ -127,6 +134,37 @@ def _offline(market, base_rate, evidence) -> dict[str, Any]:
                           if (e.get("trust") or 0) >= (lead[1] - 1e-9)]}
 
 
+RETRYABLE = ("503", "429", "UNAVAILABLE", "RESOURCE_EXHAUSTED", "overloaded", "rate limit")
+
+
+def _retry_after(exc) -> float | None:
+    """Google's 429 carries the exact wait it wants: 'Please retry in 32.4s' and
+    a retryDelay field. Guessing a backoff when the server has told you the
+    number just burns quota."""
+    m = re.search(r"retry in ([\d.]+)s", str(exc))
+    if m:
+        return float(m.group(1)) + 1.0
+    m = re.search(r"'retryDelay': '(\d+)s'", str(exc))
+    return float(m.group(1)) + 1.0 if m else None
+
+
+def _with_retry(call, attempts: int = 6):
+    """Free tiers 503 and 429 hard. A thousand-event bench that dies two thirds
+    of the way through has wasted everything before it, so transient failures
+    wait however long the server asked for and try again."""
+    import time as _t
+    last = None
+    for i in range(attempts):
+        try:
+            return call()
+        except Exception as exc:
+            last = exc
+            if not any(t.lower() in str(exc).lower() for t in RETRYABLE):
+                raise
+            _t.sleep(_retry_after(exc) or min(2 ** i, 30))
+    raise last
+
+
 def forecast(market: dict, base_rate: dict[str, float], evidence: list[dict], *,
              model: str = LIVE_MODEL, offline: bool = False) -> dict[str, Any]:
     """One forecast. Returns probabilities, confidence, reasoning, leaned_on."""
@@ -136,14 +174,16 @@ def forecast(market: dict, base_rate: dict[str, float], evidence: list[dict], *,
     user = build_user_message(market, base_rate, evidence)
     provider = provider_for(model)
 
+    resolved = model
     if provider == "anthropic":
         import anthropic
         client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
-        msg = client.messages.create(
+        msg = _with_retry(lambda: client.messages.create(
             model=model, max_tokens=600, temperature=0.0, system=SYSTEM,
             messages=[{"role": "user", "content": user}],
-        )
+        ))
         text = "".join(b.text for b in msg.content if getattr(b, "type", "") == "text")
+        resolved = getattr(msg, "model", model)
     else:
         from google import genai
         from google.genai import types
@@ -151,22 +191,40 @@ def forecast(market: dict, base_rate: dict[str, float], evidence: list[dict], *,
         client = genai.Client(api_key=key)
         # system_instruction carries SYSTEM verbatim, so the prompt the model sees
         # is byte-identical to the one Claude sees. That is the whole control.
-        resp = client.models.generate_content(
-            model=model, contents=user,
-            config=types.GenerateContentConfig(
-                system_instruction=SYSTEM, temperature=0.0,
-                max_output_tokens=600, response_mime_type="application/json"),
-        )
+        # Gemini 3.x spends max_output_tokens on thinking before it answers, so
+        # a 600 cap returned truncated JSON. The task is a calibration judgement
+        # over a handful of numbers, not a reasoning problem, so the thinking
+        # budget goes to zero and the ceiling goes up. Both keep the comparison
+        # fair: every arm gets the identical config.
+        cfg = dict(system_instruction=SYSTEM, temperature=0.0,
+                   max_output_tokens=2048, response_mime_type="application/json")
+        try:
+            cfg["thinking_config"] = types.ThinkingConfig(thinking_budget=0)
+            resp = _with_retry(lambda: client.models.generate_content(
+                model=model, contents=user, config=types.GenerateContentConfig(**cfg)))
+        except Exception as exc:
+            if "thinking" not in str(exc).lower():
+                raise
+            cfg.pop("thinking_config")      # model does not accept the setting
+            resp = _with_retry(lambda: client.models.generate_content(
+                model=model, contents=user, config=types.GenerateContentConfig(**cfg)))
         text = resp.text or ""
+        # A "-latest" alias is convenient but could shift underneath a long run.
+        # The API reports the concrete version it served, so capture it and let
+        # the bench assert every arm saw the same one.
+        resolved = getattr(resp, "model_version", None) or model
 
     m = re.search(r"\{.*\}", text, re.S)
     if not m:
-        raise ValueError(f"model did not return JSON: {text[:200]}")
+        raise ValueError(
+            f"model did not return complete JSON (truncated at max_output_tokens?): "
+            f"{text[:200]}")
     out = json.loads(m.group(0))
     out["probabilities"] = _normalise(out.get("probabilities", {}), market["outcomes"])
     out["confidence"] = float(out.get("confidence", 0.0))
     out["reasoning"] = str(out.get("reasoning", ""))[:400]
     out["leaned_on"] = [s for s in out.get("leaned_on", []) if isinstance(s, str)]
     out["model"] = model
+    out["resolved_model"] = resolved
     out["provider"] = provider
     return out

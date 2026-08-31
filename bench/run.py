@@ -30,7 +30,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
+from agent.env import load as _load_env
 from agent.forecast import BENCH_MODEL, SYSTEM_SHA, forecast, provider_for
+
+_load_env()
 from agent.memory import Memory
 from agent.sources import ARMS, select
 from bench.corpus import load_replay
@@ -66,7 +69,8 @@ def run_arm(arm: str, events, rates, bb, model, offline, quiet=False, rpm: float
                  # Crypto is three quarters of the corpus, so a blended average
                  # hides the football story completely. Keep them apart.
                  "by_family": defaultdict(lambda: {"n": 0, "hit": 0, "brier": 0.0,
-                                                   "spend": 0.0, "bought": 0})}
+                                                   "spend": 0.0, "bought": 0}),
+                 "resolved_models": set()}
         for i, e in enumerate(events):
             domain = e["domain"]
             priced = {iid: CATALOGUE[iid]["price_usdc"]
@@ -93,6 +97,7 @@ def run_arm(arm: str, events, rates, bb, model, offline, quiet=False, rpm: float
             out = forecast({"domain": domain, "question": e["question"],
                             "outcomes": e["outcomes"]},
                            rates[domain], evidence, model=model, offline=offline)
+            stats["resolved_models"].add(out.get("resolved_model") or out["model"])
             probs = out["probabilities"]
             pick = max(probs, key=probs.get)
 
@@ -113,6 +118,7 @@ def run_arm(arm: str, events, rates, bb, model, offline, quiet=False, rpm: float
                 print(f"  [{arm}] {i + 1}/{len(events)}", file=sys.stderr)
         stats["bought_by"] = dict(stats["bought_by"])
         stats["by_family"] = {k: dict(v) for k, v in stats["by_family"].items()}
+        stats["resolved_models"] = sorted(stats["resolved_models"])
         return stats
 
 
@@ -197,6 +203,15 @@ def main() -> int:
     elapsed = time.perf_counter() - t0
 
     ordered = [results[x] for x in arms if x in results]
+
+    seen = sorted({m for s in ordered for m in s["resolved_models"]})
+    if not offline and len(seen) > 1:
+        print(f"ABORT: the arms did not all see the same model: {seen}\n"
+              "A '-latest' alias shifted mid-run, so the comparison is void. "
+              "Re-run pinned to one of those concrete ids.", file=sys.stderr)
+        return 3
+    if seen and not offline:
+        print(f"resolved model: {seen[0]}\n")
     print("SELECTION  (deterministic; valid with or without a live model)")
     hdr = f"{'arm':12}{'bought/call':>13}{'spend/call':>12}{'total spend':>13}{'paid-but-empty':>16}"
     print(hdr); print("-" * len(hdr))
@@ -252,7 +267,10 @@ def main() -> int:
 def _report(ordered, results, events, model, elapsed) -> str:
     lines = ["# The deletion test", "",
              f"`{len(events)}` resolved events, budget {BUDGET:.3f} USDC per forecast, "
-             f"model `{model}`, prompt sha `{SYSTEM_SHA[:16]}`.", "",
+             f"model `{model}`" +
+             (f" (served as `{sorted({m for s in ordered for m in s['resolved_models']})[0]}`)"
+              if any(s["resolved_models"] for s in ordered) else "") +
+             f", prompt sha `{SYSTEM_SHA[:16]}`.", "",
              "Same corpus, same budget, same informants at the same prices, same prompt, "
              "same model. The only difference between arms is what each is allowed to "
              "remember.", "",

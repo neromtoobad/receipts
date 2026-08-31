@@ -20,15 +20,7 @@ from eth_utils import keccak
 ROOT = Path(__file__).resolve().parent.parent
 
 
-def _load_env() -> None:
-    env = ROOT / ".env"
-    if not env.exists():
-        return
-    for line in env.read_text().splitlines():
-        line = line.strip()
-        if line and not line.startswith("#") and "=" in line:
-            k, v = line.split("=", 1)
-            os.environ.setdefault(k.strip(), v.strip())
+from agent.env import load as _load_env
 
 
 def master_seed() -> str | None:

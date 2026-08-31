@@ -20,7 +20,10 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
+from agent.env import load as _load_env
 from agent import wallet
+
+_load_env()
 from agent.buyer import Buyer
 from agent.forecast import BENCH_MODEL, LIVE_MODEL, SYSTEM_SHA, forecast
 from agent.memory import Memory
