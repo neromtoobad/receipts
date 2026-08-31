@@ -202,6 +202,10 @@ def build() -> str:
 
 
 if __name__ == "__main__":
-    out = ROOT / "web" / "index.html"
-    out.write_text(build())
-    print(f"wrote {out} ({out.stat().st_size:,} bytes)")
+    html = build()
+    # docs/ is what GitHub Pages serves, so it is committed. web/ is the local
+    # working copy and stays ignored.
+    for out in (ROOT / "docs" / "index.html", ROOT / "web" / "index.html"):
+        out.parent.mkdir(exist_ok=True)
+        out.write_text(html)
+        print(f"wrote {out.relative_to(ROOT)} ({out.stat().st_size:,} bytes)")

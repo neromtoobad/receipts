@@ -48,7 +48,7 @@ HACKATHON_WORKFLOW.md
 # on-disk http cache, regenerated on demand
 evidence/_cache/
 
-# generated dashboard, rebuilt from the databases by web/build_site.py
+# generated dashboard. web/ is the local copy; docs/ is what Pages serves and IS committed.
 web/index.html
 
 # league runtime logs
