@@ -143,7 +143,7 @@ Promotion: a `(source, domain)` pair enters as HOT state, promotes to a WARM ent
 - [x] **Phase 3 (Day 3)** Agent runtime. Boot, forecast, die. Buys everything, learns nothing.
 - [x] **Phase 4 (Day 4)** Resolver and reliability memory. Promotion, decay, archival.
 - [x] **Phase 5 (Day 5)** Source selection from memory. **The gate, and it holds**: same market and same history, sibyl buys 1 informant for 0.0120, the amnesiac buys 5 for 0.0590.
-- [~] **Phase 6 (Day 6)** Replay bench built and the selection half proven (9.9x spend, model-independent). **The quality half needs `ANTHROPIC_API_KEY`**; the bench refuses to write a chart from the stand-in. See `proof/BENCH_STATUS.md`.
+- [x] **Phase 6 (Day 6)** Replay bench and the deletion chart. **1,000 held-out events, 3,000 local model calls, zero failures**: 9.9x on spend for the same Brier (0.5653 against 0.5667). See `proof/BENCH.md`.
 - [x] **Phase 7 (Day 7)** Virtuals ACP. **Job 75249 completed on Base mainnet**: pundit_5 hired pundit_1, paid 0.01 USDC into escrow, received a forecast from the real runtime, escrow released. See `proof/VIRTUALS.md`.
 - [~] **Phase 8 (Day 8)** Trust map shipped: `python -m web.build_site` renders one self-contained HTML file straight from the pundit databases. No server, no npm, nothing fetched at view time. Standings and event feed still to do.
 - [ ] **Phase 9 (Day 9)** Opinion market between agents. Cuttable. Buffer if behind.
