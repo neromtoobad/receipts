@@ -11,21 +11,20 @@
  *  answered. That divergence is the product, so the page shows the derivation
  *  rather than asserting a character.
  *
- *  The names are viewing-centre honorifics, which is where the project's whole
- *  frame comes from: the room where everyone has an opinion and nobody keeps
- *  records.
+ *  The names are drawn from forecasting and record-keeping, because that is the
+ *  whole job: call it, write it down, and be held to it.
  */
 import type { Cell, Pundit } from './data'
 
 export type Identity = { id: string; name: string; color: string; seat: string; portrait: string }
 
 export const PUNDITS: Identity[] = [
-  { id: 'pundit_1', name: 'CHAIRMAN', color: '#E8A33D', seat: 'seat one' , portrait: '/pundits/chairman.png' },
-  { id: 'pundit_2', name: 'PROF',     color: '#59B7E8', seat: 'seat two' , portrait: '/pundits/prof.png' },
-  { id: 'pundit_3', name: 'OGA',      color: '#35C47F', seat: 'seat three' , portrait: '/pundits/oga.png' },
-  { id: 'pundit_4', name: 'BABA',     color: '#C77DD8', seat: 'seat four' , portrait: '/pundits/baba.png' },
-  { id: 'pundit_5', name: 'SHARP',    color: '#E0645A', seat: 'seat five' , portrait: '/pundits/sharp.png' },
-  { id: 'pundit_6', name: 'COACH',    color: '#8FBF52', seat: 'seat six' , portrait: '/pundits/coach.png' },
+  { id: 'pundit_1', name: 'AUGUR',  color: '#E8A33D', seat: 'seat one',   portrait: '/pundits/augur.png' },
+  { id: 'pundit_2', name: 'CIPHER', color: '#59B7E8', seat: 'seat two',   portrait: '/pundits/cipher.png' },
+  { id: 'pundit_3', name: 'TALLY',  color: '#35C47F', seat: 'seat three', portrait: '/pundits/tally.png' },
+  { id: 'pundit_4', name: 'QUORUM', color: '#C77DD8', seat: 'seat four',  portrait: '/pundits/quorum.png' },
+  { id: 'pundit_5', name: 'VERTEX', color: '#E0645A', seat: 'seat five',  portrait: '/pundits/vertex.png' },
+  { id: 'pundit_6', name: 'LEDGER', color: '#8FBF52', seat: 'seat six',   portrait: '/pundits/ledger.png' },
 ]
 
 export const identityOf = (id: string): Identity =>
