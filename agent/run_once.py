@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import argparse
 import json
+from collections import defaultdict
 import sys
 import time
 from pathlib import Path
@@ -32,15 +33,33 @@ from evidence.catalogue import CATALOGUE, write_reference
 
 
 def pick_market(buyer: Buyer, domain: str | None, mem) -> dict | None:
-    """The first open market this pundit has not already forecast.
+    """The next unforecast market, from the domain this pundit knows least about.
 
-    Six pundits share the market list on purpose: same markets, same budget,
-    different memories is the whole comparison.
+    Taking the first open market meant taking football every time, because
+    fixtures come first in the list. Football results lag about two days in the
+    feed, so nothing resolved, no source earned trust, and the trust map stayed
+    empty. Crypto resolves in an hour.
+
+    Balancing by domain also spreads learning across all eight rather than
+    over-fitting the one that happens to sort first. Reliability is per-domain,
+    so a domain never forecast is a domain never learned.
     """
-    for m in buyer.markets(domain):
-        if not mem.has_forecast(m["id"]):
-            return m
-    return None
+    open_markets = buyer.markets(domain)
+    unseen = [m for m in open_markets if not mem.has_forecast(m["id"])]
+    if not unseen:
+        return None
+
+    seen = defaultdict(int)
+    for e in mem.recent_events(limit=400):
+        x = e.get("extra") or {}
+        if x.get("kind") == "forecast":
+            seen[x.get("domain")] += 1
+
+    by_domain = defaultdict(list)
+    for m in unseen:
+        by_domain[m["domain"]].append(m)
+    thinnest = min(by_domain, key=lambda d: (seen[d], d))
+    return by_domain[thinnest][0]
 
 
 def main() -> int:
