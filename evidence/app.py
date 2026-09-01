@@ -11,6 +11,7 @@ with an answer.
 from __future__ import annotations
 
 import os
+import sys
 import time
 from typing import Any
 
@@ -35,7 +36,7 @@ SETTLE = os.environ.get("EVIDENCE_SETTLE", "1") != "0"
 MARKET_TTL = 300
 
 app = FastAPI(title="RECEIPTS evidence", version="0.1")
-_markets: dict[str, Any] = {"at": 0.0, "by_id": {}}
+_markets: dict[str, Any] = {"at": 0.0, "by_id": {}, "stale_since": None}
 _fitted = load_fitted()
 
 
@@ -46,21 +47,49 @@ MARKETS_FILE = os.environ.get("EVIDENCE_MARKETS_FILE")
 
 
 def markets() -> dict[str, dict]:
-    if time.time() - _markets["at"] > MARKET_TTL or not _markets["by_id"]:
+    """Serve the market list, and NEVER let a flaky upstream take it down.
+
+    open_markets() hits live feeds. One SSL EOF from football-data or a throttle
+    from the candle aggregator used to raise straight out of here, 500 the
+    endpoint, and kill that pundit's whole tick. Over a ten-day unattended run
+    that was the single largest source of missed forecasts.
+
+    A stale market list is worth far more than no market list: the fixtures move
+    slowly, so last-known-good is almost always still correct.
+    """
+    fresh_needed = time.time() - _markets["at"] > MARKET_TTL or not _markets["by_id"]
+    if not fresh_needed:
+        return _markets["by_id"]
+
+    try:
         if MARKETS_FILE:
             import json as _json
             src = _json.loads(open(MARKETS_FILE).read())
         else:
             src = data.open_markets()
-        _markets["by_id"] = {m["id"]: m for m in src}
-        _markets["at"] = time.time()
+        if src:
+            _markets["by_id"] = {m["id"]: m for m in src}
+            _markets["at"] = time.time()
+            _markets["stale_since"] = None
+        elif not _markets["by_id"]:
+            raise RuntimeError("no markets available and nothing cached")
+    except Exception as exc:
+        if not _markets["by_id"]:
+            raise                       # nothing to fall back on: a real failure
+        _markets["stale_since"] = _markets["stale_since"] or time.time()
+        _markets["at"] = time.time() - MARKET_TTL + 60   # retry in a minute, not on every call
+        print(f"[markets] refresh failed, serving {len(_markets['by_id'])} cached "
+              f"({type(exc).__name__}); stale for "
+              f"{int(time.time() - _markets['stale_since'])}s", file=sys.stderr)
     return _markets["by_id"]
 
 
 @app.get("/health")
 def health():
+    stale = _markets.get("stale_since")
     return {"ok": True, "informants": len(INFORMANTS), "calibration_loaded": _fitted,
-            "markets_cached": len(_markets["by_id"]), "pay_to": PAY_TO}
+            "markets_cached": len(_markets["by_id"]), "pay_to": PAY_TO,
+            "markets_stale_seconds": int(time.time() - stale) if stale else 0}
 
 
 @app.get("/markets")

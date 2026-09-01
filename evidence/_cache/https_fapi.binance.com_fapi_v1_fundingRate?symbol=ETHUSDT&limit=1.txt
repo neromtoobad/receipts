@@ -1,1 +1,1 @@
-[{"symbol":"ETHUSDT","fundingTime":1788163200002,"fundingRate":"0.00003522","markPrice":"2439.02000000","rateType":"Regular"}]
+[{"symbol":"ETHUSDT","fundingTime":1788192000001,"fundingRate":"0.00007702","markPrice":"2466.41000000","rateType":"Regular"}]
