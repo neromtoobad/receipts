@@ -12,7 +12,7 @@ import { RC, alpha } from '../lib/theme'
 import type { FeedItem, League as L, Pundit } from '../lib/data'
 import { PunditView } from './PunditView'
 import { Feed } from './Feed'
-import { Roster } from './Roster'
+import { AgentCards } from './AgentCards'
 import { Calls } from './Calls'
 import { identityOf } from '../lib/pundits'
 
@@ -28,15 +28,7 @@ export function League({ league, frames }: { league: L; frames: Frames }) {
     <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) 372px', gap: 26,
                   alignItems: 'start' }} className="home-grid">
       <div>
-        <div className="eyebrow" style={{ marginBottom: 10 }}>Trust maps</div>
-        <p style={{ fontSize: 13.5, color: RC.ink3, margin: '0 0 14px', maxWidth: 720,
-                    lineHeight: 1.6 }}>
-          What each pundit has worked out about each informant, in each domain, by paying for it.
-          Nothing here was told to it: the catalogue it reads advertises prices and coverage and
-          never a hit rate.
-        </p>
-
-        <Roster pundits={league.pundits} selected={sel} onSelect={setSel} />
+        <AgentCards pundits={league.pundits} selected={sel} onSelect={setSel} />
 
         {p && (
           <div style={{ marginTop: 26 }}>

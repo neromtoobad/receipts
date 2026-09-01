@@ -19,7 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             Inter for UI. JetBrains Mono for every number, because every number
             here is a measurement and should read like one. */}
         <link
-          href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
           rel="stylesheet"
         />
         <style>{`
@@ -52,6 +52,23 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           ::selection { background:var(--rc-brand); color:var(--rc-bg) }
           .mono { font-family:'JetBrains Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums }
           .display { font-family:'Bricolage Grotesque',Inter,sans-serif; letter-spacing:-.02em }
+          /* Editorial serif for section headlines. A page of grotesque at one size
+             is what "AI-generic" looks like; the serif gives the page a voice and
+             a second tier in the type scale. */
+          .serif { font-family:'Instrument Serif',Georgia,serif; font-weight:400;
+            letter-spacing:-.015em; line-height:1.05 }
+          .h-sect { font-size:clamp(28px,3.4vw,44px); margin:8px 0 10px }
+          .lede { font-size:15px; color:var(--rc-ink-3); line-height:1.65; max-width:640px }
+          .btn { display:inline-flex; align-items:center; gap:8px; border-radius:9px;
+            padding:11px 18px; font-size:14px; font-weight:600; cursor:pointer;
+            font-family:inherit; border:1px solid transparent;
+            transition:transform 200ms cubic-bezier(.16,1,.3,1), background 200ms, border-color 200ms }
+          .btn-primary { background:var(--rc-brand); color:#17120A }
+          .btn-primary:hover { transform:translateY(-1px); background:#F2B457 }
+          .btn-ghost { border-color:var(--rc-line-2); color:var(--rc-ink-2) }
+          .btn-ghost:hover { border-color:var(--rc-brand); color:var(--rc-ink) }
+          .sect { padding:56px 0 8px }
+          nav a:hover { color:var(--rc-ink) }
           .wrap { max-width:1180px; margin:0 auto; padding:0 24px; position:relative; z-index:1 }
           .eyebrow { font-size:11px; letter-spacing:.18em; text-transform:uppercase;
             color:var(--rc-ink-3); font-weight:600 }
