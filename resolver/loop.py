@@ -44,7 +44,7 @@ def base_brier(domain: str) -> float:
 # Test runs leave databases behind in memory/. The resolver must not treat them
 # as league members, or a test fixture ends up in the standings.
 NOT_A_PUNDIT = ("commons", "probe", "scratch", "demo")
-TEST_PREFIXES = ("t_", "s_", "arm_", "bench_")
+TEST_PREFIXES = ("t_", "s_", "p_", "arm_", "bench_")
 
 
 def pundit_ids() -> list[str]:

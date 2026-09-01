@@ -25,7 +25,7 @@ from evidence.signals import CRYPTO_DOMAINS, FOOTBALL_DOMAINS
 
 DOMAINS = list(FOOTBALL_DOMAINS) + list(CRYPTO_DOMAINS)
 SKIP = {"commons"}
-TEST_PREFIXES = ("t_", "s_", "arm_", "bench_", "probe", "scratch", "demo", "pundit_preview")
+TEST_PREFIXES = ("t_", "s_", "p_", "arm_", "bench_", "probe", "scratch", "demo", "pundit_preview")
 
 
 def pundit_ids() -> list[str]:

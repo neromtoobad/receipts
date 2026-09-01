@@ -19,5 +19,5 @@ def pytest_sessionfinish(session, exitstatus):
     where the resolver and the dashboard would treat them as real members."""
     from agent.memory import MEMORY_DIR
     for db in MEMORY_DIR.glob("*.db*"):
-        if db.stem.startswith(("t_", "s_", "arm_", "bench_")) or db.stem in {"probe", "scratch"}:
+        if db.stem.startswith(("t_", "s_", "p_", "arm_", "bench_")) or db.stem in {"probe", "scratch"}:
             db.unlink(missing_ok=True)
