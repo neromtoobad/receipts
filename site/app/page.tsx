@@ -1,30 +1,29 @@
+import Link from 'next/link'
 import { RC, alpha } from '../lib/theme'
 import { LEAGUE } from '../lib/data'
+import { identityOf } from '../lib/pundits'
 import { Nav } from '../components/Nav'
 import { Section } from '../components/Section'
-import { League } from '../components/League'
-import { DeletionChart } from '../components/DeletionChart'
 import { HowItWorks } from '../components/HowItWorks'
-import punditFrames from '../../web/data/league.json'
+import { Foot } from '../components/Foot'
 
 const BASE = process.env.NODE_ENV === 'production' ? '/receipts' : ''
 
 export default function Home() {
   const L = LEAGUE
-  const frames: Record<string, any[]> = Object.fromEntries(
-    (punditFrames as any).pundits.map((p: any) => [p.id, p.frames ?? []]))
-  const lead = [...L.pundits].sort((a, b) => (a.brier ?? 99) - (b.brier ?? 99))[0]
+  const ranked = [...L.pundits].sort((a, b) => (a.brier ?? 99) - (b.brier ?? 99))
+  const lead = ranked[0]
 
   return (
     <>
       <Nav />
 
-      {/* Hero. Two-tone serif headline, one visual, two ways in. */}
-      <header id="top" style={{ position: 'relative', overflow: 'hidden',
-                                borderBottom: `1px solid ${RC.line}` }}>
+      <header style={{ position: 'relative', overflow: 'hidden',
+                       borderBottom: `1px solid ${RC.line}` }}>
         <img src={`${BASE}/pundits/augur.png`} alt="" aria-hidden
              style={{ position: 'absolute', right: '-4%', top: '-14%', width: 620, maxWidth: '58vw',
-                      opacity: .5, maskImage: 'radial-gradient(58% 58% at 52% 46%, #000 42%, transparent 76%)',
+                      opacity: .5,
+                      maskImage: 'radial-gradient(58% 58% at 52% 46%, #000 42%, transparent 76%)',
                       WebkitMaskImage: 'radial-gradient(58% 58% at 52% 46%, #000 42%, transparent 76%)',
                       pointerEvents: 'none' }} />
         <div className="wrap" style={{ padding: '76px 24px 52px', position: 'relative' }}>
@@ -41,8 +40,8 @@ export default function Home() {
             survives is what it wrote to memory.
           </p>
           <div style={{ display: 'flex', gap: 10, marginTop: 26, flexWrap: 'wrap' }}>
-            <a className="btn btn-primary" href="#maps">See what they learned →</a>
-            <a className="btn btn-ghost" href="#proof">Delete the memory</a>
+            <Link className="btn btn-primary" href="/agents">See what they learned →</Link>
+            <Link className="btn btn-ghost" href="/proof">Delete the memory</Link>
           </div>
           <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 34 }}>
             <Stat k="calls on record" v={String(L.totals.forecasts)} />
@@ -53,63 +52,66 @@ export default function Home() {
         </div>
       </header>
 
-      <div className="wrap" style={{ paddingBottom: 80 }}>
-        <Section id="proof" eyebrow="the deletion test" title="Same agent, same market."
-                 accent="One tenth the cost."
-                 lede={<>Delete the memory layer and it buys ten times as many informants and spends
-                   ten times as much, for the same forecast. 1,000 held-out events, 3,000 local
-                   model calls, zero failures — reproducible with one command and no API key.</>}>
+      <div className="wrap" style={{ paddingBottom: 70 }}>
+        <Section eyebrow="the deletion test" title="Delete the memory and it spends"
+          accent="ten times as much."
+          lede={<>The gate for this hackathon is whether the project still works without its memory.
+            So we removed it, a thousand times, and measured. Same budget, same informants, same
+            prompt, same model — the only difference is what each arm is allowed to remember.</>}>
           <div className="card" style={{ padding: 22, borderColor: alpha(RC.brand, .26) }}>
-            <DeletionChart />
-            <p style={{ fontSize: 12.5, color: RC.ink4, marginTop: 18, maxWidth: 780,
-                        lineHeight: 1.65 }}>
-              The Brier column is a tie and is reported as one: the memory arm leads in every split
-              but by at most 0.0019, too small to call a quality win. The claim is{' '}
-              <b style={{ color: RC.ink2 }}>the same forecast for a tenth of the cost</b> — the one
-              that survives a judge&apos;s follow-up question.
-            </p>
+            <div style={{ display: 'flex', gap: 30, flexWrap: 'wrap', alignItems: 'center' }}>
+              <div>
+                <div className="serif" style={{ fontSize: 62, color: RC.brand, lineHeight: 1 }}>9.9×</div>
+                <div className="eyebrow" style={{ marginTop: 6 }}>the spend, same forecast</div>
+              </div>
+              <div style={{ display: 'flex', gap: 26, flexWrap: 'wrap' }}>
+                <Mini k="with memory" v="$5.34" c={RC.green} sub="0.56 informants a call" />
+                <Mini k="without" v="$53.00" c={RC.red} sub="4.50 informants a call" />
+                <Mini k="brier" v="0.5653 vs 0.5667" c={RC.ink2} sub="a tie, and reported as one" />
+              </div>
+              <Link className="btn btn-ghost" href="/proof"
+                    style={{ marginLeft: 'auto' }}>See the method →</Link>
+            </div>
           </div>
         </Section>
 
-        <Section id="agents" eyebrow="the league" title="Six seats." accent="One of them is ahead."
-                 lede={<>They are the same agent six times over. What separates them is only what
-                   each has paid to learn, so the names are labels and everything else on a card is
-                   read off its own record.{lead?.brier != null && <> Right now{' '}
-                   <b style={{ color: RC.ink2 }}>{lead.id}</b> leads on Brier.</>}</>}>
-          <div id="maps" />
-          <League league={L} frames={frames} />
+        <Section eyebrow="the league" title="Six seats." accent="One of them is ahead."
+          lede={<>They are the same agent six times over. Everything that separates them was paid
+            for.{lead?.brier != null && <> <b style={{ color: RC.ink2 }}>{identityOf(lead.id).name}
+            </b> leads on Brier right now.</>}</>}>
+          <Link href="/agents" style={{ display: 'block' }}>
+            <div style={{ display: 'grid', gap: 12,
+                          gridTemplateColumns: 'repeat(auto-fill,minmax(150px,1fr))' }}>
+              {ranked.map((p, i) => {
+                const id = identityOf(p.id)
+                return (
+                  <div key={p.id} className="lift" style={{ background: RC.surface, borderRadius: 12,
+                        overflow: 'hidden', border: `1px solid ${i === 0 ? alpha(id.color, .5) : RC.line}` }}>
+                    <div style={{ position: 'relative', aspectRatio: '1/1' }}>
+                      <img src={`${BASE}${id.portrait}`} alt="" width={300} height={300}
+                           style={{ width: '100%', height: '100%', objectFit: 'cover',
+                                    display: 'block' }} />
+                      <div style={{ position: 'absolute', inset: 0,
+                                    background: `linear-gradient(180deg,transparent 46%,${RC.surface} 98%)` }} />
+                      <div style={{ position: 'absolute', left: 11, bottom: 8 }}>
+                        <div className="display" style={{ fontSize: 16, color: RC.ink }}>{id.name}</div>
+                        <div className="mono" style={{ fontSize: 10.5, color: id.color }}>
+                          {p.brier == null ? '—' : p.brier.toFixed(4)}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+          </Link>
         </Section>
 
-        <Section id="how" eyebrow="how it works" title="Buy, call, die," accent="remember.">
+        <Section eyebrow="how it works" title="Buy, call, die," accent="remember.">
           <HowItWorks />
         </Section>
-
-        <Section eyebrow="proof" title="Everything here is" accent="a hash or a measurement.">
-          <div style={{ display: 'grid', gap: 12,
-                        gridTemplateColumns: 'repeat(auto-fill,minmax(258px,1fr))' }}>
-            <Proof k="Base · x402 settlement" v="0xb0cc50db…64eebc"
-                   sub="0.012 USDC, block 46195402. Gas paid by the facilitator, not the agent."
-                   href="https://sepolia.basescan.org/tx/0xb0cc50dbf1530884b0789f15b0498632bb50d6a74b74336b58659fefd864eebc" />
-            <Proof k="Virtuals · ACP job 75249" v="completed"
-                   sub="pundit_5 hired pundit_1 on Base mainnet, escrow funded and released." />
-            <Proof k="Informant reliability" v="6,462 matches"
-                   sub="6 leagues, 3 seasons. Calibrated on one season, measured on two it never saw."
-                   href="https://github.com/neromtoobad/receipts/blob/main/proof/DOMAINS.md" />
-            <Proof k="Memory, measured" v="42ms cold boot"
-                   sub="Boot to decision. 1,757 traced forecasts fit per pundit database."
-                   href="https://github.com/neromtoobad/receipts/blob/main/proof/PHASE0_FINDINGS.md" />
-          </div>
-        </Section>
       </div>
-
-      <footer style={{ borderTop: `1px solid ${RC.line}`, padding: '24px 0 64px' }}>
-        <div className="wrap" style={{ display: 'flex', gap: 20, flexWrap: 'wrap', fontSize: 12,
-                                       color: RC.ink4 }}>
-          <a href="https://github.com/neromtoobad/receipts" style={{ color: RC.ink3 }}>repo</a>
-          <span>Generated {L.generated.slice(0, 16).replace('T', ' ')}Z from the pundit SQLite stores</span>
-          <span style={{ marginLeft: 'auto' }}>MIT</span>
-        </div>
-      </footer>
+      <Foot generated={L.generated} />
     </>
   )
 }
@@ -125,15 +127,12 @@ function Stat({ k, v, unit }: { k: string; v: string; unit?: string }) {
     </div>
   )
 }
-
-function Proof({ k, v, sub, href }: { k: string; v: string; sub: string; href?: string }) {
-  const inner = (
-    <div className="card lift" style={{ padding: '15px 16px', height: '100%' }}>
-      <div className="eyebrow">{k}</div>
-      <div className="mono" style={{ fontSize: 15, color: RC.brand, margin: '7px 0 6px',
-                                     wordBreak: 'break-all' }}>{v}</div>
-      <div style={{ fontSize: 12, color: RC.ink3, lineHeight: 1.6 }}>{sub}</div>
+function Mini({ k, v, c, sub }: { k: string; v: string; c: string; sub: string }) {
+  return (
+    <div>
+      <div className="eyebrow" style={{ fontSize: 9.5 }}>{k}</div>
+      <div className="mono" style={{ fontSize: 21, color: c, margin: '3px 0 2px' }}>{v}</div>
+      <div style={{ fontSize: 11.5, color: RC.ink4 }}>{sub}</div>
     </div>
   )
-  return href ? <a href={href}>{inner}</a> : inner
 }
