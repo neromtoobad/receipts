@@ -35,13 +35,14 @@ from agent.forecast import BENCH_MODEL, SYSTEM_SHA, forecast, provider_for
 
 _load_env()
 from agent.memory import Memory
+from agent.recall import as_line, own_record
 from agent.sources import ARMS, select
 from bench.corpus import load_replay
 from evidence.catalogue import CATALOGUE
 from evidence.signals import INFORMANTS, fit_all, outcomes_for
 
 BUDGET = 0.060
-EXPECTED_SYSTEM_SHA = "33495af058e60a30f2215dd7a348a4a4570a839abfdb9636366dd4d92cbb5da7"
+EXPECTED_SYSTEM_SHA = "f01839e731d42294fefa8849d06d5cc9b8c5520ebd0441099a994595f1a67318"
 
 # proof/BENCH.md IS the chart. A smoke run must never be able to write it: at a
 # dozen events the arms have not learned anything yet, so the numbers are noise
@@ -70,6 +71,7 @@ def run_arm(arm: str, events, rates, bb, model, offline, quiet=False, rpm: float
     """One arm, walking the corpus in time order with a fresh empty memory."""
     with tempfile.TemporaryDirectory() as tmp:
         mem = Memory(f"bench_{arm}", db_path=Path(tmp) / f"{arm}.db")
+        resolved_briers: list[float] = []
         stats = {"arm": arm, "n": 0, "hit": 0, "brier": 0.0, "spend": 0.0,
                  "bought": 0, "bought_by": defaultdict(int), "empty_buys": 0,
                  # Crypto is three quarters of the corpus, so a blended average
@@ -100,9 +102,18 @@ def run_arm(arm: str, events, rates, bb, model, offline, quiet=False, rpm: float
 
             if rpm:
                 time.sleep(60.0 / rpm)
+            # Only the remembering arms can recall their own record: it is a
+            # journal search, and the amnesiac has no journal to search.
+            record = None
+            if arm != "amnesiac":
+                seen = [x for x in resolved_briers if x is not None]
+                record = as_line(own_record(mem, e["id"]),
+                                 sum(seen) / len(seen) if seen else None)
+
             out = forecast({"domain": domain, "question": e["question"],
                             "outcomes": e["outcomes"]},
-                           rates[domain], evidence, model=model, offline=offline)
+                           rates[domain], evidence, model=model, offline=offline,
+                           record=record)
             stats["resolved_models"].add(out.get("resolved_model") or out["model"])
             probs = out["probabilities"]
             pick = max(probs, key=probs.get)
@@ -116,6 +127,20 @@ def run_arm(arm: str, events, rates, bb, model, offline, quiet=False, rpm: float
             f = stats["by_family"][fam]
             f["n"] += 1; f["hit"] += (pick == e["result"]); f["brier"] += b
             f["spend"] += spend; f["bought"] += len(choices)
+
+            resolved_briers.append(b)
+
+            # The arms must journal what they did, or own_record() has nothing to
+            # search and the recall path would be inert in the very benchmark
+            # meant to measure it. The amnesiac writes too — it simply never
+            # reads any of it back.
+            mem.log_forecast(e["id"], domain, probs, float(out.get("confidence") or 0),
+                             str(out.get("reasoning") or "")[:200],
+                             out.get("leaned_on") or [], list(said), spend)
+            mem.log_event(evaluated=[f"{e['id']} resolved {e['result']}"],
+                          extra={"kind": "resolution", "market": e["id"], "domain": domain,
+                                 "outcome": e["result"], "brier": round(b, 4),
+                                 "sources": list(said)})
 
             for src, (payload, cost) in said.items():
                 mem.observe(src, domain, brier(payload, e["result"]), bb[domain], cost)

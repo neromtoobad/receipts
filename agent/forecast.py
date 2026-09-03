@@ -77,6 +77,13 @@ weight stated is unproven, not trustworthy by default.
 If the evidence sources disagree, do not split the difference mechanically. \
 Prefer the higher-weighted source and say so.
 
+You may also be given YOUR OWN RECORD on this matchup: how your previous calls \
+on these teams or this symbol actually resolved. That is not evidence you \
+bought, it is your own history. Use it to set confidence, not to invent a \
+direction: a record showing you have been unusually accurate here is a reason to \
+commit, and one showing you have been unusually wrong here is a reason to stay \
+nearer the base rate. It never tells you which way to lean.
+
 If you were given no evidence at all, that is a legitimate position, not a \
 failure. Return the base rate. Do not invent a signal you do not have, and do \
 not drift away from the base rate to look decisive.
@@ -100,7 +107,7 @@ SYSTEM_SHA = hashlib.sha256(SYSTEM.encode()).hexdigest()
 
 
 def build_user_message(market: dict, base_rate: dict[str, float],
-                       evidence: list[dict]) -> str:
+                       evidence: list[dict], record: str | None = None) -> str:
     lines = [
         f"MARKET: {market['question']}",
         f"domain: {market['domain']}",
@@ -108,6 +115,9 @@ def build_user_message(market: dict, base_rate: dict[str, float],
         "base rate: " + ", ".join(f"{k} {v:.3f}" for k, v in base_rate.items()),
         "",
     ]
+    if record:
+        lines.append(f"YOUR OWN RECORD: {record}")
+        lines.append("")
     if not evidence:
         lines.append("EVIDENCE: none purchased for this market.")
     else:
@@ -187,12 +197,13 @@ def _with_retry(call, attempts: int = 8):
 
 
 def forecast(market: dict, base_rate: dict[str, float], evidence: list[dict], *,
-             model: str = LIVE_MODEL, offline: bool = False) -> dict[str, Any]:
+             model: str = LIVE_MODEL, offline: bool = False,
+             record: str | None = None) -> dict[str, Any]:
     """One forecast. Returns probabilities, confidence, reasoning, leaned_on."""
     if offline:
         return {**_offline(market, base_rate, evidence), "model": "offline"}
 
-    user = build_user_message(market, base_rate, evidence)
+    user = build_user_message(market, base_rate, evidence, record)
     provider = provider_for(model)
 
     resolved = model

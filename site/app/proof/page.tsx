@@ -17,11 +17,11 @@ export default function Proof() {
       <div className="wrap" style={{ paddingBottom: 80 }}>
         <Section eyebrow="the deletion test" title="Same agent, same market."
           accent="One tenth the cost."
-          lede={<>The gate for this hackathon is whether the project still works with the memory
-            removed. So we removed it, 1,000 times, and measured what happened. Three arms walk the
-            same held-out corpus in time order, each starting from an empty database. Same budget,
-            same informants at the same prices, same prompt, same model. The only difference is what
-            each is allowed to remember.</>}>
+          lede={<>An agent that pays for its own inputs has two jobs: decide what to believe, and
+            decide what to buy. Take the memory away and the second becomes impossible — no basis to
+            rank a source, no basis to stop, no way to learn that one has never beaten a coin flip.
+            So it buys everything, every time, forever. That is the core function failing, not an
+            optimisation being lost: an agent that cannot budget cannot be left running.</>}>
           <div className="card" style={{ padding: 22, borderColor: alpha(RC.brand, .26) }}>
             <DeletionChart />
           </div>
@@ -31,8 +31,10 @@ export default function Proof() {
           accent="The quality result is a tie.">
           <div style={{ display: 'grid', gap: 12,
                         gridTemplateColumns: 'repeat(auto-fill,minmax(300px,1fr))' }}>
-            <Note title="Why spend is the honest headline"
-              body="An arm learns from what each SOURCE said against the outcome, never from its own forecast. So selection is settled entirely by memory and the spend figures hold whatever forecaster runs on top. 9.9× overall, 6.0× on football, 67× on crypto." />
+            <Note title="Why spend is the function, not an optimisation"
+              body="The amnesiac buys 4.50 informants for every call and never stops, because nothing in it can know the eighth opinion adds nothing to the first. At these prices it burns a month of funding in three days for the same forecasts. Autonomy is what memory is holding up here, and autonomy is what stops working without it." />
+            <Note title="Why the number is trustworthy"
+              body="An arm learns from what each SOURCE said against the outcome, never from its own forecast. Selection is settled entirely by memory, so the spend figures hold whatever forecaster runs on top — they are not an artefact of the model we happened to use." />
             <Note title="Why we do not claim a quality win"
               body="The memory arm leads on Brier in all three splits and the direction is consistent, but the largest margin is 0.0019 and accuracy favours the amnesiac by 0.3 points. That is noise in both directions. Inflating it would collapse under one question." />
             <Note title="Why the third arm exists"

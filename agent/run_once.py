@@ -29,6 +29,7 @@ from agent.buyer import Buyer
 from agent.forecast import BENCH_MODEL, LIVE_MODEL, SYSTEM_SHA, forecast
 from agent.memory import Commons, Memory
 from agent.peers import PEER_PRICE, offers
+from agent.recall import as_line, own_record
 from agent.sources import ARMS, explain, select
 from evidence.catalogue import CATALOGUE, write_reference
 
@@ -162,7 +163,24 @@ def main() -> int:
             say(f"[{a.agent}]   bought {ch.source:14} {got['price']:.4f} "
                 f"but it has no data here")
 
-    out = forecast(market, base_rate, evidence, model=model, offline=a.offline)
+    # What do I already know about these teams? Only the journal can answer that,
+    # and only by searching it: reliability entities are keyed by source and
+    # domain, and a team is neither.
+    record = None
+    if a.arm != "amnesiac":
+        try:
+            resolved = [e["extra"] for e in mem.recent_events(limit=400)
+                        if (e.get("extra") or {}).get("kind") == "resolution"]
+            briers = [x["brier"] for x in resolved if x.get("brier") is not None]
+            record = as_line(own_record(mem, market["id"]),
+                             sum(briers) / len(briers) if briers else None)
+            if record:
+                say(f"[{a.agent}] recalled: {record}")
+        except Exception as exc:
+            say(f"[{a.agent}] recall unavailable: {exc}")
+
+    out = forecast(market, base_rate, evidence, model=model, offline=a.offline,
+                   record=record)
     mem.mark_forecast(market["id"])
     mem.log_forecast(market["id"], domain, out["probabilities"], out["confidence"],
                      out["reasoning"], out["leaned_on"],

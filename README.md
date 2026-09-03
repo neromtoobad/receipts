@@ -15,11 +15,25 @@ of who to trust, on what — and that map is the entire edge.
 
 ---
 
+## What breaks without memory
+
+An agent that pays for its own inputs has two jobs: decide what to believe, and
+decide what to buy. Take the memory away and the second job becomes impossible —
+not slower, impossible. There is no basis to rank an informant, no basis to stop
+buying, and no way to learn that a source has never once beaten a coin flip.
+
+So it buys everything, every time, forever.
+
+That is the core function failing, not an optimisation being lost. An agent that
+cannot budget cannot be left running: at these prices the amnesiac burns its
+month of funding in three days and produces the same forecasts doing it. The
+thing memory is holding up here is **autonomy**, and autonomy is exactly what
+stops working when you delete it.
+
 ## The deletion test
 
-Delete the memory layer and the same agent, on the same market, with the same
-model and the same prompt, **buys ten times as many informants and spends ten
-times as much**, for no better forecast.
+Same market, same model, same prompt, same budget. The only difference is what
+each arm is allowed to remember.
 
 | arm | informants bought | spend/forecast | 1,000 forecasts |
 |---|---|---|---|
@@ -30,6 +44,11 @@ times as much**, for no better forecast.
 **9.9x on spend, for the same forecast quality.** Football alone is 6.0x. Crypto
 alone is **67x**, because the memory arm learns there is nothing there worth
 paying for and very nearly stops buying at all.
+
+Read the last column before the cost one: an agent with no memory buys **4.50
+informants for every single call** and never stops, because nothing in it can
+know that the eighth opinion adds nothing to the first. That is the failure. The
+bill is just how it shows up.
 
 Brier across 1,000 held-out events: **0.5653 with memory, 0.5667 without.** The
 memory arm is ahead in every split and the direction is consistent, but the
