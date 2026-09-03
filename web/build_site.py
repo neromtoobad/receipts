@@ -202,10 +202,12 @@ def build() -> str:
 
 
 if __name__ == "__main__":
-    html = build()
-    # docs/ is what GitHub Pages serves, so it is committed. web/ is the local
-    # working copy and stays ignored.
-    for out in (ROOT / "docs" / "index.html", ROOT / "web" / "index.html"):
-        out.parent.mkdir(exist_ok=True)
-        out.write_text(html)
-        print(f"wrote {out.relative_to(ROOT)} ({out.stat().st_size:,} bytes)")
+    # SUPERSEDED by site/ (the Next app). Kept as an offline fallback that needs
+    # no node, and deliberately writes ONLY to web/. It used to write docs/ too,
+    # and because the league calls the dashboard build every tick that quietly
+    # overwrote the real site with this one every twenty minutes.
+    out = ROOT / "web" / "fallback.html"
+    out.parent.mkdir(exist_ok=True)
+    out.write_text(build())
+    print(f"wrote {out.relative_to(ROOT)} ({out.stat().st_size:,} bytes)")
+    print("note: docs/ belongs to the Next export (cd site && npm run export)")

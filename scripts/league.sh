@@ -66,7 +66,10 @@ while true; do
   done
 
   python -m resolver.loop --once --quiet >> "$LOG" 2>&1 || miss "resolver exited non-zero"
-  python -m web.build_site >/dev/null 2>&1 || miss "dashboard rebuild failed"
+  # Refresh the data the site reads. Rebuilding the site itself is a publish
+  # step, not a tick step — this used to call web.build_site, which owned
+  # docs/ and silently reverted the real UI on every tick.
+  python -m web.export >/dev/null 2>&1 || miss "league export failed"
 
   DONE=$(python - <<'PY'
 import sys; sys.path.insert(0, ".")

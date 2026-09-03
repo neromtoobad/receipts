@@ -9,7 +9,8 @@
 set -eu
 cd "$(dirname "$0")/.."
 . .venv/bin/activate
-python -m web.build_site >/dev/null
+python -m web.export >/dev/null            # refresh league.json
+(cd site && npm run export >/dev/null)     # build the real site into docs/
 if git diff --quiet -- docs/index.html; then
   echo "no change to publish"
   exit 0
