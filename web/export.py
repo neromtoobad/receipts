@@ -19,7 +19,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from agent.memory import PROMOTE_N, SKILL_FULL_TRUST, TRUST_SHRINK, Memory
+from agent.memory import (PROMOTE_N, SKILL_FULL_TRUST, SKILL_SHRINK, TRUST_SHRINK,
+                          Memory, shrunk_skill)
 from evidence.catalogue import CATALOGUE
 from evidence.signals import CRYPTO_DOMAINS, FOOTBALL_DOMAINS
 
@@ -98,6 +99,7 @@ def replay(pid: str) -> dict:
                 skill = round(1 - mean / bb, 4) if bb else 0.0
                 changed[key] = {
                     "source": src, "domain": domain, "n": rec["n"], "skill": skill,
+                    "skill_shrunk": shrunk_skill(skill, rec["n"]),
                     "trust": trust_of(skill, rec["n"]),
                     "state": "established" if rec["n"] >= PROMOTE_N else "provisional",
                 }
@@ -116,7 +118,8 @@ def replay(pid: str) -> dict:
     for b in mem.all_reliability_including_archived():
         cells[f"{b['source']}|{b['domain']}"] = {
             "source": b["source"], "domain": b["domain"], "n": b.get("n", 0),
-            "skill": b.get("skill"), "trust": b.get("trust"),
+            "skill": b.get("skill"), "skill_shrunk": b.get("skill_shrunk"),
+            "trust": b.get("trust"),
             "spend": round(b.get("spend_total", 0.0), 4), "misses": b.get("misses", 0),
             "state": "archived" if b.get("archived") else "established",
             "last_seen": b.get("last_seen"),
@@ -152,7 +155,7 @@ def build() -> dict:
                           "price": v["price_usdc"], "answers_on": v["answers_on"]}
                       for k, v in CATALOGUE.items()},
         "constants": {"promote_n": PROMOTE_N, "skill_full_trust": SKILL_FULL_TRUST,
-                      "trust_shrink": TRUST_SHRINK},
+                      "trust_shrink": TRUST_SHRINK, "skill_shrink": SKILL_SHRINK},
         "pundits": [{**p, "feed": p["feed"][-80:]} for p in ps],
         "feed": feed,
         "totals": {

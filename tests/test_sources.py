@@ -137,3 +137,46 @@ def test_no_memory_at_all_still_produces_a_decision():
     chosen = select(m, "epl", PRICES, 0.060)
     assert chosen, "an agent with no history must still explore"
     assert all(c.skill is None for c in chosen)
+
+
+def test_a_thin_sample_cannot_outrank_a_measured_one():
+    """Three resolutions of luck used to outrank a thoroughly measured edge.
+
+    The live league produced hexagon_desk at +0.321 on seriea from n=3, while the
+    corpus measured that class of source at +0.018 over a thousand matches. Rank
+    on the raw number and the agent buys noise.
+    """
+    m = _mem("s_shrink")
+    _teach(m, "hexagon_desk", "epl", 0.321, FOOTBALL_BASE, 0.012, times=3)
+    _teach(m, "island_desk", "epl", 0.089, FOOTBALL_BASE, 0.012, times=40)
+    lucky = m.get_reliability("hexagon_desk", "epl")
+    solid = m.get_reliability("island_desk", "epl")
+
+    assert lucky["skill"] > solid["skill"], "raw skill favours the lucky one"
+    assert lucky["skill_shrunk"] < solid["skill_shrunk"], (
+        "shrunk skill must favour the measured one: "
+        f"{lucky['skill_shrunk']} vs {solid['skill_shrunk']}")
+    picked = [c.source for c in select(m, "epl", PRICES, 0.060)]
+    assert picked and picked[0] == "island_desk"
+
+
+def test_shrinkage_leaves_a_well_measured_estimate_alone():
+    """Shrinkage must discipline thin samples without punishing real evidence.
+    At 200 resolutions an estimate should keep almost all of its face value."""
+    m = _mem("s_shrink_big")
+    _teach(m, "island_desk", "epl", 0.089, FOOTBALL_BASE, 0.012, times=200)
+    b = m.get_reliability("island_desk", "epl")
+    kept = b["skill_shrunk"] / b["skill"]
+    assert kept > 0.9, f"a 200-sample estimate kept only {kept:.0%} of its value"
+
+
+def test_shrinkage_bites_hardest_exactly_where_the_evidence_is_thinnest():
+    m = _mem("s_shrink_curve")
+    kept = []
+    for n in (3, 10, 40, 200):
+        mm = _mem(f"s_curve_{n}")
+        _teach(mm, "island_desk", "epl", 0.089, FOOTBALL_BASE, 0.012, times=n)
+        b = mm.get_reliability("island_desk", "epl")
+        kept.append(b["skill_shrunk"] / b["skill"])
+    assert kept == sorted(kept), "more evidence must never mean more shrinkage"
+    assert kept[0] < 0.2 and kept[-1] > 0.9

@@ -41,6 +41,27 @@ PROMOTE_N = 3        # resolved observations before a provisional source earns a
 STALE_DAYS = 3       # silence after which a source is archived
 TRUST_SHRINK = 5     # observations at which trust reaches half its evidence weight
 SKILL_FULL_TRUST = 0.12   # measured ceiling: the best desk inside its beat scores +0.12
+SKILL_SHRINK = 20    # observations at which a skill estimate is worth half its face value
+
+
+def shrunk_skill(skill: float | None, n: int) -> float:
+    """Pull a skill estimate toward zero by how little evidence stands behind it.
+
+    Three resolutions can produce +0.32 by luck. The corpus measured that same
+    class of source at +0.018 over a thousand matches. Without this the agent
+    ranks informants on coin flips and the trust map reports noise with a
+    straight face — which is worse than reporting nothing, because it looks
+    like knowledge.
+
+    Standard shrinkage: multiply by n/(n+k). k is 20 because a single Brier
+    observation is very noisy — one three-way match can score anywhere from 0 to
+    2 — so twenty resolutions is roughly where an estimate starts being worth
+    half of what it claims. Calibrated so the live n=3 case (+0.321) lands below
+    a genuinely measured n=40 edge (+0.089), which is the ordering that matters.
+    """
+    if not skill or n <= 0:
+        return 0.0
+    return round(skill * n / (n + SKILL_SHRINK), 4)
 
 CAT_SOURCE = "source_reliability"
 CAT_PEER = "peer_reliability"
@@ -121,6 +142,7 @@ class Memory:
             return None
         body = row.get("body", row)
         body["trust"] = self._decayed_trust(body)
+        body["skill_shrunk"] = shrunk_skill(body.get("skill"), body.get("n", 0))
         return body
 
     def all_reliability(self, domain: str | None = None) -> list[dict[str, Any]]:
@@ -130,6 +152,7 @@ class Memory:
             if domain and body.get("domain") != domain:
                 continue
             body["trust"] = self._decayed_trust(body)
+            body["skill_shrunk"] = shrunk_skill(body.get("skill"), body.get("n", 0))
             out.append(body)
         return out
 
@@ -137,8 +160,8 @@ class Memory:
     def _decayed_trust(body: dict[str, Any]) -> float:
         """Trust is skill, shrunk by how little evidence there is, then decayed
         by how long since the source last proved anything."""
-        skill = body.get("skill", 0.0)
         n = body.get("n", 0)
+        skill = shrunk_skill(body.get("skill"), n)     # never weight raw noise
         if skill <= 0:
             return 0.0
         raw = min(skill / SKILL_FULL_TRUST, 1.0)

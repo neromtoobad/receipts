@@ -26,6 +26,8 @@ from __future__ import annotations
 from collections import defaultdict
 from typing import Any
 
+from agent.memory import shrunk_skill
+
 MIN_SKILL = 0.005        # below this a source is noise and must not be paid for
 MARGINAL_GAIN = 0.01     # a new source must beat what we hold by this to be worth money
 EXPLORE_FRACTION = 0.25  # of the budget, on unproven sources, once a domain is known
@@ -64,8 +66,10 @@ def _global_view(mem) -> dict[str, dict]:
     out = {}
     for src, a in agg.items():
         if a["n"]:
-            skill = a["skill_n"] / a["n"]
-            out[src] = {"source": src, "n": a["n"], "skill": skill,
+            raw = a["skill_n"] / a["n"]
+            skill = shrunk_skill(raw, a["n"])
+            out[src] = {"source": src, "n": a["n"], "skill": raw,
+                        "skill_shrunk": skill,
                         "trust": max(0.0, min(skill / 0.12, 1.0))}
     return out
 
@@ -112,7 +116,11 @@ def select(mem, domain: str, candidates: dict[str, float], budget: float,
         if not body:
             unproven.append((price, src))
             continue
-        skill = body.get("skill", 0.0)
+        # Rank on the shrunk estimate, not the raw one. Three resolutions of luck
+        # used to outrank a source with a real, thoroughly measured edge.
+        skill = body.get("skill_shrunk")
+        if skill is None:
+            skill = shrunk_skill(body.get("skill"), body.get("n", 0))
         if skill < MIN_SKILL:
             continue                       # measured noise. not worth any price.
         ranked.append((skill / price, skill, src, price, body.get("trust")))

@@ -44,8 +44,13 @@ export const alpha = (hex: string, a: number) => {
  *  never disagree about what a colour means. */
 export type CellState = 'established' | 'provisional' | 'archived' | 'none' | 'na'
 
+/** Below this many resolutions an estimate is drawn faintly: it is a reading,
+ *  not a finding, and the map must not present the two identically. */
+export const THIN_N = 8
+
 export function cellStyle(
-  c: { state?: string; trust?: number | null; skill?: number | null; n?: number } | null,
+  c: { state?: string; trust?: number | null; skill?: number | null
+       skill_shrunk?: number | null; n?: number } | null,
   covers: boolean,
 ) {
   if (!covers) return { bg: 'transparent', fg: RC.ink4, label: '', kind: 'na' as CellState }
@@ -55,10 +60,15 @@ export function cellStyle(
              fg: RC.ink3, label: 'arch', kind: 'archived' as CellState }
   if (c.state === 'provisional')
     return { bg: alpha(RC.amber, .22), fg: RC.amberInk, label: `n${c.n ?? 0}`, kind: 'provisional' as CellState }
-  const skill = c.skill ?? 0
+  // Always show the SHRUNK estimate. The raw one is what three lucky
+  // resolutions look like, and showing it would be reporting noise as fact.
+  const skill = c.skill_shrunk ?? c.skill ?? 0
+  const thin = (c.n ?? 0) < THIN_N
+  const fade = thin ? .45 : 1
   if (skill <= 0)
-    return { bg: alpha(RC.red, .42), fg: RC.redInk, label: skill.toFixed(2), kind: 'established' as CellState }
+    return { bg: alpha(RC.red, .42 * fade), fg: RC.redInk, label: skill.toFixed(2),
+             kind: 'established' as CellState, thin }
   const t = c.trust ?? 0
-  return { bg: alpha(RC.green, .14 + .66 * Math.min(t, 1)), fg: RC.greenInk,
-           label: t.toFixed(2), kind: 'established' as CellState }
+  return { bg: alpha(RC.green, (.14 + .66 * Math.min(t, 1)) * fade), fg: RC.greenInk,
+           label: t.toFixed(2), kind: 'established' as CellState, thin }
 }
