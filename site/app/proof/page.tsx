@@ -50,8 +50,8 @@ export default function Proof() {
             <Proofcard k="Base · x402 settlement" v="0xb0cc50db…64eebc"
               sub="0.012 USDC, block 46195402. Gas paid by the facilitator, not the agent — EIP-3009 means the agent needs USDC and no ETH."
               href="https://sepolia.basescan.org/tx/0xb0cc50dbf1530884b0789f15b0498632bb50d6a74b74336b58659fefd864eebc" />
-            <Proofcard k="Virtuals · ACP job 75249" v="completed"
-              sub="pundit_5 hired pundit_1 on Base mainnet, funded escrow, received a forecast from the real runtime, released it."
+            <Proofcard k="Virtuals · ACP job 75820" v="completed"
+              sub="pundit_5 hired pundit_1 on Base mainnet. The deliverable names which source moved it and which it discounted by trust weight — weights only earned by paying and watching them resolve."
               href="https://github.com/neromtoobad/receipts/blob/main/proof/VIRTUALS.md" />
             <Proofcard k="Informant reliability" v="6,462 matches"
               sub="6 leagues, 3 seasons. Regional desks score +0.10 to +0.12 inside their beat and +0.01 to +0.04 outside it."

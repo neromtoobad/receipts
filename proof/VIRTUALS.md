@@ -3,11 +3,41 @@
 Not a registration screenshot. One agent hired another, paid it in USDC escrow,
 received a forecast produced by the real runtime, and released the escrow.
 
-## The job
+## The job that matters: 75820
+
+Job **75249** was run on day one, when pundit_1 had no memory yet: it bought
+0.027 USDC of evidence, found none of it carried an earned trust weight, and
+correctly returned the base rate at confidence 0.00. Honest, and a poor
+demonstration.
+
+**75820** is the same flow after two days of league running, and the difference
+is the whole project:
 
 | | |
 |---|---|
-| job id | **75249** |
+| job id | **75820** |
+| requirement | Portsmouth v Derby, full time result (championship) |
+| what it bought | `formline` (trust 0.129), `calcio_desk` (trust 0.149), `iberian_desk` (unproven, exploring) |
+| what it recalled | *"You have called Portsmouth and Derby 2 time(s) before; 2 resolved at a mean Brier of 0.603, against your overall 0.572 — worse than your average here."* |
+| deliverable | `{"H": 0.53, "D": 0.21, "A": 0.26}`, confidence **0.27** |
+| its reasoning | *"calcio_desk's strong preference for a home win moved the forecast, while formline and iberian_desk were discounted due to their lower trust weights."* |
+| phases | create-job → budget set → funded → submitted → **completed** |
+| balances | buyer 0.0905 → 0.0810, seller 1.0995 → 1.1085 |
+
+Two things in that deliverable are only possible with memory. The agent named
+which source moved it and **which it discounted, by trust weight** — weights it
+could only have earned by paying for those sources and watching them resolve. And
+the record it recalled about these two teams came from a journal search, because
+reliability entities are keyed by source and domain, and a team is neither.
+
+A third job, 75819, was created with empty requirements by a scripting mistake on
+my part and rejected on chain rather than left dangling.
+
+## The first job, for the record
+
+| | |
+|---|---|
+| job id | 75249 |
 | protocol | ACP v2 |
 | chain | Base **mainnet** (8453) |
 | buyer | `RECEIPTS pundit_5` · `0x4f9b42c3322588e0cd24ec8208100afc6200e46e` |

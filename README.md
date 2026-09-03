@@ -128,7 +128,7 @@ Every claim below is a transaction hash, a block number, or a measured figure.
 | | |
 |---|---|
 | **Base — x402 settlement** | [`0xb0cc50db…64eebc`](https://sepolia.basescan.org/tx/0xb0cc50dbf1530884b0789f15b0498632bb50d6a74b74336b58659fefd864eebc) · 0.012 USDC · block 46195402 · [`proof/ONCHAIN.md`](proof/ONCHAIN.md) |
-| **Virtuals — ACP job** | job `75249`, completed on Base mainnet · [`proof/VIRTUALS.md`](proof/VIRTUALS.md) |
+| **Virtuals — ACP job** | job `75820`, completed on Base mainnet. It named which source moved it and which it discounted by trust weight · [`proof/VIRTUALS.md`](proof/VIRTUALS.md) |
 | **Informant reliability** | 6,462 real matches, 6 leagues, 3 seasons · [`proof/SPREAD.md`](proof/SPREAD.md) |
 | **Domain-scoped skill** | football + 18,000 hourly candles · [`proof/DOMAINS.md`](proof/DOMAINS.md) |
 | **Memory measurements** | cold boot to decision 41.6ms; 1,757 traced forecasts per pundit · [`proof/PHASE0_FINDINGS.md`](proof/PHASE0_FINDINGS.md) |
