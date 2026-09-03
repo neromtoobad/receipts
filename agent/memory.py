@@ -360,6 +360,29 @@ class Memory:
     def log_event(self, **kw) -> str:
         return self.c.write_event(**kw)
 
+    def trim_journal(self, keep: int = 2000) -> int:
+        """Drop the oldest journal rows, keeping the most recent `keep`.
+
+        The free tier caps a database at 5 MB and a long replay will reach it.
+        Hitting the cap raises mid-write and ends the run, so a bench that walks
+        thousands of events needs a way to stay under it. Only the journal is
+        trimmed: entities carry what was learned, and that must never be dropped.
+        """
+        con = sqlite3.connect(str(self.path))
+        try:
+            cur = con.execute(
+                "DELETE FROM journal_events WHERE tenant_id = ? AND id NOT IN "
+                "(SELECT id FROM journal_events WHERE tenant_id = ? "
+                " ORDER BY ts DESC LIMIT ?)", (self.tenant, self.tenant, keep))
+            con.commit()
+            removed = cur.rowcount
+            con.execute("VACUUM")
+            return removed
+        except sqlite3.OperationalError:
+            return 0
+        finally:
+            con.close()
+
     def recent_events(self, limit: int = 50) -> list[dict[str, Any]]:
         return self.c.read_events(limit=limit)
 

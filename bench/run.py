@@ -22,6 +22,8 @@ import concurrent.futures as cf
 import json
 import statistics
 import sys
+
+from sibyl_memory_client.exceptions import CapExceededError
 import tempfile
 import time
 from collections import defaultdict
@@ -65,6 +67,25 @@ def base_rates(events) -> tuple[dict, dict]:
         rates[d] = {o: c[o] / tot for o in outcomes_for(d) if c[o] or True}
         bb[d] = sum(rates[d][o] * brier(rates[d], o) for o in rates[d])
     return rates, bb
+
+
+def journal(mem, arm: str, **kw) -> None:
+    """Write one journal row, rotating the journal if the store is full.
+
+    A three-hour replay writes thousands of rows into a 5 MB store and will
+    reach the cap. Checking capacity on an interval is not enough — the first
+    version checked every 500 events and still crossed the line between two
+    checks. So the write itself absorbs it: on CapExceededError, drop the
+    oldest history and retry once. Only the journal is trimmed; the entities
+    holding what the arm has learned are never touched, so the measurement is
+    unaffected. Recall only ever looks at recent history anyway.
+    """
+    try:
+        mem.log_event(**kw)
+    except CapExceededError:
+        removed = mem.trim_journal(keep=400)
+        print(f"  [{arm}] journal full, rotated {removed} old rows", file=sys.stderr)
+        mem.log_event(**kw)
 
 
 def run_arm(arm: str, events, rates, bb, model, offline, quiet=False, rpm: float = 0.0) -> dict:
@@ -134,19 +155,24 @@ def run_arm(arm: str, events, rates, bb, model, offline, quiet=False, rpm: float
             # search and the recall path would be inert in the very benchmark
             # meant to measure it. The amnesiac writes too — it simply never
             # reads any of it back.
-            mem.log_forecast(e["id"], domain, probs, float(out.get("confidence") or 0),
-                             str(out.get("reasoning") or "")[:200],
-                             out.get("leaned_on") or [], list(said), spend)
-            mem.log_event(evaluated=[f"{e['id']} resolved {e['result']}"],
-                          extra={"kind": "resolution", "market": e["id"], "domain": domain,
-                                 "outcome": e["result"], "brier": round(b, 4),
-                                 "sources": list(said)})
+            #
+            # LEAN events, deliberately. The first version wrote the full traced
+            # forecast here and blew through Sibyl's 5 MB per-database cap around
+            # event 900, killing a three-hour run. Phase 0 measured a traced event
+            # at 2,983 bytes; own_record() only needs the market id, the outcome
+            # and the brier, which is a tenth of that.
+            journal(mem, arm, acted=[e["id"]],
+                    extra={"kind": "forecast", "market": e["id"], "domain": domain})
+            journal(mem, arm, evaluated=[f"{e['id']} {e['result']}"],
+                    extra={"kind": "resolution", "market": e["id"], "domain": domain,
+                           "outcome": e["result"], "brier": round(b, 4)})
 
             for src, (payload, cost) in said.items():
                 mem.observe(src, domain, brier(payload, e["result"]), bb[domain], cost)
 
-            if not quiet and (i + 1) % 200 == 0:
-                print(f"  [{arm}] {i + 1}/{len(events)}", file=sys.stderr)
+            if not quiet and (i + 1) % 250 == 0:
+                print(f"  [{arm}] {i + 1}/{len(events)}  "
+                      f"memory {mem.capacity().get('pct_used', 0):.1%}", file=sys.stderr)
         stats["bought_by"] = dict(stats["bought_by"])
         stats["by_family"] = {k: dict(v) for k, v in stats["by_family"].items()}
         stats["resolved_models"] = sorted(stats["resolved_models"])
