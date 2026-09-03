@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-03T13:45:17.108253+00:00",
+ "generated": "2026-09-03T16:13:16.052288+00:00",
  "domains": [
   "epl",
   "championship",
@@ -147,11 +147,11 @@
  "pundits": [
   {
    "id": "pundit_1",
-   "forecasts": 96,
-   "resolutions": 69,
+   "forecasts": 100,
+   "resolutions": 72,
    "spend": 1.561,
    "buys": 178,
-   "brier": 0.5718,
+   "brier": 0.5691,
    "cells": {
     "formline|crypto_24h": {
      "source": "formline",
@@ -195,7 +195,7 @@
      "n": 7,
      "skill": 0.1612,
      "skill_shrunk": 0.0418,
-     "trust": 0.1291,
+     "trust": 0.1256,
      "spend": 0.021,
      "misses": 0,
      "state": "established",
@@ -207,7 +207,7 @@
      "n": 5,
      "skill": 0.281,
      "skill_shrunk": 0.0562,
-     "trust": 0.1488,
+     "trust": 0.1448,
      "spend": 0.06,
      "misses": 0,
      "state": "established",
@@ -231,7 +231,7 @@
      "n": 5,
      "skill": 0.1977,
      "skill_shrunk": 0.0395,
-     "trust": 0.1042,
+     "trust": 0.1014,
      "spend": 0.021,
      "misses": 2,
      "state": "established",
@@ -243,7 +243,7 @@
      "n": 6,
      "skill": 0.2486,
      "skill_shrunk": 0.0574,
-     "trust": 0.1645,
+     "trust": 0.16,
      "spend": 0.018,
      "misses": 0,
      "state": "established",
@@ -255,7 +255,7 @@
      "n": 3,
      "skill": 0.3207,
      "skill_shrunk": 0.0418,
-     "trust": 0.0824,
+     "trust": 0.0801,
      "spend": 0.036,
      "misses": 0,
      "state": "established",
@@ -279,7 +279,7 @@
      "n": 6,
      "skill": 0.2263,
      "skill_shrunk": 0.0522,
-     "trust": 0.1485,
+     "trust": 0.1444,
      "spend": 0.018,
      "misses": 0,
      "state": "established",
@@ -291,7 +291,7 @@
      "n": 3,
      "skill": 0.3052,
      "skill_shrunk": 0.0398,
-     "trust": 0.0778,
+     "trust": 0.0757,
      "spend": 0.036,
      "misses": 0,
      "state": "established",
@@ -303,7 +303,7 @@
      "n": 8,
      "skill": 0.141,
      "skill_shrunk": 0.0403,
-     "trust": 0.1288,
+     "trust": 0.1253,
      "spend": 0.024,
      "misses": 0,
      "state": "established",
@@ -315,7 +315,7 @@
      "n": 6,
      "skill": 0.1779,
      "skill_shrunk": 0.0411,
-     "trust": 0.1164,
+     "trust": 0.1132,
      "spend": 0.072,
      "misses": 0,
      "state": "established",
@@ -327,7 +327,7 @@
      "n": 3,
      "skill": 0.0572,
      "skill_shrunk": 0.0075,
-     "trust": 0.0146,
+     "trust": 0.0142,
      "spend": 0.036,
      "misses": 0,
      "state": "established",
@@ -339,7 +339,7 @@
      "n": 5,
      "skill": 0.2048,
      "skill_shrunk": 0.041,
-     "trust": 0.1024,
+     "trust": 0.0995,
      "spend": 0.06,
      "misses": 0,
      "state": "established",
@@ -351,7 +351,7 @@
      "n": 4,
      "skill": 0.1664,
      "skill_shrunk": 0.0277,
-     "trust": 0.0612,
+     "trust": 0.0595,
      "spend": 0.072,
      "misses": 2,
      "state": "established",
@@ -363,7 +363,7 @@
      "n": 7,
      "skill": 0.1665,
      "skill_shrunk": 0.0432,
-     "trust": 0.1234,
+     "trust": 0.1198,
      "spend": 0.084,
      "misses": 0,
      "state": "established",
@@ -387,7 +387,7 @@
      "n": 3,
      "skill": 0.1473,
      "skill_shrunk": 0.0192,
-     "trust": 0.0338,
+     "trust": 0.0328,
      "spend": 0.036,
      "misses": 0,
      "state": "established",
@@ -399,7 +399,7 @@
      "n": 3,
      "skill": 0.1546,
      "skill_shrunk": 0.0202,
-     "trust": 0.0356,
+     "trust": 0.0345,
      "spend": 0.036,
      "misses": 0,
      "state": "established",
@@ -447,7 +447,7 @@
      "n": 3,
      "skill": 0.1764,
      "skill_shrunk": 0.023,
-     "trust": 0.0405,
+     "trust": 0.0393,
      "spend": 0.036,
      "misses": 0,
      "state": "established",
@@ -459,7 +459,7 @@
      "n": 3,
      "skill": 0.0915,
      "skill_shrunk": 0.0119,
-     "trust": 0.021,
+     "trust": 0.0203,
      "spend": 0.036,
      "misses": 0,
      "state": "established",
@@ -525,88 +525,6 @@
     }
    },
    "feed": [
-    {
-     "ts": "2026-09-02T16:42:12.428Z",
-     "kind": "buy",
-     "source": "formline",
-     "domain": "crypto_24h",
-     "cost": 0.003,
-     "trust": 0.2049,
-     "market": "crypto_24h:SOLUSDT:1788300000000"
-    },
-    {
-     "ts": "2026-09-02T16:42:19.652Z",
-     "kind": "forecast",
-     "domain": "crypto_24h",
-     "market": "crypto_24h:SOLUSDT:1788300000000",
-     "probabilities": {
-      "UP": 0.513,
-      "DOWN": 0.487
-     },
-     "confidence": 0.0,
-     "reasoning": null,
-     "leaned_on": [],
-     "spend": 0.003
-    },
-    {
-     "ts": "2026-09-02T17:02:50.629Z",
-     "kind": "buy",
-     "source": "formline",
-     "domain": "championship",
-     "cost": 0.003,
-     "trust": 0.4545,
-     "market": "championship:2026-09-01:Swansea:Watford"
-    },
-    {
-     "ts": "2026-09-02T17:02:50.645Z",
-     "kind": "buy",
-     "source": "calcio_desk",
-     "domain": "championship",
-     "cost": 0.012,
-     "trust": 0.3896,
-     "market": "championship:2026-09-01:Swansea:Watford"
-    },
-    {
-     "ts": "2026-09-02T17:02:50.658Z",
-     "kind": "buy",
-     "source": "iberian_desk",
-     "domain": "championship",
-     "cost": 0.012,
-     "trust": null,
-     "market": "championship:2026-09-01:Swansea:Watford"
-    },
-    {
-     "ts": "2026-09-02T17:03:00.675Z",
-     "kind": "forecast",
-     "domain": "championship",
-     "market": "championship:2026-09-01:Swansea:Watford",
-     "probabilities": {
-      "H": 0.529,
-      "D": 0.235,
-      "A": 0.236
-     },
-     "confidence": 0.268,
-     "reasoning": null,
-     "leaned_on": [
-      "formline",
-      "iberian_desk"
-     ],
-     "spend": 0.027
-    },
-    {
-     "ts": "2026-09-02T17:23:37.057Z",
-     "kind": "forecast",
-     "domain": "crypto_1h",
-     "market": "crypto_1h:SOLUSDT:1788300000000",
-     "probabilities": {
-      "UP": 0.497,
-      "DOWN": 0.503
-     },
-     "confidence": 0.0,
-     "reasoning": null,
-     "leaned_on": [],
-     "spend": 0.0
-    },
     {
      "ts": "2026-09-02T19:56:50.341Z",
      "kind": "resolved",
@@ -1455,6 +1373,89 @@
      "reasoning": null,
      "leaned_on": [],
      "spend": 0.0
+    },
+    {
+     "ts": "2026-09-03T14:05:35.597Z",
+     "kind": "forecast",
+     "domain": "crypto_24h",
+     "market": "crypto_24h:BTCUSDT:1788444000000",
+     "probabilities": {
+      "UP": 0.513,
+      "DOWN": 0.487
+     },
+     "confidence": 0.0,
+     "reasoning": null,
+     "leaned_on": [],
+     "spend": 0.0
+    },
+    {
+     "ts": "2026-09-03T14:06:54.637Z",
+     "kind": "resolved",
+     "market": "crypto_1h:ETHUSDT:1788440400000",
+     "domain": "crypto_1h",
+     "outcome": "UP",
+     "brier": 0.506,
+     "sources": []
+    },
+    {
+     "ts": "2026-09-03T14:06:54.651Z",
+     "kind": "resolved",
+     "market": "crypto_1h:BTCUSDT:1788440400000",
+     "domain": "crypto_1h",
+     "outcome": "UP",
+     "brier": 0.506,
+     "sources": []
+    },
+    {
+     "ts": "2026-09-03T14:27:17.092Z",
+     "kind": "forecast",
+     "domain": "crypto_1h",
+     "market": "crypto_1h:BTCUSDT:1788444000000",
+     "probabilities": {
+      "UP": 0.497,
+      "DOWN": 0.503
+     },
+     "confidence": 0.0,
+     "reasoning": null,
+     "leaned_on": [],
+     "spend": 0.0
+    },
+    {
+     "ts": "2026-09-03T14:48:56.497Z",
+     "kind": "forecast",
+     "domain": "crypto_24h",
+     "market": "crypto_24h:ETHUSDT:1788444000000",
+     "probabilities": {
+      "UP": 0.513,
+      "DOWN": 0.487
+     },
+     "confidence": 0.0,
+     "reasoning": null,
+     "leaned_on": [],
+     "spend": 0.0
+    },
+    {
+     "ts": "2026-09-03T16:12:31.805Z",
+     "kind": "forecast",
+     "domain": "crypto_1h",
+     "market": "crypto_1h:BTCUSDT:1788451200000",
+     "probabilities": {
+      "UP": 0.497,
+      "DOWN": 0.503
+     },
+     "confidence": 0.0,
+     "reasoning": null,
+     "leaned_on": [],
+     "spend": 0.0
+    },
+    {
+     "ts": "2026-09-03T16:13:11.436Z",
+     "kind": "resolved",
+     "market": "crypto_1h:BTCUSDT:1788444000000",
+     "domain": "crypto_1h",
+     "outcome": "UP",
+     "brier": 0.506,
+     "sources": []
     }
    ],
    "frames": [
@@ -3038,11 +3039,11 @@
   },
   {
    "id": "pundit_2",
-   "forecasts": 92,
-   "resolutions": 67,
+   "forecasts": 96,
+   "resolutions": 69,
    "spend": 1.686,
    "buys": 175,
-   "brier": 0.588,
+   "brier": 0.5856,
    "cells": {
     "flowdesk|crypto_1h": {
      "source": "flowdesk",
@@ -3110,7 +3111,7 @@
      "n": 6,
      "skill": 0.2486,
      "skill_shrunk": 0.0574,
-     "trust": 0.1668,
+     "trust": 0.1624,
      "spend": 0.018,
      "misses": 0,
      "state": "established",
@@ -3122,7 +3123,7 @@
      "n": 3,
      "skill": 0.3207,
      "skill_shrunk": 0.0418,
-     "trust": 0.0835,
+     "trust": 0.0813,
      "spend": 0.036,
      "misses": 0,
      "state": "established",
@@ -3146,7 +3147,7 @@
      "n": 6,
      "skill": 0.2263,
      "skill_shrunk": 0.0522,
-     "trust": 0.1502,
+     "trust": 0.1461,
      "spend": 0.018,
      "misses": 0,
      "state": "established",
@@ -3158,7 +3159,7 @@
      "n": 3,
      "skill": 0.3052,
      "skill_shrunk": 0.0398,
-     "trust": 0.0787,
+     "trust": 0.0766,
      "spend": 0.036,
      "misses": 0,
      "state": "established",
@@ -3170,7 +3171,7 @@
      "n": 3,
      "skill": 0.2986,
      "skill_shrunk": 0.0389,
-     "trust": 0.0766,
+     "trust": 0.0746,
      "spend": 0.036,
      "misses": 0,
      "state": "established",
@@ -3182,7 +3183,7 @@
      "n": 6,
      "skill": 0.151,
      "skill_shrunk": 0.0348,
-     "trust": 0.0986,
+     "trust": 0.0959,
      "spend": 0.018,
      "misses": 0,
      "state": "established",
@@ -3194,7 +3195,7 @@
      "n": 3,
      "skill": 0.0891,
      "skill_shrunk": 0.0116,
-     "trust": 0.0226,
+     "trust": 0.022,
      "spend": 0.036,
      "misses": 0,
      "state": "established",
@@ -3218,7 +3219,7 @@
      "n": 3,
      "skill": 0.066,
      "skill_shrunk": 0.0086,
-     "trust": 0.0152,
+     "trust": 0.0147,
      "spend": 0.012,
      "misses": 1,
      "state": "established",
@@ -3242,7 +3243,7 @@
      "n": 3,
      "skill": 0.0752,
      "skill_shrunk": 0.0098,
-     "trust": 0.0173,
+     "trust": 0.0167,
      "spend": 0.036,
      "misses": 0,
      "state": "established",
@@ -3254,7 +3255,7 @@
      "n": 3,
      "skill": 0.2129,
      "skill_shrunk": 0.0278,
-     "trust": 0.049,
+     "trust": 0.0475,
      "spend": 0.036,
      "misses": 0,
      "state": "established",
@@ -3266,7 +3267,7 @@
      "n": 3,
      "skill": 0.1737,
      "skill_shrunk": 0.0227,
-     "trust": 0.04,
+     "trust": 0.0388,
      "spend": 0.036,
      "misses": 0,
      "state": "established",
@@ -3314,7 +3315,7 @@
      "n": 3,
      "skill": 0.1473,
      "skill_shrunk": 0.0192,
-     "trust": 0.0338,
+     "trust": 0.0328,
      "spend": 0.036,
      "misses": 0,
      "state": "established",
@@ -3326,7 +3327,7 @@
      "n": 3,
      "skill": 0.1546,
      "skill_shrunk": 0.0202,
-     "trust": 0.0356,
+     "trust": 0.0345,
      "spend": 0.036,
      "misses": 0,
      "state": "established",
@@ -3374,7 +3375,7 @@
      "n": 3,
      "skill": 0.1764,
      "skill_shrunk": 0.023,
-     "trust": 0.0405,
+     "trust": 0.0393,
      "spend": 0.036,
      "misses": 0,
      "state": "established",
@@ -3386,7 +3387,7 @@
      "n": 3,
      "skill": 0.0915,
      "skill_shrunk": 0.0119,
-     "trust": 0.021,
+     "trust": 0.0203,
      "spend": 0.036,
      "misses": 0,
      "state": "established",
@@ -3428,74 +3429,6 @@
     }
    },
    "feed": [
-    {
-     "ts": "2026-09-02T16:42:20.408Z",
-     "kind": "buy",
-     "source": "formline",
-     "domain": "championship",
-     "cost": 0.003,
-     "trust": 0.4197,
-     "market": "championship:2026-09-01:Swansea:Watford"
-    },
-    {
-     "ts": "2026-09-02T16:42:20.425Z",
-     "kind": "buy",
-     "source": "boot_room",
-     "domain": "championship",
-     "cost": 0.012,
-     "trust": 0.2661,
-     "market": "championship:2026-09-01:Swansea:Watford"
-    },
-    {
-     "ts": "2026-09-02T16:42:20.439Z",
-     "kind": "buy",
-     "source": "iberian_desk",
-     "domain": "championship",
-     "cost": 0.012,
-     "trust": null,
-     "market": "championship:2026-09-01:Swansea:Watford"
-    },
-    {
-     "ts": "2026-09-02T16:42:24.623Z",
-     "kind": "forecast",
-     "domain": "championship",
-     "market": "championship:2026-09-01:Swansea:Watford",
-     "probabilities": {
-      "H": 0.493,
-      "D": 0.246,
-      "A": 0.261
-     },
-     "confidence": 0.231,
-     "reasoning": null,
-     "leaned_on": [
-      "formline",
-      "boot_room"
-     ],
-     "spend": 0.027
-    },
-    {
-     "ts": "2026-09-02T17:03:01.288Z",
-     "kind": "buy",
-     "source": "flowdesk",
-     "domain": "crypto_1h",
-     "cost": 0.015,
-     "trust": null,
-     "market": "crypto_1h:SOLUSDT:1788300000000"
-    },
-    {
-     "ts": "2026-09-02T17:03:03.822Z",
-     "kind": "forecast",
-     "domain": "crypto_1h",
-     "market": "crypto_1h:SOLUSDT:1788300000000",
-     "probabilities": {
-      "UP": 0.497,
-      "DOWN": 0.503
-     },
-     "confidence": 0.0,
-     "reasoning": null,
-     "leaned_on": [],
-     "spend": 0.015
-    },
     {
      "ts": "2026-09-02T17:23:37.721Z",
      "kind": "buy",
@@ -4351,6 +4284,80 @@
      "reasoning": null,
      "leaned_on": [],
      "spend": 0.0
+    },
+    {
+     "ts": "2026-09-03T14:05:50.498Z",
+     "kind": "forecast",
+     "domain": "crypto_1h",
+     "market": "crypto_1h:BTCUSDT:1788444000000",
+     "probabilities": {
+      "UP": 0.497,
+      "DOWN": 0.503
+     },
+     "confidence": 0.0,
+     "reasoning": null,
+     "leaned_on": [],
+     "spend": 0.0
+    },
+    {
+     "ts": "2026-09-03T14:06:55.897Z",
+     "kind": "resolved",
+     "market": "crypto_1h:BTCUSDT:1788440400000",
+     "domain": "crypto_1h",
+     "outcome": "UP",
+     "brier": 0.506,
+     "sources": []
+    },
+    {
+     "ts": "2026-09-03T14:27:31.323Z",
+     "kind": "forecast",
+     "domain": "crypto_24h",
+     "market": "crypto_24h:BTCUSDT:1788444000000",
+     "probabilities": {
+      "UP": 0.513,
+      "DOWN": 0.487
+     },
+     "confidence": 0.0,
+     "reasoning": null,
+     "leaned_on": [],
+     "spend": 0.0
+    },
+    {
+     "ts": "2026-09-03T14:49:04.275Z",
+     "kind": "forecast",
+     "domain": "crypto_1h",
+     "market": "crypto_1h:ETHUSDT:1788444000000",
+     "probabilities": {
+      "UP": 0.497,
+      "DOWN": 0.503
+     },
+     "confidence": 0.0,
+     "reasoning": null,
+     "leaned_on": [],
+     "spend": 0.0
+    },
+    {
+     "ts": "2026-09-03T16:12:37.646Z",
+     "kind": "forecast",
+     "domain": "crypto_24h",
+     "market": "crypto_24h:BTCUSDT:1788451200000",
+     "probabilities": {
+      "UP": 0.513,
+      "DOWN": 0.487
+     },
+     "confidence": 0.0,
+     "reasoning": null,
+     "leaned_on": [],
+     "spend": 0.0
+    },
+    {
+     "ts": "2026-09-03T16:13:13.245Z",
+     "kind": "resolved",
+     "market": "crypto_1h:BTCUSDT:1788444000000",
+     "domain": "crypto_1h",
+     "outcome": "UP",
+     "brier": 0.506,
+     "sources": []
     }
    ],
    "frames": [
@@ -5861,11 +5868,11 @@
   },
   {
    "id": "pundit_3",
-   "forecasts": 101,
-   "resolutions": 72,
-   "spend": 2.071,
-   "buys": 208,
-   "brier": 0.5695,
+   "forecasts": 105,
+   "resolutions": 74,
+   "spend": 2.101,
+   "buys": 210,
+   "brier": 0.5678,
    "cells": {
     "formline|crypto_24h": {
      "source": "formline",
@@ -5933,7 +5940,7 @@
      "n": 7,
      "skill": 0.1612,
      "skill_shrunk": 0.0418,
-     "trust": 0.1299,
+     "trust": 0.1265,
      "spend": 0.021,
      "misses": 0,
      "state": "established",
@@ -5945,7 +5952,7 @@
      "n": 5,
      "skill": 0.281,
      "skill_shrunk": 0.0562,
-     "trust": 0.1497,
+     "trust": 0.1457,
      "spend": 0.06,
      "misses": 0,
      "state": "established",
@@ -5969,7 +5976,7 @@
      "n": 5,
      "skill": 0.1977,
      "skill_shrunk": 0.0395,
-     "trust": 0.1046,
+     "trust": 0.1017,
      "spend": 0.021,
      "misses": 2,
      "state": "established",
@@ -5981,7 +5988,7 @@
      "n": 6,
      "skill": 0.2486,
      "skill_shrunk": 0.0574,
-     "trust": 0.1651,
+     "trust": 0.1607,
      "spend": 0.018,
      "misses": 0,
      "state": "established",
@@ -5993,7 +6000,7 @@
      "n": 3,
      "skill": 0.3207,
      "skill_shrunk": 0.0418,
-     "trust": 0.0827,
+     "trust": 0.0804,
      "spend": 0.036,
      "misses": 0,
      "state": "established",
@@ -6017,7 +6024,7 @@
      "n": 6,
      "skill": 0.2263,
      "skill_shrunk": 0.0522,
-     "trust": 0.149,
+     "trust": 0.145,
      "spend": 0.018,
      "misses": 0,
      "state": "established",
@@ -6029,7 +6036,7 @@
      "n": 3,
      "skill": 0.3052,
      "skill_shrunk": 0.0398,
-     "trust": 0.0781,
+     "trust": 0.076,
      "spend": 0.036,
      "misses": 0,
      "state": "established",
@@ -6041,7 +6048,7 @@
      "n": 8,
      "skill": 0.141,
      "skill_shrunk": 0.0403,
-     "trust": 0.1293,
+     "trust": 0.1258,
      "spend": 0.024,
      "misses": 0,
      "state": "established",
@@ -6053,7 +6060,7 @@
      "n": 6,
      "skill": 0.1779,
      "skill_shrunk": 0.0411,
-     "trust": 0.1169,
+     "trust": 0.1137,
      "spend": 0.072,
      "misses": 0,
      "state": "established",
@@ -6065,7 +6072,7 @@
      "n": 3,
      "skill": 0.0572,
      "skill_shrunk": 0.0075,
-     "trust": 0.0147,
+     "trust": 0.0143,
      "spend": 0.036,
      "misses": 0,
      "state": "established",
@@ -6077,7 +6084,7 @@
      "n": 5,
      "skill": 0.2048,
      "skill_shrunk": 0.041,
-     "trust": 0.1057,
+     "trust": 0.1027,
      "spend": 0.06,
      "misses": 0,
      "state": "established",
@@ -6089,7 +6096,7 @@
      "n": 4,
      "skill": 0.1664,
      "skill_shrunk": 0.0277,
-     "trust": 0.0615,
+     "trust": 0.0597,
      "spend": 0.072,
      "misses": 2,
      "state": "established",
@@ -6101,7 +6108,7 @@
      "n": 7,
      "skill": 0.1665,
      "skill_shrunk": 0.0432,
-     "trust": 0.1239,
+     "trust": 0.1203,
      "spend": 0.084,
      "misses": 0,
      "state": "established",
@@ -6137,7 +6144,7 @@
      "n": 3,
      "skill": 0.1473,
      "skill_shrunk": 0.0192,
-     "trust": 0.0338,
+     "trust": 0.0328,
      "spend": 0.036,
      "misses": 0,
      "state": "established",
@@ -6149,7 +6156,7 @@
      "n": 3,
      "skill": 0.1546,
      "skill_shrunk": 0.0202,
-     "trust": 0.0356,
+     "trust": 0.0345,
      "spend": 0.036,
      "misses": 0,
      "state": "established",
@@ -6197,7 +6204,7 @@
      "n": 3,
      "skill": 0.1764,
      "skill_shrunk": 0.023,
-     "trust": 0.0405,
+     "trust": 0.0393,
      "spend": 0.036,
      "misses": 0,
      "state": "established",
@@ -6209,7 +6216,7 @@
      "n": 3,
      "skill": 0.0915,
      "skill_shrunk": 0.0119,
-     "trust": 0.021,
+     "trust": 0.0203,
      "spend": 0.036,
      "misses": 0,
      "state": "established",
@@ -6251,102 +6258,6 @@
     }
    },
    "feed": [
-    {
-     "ts": "2026-09-02T20:39:58.531Z",
-     "kind": "buy",
-     "source": "calcio_desk",
-     "domain": "championship",
-     "cost": 0.012,
-     "trust": 0.3791,
-     "market": "championship:2026-09-01:West_Ham:Wolves"
-    },
-    {
-     "ts": "2026-09-02T20:39:58.551Z",
-     "kind": "buy",
-     "source": "iberian_desk",
-     "domain": "championship",
-     "cost": 0.012,
-     "trust": null,
-     "market": "championship:2026-09-01:West_Ham:Wolves"
-    },
-    {
-     "ts": "2026-09-02T20:40:10.954Z",
-     "kind": "forecast",
-     "domain": "championship",
-     "market": "championship:2026-09-01:West_Ham:Wolves",
-     "probabilities": {
-      "H": 0.44,
-      "D": 0.26,
-      "A": 0.3
-     },
-     "confidence": 0.08,
-     "reasoning": null,
-     "leaned_on": [
-      "formline",
-      "iberian_desk"
-     ],
-     "spend": 0.027
-    },
-    {
-     "ts": "2026-09-02T21:03:31.399Z",
-     "kind": "resolved",
-     "market": "crypto_24h:BTCUSDT:1788296400000",
-     "domain": "crypto_24h",
-     "outcome": "DOWN",
-     "brier": 0.5263,
-     "sources": [
-      "chalk_desk",
-      "flowdesk",
-      "formline"
-     ]
-    },
-    {
-     "ts": "2026-09-02T22:11:02.387Z",
-     "kind": "resolved",
-     "market": "crypto_24h:SOLUSDT:1788300000000",
-     "domain": "crypto_24h",
-     "outcome": "UP",
-     "brier": 0.4743,
-     "sources": [
-      "chalk_desk",
-      "flowdesk",
-      "formline"
-     ]
-    },
-    {
-     "ts": "2026-09-02T22:11:02.396Z",
-     "kind": "promotion",
-     "source": "chalk_desk",
-     "domain": "crypto_24h",
-     "skill": -0.0076
-    },
-    {
-     "ts": "2026-09-02T22:11:02.408Z",
-     "kind": "resolved",
-     "market": "crypto_24h:ETHUSDT:1788300000000",
-     "domain": "crypto_24h",
-     "outcome": "DOWN",
-     "brier": 0.5263,
-     "sources": [
-      "chalk_desk",
-      "flowdesk",
-      "formline"
-     ]
-    },
-    {
-     "ts": "2026-09-02T22:32:16.900Z",
-     "kind": "forecast",
-     "domain": "crypto_1h",
-     "market": "crypto_1h:BTCUSDT:1788386400000",
-     "probabilities": {
-      "UP": 0.497,
-      "DOWN": 0.503
-     },
-     "confidence": 0.0,
-     "reasoning": null,
-     "leaned_on": [],
-     "spend": 0.0
-    },
     {
      "ts": "2026-09-02T22:32:59.123Z",
      "kind": "resolved",
@@ -7169,6 +7080,102 @@
      "reasoning": null,
      "leaned_on": [],
      "spend": 0.0
+    },
+    {
+     "ts": "2026-09-03T14:05:51.355Z",
+     "kind": "buy",
+     "source": "flowdesk",
+     "domain": "crypto_24h",
+     "cost": 0.015,
+     "trust": null,
+     "market": "crypto_24h:BTCUSDT:1788444000000"
+    },
+    {
+     "ts": "2026-09-03T14:06:06.299Z",
+     "kind": "forecast",
+     "domain": "crypto_24h",
+     "market": "crypto_24h:BTCUSDT:1788444000000",
+     "probabilities": {
+      "UP": 0.506,
+      "DOWN": 0.494
+     },
+     "confidence": 0.013,
+     "reasoning": null,
+     "leaned_on": [
+      "flowdesk"
+     ],
+     "spend": 0.015
+    },
+    {
+     "ts": "2026-09-03T14:06:57.078Z",
+     "kind": "resolved",
+     "market": "crypto_1h:ETHUSDT:1788440400000",
+     "domain": "crypto_1h",
+     "outcome": "UP",
+     "brier": 0.506,
+     "sources": []
+    },
+    {
+     "ts": "2026-09-03T14:06:57.090Z",
+     "kind": "resolved",
+     "market": "crypto_1h:BTCUSDT:1788440400000",
+     "domain": "crypto_1h",
+     "outcome": "UP",
+     "brier": 0.506,
+     "sources": []
+    },
+    {
+     "ts": "2026-09-03T14:27:46.424Z",
+     "kind": "forecast",
+     "domain": "crypto_1h",
+     "market": "crypto_1h:BTCUSDT:1788444000000",
+     "probabilities": {
+      "UP": 0.497,
+      "DOWN": 0.503
+     },
+     "confidence": 0.0,
+     "reasoning": null,
+     "leaned_on": [],
+     "spend": 0.0
+    },
+    {
+     "ts": "2026-09-03T14:49:12.594Z",
+     "kind": "forecast",
+     "domain": "crypto_1h",
+     "market": "crypto_1h:ETHUSDT:1788444000000",
+     "probabilities": {
+      "UP": 0.497,
+      "DOWN": 0.503
+     },
+     "confidence": 0.0,
+     "reasoning": null,
+     "leaned_on": [],
+     "spend": 0.0
+    },
+    {
+     "ts": "2026-09-03T16:12:38.467Z",
+     "kind": "buy",
+     "source": "flowdesk",
+     "domain": "crypto_24h",
+     "cost": 0.015,
+     "trust": null,
+     "market": "crypto_24h:BTCUSDT:1788451200000"
+    },
+    {
+     "ts": "2026-09-03T16:12:44.478Z",
+     "kind": "forecast",
+     "domain": "crypto_24h",
+     "market": "crypto_24h:BTCUSDT:1788451200000",
+     "probabilities": {
+      "UP": 0.52,
+      "DOWN": 0.48
+     },
+     "confidence": 0.007,
+     "reasoning": null,
+     "leaned_on": [
+      "flowdesk"
+     ],
+     "spend": 0.015
     }
    ],
    "frames": [
@@ -8809,15 +8816,15 @@
      }
     }
    ],
-   "memory_pct": 38.125
+   "memory_pct": 38.984
   },
   {
    "id": "pundit_4",
-   "forecasts": 129,
-   "resolutions": 92,
-   "spend": 2.141,
-   "buys": 234,
-   "brier": 0.563,
+   "forecasts": 133,
+   "resolutions": 93,
+   "spend": 2.147,
+   "buys": 236,
+   "brier": 0.5624,
    "cells": {
     "flowdesk|crypto_1h": {
      "source": "flowdesk",
@@ -8837,7 +8844,7 @@
      "n": 13,
      "skill": 0.0184,
      "skill_shrunk": 0.0072,
-     "trust": 0.0389,
+     "trust": 0.0381,
      "spend": 0.039,
      "misses": 0,
      "state": "established",
@@ -8885,7 +8892,7 @@
      "n": 8,
      "skill": 0.0641,
      "skill_shrunk": 0.0183,
-     "trust": 0.0594,
+     "trust": 0.0578,
      "spend": 0.024,
      "misses": 0,
      "state": "established",
@@ -8897,7 +8904,7 @@
      "n": 7,
      "skill": 0.1123,
      "skill_shrunk": 0.0291,
-     "trust": 0.0895,
+     "trust": 0.0871,
      "spend": 0.084,
      "misses": 0,
      "state": "established",
@@ -8921,7 +8928,7 @@
      "n": 5,
      "skill": 0.2066,
      "skill_shrunk": 0.0413,
-     "trust": 0.1085,
+     "trust": 0.1056,
      "spend": 0.021,
      "misses": 2,
      "state": "established",
@@ -8933,7 +8940,7 @@
      "n": 3,
      "skill": 0.2671,
      "skill_shrunk": 0.0348,
-     "trust": 0.0686,
+     "trust": 0.0667,
      "spend": 0.036,
      "misses": 0,
      "state": "established",
@@ -8945,7 +8952,7 @@
      "n": 7,
      "skill": 0.2116,
      "skill_shrunk": 0.0549,
-     "trust": 0.1676,
+     "trust": 0.1631,
      "spend": 0.021,
      "misses": 0,
      "state": "established",
@@ -8957,7 +8964,7 @@
      "n": 3,
      "skill": 0.2596,
      "skill_shrunk": 0.0339,
-     "trust": 0.0665,
+     "trust": 0.0647,
      "spend": 0.036,
      "misses": 0,
      "state": "established",
@@ -8981,7 +8988,7 @@
      "n": 3,
      "skill": 0.3708,
      "skill_shrunk": 0.0484,
-     "trust": 0.0943,
+     "trust": 0.0917,
      "spend": 0.036,
      "misses": 0,
      "state": "established",
@@ -8993,7 +9000,7 @@
      "n": 3,
      "skill": 0.0974,
      "skill_shrunk": 0.0127,
-     "trust": 0.0246,
+     "trust": 0.024,
      "spend": 0.036,
      "misses": 0,
      "state": "established",
@@ -9005,7 +9012,7 @@
      "n": 6,
      "skill": 0.0606,
      "skill_shrunk": 0.014,
-     "trust": 0.0368,
+     "trust": 0.0357,
      "spend": 0.072,
      "misses": 0,
      "state": "established",
@@ -9017,7 +9024,7 @@
      "n": 4,
      "skill": 0.1664,
      "skill_shrunk": 0.0277,
-     "trust": 0.059,
+     "trust": 0.0573,
      "spend": 0.072,
      "misses": 2,
      "state": "established",
@@ -9041,7 +9048,7 @@
      "n": 5,
      "skill": 0.0859,
      "skill_shrunk": 0.0172,
-     "trust": 0.0404,
+     "trust": 0.0392,
      "spend": 0.06,
      "misses": 0,
      "state": "established",
@@ -9077,7 +9084,7 @@
      "n": 4,
      "skill": 0.0632,
      "skill_shrunk": 0.0105,
-     "trust": 0.0219,
+     "trust": 0.0212,
      "spend": 0.012,
      "misses": 0,
      "state": "established",
@@ -9089,7 +9096,7 @@
      "n": 4,
      "skill": 0.0632,
      "skill_shrunk": 0.0105,
-     "trust": 0.0219,
+     "trust": 0.0212,
      "spend": 0.048,
      "misses": 0,
      "state": "established",
@@ -9101,7 +9108,7 @@
      "n": 4,
      "skill": 0.0129,
      "skill_shrunk": 0.0022,
-     "trust": 0.0046,
+     "trust": 0.0045,
      "spend": 0.048,
      "misses": 0,
      "state": "established",
@@ -9149,7 +9156,7 @@
      "n": 4,
      "skill": 0.1757,
      "skill_shrunk": 0.0293,
-     "trust": 0.0611,
+     "trust": 0.0593,
      "spend": 0.048,
      "misses": 0,
      "state": "established",
@@ -9161,7 +9168,7 @@
      "n": 4,
      "skill": 0.1265,
      "skill_shrunk": 0.0211,
-     "trust": 0.044,
+     "trust": 0.0427,
      "spend": 0.048,
      "misses": 0,
      "state": "established",
@@ -9172,11 +9179,11 @@
      "domain": "crypto_1h",
      "n": 3,
      "skill": -0.0145,
-     "skill_shrunk": -0.0019,
+     "skill_shrunk": null,
      "trust": 0.0,
      "spend": 0.009,
      "misses": 0,
-     "state": "established",
+     "state": "archived",
      "last_seen": "2026-08-31T16:04:20.236619+00:00"
     },
     "voldesk|crypto_1h": {
@@ -9184,11 +9191,11 @@
      "domain": "crypto_1h",
      "n": 3,
      "skill": -0.0507,
-     "skill_shrunk": -0.0066,
+     "skill_shrunk": null,
      "trust": 0.0,
      "spend": 0.027,
      "misses": 0,
-     "state": "established",
+     "state": "archived",
      "last_seen": "2026-08-31T16:04:20.224462+00:00"
     },
     "chalk_desk|crypto_24h": {
@@ -9215,104 +9222,6 @@
     }
    },
    "feed": [
-    {
-     "ts": "2026-09-03T01:08:37.817Z",
-     "kind": "buy",
-     "source": "iberian_desk",
-     "domain": "championship",
-     "cost": 0.012,
-     "trust": null,
-     "market": "championship:2026-09-02:West_Brom:Charlton"
-    },
-    {
-     "ts": "2026-09-03T01:08:49.836Z",
-     "kind": "forecast",
-     "domain": "championship",
-     "market": "championship:2026-09-02:West_Brom:Charlton",
-     "probabilities": {
-      "H": 0.43912175648702595,
-      "D": 0.26147704590818366,
-      "A": 0.2994011976047904
-     },
-     "confidence": 0.0,
-     "reasoning": null,
-     "leaned_on": [],
-     "spend": 0.027
-    },
-    {
-     "ts": "2026-09-03T01:31:06.830Z",
-     "kind": "buy",
-     "source": "formline",
-     "domain": "championship",
-     "cost": 0.003,
-     "trust": 0.236,
-     "market": "championship:2026-09-02:Burnley:Middlesbrough"
-    },
-    {
-     "ts": "2026-09-03T01:31:06.851Z",
-     "kind": "buy",
-     "source": "boot_room",
-     "domain": "championship",
-     "cost": 0.012,
-     "trust": 0.3919,
-     "market": "championship:2026-09-02:Burnley:Middlesbrough"
-    },
-    {
-     "ts": "2026-09-03T01:31:06.869Z",
-     "kind": "buy",
-     "source": "iberian_desk",
-     "domain": "championship",
-     "cost": 0.012,
-     "trust": null,
-     "market": "championship:2026-09-02:Burnley:Middlesbrough"
-    },
-    {
-     "ts": "2026-09-03T01:31:17.036Z",
-     "kind": "forecast",
-     "domain": "championship",
-     "market": "championship:2026-09-02:Burnley:Middlesbrough",
-     "probabilities": {
-      "H": 0.43912175648702595,
-      "D": 0.26147704590818366,
-      "A": 0.2994011976047904
-     },
-     "confidence": 0.0,
-     "reasoning": null,
-     "leaned_on": [],
-     "spend": 0.027
-    },
-    {
-     "ts": "2026-09-03T01:52:24.099Z",
-     "kind": "buy",
-     "source": "flowdesk",
-     "domain": "crypto_1h",
-     "cost": 0.015,
-     "trust": null,
-     "market": "crypto_1h:BTCUSDT:1788397200000"
-    },
-    {
-     "ts": "2026-09-03T01:52:26.680Z",
-     "kind": "forecast",
-     "domain": "crypto_1h",
-     "market": "crypto_1h:BTCUSDT:1788397200000",
-     "probabilities": {
-      "UP": 0.497,
-      "DOWN": 0.503
-     },
-     "confidence": 0.0,
-     "reasoning": null,
-     "leaned_on": [],
-     "spend": 0.015
-    },
-    {
-     "ts": "2026-09-03T02:13:04.469Z",
-     "kind": "buy",
-     "source": "peer:pundit_3",
-     "domain": "crypto_1h",
-     "cost": 0.008,
-     "trust": 0.0243,
-     "market": "crypto_1h:BTCUSDT:1788400800000"
-    },
     {
      "ts": "2026-09-03T02:13:04.485Z",
      "kind": "buy",
@@ -10152,6 +10061,103 @@
      "reasoning": null,
      "leaned_on": [],
      "spend": 0.003
+    },
+    {
+     "ts": "2026-09-03T14:06:07.187Z",
+     "kind": "buy",
+     "source": "formline",
+     "domain": "crypto_24h",
+     "cost": 0.003,
+     "trust": 0.0388,
+     "market": "crypto_24h:BTCUSDT:1788444000000"
+    },
+    {
+     "ts": "2026-09-03T14:06:22.386Z",
+     "kind": "forecast",
+     "domain": "crypto_24h",
+     "market": "crypto_24h:BTCUSDT:1788444000000",
+     "probabilities": {
+      "UP": 0.513,
+      "DOWN": 0.487
+     },
+     "confidence": 0.0,
+     "reasoning": null,
+     "leaned_on": [],
+     "spend": 0.003
+    },
+    {
+     "ts": "2026-09-03T14:06:57.757Z",
+     "kind": "resolved",
+     "market": "crypto_1h:BTCUSDT:1788440400000",
+     "domain": "crypto_1h",
+     "outcome": "UP",
+     "brier": 0.506,
+     "sources": []
+    },
+    {
+     "ts": "2026-09-03T14:28:02.667Z",
+     "kind": "forecast",
+     "domain": "crypto_1h",
+     "market": "crypto_1h:BTCUSDT:1788444000000",
+     "probabilities": {
+      "UP": 0.497,
+      "DOWN": 0.503
+     },
+     "confidence": 0.0,
+     "reasoning": null,
+     "leaned_on": [],
+     "spend": 0.0
+    },
+    {
+     "ts": "2026-09-03T14:49:13.305Z",
+     "kind": "buy",
+     "source": "formline",
+     "domain": "crypto_24h",
+     "cost": 0.003,
+     "trust": 0.0385,
+     "market": "crypto_24h:ETHUSDT:1788444000000"
+    },
+    {
+     "ts": "2026-09-03T14:49:22.231Z",
+     "kind": "forecast",
+     "domain": "crypto_24h",
+     "market": "crypto_24h:ETHUSDT:1788444000000",
+     "probabilities": {
+      "UP": 0.498,
+      "DOWN": 0.502
+     },
+     "confidence": 0.035,
+     "reasoning": null,
+     "leaned_on": [
+      "formline"
+     ],
+     "spend": 0.003
+    },
+    {
+     "ts": "2026-09-03T16:12:50.423Z",
+     "kind": "forecast",
+     "domain": "crypto_1h",
+     "market": "crypto_1h:BTCUSDT:1788451200000",
+     "probabilities": {
+      "UP": 0.497,
+      "DOWN": 0.503
+     },
+     "confidence": 0.0,
+     "reasoning": null,
+     "leaned_on": [],
+     "spend": 0.0
+    },
+    {
+     "ts": "2026-09-03T16:13:15.284Z",
+     "kind": "archive",
+     "source": "formline",
+     "domain": "crypto_1h"
+    },
+    {
+     "ts": "2026-09-03T16:13:15.291Z",
+     "kind": "archive",
+     "source": "voldesk",
+     "domain": "crypto_1h"
     }
    ],
    "frames": [
@@ -12002,11 +12008,11 @@
   },
   {
    "id": "pundit_5",
-   "forecasts": 129,
-   "resolutions": 92,
-   "spend": 2.185,
-   "buys": 240,
-   "brier": 0.5592,
+   "forecasts": 133,
+   "resolutions": 93,
+   "spend": 2.191,
+   "buys": 242,
+   "brier": 0.5586,
    "cells": {
     "flowdesk|crypto_1h": {
      "source": "flowdesk",
@@ -12026,7 +12032,7 @@
      "n": 13,
      "skill": 0.0177,
      "skill_shrunk": 0.007,
-     "trust": 0.0378,
+     "trust": 0.0371,
      "spend": 0.039,
      "misses": 0,
      "state": "established",
@@ -12074,7 +12080,7 @@
      "n": 8,
      "skill": 0.0641,
      "skill_shrunk": 0.0183,
-     "trust": 0.0594,
+     "trust": 0.0578,
      "spend": 0.024,
      "misses": 0,
      "state": "established",
@@ -12086,7 +12092,7 @@
      "n": 7,
      "skill": 0.1123,
      "skill_shrunk": 0.0291,
-     "trust": 0.0895,
+     "trust": 0.0871,
      "spend": 0.084,
      "misses": 0,
      "state": "established",
@@ -12110,7 +12116,7 @@
      "n": 5,
      "skill": 0.2066,
      "skill_shrunk": 0.0413,
-     "trust": 0.1085,
+     "trust": 0.1056,
      "spend": 0.021,
      "misses": 2,
      "state": "established",
@@ -12122,7 +12128,7 @@
      "n": 3,
      "skill": 0.2671,
      "skill_shrunk": 0.0348,
-     "trust": 0.0686,
+     "trust": 0.0667,
      "spend": 0.036,
      "misses": 0,
      "state": "established",
@@ -12134,7 +12140,7 @@
      "n": 7,
      "skill": 0.2116,
      "skill_shrunk": 0.0549,
-     "trust": 0.1676,
+     "trust": 0.1631,
      "spend": 0.021,
      "misses": 0,
      "state": "established",
@@ -12146,7 +12152,7 @@
      "n": 3,
      "skill": 0.2596,
      "skill_shrunk": 0.0339,
-     "trust": 0.0665,
+     "trust": 0.0647,
      "spend": 0.036,
      "misses": 0,
      "state": "established",
@@ -12170,7 +12176,7 @@
      "n": 3,
      "skill": 0.3708,
      "skill_shrunk": 0.0484,
-     "trust": 0.0943,
+     "trust": 0.0917,
      "spend": 0.036,
      "misses": 0,
      "state": "established",
@@ -12182,7 +12188,7 @@
      "n": 9,
      "skill": 0.1665,
      "skill_shrunk": 0.0517,
-     "trust": 0.172,
+     "trust": 0.1672,
      "spend": 0.027,
      "misses": 0,
      "state": "established",
@@ -12194,7 +12200,7 @@
      "n": 3,
      "skill": 0.2986,
      "skill_shrunk": 0.0389,
-     "trust": 0.0755,
+     "trust": 0.0734,
      "spend": 0.036,
      "misses": 0,
      "state": "established",
@@ -12206,7 +12212,7 @@
      "n": 8,
      "skill": 0.0819,
      "skill_shrunk": 0.0234,
-     "trust": 0.0702,
+     "trust": 0.0681,
      "spend": 0.096,
      "misses": 0,
      "state": "established",
@@ -12218,7 +12224,7 @@
      "n": 6,
      "skill": 0.0606,
      "skill_shrunk": 0.014,
-     "trust": 0.0368,
+     "trust": 0.0357,
      "spend": 0.072,
      "misses": 0,
      "state": "established",
@@ -12230,7 +12236,7 @@
      "n": 4,
      "skill": 0.1664,
      "skill_shrunk": 0.0277,
-     "trust": 0.059,
+     "trust": 0.0573,
      "spend": 0.072,
      "misses": 2,
      "state": "established",
@@ -12242,7 +12248,7 @@
      "n": 5,
      "skill": 0.0859,
      "skill_shrunk": 0.0172,
-     "trust": 0.0404,
+     "trust": 0.0392,
      "spend": 0.06,
      "misses": 0,
      "state": "established",
@@ -12254,7 +12260,7 @@
      "n": 6,
      "skill": 0.1005,
      "skill_shrunk": 0.0232,
-     "trust": 0.0594,
+     "trust": 0.0576,
      "spend": 0.072,
      "misses": 0,
      "state": "established",
@@ -12266,7 +12272,7 @@
      "n": 4,
      "skill": 0.0632,
      "skill_shrunk": 0.0105,
-     "trust": 0.0219,
+     "trust": 0.0212,
      "spend": 0.012,
      "misses": 0,
      "state": "established",
@@ -12278,7 +12284,7 @@
      "n": 4,
      "skill": 0.0632,
      "skill_shrunk": 0.0105,
-     "trust": 0.0219,
+     "trust": 0.0212,
      "spend": 0.048,
      "misses": 0,
      "state": "established",
@@ -12290,7 +12296,7 @@
      "n": 4,
      "skill": 0.0129,
      "skill_shrunk": 0.0022,
-     "trust": 0.0046,
+     "trust": 0.0045,
      "spend": 0.048,
      "misses": 0,
      "state": "established",
@@ -12338,7 +12344,7 @@
      "n": 4,
      "skill": 0.1757,
      "skill_shrunk": 0.0293,
-     "trust": 0.0611,
+     "trust": 0.0593,
      "spend": 0.048,
      "misses": 0,
      "state": "established",
@@ -12350,7 +12356,7 @@
      "n": 4,
      "skill": 0.1265,
      "skill_shrunk": 0.0211,
-     "trust": 0.044,
+     "trust": 0.0427,
      "spend": 0.048,
      "misses": 0,
      "state": "established",
@@ -12361,11 +12367,11 @@
      "domain": "crypto_1h",
      "n": 3,
      "skill": -0.0145,
-     "skill_shrunk": -0.0019,
+     "skill_shrunk": null,
      "trust": 0.0,
      "spend": 0.009,
      "misses": 0,
-     "state": "established",
+     "state": "archived",
      "last_seen": "2026-08-31T16:04:20.291010+00:00"
     },
     "voldesk|crypto_1h": {
@@ -12373,11 +12379,11 @@
      "domain": "crypto_1h",
      "n": 3,
      "skill": -0.0507,
-     "skill_shrunk": -0.0066,
+     "skill_shrunk": null,
      "trust": 0.0,
      "spend": 0.027,
      "misses": 0,
-     "state": "established",
+     "state": "archived",
      "last_seen": "2026-08-31T16:04:20.279249+00:00"
     },
     "chalk_desk|crypto_24h": {
@@ -12415,111 +12421,6 @@
     }
    },
    "feed": [
-    {
-     "ts": "2026-09-03T01:08:53.660Z",
-     "kind": "forecast",
-     "domain": "championship",
-     "market": "championship:2026-09-02:West_Brom:Charlton",
-     "probabilities": {
-      "H": 0.43912175648702595,
-      "D": 0.26147704590818366,
-      "A": 0.2994011976047904
-     },
-     "confidence": 0.0,
-     "reasoning": null,
-     "leaned_on": [],
-     "spend": 0.027
-    },
-    {
-     "ts": "2026-09-03T01:31:18.018Z",
-     "kind": "buy",
-     "source": "flowdesk",
-     "domain": "crypto_1h",
-     "cost": 0.015,
-     "trust": null,
-     "market": "crypto_1h:BTCUSDT:1788397200000"
-    },
-    {
-     "ts": "2026-09-03T01:31:20.649Z",
-     "kind": "forecast",
-     "domain": "crypto_1h",
-     "market": "crypto_1h:BTCUSDT:1788397200000",
-     "probabilities": {
-      "UP": 0.497,
-      "DOWN": 0.503
-     },
-     "confidence": 0.0,
-     "reasoning": null,
-     "leaned_on": [],
-     "spend": 0.015
-    },
-    {
-     "ts": "2026-09-03T01:52:27.353Z",
-     "kind": "buy",
-     "source": "formline",
-     "domain": "championship",
-     "cost": 0.003,
-     "trust": 0.2352,
-     "market": "championship:2026-09-02:Burnley:Middlesbrough"
-    },
-    {
-     "ts": "2026-09-03T01:52:27.373Z",
-     "kind": "buy",
-     "source": "boot_room",
-     "domain": "championship",
-     "cost": 0.012,
-     "trust": 0.3906,
-     "market": "championship:2026-09-02:Burnley:Middlesbrough"
-    },
-    {
-     "ts": "2026-09-03T01:52:27.391Z",
-     "kind": "buy",
-     "source": "iberian_desk",
-     "domain": "championship",
-     "cost": 0.012,
-     "trust": null,
-     "market": "championship:2026-09-02:Burnley:Middlesbrough"
-    },
-    {
-     "ts": "2026-09-03T01:52:30.824Z",
-     "kind": "forecast",
-     "domain": "championship",
-     "market": "championship:2026-09-02:Burnley:Middlesbrough",
-     "probabilities": {
-      "H": 0.43912175648702595,
-      "D": 0.26147704590818366,
-      "A": 0.2994011976047904
-     },
-     "confidence": 0.0,
-     "reasoning": null,
-     "leaned_on": [],
-     "spend": 0.027
-    },
-    {
-     "ts": "2026-09-03T02:13:08.299Z",
-     "kind": "buy",
-     "source": "formline",
-     "domain": "crypto_24h",
-     "cost": 0.003,
-     "trust": 0.1041,
-     "market": "crypto_24h:BTCUSDT:1788400800000"
-    },
-    {
-     "ts": "2026-09-03T02:13:11.387Z",
-     "kind": "forecast",
-     "domain": "crypto_24h",
-     "market": "crypto_24h:BTCUSDT:1788400800000",
-     "probabilities": {
-      "UP": 0.52,
-      "DOWN": 0.48
-     },
-     "confidence": 0.007,
-     "reasoning": null,
-     "leaned_on": [
-      "formline"
-     ],
-     "spend": 0.003
-    },
     {
      "ts": "2026-09-03T02:13:16.816Z",
      "kind": "resolved",
@@ -13359,6 +13260,101 @@
      "reasoning": null,
      "leaned_on": [],
      "spend": 0.0
+    },
+    {
+     "ts": "2026-09-03T14:06:23.211Z",
+     "kind": "buy",
+     "source": "formline",
+     "domain": "crypto_24h",
+     "cost": 0.003,
+     "trust": 0.0377,
+     "market": "crypto_24h:BTCUSDT:1788444000000"
+    },
+    {
+     "ts": "2026-09-03T14:06:37.361Z",
+     "kind": "forecast",
+     "domain": "crypto_24h",
+     "market": "crypto_24h:BTCUSDT:1788444000000",
+     "probabilities": {
+      "UP": 0.513,
+      "DOWN": 0.487
+     },
+     "confidence": 0.0,
+     "reasoning": null,
+     "leaned_on": [],
+     "spend": 0.003
+    },
+    {
+     "ts": "2026-09-03T14:06:57.888Z",
+     "kind": "resolved",
+     "market": "crypto_1h:BTCUSDT:1788440400000",
+     "domain": "crypto_1h",
+     "outcome": "UP",
+     "brier": 0.506,
+     "sources": []
+    },
+    {
+     "ts": "2026-09-03T14:28:16.170Z",
+     "kind": "forecast",
+     "domain": "crypto_1h",
+     "market": "crypto_1h:BTCUSDT:1788444000000",
+     "probabilities": {
+      "UP": 0.497,
+      "DOWN": 0.503
+     },
+     "confidence": 0.0,
+     "reasoning": null,
+     "leaned_on": [],
+     "spend": 0.0
+    },
+    {
+     "ts": "2026-09-03T14:49:22.916Z",
+     "kind": "buy",
+     "source": "formline",
+     "domain": "crypto_24h",
+     "cost": 0.003,
+     "trust": 0.0375,
+     "market": "crypto_24h:ETHUSDT:1788444000000"
+    },
+    {
+     "ts": "2026-09-03T14:49:30.112Z",
+     "kind": "forecast",
+     "domain": "crypto_24h",
+     "market": "crypto_24h:ETHUSDT:1788444000000",
+     "probabilities": {
+      "UP": 0.513,
+      "DOWN": 0.487
+     },
+     "confidence": 0.0,
+     "reasoning": null,
+     "leaned_on": [],
+     "spend": 0.003
+    },
+    {
+     "ts": "2026-09-03T16:12:57.353Z",
+     "kind": "forecast",
+     "domain": "crypto_1h",
+     "market": "crypto_1h:BTCUSDT:1788451200000",
+     "probabilities": {
+      "UP": 0.497,
+      "DOWN": 0.503
+     },
+     "confidence": 0.0,
+     "reasoning": null,
+     "leaned_on": [],
+     "spend": 0.0
+    },
+    {
+     "ts": "2026-09-03T16:13:15.347Z",
+     "kind": "archive",
+     "source": "formline",
+     "domain": "crypto_1h"
+    },
+    {
+     "ts": "2026-09-03T16:13:15.353Z",
+     "kind": "archive",
+     "source": "voldesk",
+     "domain": "crypto_1h"
     }
    ],
    "frames": [
@@ -15255,11 +15251,11 @@
   },
   {
    "id": "pundit_6",
-   "forecasts": 128,
-   "resolutions": 91,
+   "forecasts": 132,
+   "resolutions": 92,
    "spend": 1.749,
    "buys": 190,
-   "brier": 0.5642,
+   "brier": 0.5636,
    "cells": {
     "formline|crypto_24h": {
      "source": "formline",
@@ -15303,7 +15299,7 @@
      "n": 8,
      "skill": 0.0641,
      "skill_shrunk": 0.0183,
-     "trust": 0.0596,
+     "trust": 0.058,
      "spend": 0.024,
      "misses": 0,
      "state": "established",
@@ -15315,7 +15311,7 @@
      "n": 7,
      "skill": 0.1123,
      "skill_shrunk": 0.0291,
-     "trust": 0.0899,
+     "trust": 0.0875,
      "spend": 0.084,
      "misses": 0,
      "state": "established",
@@ -15339,7 +15335,7 @@
      "n": 3,
      "skill": 0.2671,
      "skill_shrunk": 0.0348,
-     "trust": 0.0688,
+     "trust": 0.067,
      "spend": 0.036,
      "misses": 0,
      "state": "established",
@@ -15351,7 +15347,7 @@
      "n": 7,
      "skill": 0.2116,
      "skill_shrunk": 0.0549,
-     "trust": 0.1683,
+     "trust": 0.1637,
      "spend": 0.021,
      "misses": 0,
      "state": "established",
@@ -15363,7 +15359,7 @@
      "n": 3,
      "skill": 0.2596,
      "skill_shrunk": 0.0339,
-     "trust": 0.0668,
+     "trust": 0.065,
      "spend": 0.036,
      "misses": 0,
      "state": "established",
@@ -15387,7 +15383,7 @@
      "n": 3,
      "skill": 0.3708,
      "skill_shrunk": 0.0484,
-     "trust": 0.0946,
+     "trust": 0.0921,
      "spend": 0.036,
      "misses": 0,
      "state": "established",
@@ -15399,7 +15395,7 @@
      "n": 3,
      "skill": 0.0974,
      "skill_shrunk": 0.0127,
-     "trust": 0.0247,
+     "trust": 0.0241,
      "spend": 0.036,
      "misses": 0,
      "state": "established",
@@ -15411,7 +15407,7 @@
      "n": 6,
      "skill": 0.0606,
      "skill_shrunk": 0.014,
-     "trust": 0.0369,
+     "trust": 0.0358,
      "spend": 0.072,
      "misses": 0,
      "state": "established",
@@ -15423,7 +15419,7 @@
      "n": 4,
      "skill": 0.093,
      "skill_shrunk": 0.0155,
-     "trust": 0.0332,
+     "trust": 0.0322,
      "spend": 0.018,
      "misses": 2,
      "state": "established",
@@ -15435,7 +15431,7 @@
      "n": 4,
      "skill": 0.1664,
      "skill_shrunk": 0.0277,
-     "trust": 0.0593,
+     "trust": 0.0575,
      "spend": 0.072,
      "misses": 2,
      "state": "established",
@@ -15459,7 +15455,7 @@
      "n": 5,
      "skill": 0.0859,
      "skill_shrunk": 0.0172,
-     "trust": 0.0404,
+     "trust": 0.0392,
      "spend": 0.06,
      "misses": 0,
      "state": "established",
@@ -15495,7 +15491,7 @@
      "n": 4,
      "skill": 0.0632,
      "skill_shrunk": 0.0105,
-     "trust": 0.0219,
+     "trust": 0.0212,
      "spend": 0.012,
      "misses": 0,
      "state": "established",
@@ -15507,7 +15503,7 @@
      "n": 4,
      "skill": 0.0632,
      "skill_shrunk": 0.0105,
-     "trust": 0.0219,
+     "trust": 0.0212,
      "spend": 0.048,
      "misses": 0,
      "state": "established",
@@ -15519,7 +15515,7 @@
      "n": 4,
      "skill": 0.0129,
      "skill_shrunk": 0.0022,
-     "trust": 0.0046,
+     "trust": 0.0045,
      "spend": 0.048,
      "misses": 0,
      "state": "established",
@@ -15567,7 +15563,7 @@
      "n": 4,
      "skill": 0.1757,
      "skill_shrunk": 0.0293,
-     "trust": 0.0611,
+     "trust": 0.0593,
      "spend": 0.048,
      "misses": 0,
      "state": "established",
@@ -15579,7 +15575,7 @@
      "n": 4,
      "skill": 0.1265,
      "skill_shrunk": 0.0211,
-     "trust": 0.044,
+     "trust": 0.0427,
      "spend": 0.048,
      "misses": 0,
      "state": "established",
@@ -15656,71 +15652,6 @@
     }
    },
    "feed": [
-    {
-     "ts": "2026-09-02T22:10:24.856Z",
-     "kind": "forecast",
-     "domain": "championship",
-     "market": "championship:2026-09-01:Stoke:Norwich",
-     "probabilities": {
-      "H": 0.43912175648702595,
-      "D": 0.26147704590818366,
-      "A": 0.2994011976047904
-     },
-     "confidence": 0.058,
-     "reasoning": null,
-     "leaned_on": [
-      "formline",
-      "boot_room"
-     ],
-     "spend": 0.027
-    },
-    {
-     "ts": "2026-09-02T22:11:04.036Z",
-     "kind": "resolved",
-     "market": "crypto_24h:SOLUSDT:1788300000000",
-     "domain": "crypto_24h",
-     "outcome": "UP",
-     "brier": 0.4743,
-     "sources": [
-      "formline"
-     ]
-    },
-    {
-     "ts": "2026-09-02T22:11:04.047Z",
-     "kind": "resolved",
-     "market": "crypto_24h:ETHUSDT:1788300000000",
-     "domain": "crypto_24h",
-     "outcome": "DOWN",
-     "brier": 0.5263,
-     "sources": [
-      "formline"
-     ]
-    },
-    {
-     "ts": "2026-09-02T22:32:28.602Z",
-     "kind": "forecast",
-     "domain": "crypto_1h",
-     "market": "crypto_1h:BTCUSDT:1788386400000",
-     "probabilities": {
-      "UP": 0.497,
-      "DOWN": 0.503
-     },
-     "confidence": 0.0,
-     "reasoning": null,
-     "leaned_on": [],
-     "spend": 0.0
-    },
-    {
-     "ts": "2026-09-02T22:33:00.169Z",
-     "kind": "resolved",
-     "market": "crypto_24h:BTCUSDT:1788300000000",
-     "domain": "crypto_24h",
-     "outcome": "UP",
-     "brier": 0.4743,
-     "sources": [
-      "formline"
-     ]
-    },
     {
      "ts": "2026-09-02T22:54:53.318Z",
      "kind": "forecast",
@@ -16614,6 +16545,71 @@
      "kind": "forecast",
      "domain": "crypto_24h",
      "market": "crypto_24h:ETHUSDT:1788440400000",
+     "probabilities": {
+      "UP": 0.513,
+      "DOWN": 0.487
+     },
+     "confidence": 0.0,
+     "reasoning": null,
+     "leaned_on": [],
+     "spend": 0.0
+    },
+    {
+     "ts": "2026-09-03T14:06:52.688Z",
+     "kind": "forecast",
+     "domain": "crypto_1h",
+     "market": "crypto_1h:BTCUSDT:1788444000000",
+     "probabilities": {
+      "UP": 0.497,
+      "DOWN": 0.503
+     },
+     "confidence": 0.0,
+     "reasoning": null,
+     "leaned_on": [],
+     "spend": 0.0
+    },
+    {
+     "ts": "2026-09-03T14:06:58.465Z",
+     "kind": "resolved",
+     "market": "crypto_1h:BTCUSDT:1788440400000",
+     "domain": "crypto_1h",
+     "outcome": "UP",
+     "brier": 0.506,
+     "sources": []
+    },
+    {
+     "ts": "2026-09-03T14:28:31.093Z",
+     "kind": "forecast",
+     "domain": "crypto_24h",
+     "market": "crypto_24h:BTCUSDT:1788444000000",
+     "probabilities": {
+      "UP": 0.513,
+      "DOWN": 0.487
+     },
+     "confidence": 0.0,
+     "reasoning": null,
+     "leaned_on": [],
+     "spend": 0.0
+    },
+    {
+     "ts": "2026-09-03T14:49:38.033Z",
+     "kind": "forecast",
+     "domain": "crypto_1h",
+     "market": "crypto_1h:ETHUSDT:1788444000000",
+     "probabilities": {
+      "UP": 0.497,
+      "DOWN": 0.503
+     },
+     "confidence": 0.0,
+     "reasoning": null,
+     "leaned_on": [],
+     "spend": 0.0
+    },
+    {
+     "ts": "2026-09-03T16:13:03.665Z",
+     "kind": "forecast",
+     "domain": "crypto_24h",
+     "market": "crypto_24h:BTCUSDT:1788451200000",
      "probabilities": {
       "UP": 0.513,
       "DOWN": 0.487
@@ -18382,10 +18378,564 @@
      }
     }
    ],
-   "memory_pct": 41.875
+   "memory_pct": 42.578
   }
  ],
  "feed": [
+  {
+   "ts": "2026-09-03T16:13:15.353Z",
+   "kind": "archive",
+   "source": "voldesk",
+   "domain": "crypto_1h",
+   "pundit": "pundit_5"
+  },
+  {
+   "ts": "2026-09-03T16:13:15.347Z",
+   "kind": "archive",
+   "source": "formline",
+   "domain": "crypto_1h",
+   "pundit": "pundit_5"
+  },
+  {
+   "ts": "2026-09-03T16:13:15.291Z",
+   "kind": "archive",
+   "source": "voldesk",
+   "domain": "crypto_1h",
+   "pundit": "pundit_4"
+  },
+  {
+   "ts": "2026-09-03T16:13:15.284Z",
+   "kind": "archive",
+   "source": "formline",
+   "domain": "crypto_1h",
+   "pundit": "pundit_4"
+  },
+  {
+   "ts": "2026-09-03T16:13:13.245Z",
+   "kind": "resolved",
+   "market": "crypto_1h:BTCUSDT:1788444000000",
+   "domain": "crypto_1h",
+   "outcome": "UP",
+   "brier": 0.506,
+   "sources": [],
+   "pundit": "pundit_2"
+  },
+  {
+   "ts": "2026-09-03T16:13:11.436Z",
+   "kind": "resolved",
+   "market": "crypto_1h:BTCUSDT:1788444000000",
+   "domain": "crypto_1h",
+   "outcome": "UP",
+   "brier": 0.506,
+   "sources": [],
+   "pundit": "pundit_1"
+  },
+  {
+   "ts": "2026-09-03T16:13:03.665Z",
+   "kind": "forecast",
+   "domain": "crypto_24h",
+   "market": "crypto_24h:BTCUSDT:1788451200000",
+   "probabilities": {
+    "UP": 0.513,
+    "DOWN": 0.487
+   },
+   "confidence": 0.0,
+   "reasoning": null,
+   "leaned_on": [],
+   "spend": 0.0,
+   "pundit": "pundit_6"
+  },
+  {
+   "ts": "2026-09-03T16:12:57.353Z",
+   "kind": "forecast",
+   "domain": "crypto_1h",
+   "market": "crypto_1h:BTCUSDT:1788451200000",
+   "probabilities": {
+    "UP": 0.497,
+    "DOWN": 0.503
+   },
+   "confidence": 0.0,
+   "reasoning": null,
+   "leaned_on": [],
+   "spend": 0.0,
+   "pundit": "pundit_5"
+  },
+  {
+   "ts": "2026-09-03T16:12:50.423Z",
+   "kind": "forecast",
+   "domain": "crypto_1h",
+   "market": "crypto_1h:BTCUSDT:1788451200000",
+   "probabilities": {
+    "UP": 0.497,
+    "DOWN": 0.503
+   },
+   "confidence": 0.0,
+   "reasoning": null,
+   "leaned_on": [],
+   "spend": 0.0,
+   "pundit": "pundit_4"
+  },
+  {
+   "ts": "2026-09-03T16:12:44.478Z",
+   "kind": "forecast",
+   "domain": "crypto_24h",
+   "market": "crypto_24h:BTCUSDT:1788451200000",
+   "probabilities": {
+    "UP": 0.52,
+    "DOWN": 0.48
+   },
+   "confidence": 0.007,
+   "reasoning": null,
+   "leaned_on": [
+    "flowdesk"
+   ],
+   "spend": 0.015,
+   "pundit": "pundit_3"
+  },
+  {
+   "ts": "2026-09-03T16:12:38.467Z",
+   "kind": "buy",
+   "source": "flowdesk",
+   "domain": "crypto_24h",
+   "cost": 0.015,
+   "trust": null,
+   "market": "crypto_24h:BTCUSDT:1788451200000",
+   "pundit": "pundit_3"
+  },
+  {
+   "ts": "2026-09-03T16:12:37.646Z",
+   "kind": "forecast",
+   "domain": "crypto_24h",
+   "market": "crypto_24h:BTCUSDT:1788451200000",
+   "probabilities": {
+    "UP": 0.513,
+    "DOWN": 0.487
+   },
+   "confidence": 0.0,
+   "reasoning": null,
+   "leaned_on": [],
+   "spend": 0.0,
+   "pundit": "pundit_2"
+  },
+  {
+   "ts": "2026-09-03T16:12:31.805Z",
+   "kind": "forecast",
+   "domain": "crypto_1h",
+   "market": "crypto_1h:BTCUSDT:1788451200000",
+   "probabilities": {
+    "UP": 0.497,
+    "DOWN": 0.503
+   },
+   "confidence": 0.0,
+   "reasoning": null,
+   "leaned_on": [],
+   "spend": 0.0,
+   "pundit": "pundit_1"
+  },
+  {
+   "ts": "2026-09-03T14:49:38.033Z",
+   "kind": "forecast",
+   "domain": "crypto_1h",
+   "market": "crypto_1h:ETHUSDT:1788444000000",
+   "probabilities": {
+    "UP": 0.497,
+    "DOWN": 0.503
+   },
+   "confidence": 0.0,
+   "reasoning": null,
+   "leaned_on": [],
+   "spend": 0.0,
+   "pundit": "pundit_6"
+  },
+  {
+   "ts": "2026-09-03T14:49:30.112Z",
+   "kind": "forecast",
+   "domain": "crypto_24h",
+   "market": "crypto_24h:ETHUSDT:1788444000000",
+   "probabilities": {
+    "UP": 0.513,
+    "DOWN": 0.487
+   },
+   "confidence": 0.0,
+   "reasoning": null,
+   "leaned_on": [],
+   "spend": 0.003,
+   "pundit": "pundit_5"
+  },
+  {
+   "ts": "2026-09-03T14:49:22.916Z",
+   "kind": "buy",
+   "source": "formline",
+   "domain": "crypto_24h",
+   "cost": 0.003,
+   "trust": 0.0375,
+   "market": "crypto_24h:ETHUSDT:1788444000000",
+   "pundit": "pundit_5"
+  },
+  {
+   "ts": "2026-09-03T14:49:22.231Z",
+   "kind": "forecast",
+   "domain": "crypto_24h",
+   "market": "crypto_24h:ETHUSDT:1788444000000",
+   "probabilities": {
+    "UP": 0.498,
+    "DOWN": 0.502
+   },
+   "confidence": 0.035,
+   "reasoning": null,
+   "leaned_on": [
+    "formline"
+   ],
+   "spend": 0.003,
+   "pundit": "pundit_4"
+  },
+  {
+   "ts": "2026-09-03T14:49:13.305Z",
+   "kind": "buy",
+   "source": "formline",
+   "domain": "crypto_24h",
+   "cost": 0.003,
+   "trust": 0.0385,
+   "market": "crypto_24h:ETHUSDT:1788444000000",
+   "pundit": "pundit_4"
+  },
+  {
+   "ts": "2026-09-03T14:49:12.594Z",
+   "kind": "forecast",
+   "domain": "crypto_1h",
+   "market": "crypto_1h:ETHUSDT:1788444000000",
+   "probabilities": {
+    "UP": 0.497,
+    "DOWN": 0.503
+   },
+   "confidence": 0.0,
+   "reasoning": null,
+   "leaned_on": [],
+   "spend": 0.0,
+   "pundit": "pundit_3"
+  },
+  {
+   "ts": "2026-09-03T14:49:04.275Z",
+   "kind": "forecast",
+   "domain": "crypto_1h",
+   "market": "crypto_1h:ETHUSDT:1788444000000",
+   "probabilities": {
+    "UP": 0.497,
+    "DOWN": 0.503
+   },
+   "confidence": 0.0,
+   "reasoning": null,
+   "leaned_on": [],
+   "spend": 0.0,
+   "pundit": "pundit_2"
+  },
+  {
+   "ts": "2026-09-03T14:48:56.497Z",
+   "kind": "forecast",
+   "domain": "crypto_24h",
+   "market": "crypto_24h:ETHUSDT:1788444000000",
+   "probabilities": {
+    "UP": 0.513,
+    "DOWN": 0.487
+   },
+   "confidence": 0.0,
+   "reasoning": null,
+   "leaned_on": [],
+   "spend": 0.0,
+   "pundit": "pundit_1"
+  },
+  {
+   "ts": "2026-09-03T14:28:31.093Z",
+   "kind": "forecast",
+   "domain": "crypto_24h",
+   "market": "crypto_24h:BTCUSDT:1788444000000",
+   "probabilities": {
+    "UP": 0.513,
+    "DOWN": 0.487
+   },
+   "confidence": 0.0,
+   "reasoning": null,
+   "leaned_on": [],
+   "spend": 0.0,
+   "pundit": "pundit_6"
+  },
+  {
+   "ts": "2026-09-03T14:28:16.170Z",
+   "kind": "forecast",
+   "domain": "crypto_1h",
+   "market": "crypto_1h:BTCUSDT:1788444000000",
+   "probabilities": {
+    "UP": 0.497,
+    "DOWN": 0.503
+   },
+   "confidence": 0.0,
+   "reasoning": null,
+   "leaned_on": [],
+   "spend": 0.0,
+   "pundit": "pundit_5"
+  },
+  {
+   "ts": "2026-09-03T14:28:02.667Z",
+   "kind": "forecast",
+   "domain": "crypto_1h",
+   "market": "crypto_1h:BTCUSDT:1788444000000",
+   "probabilities": {
+    "UP": 0.497,
+    "DOWN": 0.503
+   },
+   "confidence": 0.0,
+   "reasoning": null,
+   "leaned_on": [],
+   "spend": 0.0,
+   "pundit": "pundit_4"
+  },
+  {
+   "ts": "2026-09-03T14:27:46.424Z",
+   "kind": "forecast",
+   "domain": "crypto_1h",
+   "market": "crypto_1h:BTCUSDT:1788444000000",
+   "probabilities": {
+    "UP": 0.497,
+    "DOWN": 0.503
+   },
+   "confidence": 0.0,
+   "reasoning": null,
+   "leaned_on": [],
+   "spend": 0.0,
+   "pundit": "pundit_3"
+  },
+  {
+   "ts": "2026-09-03T14:27:31.323Z",
+   "kind": "forecast",
+   "domain": "crypto_24h",
+   "market": "crypto_24h:BTCUSDT:1788444000000",
+   "probabilities": {
+    "UP": 0.513,
+    "DOWN": 0.487
+   },
+   "confidence": 0.0,
+   "reasoning": null,
+   "leaned_on": [],
+   "spend": 0.0,
+   "pundit": "pundit_2"
+  },
+  {
+   "ts": "2026-09-03T14:27:17.092Z",
+   "kind": "forecast",
+   "domain": "crypto_1h",
+   "market": "crypto_1h:BTCUSDT:1788444000000",
+   "probabilities": {
+    "UP": 0.497,
+    "DOWN": 0.503
+   },
+   "confidence": 0.0,
+   "reasoning": null,
+   "leaned_on": [],
+   "spend": 0.0,
+   "pundit": "pundit_1"
+  },
+  {
+   "ts": "2026-09-03T14:06:58.465Z",
+   "kind": "resolved",
+   "market": "crypto_1h:BTCUSDT:1788440400000",
+   "domain": "crypto_1h",
+   "outcome": "UP",
+   "brier": 0.506,
+   "sources": [],
+   "pundit": "pundit_6"
+  },
+  {
+   "ts": "2026-09-03T14:06:57.888Z",
+   "kind": "resolved",
+   "market": "crypto_1h:BTCUSDT:1788440400000",
+   "domain": "crypto_1h",
+   "outcome": "UP",
+   "brier": 0.506,
+   "sources": [],
+   "pundit": "pundit_5"
+  },
+  {
+   "ts": "2026-09-03T14:06:57.757Z",
+   "kind": "resolved",
+   "market": "crypto_1h:BTCUSDT:1788440400000",
+   "domain": "crypto_1h",
+   "outcome": "UP",
+   "brier": 0.506,
+   "sources": [],
+   "pundit": "pundit_4"
+  },
+  {
+   "ts": "2026-09-03T14:06:57.090Z",
+   "kind": "resolved",
+   "market": "crypto_1h:BTCUSDT:1788440400000",
+   "domain": "crypto_1h",
+   "outcome": "UP",
+   "brier": 0.506,
+   "sources": [],
+   "pundit": "pundit_3"
+  },
+  {
+   "ts": "2026-09-03T14:06:57.078Z",
+   "kind": "resolved",
+   "market": "crypto_1h:ETHUSDT:1788440400000",
+   "domain": "crypto_1h",
+   "outcome": "UP",
+   "brier": 0.506,
+   "sources": [],
+   "pundit": "pundit_3"
+  },
+  {
+   "ts": "2026-09-03T14:06:55.897Z",
+   "kind": "resolved",
+   "market": "crypto_1h:BTCUSDT:1788440400000",
+   "domain": "crypto_1h",
+   "outcome": "UP",
+   "brier": 0.506,
+   "sources": [],
+   "pundit": "pundit_2"
+  },
+  {
+   "ts": "2026-09-03T14:06:54.651Z",
+   "kind": "resolved",
+   "market": "crypto_1h:BTCUSDT:1788440400000",
+   "domain": "crypto_1h",
+   "outcome": "UP",
+   "brier": 0.506,
+   "sources": [],
+   "pundit": "pundit_1"
+  },
+  {
+   "ts": "2026-09-03T14:06:54.637Z",
+   "kind": "resolved",
+   "market": "crypto_1h:ETHUSDT:1788440400000",
+   "domain": "crypto_1h",
+   "outcome": "UP",
+   "brier": 0.506,
+   "sources": [],
+   "pundit": "pundit_1"
+  },
+  {
+   "ts": "2026-09-03T14:06:52.688Z",
+   "kind": "forecast",
+   "domain": "crypto_1h",
+   "market": "crypto_1h:BTCUSDT:1788444000000",
+   "probabilities": {
+    "UP": 0.497,
+    "DOWN": 0.503
+   },
+   "confidence": 0.0,
+   "reasoning": null,
+   "leaned_on": [],
+   "spend": 0.0,
+   "pundit": "pundit_6"
+  },
+  {
+   "ts": "2026-09-03T14:06:37.361Z",
+   "kind": "forecast",
+   "domain": "crypto_24h",
+   "market": "crypto_24h:BTCUSDT:1788444000000",
+   "probabilities": {
+    "UP": 0.513,
+    "DOWN": 0.487
+   },
+   "confidence": 0.0,
+   "reasoning": null,
+   "leaned_on": [],
+   "spend": 0.003,
+   "pundit": "pundit_5"
+  },
+  {
+   "ts": "2026-09-03T14:06:23.211Z",
+   "kind": "buy",
+   "source": "formline",
+   "domain": "crypto_24h",
+   "cost": 0.003,
+   "trust": 0.0377,
+   "market": "crypto_24h:BTCUSDT:1788444000000",
+   "pundit": "pundit_5"
+  },
+  {
+   "ts": "2026-09-03T14:06:22.386Z",
+   "kind": "forecast",
+   "domain": "crypto_24h",
+   "market": "crypto_24h:BTCUSDT:1788444000000",
+   "probabilities": {
+    "UP": 0.513,
+    "DOWN": 0.487
+   },
+   "confidence": 0.0,
+   "reasoning": null,
+   "leaned_on": [],
+   "spend": 0.003,
+   "pundit": "pundit_4"
+  },
+  {
+   "ts": "2026-09-03T14:06:07.187Z",
+   "kind": "buy",
+   "source": "formline",
+   "domain": "crypto_24h",
+   "cost": 0.003,
+   "trust": 0.0388,
+   "market": "crypto_24h:BTCUSDT:1788444000000",
+   "pundit": "pundit_4"
+  },
+  {
+   "ts": "2026-09-03T14:06:06.299Z",
+   "kind": "forecast",
+   "domain": "crypto_24h",
+   "market": "crypto_24h:BTCUSDT:1788444000000",
+   "probabilities": {
+    "UP": 0.506,
+    "DOWN": 0.494
+   },
+   "confidence": 0.013,
+   "reasoning": null,
+   "leaned_on": [
+    "flowdesk"
+   ],
+   "spend": 0.015,
+   "pundit": "pundit_3"
+  },
+  {
+   "ts": "2026-09-03T14:05:51.355Z",
+   "kind": "buy",
+   "source": "flowdesk",
+   "domain": "crypto_24h",
+   "cost": 0.015,
+   "trust": null,
+   "market": "crypto_24h:BTCUSDT:1788444000000",
+   "pundit": "pundit_3"
+  },
+  {
+   "ts": "2026-09-03T14:05:50.498Z",
+   "kind": "forecast",
+   "domain": "crypto_1h",
+   "market": "crypto_1h:BTCUSDT:1788444000000",
+   "probabilities": {
+    "UP": 0.497,
+    "DOWN": 0.503
+   },
+   "confidence": 0.0,
+   "reasoning": null,
+   "leaned_on": [],
+   "spend": 0.0,
+   "pundit": "pundit_2"
+  },
+  {
+   "ts": "2026-09-03T14:05:35.597Z",
+   "kind": "forecast",
+   "domain": "crypto_24h",
+   "market": "crypto_24h:BTCUSDT:1788444000000",
+   "probabilities": {
+    "UP": 0.513,
+    "DOWN": 0.487
+   },
+   "confidence": 0.0,
+   "reasoning": null,
+   "leaned_on": [],
+   "spend": 0.0,
+   "pundit": "pundit_1"
+  },
   {
    "ts": "2026-09-03T13:45:08.744Z",
    "kind": "forecast",
@@ -22942,551 +23492,12 @@
    "trust": 0.1079,
    "market": "crypto_24h:BTCUSDT:1788400800000",
    "pundit": "pundit_4"
-  },
-  {
-   "ts": "2026-09-03T02:33:45.905Z",
-   "kind": "forecast",
-   "domain": "crypto_24h",
-   "market": "crypto_24h:BTCUSDT:1788400800000",
-   "probabilities": {
-    "UP": 0.513,
-    "DOWN": 0.487
-   },
-   "confidence": 0.0,
-   "reasoning": null,
-   "leaned_on": [],
-   "spend": 0.015,
-   "pundit": "pundit_3"
-  },
-  {
-   "ts": "2026-09-03T02:33:43.314Z",
-   "kind": "buy",
-   "source": "flowdesk",
-   "domain": "crypto_24h",
-   "cost": 0.015,
-   "trust": null,
-   "market": "crypto_24h:BTCUSDT:1788400800000",
-   "pundit": "pundit_3"
-  },
-  {
-   "ts": "2026-09-03T02:33:42.687Z",
-   "kind": "forecast",
-   "domain": "crypto_24h",
-   "market": "crypto_24h:BTCUSDT:1788400800000",
-   "probabilities": {
-    "UP": 0.513,
-    "DOWN": 0.487
-   },
-   "confidence": 0.0,
-   "reasoning": null,
-   "leaned_on": [],
-   "spend": 0.0,
-   "pundit": "pundit_2"
-  },
-  {
-   "ts": "2026-09-03T02:33:39.478Z",
-   "kind": "forecast",
-   "domain": "crypto_1h",
-   "market": "crypto_1h:BTCUSDT:1788400800000",
-   "probabilities": {
-    "UP": 0.497,
-    "DOWN": 0.503
-   },
-   "confidence": 0.0,
-   "reasoning": null,
-   "leaned_on": [],
-   "spend": 0.008,
-   "pundit": "pundit_1"
-  },
-  {
-   "ts": "2026-09-03T02:33:28.577Z",
-   "kind": "buy",
-   "source": "peer:pundit_3",
-   "domain": "crypto_1h",
-   "cost": 0.008,
-   "trust": 0.0242,
-   "market": "crypto_1h:BTCUSDT:1788400800000",
-   "pundit": "pundit_1"
-  },
-  {
-   "ts": "2026-09-03T02:13:16.827Z",
-   "kind": "resolved",
-   "market": "crypto_1h:BTCUSDT:1788397200000",
-   "domain": "crypto_1h",
-   "outcome": "UP",
-   "brier": 0.506,
-   "sources": [],
-   "pundit": "pundit_6"
-  },
-  {
-   "ts": "2026-09-03T02:13:16.816Z",
-   "kind": "resolved",
-   "market": "crypto_1h:BTCUSDT:1788397200000",
-   "domain": "crypto_1h",
-   "outcome": "UP",
-   "brier": 0.506,
-   "sources": [
-    "flowdesk"
-   ],
-   "pundit": "pundit_5"
-  },
-  {
-   "ts": "2026-09-03T02:13:16.777Z",
-   "kind": "resolved",
-   "market": "crypto_1h:BTCUSDT:1788397200000",
-   "domain": "crypto_1h",
-   "outcome": "UP",
-   "brier": 0.506,
-   "sources": [
-    "flowdesk"
-   ],
-   "pundit": "pundit_4"
-  },
-  {
-   "ts": "2026-09-03T02:13:16.762Z",
-   "kind": "promotion",
-   "source": "flowdesk",
-   "domain": "crypto_1h",
-   "skill": -0.0294,
-   "pundit": "pundit_4"
-  },
-  {
-   "ts": "2026-09-03T02:13:14.361Z",
-   "kind": "forecast",
-   "domain": "crypto_24h",
-   "market": "crypto_24h:BTCUSDT:1788400800000",
-   "probabilities": {
-    "UP": 0.513,
-    "DOWN": 0.487
-   },
-   "confidence": 0.0,
-   "reasoning": null,
-   "leaned_on": [],
-   "spend": 0.0,
-   "pundit": "pundit_6"
-  },
-  {
-   "ts": "2026-09-03T02:13:11.387Z",
-   "kind": "forecast",
-   "domain": "crypto_24h",
-   "market": "crypto_24h:BTCUSDT:1788400800000",
-   "probabilities": {
-    "UP": 0.52,
-    "DOWN": 0.48
-   },
-   "confidence": 0.007,
-   "reasoning": null,
-   "leaned_on": [
-    "formline"
-   ],
-   "spend": 0.003,
-   "pundit": "pundit_5"
-  },
-  {
-   "ts": "2026-09-03T02:13:08.299Z",
-   "kind": "buy",
-   "source": "formline",
-   "domain": "crypto_24h",
-   "cost": 0.003,
-   "trust": 0.1041,
-   "market": "crypto_24h:BTCUSDT:1788400800000",
-   "pundit": "pundit_5"
-  },
-  {
-   "ts": "2026-09-03T02:13:07.768Z",
-   "kind": "forecast",
-   "domain": "crypto_1h",
-   "market": "crypto_1h:BTCUSDT:1788400800000",
-   "probabilities": {
-    "UP": 0.4972,
-    "DOWN": 0.5028
-   },
-   "confidence": 0.002,
-   "reasoning": null,
-   "leaned_on": [
-    "flowdesk"
-   ],
-   "spend": 0.023,
-   "pundit": "pundit_4"
-  },
-  {
-   "ts": "2026-09-03T02:13:04.485Z",
-   "kind": "buy",
-   "source": "flowdesk",
-   "domain": "crypto_1h",
-   "cost": 0.015,
-   "trust": null,
-   "market": "crypto_1h:BTCUSDT:1788400800000",
-   "pundit": "pundit_4"
-  },
-  {
-   "ts": "2026-09-03T02:13:04.469Z",
-   "kind": "buy",
-   "source": "peer:pundit_3",
-   "domain": "crypto_1h",
-   "cost": 0.008,
-   "trust": 0.0243,
-   "market": "crypto_1h:BTCUSDT:1788400800000",
-   "pundit": "pundit_4"
-  },
-  {
-   "ts": "2026-09-03T02:13:03.898Z",
-   "kind": "forecast",
-   "domain": "crypto_1h",
-   "market": "crypto_1h:BTCUSDT:1788400800000",
-   "probabilities": {
-    "UP": 0.497,
-    "DOWN": 0.503
-   },
-   "confidence": 0.0,
-   "reasoning": null,
-   "leaned_on": [],
-   "spend": 0.0,
-   "pundit": "pundit_3"
-  },
-  {
-   "ts": "2026-09-03T02:13:00.906Z",
-   "kind": "forecast",
-   "domain": "crypto_1h",
-   "market": "crypto_1h:BTCUSDT:1788400800000",
-   "probabilities": {
-    "UP": 0.497,
-    "DOWN": 0.503
-   },
-   "confidence": 0.0,
-   "reasoning": null,
-   "leaned_on": [],
-   "spend": 0.015,
-   "pundit": "pundit_2"
-  },
-  {
-   "ts": "2026-09-03T02:12:58.367Z",
-   "kind": "buy",
-   "source": "flowdesk",
-   "domain": "crypto_1h",
-   "cost": 0.015,
-   "trust": null,
-   "market": "crypto_1h:BTCUSDT:1788400800000",
-   "pundit": "pundit_2"
-  },
-  {
-   "ts": "2026-09-03T02:12:57.638Z",
-   "kind": "forecast",
-   "domain": "championship",
-   "market": "championship:2026-09-01:West_Ham:Wolves",
-   "probabilities": {
-    "H": 0.43912175648702595,
-    "D": 0.26147704590818366,
-    "A": 0.2994011976047904
-   },
-   "confidence": 0.0,
-   "reasoning": null,
-   "leaned_on": [],
-   "spend": 0.027,
-   "pundit": "pundit_1"
-  },
-  {
-   "ts": "2026-09-03T02:12:46.912Z",
-   "kind": "buy",
-   "source": "iberian_desk",
-   "domain": "championship",
-   "cost": 0.012,
-   "trust": null,
-   "market": "championship:2026-09-01:West_Ham:Wolves",
-   "pundit": "pundit_1"
-  },
-  {
-   "ts": "2026-09-03T02:12:46.899Z",
-   "kind": "buy",
-   "source": "calcio_desk",
-   "domain": "championship",
-   "cost": 0.012,
-   "trust": 0.3577,
-   "market": "championship:2026-09-01:West_Ham:Wolves",
-   "pundit": "pundit_1"
-  },
-  {
-   "ts": "2026-09-03T02:12:46.885Z",
-   "kind": "buy",
-   "source": "formline",
-   "domain": "championship",
-   "cost": 0.003,
-   "trust": 0.4174,
-   "market": "championship:2026-09-01:West_Ham:Wolves",
-   "pundit": "pundit_1"
-  },
-  {
-   "ts": "2026-09-03T01:52:34.157Z",
-   "kind": "forecast",
-   "domain": "crypto_1h",
-   "market": "crypto_1h:BTCUSDT:1788397200000",
-   "probabilities": {
-    "UP": 0.497,
-    "DOWN": 0.503
-   },
-   "confidence": 0.0,
-   "reasoning": null,
-   "leaned_on": [],
-   "spend": 0.0,
-   "pundit": "pundit_6"
-  },
-  {
-   "ts": "2026-09-03T01:52:30.824Z",
-   "kind": "forecast",
-   "domain": "championship",
-   "market": "championship:2026-09-02:Burnley:Middlesbrough",
-   "probabilities": {
-    "H": 0.43912175648702595,
-    "D": 0.26147704590818366,
-    "A": 0.2994011976047904
-   },
-   "confidence": 0.0,
-   "reasoning": null,
-   "leaned_on": [],
-   "spend": 0.027,
-   "pundit": "pundit_5"
-  },
-  {
-   "ts": "2026-09-03T01:52:27.391Z",
-   "kind": "buy",
-   "source": "iberian_desk",
-   "domain": "championship",
-   "cost": 0.012,
-   "trust": null,
-   "market": "championship:2026-09-02:Burnley:Middlesbrough",
-   "pundit": "pundit_5"
-  },
-  {
-   "ts": "2026-09-03T01:52:27.373Z",
-   "kind": "buy",
-   "source": "boot_room",
-   "domain": "championship",
-   "cost": 0.012,
-   "trust": 0.3906,
-   "market": "championship:2026-09-02:Burnley:Middlesbrough",
-   "pundit": "pundit_5"
-  },
-  {
-   "ts": "2026-09-03T01:52:27.353Z",
-   "kind": "buy",
-   "source": "formline",
-   "domain": "championship",
-   "cost": 0.003,
-   "trust": 0.2352,
-   "market": "championship:2026-09-02:Burnley:Middlesbrough",
-   "pundit": "pundit_5"
-  },
-  {
-   "ts": "2026-09-03T01:52:26.680Z",
-   "kind": "forecast",
-   "domain": "crypto_1h",
-   "market": "crypto_1h:BTCUSDT:1788397200000",
-   "probabilities": {
-    "UP": 0.497,
-    "DOWN": 0.503
-   },
-   "confidence": 0.0,
-   "reasoning": null,
-   "leaned_on": [],
-   "spend": 0.015,
-   "pundit": "pundit_4"
-  },
-  {
-   "ts": "2026-09-03T01:52:24.099Z",
-   "kind": "buy",
-   "source": "flowdesk",
-   "domain": "crypto_1h",
-   "cost": 0.015,
-   "trust": null,
-   "market": "crypto_1h:BTCUSDT:1788397200000",
-   "pundit": "pundit_4"
-  },
-  {
-   "ts": "2026-09-03T01:52:23.390Z",
-   "kind": "forecast",
-   "domain": "championship",
-   "market": "championship:2026-09-01:Birmingham:Southampton",
-   "probabilities": {
-    "H": 0.45,
-    "D": 0.26,
-    "A": 0.29
-   },
-   "confidence": 0.19,
-   "reasoning": null,
-   "leaned_on": [
-    "formline",
-    "calcio_desk"
-   ],
-   "spend": 0.027,
-   "pundit": "pundit_3"
-  },
-  {
-   "ts": "2026-09-03T01:52:19.003Z",
-   "kind": "buy",
-   "source": "iberian_desk",
-   "domain": "championship",
-   "cost": 0.012,
-   "trust": null,
-   "market": "championship:2026-09-01:Birmingham:Southampton",
-   "pundit": "pundit_3"
-  },
-  {
-   "ts": "2026-09-03T01:52:18.984Z",
-   "kind": "buy",
-   "source": "calcio_desk",
-   "domain": "championship",
-   "cost": 0.012,
-   "trust": 0.361,
-   "market": "championship:2026-09-01:Birmingham:Southampton",
-   "pundit": "pundit_3"
-  },
-  {
-   "ts": "2026-09-03T01:52:18.965Z",
-   "kind": "buy",
-   "source": "formline",
-   "domain": "championship",
-   "cost": 0.003,
-   "trust": 0.4212,
-   "market": "championship:2026-09-01:Birmingham:Southampton",
-   "pundit": "pundit_3"
-  },
-  {
-   "ts": "2026-09-03T01:52:18.292Z",
-   "kind": "forecast",
-   "domain": "championship",
-   "market": "championship:2026-09-01:West_Ham:Wolves",
-   "probabilities": {
-    "H": 0.44,
-    "D": 0.262,
-    "A": 0.298
-   },
-   "confidence": 0.0,
-   "reasoning": null,
-   "leaned_on": [],
-   "spend": 0.027,
-   "pundit": "pundit_2"
-  },
-  {
-   "ts": "2026-09-03T01:52:14.549Z",
-   "kind": "buy",
-   "source": "iberian_desk",
-   "domain": "championship",
-   "cost": 0.012,
-   "trust": null,
-   "market": "championship:2026-09-01:West_Ham:Wolves",
-   "pundit": "pundit_2"
-  },
-  {
-   "ts": "2026-09-03T01:52:14.531Z",
-   "kind": "buy",
-   "source": "boot_room",
-   "domain": "championship",
-   "cost": 0.012,
-   "trust": 0.2422,
-   "market": "championship:2026-09-01:West_Ham:Wolves",
-   "pundit": "pundit_2"
-  },
-  {
-   "ts": "2026-09-03T01:52:14.512Z",
-   "kind": "buy",
-   "source": "formline",
-   "domain": "championship",
-   "cost": 0.003,
-   "trust": 0.385,
-   "market": "championship:2026-09-01:West_Ham:Wolves",
-   "pundit": "pundit_2"
-  },
-  {
-   "ts": "2026-09-03T01:52:13.654Z",
-   "kind": "forecast",
-   "domain": "crypto_24h",
-   "market": "crypto_24h:BTCUSDT:1788397200000",
-   "probabilities": {
-    "UP": 0.513,
-    "DOWN": 0.487
-   },
-   "confidence": 0.0,
-   "reasoning": null,
-   "leaned_on": [],
-   "spend": 0.0,
-   "pundit": "pundit_1"
-  },
-  {
-   "ts": "2026-09-03T01:31:24.774Z",
-   "kind": "forecast",
-   "domain": "championship",
-   "market": "championship:2026-09-02:West_Brom:Charlton",
-   "probabilities": {
-    "H": 0.43912175648702595,
-    "D": 0.26147704590818366,
-    "A": 0.2994011976047904
-   },
-   "confidence": 0.0,
-   "reasoning": null,
-   "leaned_on": [],
-   "spend": 0.027,
-   "pundit": "pundit_6"
-  },
-  {
-   "ts": "2026-09-03T01:31:21.362Z",
-   "kind": "buy",
-   "source": "iberian_desk",
-   "domain": "championship",
-   "cost": 0.012,
-   "trust": null,
-   "market": "championship:2026-09-02:West_Brom:Charlton",
-   "pundit": "pundit_6"
-  },
-  {
-   "ts": "2026-09-03T01:31:21.344Z",
-   "kind": "buy",
-   "source": "boot_room",
-   "domain": "championship",
-   "cost": 0.012,
-   "trust": 0.3932,
-   "market": "championship:2026-09-02:West_Brom:Charlton",
-   "pundit": "pundit_6"
-  },
-  {
-   "ts": "2026-09-03T01:31:21.321Z",
-   "kind": "buy",
-   "source": "formline",
-   "domain": "championship",
-   "cost": 0.003,
-   "trust": 0.2368,
-   "market": "championship:2026-09-02:West_Brom:Charlton",
-   "pundit": "pundit_6"
-  },
-  {
-   "ts": "2026-09-03T01:31:20.649Z",
-   "kind": "forecast",
-   "domain": "crypto_1h",
-   "market": "crypto_1h:BTCUSDT:1788397200000",
-   "probabilities": {
-    "UP": 0.497,
-    "DOWN": 0.503
-   },
-   "confidence": 0.0,
-   "reasoning": null,
-   "leaned_on": [],
-   "spend": 0.015,
-   "pundit": "pundit_5"
-  },
-  {
-   "ts": "2026-09-03T01:31:18.018Z",
-   "kind": "buy",
-   "source": "flowdesk",
-   "domain": "crypto_1h",
-   "cost": 0.015,
-   "trust": null,
-   "market": "crypto_1h:BTCUSDT:1788397200000",
-   "pundit": "pundit_5"
   }
  ],
  "totals": {
-  "forecasts": 675,
-  "resolutions": 483,
-  "spend": 11.393,
-  "buys": 1225
+  "forecasts": 699,
+  "resolutions": 493,
+  "spend": 11.435,
+  "buys": 1231
  }
 }
