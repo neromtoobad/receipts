@@ -82,7 +82,7 @@ export function DeletionChart() {
                     flexWrap: 'wrap' }}>
         <span className="display" style={{ fontSize: 34, color: RC.brand, lineHeight: 1 }}>10.0×</span>
         <span style={{ fontSize: 13.5, color: RC.ink2 }}>
-          the spend, for the same forecast. Football alone 6.0×, crypto alone <b>67×</b>.
+          the spend, for the same forecast. Football alone 6.0×, crypto alone <b>71×</b>.
         </span>
       </div>
     </div>

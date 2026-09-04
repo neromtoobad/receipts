@@ -9,7 +9,7 @@ the board to make it land.
 | **1** | Six identical agents. Information costs real money. Memory is wiped after every call. | first x402 settlement on Base |
 | **2** | One agent decided another agent was worth paying for. | ACP job 75820, and the deliverable naming who it discounted and why |
 | **3** | It learned that an expensive informant is worthless — and stopped buying it. | `chalk_desk` red across every league on the trust map |
-| **4** | In crypto, nothing works. The right move is to buy nothing, and it got there itself. | the crypto columns going quiet; 67× less spend there |
+| **4** | In crypto, nothing works. The right move is to buy nothing, and it got there itself. | the crypto columns going quiet; 71× less spend there |
 | **5** | They started identical. They are not identical any more. | the six cards diverging, Brier spread, different favourite desks |
 | **6** | **Delete the memory and it spends ten times as much for the same forecast.** | the chart, 1,000 held-out events, reproducible with one command |
 | **7** | Everything above, in three minutes. | the demo video |
