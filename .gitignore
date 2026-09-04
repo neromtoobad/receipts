@@ -65,4 +65,4 @@ site/node_modules/
 backups/
 
 # demo video working files — large binaries, not part of the build
-video/
+/video/
