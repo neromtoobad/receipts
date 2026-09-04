@@ -88,10 +88,12 @@ def journal(mem, arm: str, **kw) -> None:
         mem.log_event(**kw)
 
 
-def run_arm(arm: str, events, rates, bb, model, offline, quiet=False, rpm: float = 0.0) -> dict:
+def run_arm(arm: str, events, rates, bb, model, offline, quiet=False, rpm: float = 0.0,
+            budget: float = BUDGET) -> dict:
     """One arm, walking the corpus in time order with a fresh empty memory."""
     with tempfile.TemporaryDirectory() as tmp:
         mem = Memory(f"bench_{arm}", db_path=Path(tmp) / f"{arm}.db")
+        t0 = time.time()
         resolved_briers: list[float] = []
         stats = {"arm": arm, "n": 0, "hit": 0, "brier": 0.0, "spend": 0.0,
                  "bought": 0, "bought_by": defaultdict(int), "empty_buys": 0,
@@ -104,7 +106,7 @@ def run_arm(arm: str, events, rates, bb, model, offline, quiet=False, rpm: float
             domain = e["domain"]
             priced = {iid: CATALOGUE[iid]["price_usdc"]
                       for iid in CATALOGUE if domain in CATALOGUE[iid]["answers_on"]}
-            choices = select(mem, domain, priced, BUDGET, arm=arm)
+            choices = select(mem, domain, priced, budget, arm=arm)
 
             evidence, spend, said = [], 0.0, {}
             for ch in choices:
@@ -170,8 +172,15 @@ def run_arm(arm: str, events, rates, bb, model, offline, quiet=False, rpm: float
             for src, (payload, cost) in said.items():
                 mem.observe(src, domain, brier(payload, e["result"]), bb[domain], cost)
 
-            if not quiet and (i + 1) % 250 == 0:
+            if not quiet and (i + 1) % 50 == 0:
+                # Every 50, not every 250. A run this long that reports rarely
+                # is indistinguishable from a run that has silently stalled —
+                # which is exactly how the last two failures presented.
+                el = time.time() - t0
+                rate = (i + 1) / el
+                eta = (len(events) - i - 1) / rate / 60 if rate else 0
                 print(f"  [{arm}] {i + 1}/{len(events)}  "
+                      f"{rate * 60:.1f} ev/min  eta {eta:.0f}m  "
                       f"memory {mem.capacity().get('pct_used', 0):.1%}", file=sys.stderr)
         stats["bought_by"] = dict(stats["bought_by"])
         stats["by_family"] = {k: dict(v) for k, v in stats["by_family"].items()}
@@ -187,6 +196,11 @@ def main() -> int:
     ap.add_argument("--allow-offline", action="store_true",
                     help="run the plumbing with the stand-in forecaster. Every "
                          "result is stamped INVALID and nothing is written to proof/.")
+    ap.add_argument("--budget", type=float, default=BUDGET,
+                    help="USDC an arm may spend per forecast. The headline run uses "
+                         "0.060, which is generous enough that an arm with no memory "
+                         "can buy its way to the same answer. Squeeze it and blind "
+                         "buying stops being viable.")
     ap.add_argument("--out", default=str(ROOT / "proof" / "BENCH.md"))
     ap.add_argument("--publish-anyway", action="store_true",
                     help="write proof/BENCH.md from a run below MIN_PUBLISH_RUNS. "
@@ -203,6 +217,12 @@ def main() -> int:
                          "an arm to establish eight sources at PROMOTE_N observations "
                          "each. That under-powers the learning rather than testing it.")
     a = ap.parse_args()
+    # Check this before the run, not after it. A sweep at a squeezed budget
+    # answers a different question than the headline, and must never be mistaken
+    # for it — but finding that out after three hours of compute helps nobody.
+    if abs(a.budget - BUDGET) > 1e-9 and Path(a.out) == ROOT / "proof" / "BENCH.md":
+        sys.exit(f"refusing to overwrite the headline BENCH.md with a "
+                 f"budget-{a.budget:.3f} run. pass --out proof/BUDGET_SWEEP.md")
 
     if SYSTEM_SHA != EXPECTED_SYSTEM_SHA:
         print("ABORT: the forecast prompt has changed mid-benchmark.\n"
@@ -264,13 +284,13 @@ def main() -> int:
     est_calls = len(events) * len(arms)
     print(f"~{est_calls} model calls, roughly {est_calls * 1050 // 1000}k tokens\n",
           file=sys.stderr)
-    print(f"corpus {len(events)} resolved events | budget {BUDGET:.3f} | "
+    print(f"corpus {len(events)} resolved events | budget {a.budget:.3f} | "
           f"model {'OFFLINE STAND-IN' if offline else a.model} | prompt {SYSTEM_SHA[:12]}\n")
 
     t0 = time.perf_counter()
     with cf.ThreadPoolExecutor(max_workers=len(arms)) as ex:
         futures = {ex.submit(run_arm, arm, events, rates, bb, a.model, offline,
-                             a.quiet, a.rpm / max(len(arms), 1)): arm for arm in arms}
+                             a.quiet, a.rpm / max(len(arms), 1), a.budget): arm for arm in arms}
         results = {futures[f]: f.result() for f in cf.as_completed(futures)}
     elapsed = time.perf_counter() - t0
 
@@ -340,14 +360,14 @@ def main() -> int:
         return 0
 
     out = Path(a.out)
-    out.write_text(_report(ordered, results, events, a.model, elapsed))
+    out.write_text(_report(ordered, results, events, a.model, elapsed, a.budget))
     print(f"\nwrote {out}")
     return 0
 
 
-def _report(ordered, results, events, model, elapsed) -> str:
+def _report(ordered, results, events, model, elapsed, budget) -> str:
     lines = ["# The deletion test", "",
-             f"`{len(events)}` resolved events, budget {BUDGET:.3f} USDC per forecast, "
+             f"`{len(events)}` resolved events, budget {budget:.3f} USDC per forecast, "
              f"model `{model}`" +
              (f" (served as `{sorted({m for s in ordered for m in s['resolved_models']})[0]}`)"
               if any(s["resolved_models"] for s in ordered) else "") +
