@@ -83,7 +83,16 @@ Do not cut. Commit hash and UTC are on screen from the first frame.
 > for a forecast that scores the same.
 
 ## 5 — Base and Virtuals (3:10–3:45)
-**Screen:** BaseScan tx, then the ACP job.
+**Screen:** the real block explorers, not our own summary of them.
+- `sepolia.basescan.org/tx/0xb0cc50db…` — the x402 settlement, gas paid by the
+  facilitator at `0xd407e409…`, agent value 0 ETH.
+- `basescan.org/tokentxns?a=0x4f9b42c3…` — Base **mainnet**. Five ERC-4337
+  Handle Ops: 0.01 USDC out and 0.0005 back, twice, one per ACP job, plus the
+  0.1 USDC that funded the buyer from AUGUR's wallet.
+
+Stills in `prep/video/stills/`. The rules say a partner stack counts only when a
+judge can see it doing real work, so this section shows chain state rather than
+a card on our own site claiming it.
 
 > The payments are real. A settled transaction on Base: an agent paying twelve
 > thousandths of a dollar for one forecast in USDC, signed with EIP-3009, so the
