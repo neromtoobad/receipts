@@ -383,6 +383,28 @@ class Memory:
         finally:
             con.close()
 
+    HEADROOM_AT = 0.80          # start rotating here, well before a write can fail
+    HEADROOM_KEEP = 400         # journal entries kept, which recall still searches
+
+    def ensure_headroom(self) -> int:
+        """Keep the store below the tier cap, trimming only the journal.
+
+        A pundit that forecasts every twenty minutes fills a 5 MB store in about
+        a week, and the write that crosses the line raises rather than degrading.
+        Entities are never touched: the trust maps are what the agent has
+        actually learned, they are small, and losing them would lose the project.
+        The journal is history, recall only reads the recent end of it, and the
+        oldest entries are the cheapest thing here to give up.
+        """
+        pct = self.capacity().get("pct_used", 0.0)
+        if pct < self.HEADROOM_AT:
+            return 0
+        removed = self.trim_journal(keep=self.HEADROOM_KEEP)
+        after = self.capacity().get("pct_used", 0.0)
+        print(f"[{self.pundit_id}] store at {pct:.0%} of cap: trimmed {removed} old "
+              f"journal entries, now {after:.0%}. Entities untouched.", file=sys.stderr)
+        return removed
+
     def recent_events(self, limit: int = 50) -> list[dict[str, Any]]:
         return self.c.read_events(limit=limit)
 

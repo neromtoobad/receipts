@@ -89,6 +89,10 @@ def main() -> int:
     say = (lambda *x: None) if a.quiet else print
 
     mem = Memory(a.agent)
+    # Before writing, not after. A run that starts at 79% of the cap can still
+    # cross it partway through and raise on a write, leaving the forecast half
+    # recorded. Checking here means this run has room for everything it will do.
+    mem.ensure_headroom()
     buyer = Buyer(a.agent, a.evidence_url) if a.evidence_url else Buyer(a.agent)
 
     # First boot writes the catalogue to REFERENCE. Marketing copy, not quality.
@@ -111,11 +115,16 @@ def main() -> int:
     if not base_rate:
         base_rate = {o: 1.0 / len(market["outcomes"]) for o in market["outcomes"]}
 
-    # Memory is read here even on day 3. Selection does not use it yet, but the
-    # working set is what phase 5 will decide from.
-    remembered = {r["source"]: r for r in mem.all_reliability(domain)}
+    # The amnesiac arm is denied this, and must be seen to be denied it. Reading
+    # the map and then reporting the same line for every arm made the deletion
+    # test look staged: an arm with no memory cannot recall four sources.
+    remembered = ({} if a.arm == "amnesiac"
+                  else {r["source"]: r for r in mem.all_reliability(domain)})
     say(f"[{a.agent}] {market['id']}")
-    say(f"[{a.agent}] recalled {len(remembered)} established sources for {domain}")
+    if a.arm == "amnesiac":
+        say(f"[{a.agent}] no memory consulted — every source is a stranger")
+    else:
+        say(f"[{a.agent}] recalled {len(remembered)} established sources for {domain}")
 
     candidates = [iid for iid, entry in CATALOGUE.items() if domain in entry["answers_on"]]
     mem.set_working_set(market["id"], {
