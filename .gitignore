@@ -63,3 +63,6 @@ site/node_modules/
 
 # database snapshots taken before an upgrade
 backups/
+
+# demo video working files — large binaries, not part of the build
+video/
