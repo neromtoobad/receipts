@@ -37,12 +37,12 @@ each arm is allowed to remember.
 
 | arm | informants bought | spend/forecast | 1,000 forecasts |
 |---|---|---|---|
-| domain-scoped memory | 0.56 | 0.0053 USDC | **$5.34** |
-| memory without domain scoping | 0.10 | 0.0010 USDC | $1.04 |
+| domain-scoped memory | 0.55 | 0.0053 USDC | **$5.28** |
+| memory without domain scoping | 0.08 | 0.0009 USDC | $0.89 |
 | no memory | 4.50 | 0.0530 USDC | **$53.00** |
 
-**9.9x on spend, for the same forecast quality.** Football alone is 6.0x. Crypto
-alone is **67x**, because the memory arm learns there is nothing there worth
+**10.0x on spend, for the same forecast quality.** Football alone is 6.0x. Crypto
+alone is **71x**, because the memory arm learns there is nothing there worth
 paying for and very nearly stops buying at all.
 
 Read the last column before the cost one: an agent with no memory buys **4.50
@@ -50,9 +50,9 @@ informants for every single call** and never stops, because nothing in it can
 know that the eighth opinion adds nothing to the first. That is the failure. The
 bill is just how it shows up.
 
-Brier across 1,000 held-out events: **0.5653 with memory, 0.5667 without.** The
+Brier across 1,000 held-out events: **0.5658 with memory, 0.5664 without.** The
 memory arm is ahead in every split and the direction is consistent, but the
-largest margin is 0.0019 — too small to claim as a quality win, so we don't. The
+largest margin is 0.0007 — too small to claim as a quality win, so we don't. The
 result is *same quality, one tenth the cost*, which is the claim that survives a
 judge's follow-up question.
 

@@ -12,12 +12,12 @@ deterministic and hold whatever forecaster runs on top.
 
 | arm | bought/call | spend/call | total |
 |---|---|---|---|
-| sibyl (domain-scoped) | 0.56 | 0.0053 | $5.34 |
-| flat json log | 0.10 | 0.0010 | $1.04 |
+| sibyl (domain-scoped) | 0.55 | 0.0053 | $5.28 |
+| flat json log | 0.08 | 0.0009 | $0.89 |
 | amnesiac (no memory) | 4.50 | 0.0530 | $53.00 |
 
-**Deletion test on spend: 9.9x.** Football alone: 0.0099 against 0.0590, or 6.0x.
-Crypto alone: 0.0007 against 0.0470, or 67x, because the memory arm learns there
+**Deletion test on spend: 10.0x.** Football alone: 0.0099 against 0.0590, or 6.0x.
+Crypto alone: 0.0007 against 0.0470, or 71x, because the memory arm learns there
 is nothing there worth paying for and very nearly stops.
 
 The flat arm fails in the opposite direction and is worth keeping for exactly

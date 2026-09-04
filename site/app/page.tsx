@@ -61,13 +61,13 @@ export default function Home() {
           <div className="card" style={{ padding: 22, borderColor: alpha(RC.brand, .26) }}>
             <div style={{ display: 'flex', gap: 30, flexWrap: 'wrap', alignItems: 'center' }}>
               <div>
-                <div className="serif" style={{ fontSize: 62, color: RC.brand, lineHeight: 1 }}>9.9×</div>
+                <div className="serif" style={{ fontSize: 62, color: RC.brand, lineHeight: 1 }}>10.0×</div>
                 <div className="eyebrow" style={{ marginTop: 6 }}>the spend, same forecast</div>
               </div>
               <div style={{ display: 'flex', gap: 26, flexWrap: 'wrap' }}>
-                <Mini k="with memory" v="$5.34" c={RC.green} sub="0.56 informants a call" />
+                <Mini k="with memory" v="$5.28" c={RC.green} sub="0.55 informants a call" />
                 <Mini k="without" v="$53.00" c={RC.red} sub="4.50 informants a call" />
-                <Mini k="brier" v="0.5653 vs 0.5667" c={RC.ink2} sub="a tie, and reported as one" />
+                <Mini k="brier" v="0.5658 vs 0.5664" c={RC.ink2} sub="a tie, and reported as one" />
               </div>
               <Link className="btn btn-ghost" href="/proof"
                     style={{ marginLeft: 'auto' }}>See the method →</Link>

@@ -13,11 +13,11 @@ type Arm = { name: string; note: string; spend: number; brier: number; bought: n
 
 const ARMS: Arm[] = [
   { name: 'domain-scoped memory', note: 'knows who is worth paying for, and where',
-    spend: 5.34, brier: 0.5653, bought: 0.56, tone: RC.green },
+    spend: 5.28, brier: 0.5658, bought: 0.55, tone: RC.green },
   { name: 'memory, no domain scoping', note: 'one global number cannot hold two lessons',
-    spend: 1.04, brier: 0.5691, bought: 0.10, tone: RC.ink3 },
+    spend: 0.89, brier: 0.5697, bought: 0.08, tone: RC.ink3 },
   { name: 'no memory', note: 'no basis to choose, no basis to stop',
-    spend: 53.00, brier: 0.5667, bought: 4.50, tone: RC.red },
+    spend: 53.00, brier: 0.5664, bought: 4.50, tone: RC.red },
 ]
 const MAX = 53
 
@@ -80,7 +80,7 @@ export function DeletionChart() {
       })}
       <div style={{ display: 'flex', gap: 8, alignItems: 'baseline', marginTop: 4,
                     flexWrap: 'wrap' }}>
-        <span className="display" style={{ fontSize: 34, color: RC.brand, lineHeight: 1 }}>9.9×</span>
+        <span className="display" style={{ fontSize: 34, color: RC.brand, lineHeight: 1 }}>10.0×</span>
         <span style={{ fontSize: 13.5, color: RC.ink2 }}>
           the spend, for the same forecast. Football alone 6.0×, crypto alone <b>67×</b>.
         </span>
