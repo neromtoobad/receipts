@@ -4,9 +4,9 @@ Target 4:00. Narration in the cloned `neromtoobad` voice. Section 3 is the
 hackathon gate and must be **one continuous unedited take** — no cuts inside it.
 
 Numbers below are measured, not estimated. The live figures (1-of-8 vs 5-of-8,
-0.0120 vs 0.0590 USDC) come from the real run on 2026-09-04. The 1,000-event
-figure is marked TBD until the re-measurement lands; do not record §4's last
-line before then.
+0.0120 vs 0.0590 USDC) come from the real run on 2026-09-04, and the recorded
+take shows them. The 1,000-event figures are 5.28 USDC against 53.00 at brier
+0.5658 against 0.5664 — method and caveats in `proof/BENCH.md`.
 
 ---
 
@@ -78,7 +78,9 @@ Do not cut. Commit hash and UTC are on screen from the first frame.
 > spends five times as much to answer the same question, and it cannot tell you
 > why it trusted anything.
 >
-> [TBD — final line, after the 1,000-event bench lands]
+> Across a thousand held-out events, the arm with memory spent five dollars and
+> twenty-eight cents. The arm without it spent fifty-three. Ten times the money,
+> for a forecast that scores the same.
 
 ## 5 — Base and Virtuals (3:10–3:45)
 **Screen:** BaseScan tx, then the ACP job.
