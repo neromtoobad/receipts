@@ -165,6 +165,17 @@ def _offline(market, base_rate, evidence) -> dict[str, Any]:
 
 RETRYABLE = ("503", "429", "UNAVAILABLE", "RESOURCE_EXHAUSTED", "overloaded", "rate limit")
 
+# Matching on status strings misses the whole class of failure that actually
+# killed a run: the connection itself. A 1,000-event bench died at event 950 on
+# a single httpx.ConnectTimeout because a locally saturated Ollama refused one
+# connection. Transport errors are the most transient thing here and the most
+# likely, since the load saturating the server is usually our own.
+def _retryable_types() -> tuple[type[BaseException], ...]:
+    # Resolved lazily: httpx is imported inside the request path to keep module
+    # import cheap, and this must not undo that.
+    import httpx
+    return (httpx.TransportError,)   # ConnectTimeout, ReadTimeout, ConnectError
+
 
 def _retry_after(exc) -> float | None:
     """Google's 429 carries the exact wait it wants: 'Please retry in 32.4s' and
@@ -188,7 +199,8 @@ def _with_retry(call, attempts: int = 8):
             return call()
         except Exception as exc:
             last = exc
-            if not any(t.lower() in str(exc).lower() for t in RETRYABLE):
+            if not (isinstance(exc, _retryable_types())
+                    or any(t.lower() in str(exc).lower() for t in RETRYABLE)):
                 raise
             # Providers that send no retryDelay still mean a per-minute window,
             # so back off toward a full minute rather than capping at 30s.

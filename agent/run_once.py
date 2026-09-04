@@ -23,6 +23,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from agent.env import load as _load_env
 from agent import wallet
+from agent.identity import display, resolve
 
 _load_env()
 from agent.buyer import Buyer
@@ -86,6 +87,10 @@ def main() -> int:
 
     t0 = time.perf_counter()
     model = BENCH_MODEL if a.bench_model else a.model
+    # --agent takes a name or a store id. The id is what everything on disk is
+    # keyed by and never changes; the name is only ever for the reader.
+    a.agent = resolve(a.agent)
+    who = display(a.agent)
     say = (lambda *x: None) if a.quiet else print
 
     mem = Memory(a.agent)
@@ -98,7 +103,7 @@ def main() -> int:
     # First boot writes the catalogue to REFERENCE. Marketing copy, not quality.
     if not mem.get_reference("informant_catalogue"):
         write_reference(mem)
-        say(f"[{a.agent}] first boot: wrote the informant catalogue to REFERENCE")
+        say(f"[{who}] first boot: wrote the informant catalogue to REFERENCE")
 
     market = None
     if a.market:
@@ -106,7 +111,7 @@ def main() -> int:
     elif a.pick:
         market = pick_market(buyer, a.domain, mem)
     if market is None:
-        say(f"[{a.agent}] nothing new to forecast")
+        say(f"[{who}] nothing new to forecast")
         buyer.close()
         return 0        # not a miss: it has simply caught up with the fixture list
 
@@ -120,11 +125,11 @@ def main() -> int:
     # test look staged: an arm with no memory cannot recall four sources.
     remembered = ({} if a.arm == "amnesiac"
                   else {r["source"]: r for r in mem.all_reliability(domain)})
-    say(f"[{a.agent}] {market['id']}")
+    say(f"[{who}] {market['id']}")
     if a.arm == "amnesiac":
-        say(f"[{a.agent}] no memory consulted — every source is a stranger")
+        say(f"[{who}] no memory consulted — every source is a stranger")
     else:
-        say(f"[{a.agent}] recalled {len(remembered)} established sources for {domain}")
+        say(f"[{who}] recalled {len(remembered)} established sources for {domain}")
 
     candidates = [iid for iid, entry in CATALOGUE.items() if domain in entry["answers_on"]]
     mem.set_working_set(market["id"], {
@@ -147,18 +152,18 @@ def main() -> int:
             for src in peer_beliefs:
                 priced[src] = PEER_PRICE
         except Exception as exc:
-            say(f"[{a.agent}] peer lookup unavailable: {exc}")
+            say(f"[{who}] peer lookup unavailable: {exc}")
 
     choices = select(mem, domain, priced, a.budget, arm=a.arm, peer_beliefs=peer_beliefs)
-    say(f"[{a.agent}] {explain(choices, priced, a.budget)}")
+    say(f"[{who}] {explain(choices, priced, a.budget)}")
     if not choices:
-        say(f"[{a.agent}] nothing here is worth its price. buying nothing.")
+        say(f"[{who}] nothing here is worth its price. buying nothing.")
 
     evidence, spent = [], 0.0
     for ch in choices:
         got = buyer.buy(ch.source, market["id"])
         if not got.get("ok"):
-            say(f"[{a.agent}]   {ch.source:14} unavailable: {got.get('error')}")
+            say(f"[{who}]   {ch.source:14} unavailable: {got.get('error')}")
             continue
         spent += got["price"]
         mem.log_consultation(market["id"], ch.source, domain, got["price"], ch.trust,
@@ -167,9 +172,9 @@ def main() -> int:
             evidence.append({"source": ch.source, "payload": got["payload"],
                              "trust": ch.trust})
             tag = " (a peer's take)" if ch.source.startswith("peer:") else ""
-            say(f"[{a.agent}]   bought {ch.source:14} {got['price']:.4f}  {ch.reason}{tag}")
+            say(f"[{who}]   bought {ch.source:14} {got['price']:.4f}  {ch.reason}{tag}")
         else:
-            say(f"[{a.agent}]   bought {ch.source:14} {got['price']:.4f} "
+            say(f"[{who}]   bought {ch.source:14} {got['price']:.4f} "
                 f"but it has no data here")
 
     # What do I already know about these teams? Only the journal can answer that,
@@ -184,9 +189,9 @@ def main() -> int:
             record = as_line(own_record(mem, market["id"]),
                              sum(briers) / len(briers) if briers else None)
             if record:
-                say(f"[{a.agent}] recalled: {record}")
+                say(f"[{who}] recalled: {record}")
         except Exception as exc:
-            say(f"[{a.agent}] recall unavailable: {exc}")
+            say(f"[{who}] recall unavailable: {exc}")
 
     out = forecast(market, base_rate, evidence, model=model, offline=a.offline,
                    record=record)
@@ -196,11 +201,11 @@ def main() -> int:
                      [e["source"] for e in evidence], spent)
 
     settled = sum(1 for r in buyer.receipts if r["settled"])
-    say(f"[{a.agent}] forecast {json.dumps({k: round(v, 3) for k, v in out['probabilities'].items()})}"
+    say(f"[{who}] forecast {json.dumps({k: round(v, 3) for k, v in out['probabilities'].items()})}"
         f" confidence {out['confidence']:.2f}")
-    say(f"[{a.agent}] spent {spent:.4f} USDC over {len(buyer.receipts)} calls, "
+    say(f"[{who}] spent {spent:.4f} USDC over {len(buyer.receipts)} calls, "
         f"{settled} settled onchain, wallet {'funded' if buyer.funded else 'UNFUNDED'}")
-    say(f"[{a.agent}] {(time.perf_counter() - t0) * 1000:.0f}ms, arm={a.arm}, "
+    say(f"[{who}] {(time.perf_counter() - t0) * 1000:.0f}ms, arm={a.arm}, "
         f"model={out['model']}, prompt={SYSTEM_SHA[:12]}")
     buyer.close()
     return 0

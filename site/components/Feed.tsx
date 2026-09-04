@@ -6,6 +6,7 @@
 
 import { useState } from 'react'
 import { RC, alpha } from '../lib/theme'
+import { identityOf } from '../lib/pundits'
 import type { FeedItem } from '../lib/data'
 import { relTime } from '../lib/data'
 
@@ -50,7 +51,7 @@ export function Feed({ items }: { items: FeedItem[] }) {
                 {relTime(it.ts)}
               </span>
               <span className="mono" style={{ color: RC.ink3, width: 66, flex: '0 0 auto' }}>
-                {it.pundit}
+                {identityOf(it.pundit).name}
               </span>
               <span style={{ color: k.c, width: 66, flex: '0 0 auto' }}>{k.label}</span>
               <span style={{ color: RC.ink2, minWidth: 0, overflow: 'hidden',

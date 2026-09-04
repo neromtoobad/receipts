@@ -8,6 +8,7 @@
 // be watchable, not described.
 
 import { useMemo, useState } from 'react'
+import { identityOf } from '../lib/pundits'
 import { RC } from '../lib/theme'
 import type { Cell, Pundit } from '../lib/data'
 import { TrustMap } from './TrustMap'
@@ -43,7 +44,8 @@ export function PunditView({ p, domains, catalogue, frames }:
     <section style={{ marginBottom: 44 }}>
       <div style={{ display: 'flex', alignItems: 'baseline', gap: 14, flexWrap: 'wrap',
                     marginBottom: 10 }}>
-        <h2 className="display" style={{ fontSize: 26, margin: 0 }}>{p.id}</h2>
+        <h2 className="display" style={{ fontSize: 26, margin: 0 }}>{identityOf(p.id).name}</h2>
+        <span className="mono" style={{ color: RC.ink4, fontSize: 11 }}>{p.id}</span>
         <span className="mono" style={{ color: RC.ink3, fontSize: 12 }}>
           {p.forecasts} calls · {p.resolutions} resolved · {p.spend.toFixed(4)} USDC ·{' '}
           {p.brier == null ? 'no brier yet' : `brier ${p.brier.toFixed(4)}`}

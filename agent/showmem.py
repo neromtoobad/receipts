@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import argparse
 
+from agent.identity import display, resolve
 from agent.memory import Memory
 
 
@@ -23,6 +24,8 @@ def main() -> int:
                     help="one line: what a following process would read back")
     a = ap.parse_args()
 
+    a.agent = resolve(a.agent)
+    who = display(a.agent)
     mem = Memory(a.agent)
     if a.brief:
         # The smallest honest proof that a write landed. Run it either side of a
@@ -37,7 +40,7 @@ def main() -> int:
     rows = [r for r in mem.all_reliability_including_archived()
             if not a.domain or r.get("domain") == a.domain]
     if not rows:
-        print(f"  {a.agent} has learned nothing yet.")
+        print(f"  {who} has learned nothing yet.")
         return 0
 
     # Rank the way the agent itself does: on the shrunk estimate, so a source

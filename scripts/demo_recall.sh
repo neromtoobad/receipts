@@ -11,7 +11,7 @@ set -u
 cd "$(dirname "$0")/.."
 . .venv/bin/activate
 
-P=${PUNDIT:-pundit_5}
+P=${PUNDIT:-vertex}
 MARKET=${1:?usage: demo_recall.sh <market_id>}
 B=$(printf '\033[1m'); D=$(printf '\033[2m'); R=$(printf '\033[0m'); C=$(printf '\033[36m')
 
@@ -24,7 +24,7 @@ rule
 printf "  commit   ${C}%s${R}\n" "$(git rev-parse HEAD)"
 printf "  utc      ${C}%s${R}\n" "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
 printf "  sibyl    ${C}%s${R}\n" "$(python -c 'import sibyl_memory_client as s; print(s.__version__)' 2>/dev/null)"
-printf "  pundit   ${C}%s${R}\n" "$P"
+printf "  pundit   ${C}%s${R}\n" "$(python -c 'import sys;from agent.identity import display,resolve;print(display(resolve(sys.argv[1])))' "$P")"
 printf "  market   ${C}%s${R}\n" "$MARKET"
 rule
 pause 3

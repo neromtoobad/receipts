@@ -1,5 +1,6 @@
 import { RC } from '../../lib/theme'
 import { LEAGUE } from '../../lib/data'
+import { identityOf } from '../../lib/pundits'
 import { Nav } from '../../components/Nav'
 import { Section } from '../../components/Section'
 import { League } from '../../components/League'
@@ -30,7 +31,7 @@ export default function Agents() {
             same budget. Everything that separates them was paid for. Pick a seat to see what it has
             worked out, and drag the scrubber to watch it work it out.
             {lead?.brier != null && spread > 0 && <> Right now <b style={{ color: RC.ink2 }}>
-              {lead.id}</b> leads, and the spread across the six is{' '}
+              {identityOf(lead.id).name}</b> leads, and the spread across the six is{' '}
               <span className="mono" style={{ color: RC.brand }}>{spread.toFixed(4)}</span> Brier.</>}
           </>}>
           <League league={L} frames={frames} />
