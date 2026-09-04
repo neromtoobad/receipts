@@ -69,7 +69,7 @@ https://github.com/neromtoobad/receipts
 
 If the account is not on Premium.
 
-> Day 2 on RECEIPTS: one agent hired another. VERTEX posted a @virtuals_io ACP
-> job, funded escrow on @base mainnet, AUGUR delivered. Its forecast names which
-> source moved it and which it discounted by trust weight — weights earned by
-> paying and being scored. Read from @sibylcap Memory in a 4-second process.
+> Day 2: one agent hired another. VERTEX posted a @virtuals_io ACP job, funded
+> escrow on @base mainnet, AUGUR delivered. Its forecast names which source moved
+> it and which it discounted by trust weight — weights earned by paying and being
+> scored. All of it from @sibylcap Memory.
