@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-05T12:30:30.969084+00:00",
+ "generated": "2026-09-05T13:17:42.517923+00:00",
  "domains": [
   "epl",
   "championship",
@@ -147,11 +147,11 @@
  "pundits": [
   {
    "id": "pundit_1",
-   "forecasts": 139,
-   "resolutions": 114,
-   "spend": 2.293,
-   "buys": 260,
-   "brier": 0.5678,
+   "forecasts": 141,
+   "resolutions": 116,
+   "spend": 2.374,
+   "buys": 269,
+   "brier": 0.5671,
    "cells": {
     "formline|crypto_1h": {
      "source": "formline",
@@ -231,7 +231,7 @@
      "n": 7,
      "skill": 0.1553,
      "skill_shrunk": 0.0403,
-     "trust": 0.1516,
+     "trust": 0.1505,
      "spend": 0.021,
      "misses": 0,
      "state": "established",
@@ -243,7 +243,7 @@
      "n": 4,
      "skill": 0.1613,
      "skill_shrunk": 0.0269,
-     "trust": 0.0771,
+     "trust": 0.0766,
      "spend": 0.048,
      "misses": 0,
      "state": "established",
@@ -559,143 +559,6 @@
     }
    },
    "feed": [
-    {
-     "ts": "2026-09-04T12:53:30.969Z",
-     "kind": "buy",
-     "source": "boot_room",
-     "domain": "epl",
-     "cost": 0.012,
-     "trust": null,
-     "market": "epl:2026-09-05:Brentford:Sunderland"
-    },
-    {
-     "ts": "2026-09-04T12:53:30.995Z",
-     "kind": "buy",
-     "source": "calcio_desk",
-     "domain": "epl",
-     "cost": 0.012,
-     "trust": null,
-     "market": "epl:2026-09-05:Brentford:Sunderland"
-    },
-    {
-     "ts": "2026-09-04T12:53:40.557Z",
-     "kind": "forecast",
-     "domain": "epl",
-     "market": "epl:2026-09-05:Brentford:Sunderland",
-     "probabilities": {
-      "H": 0.433,
-      "D": 0.244,
-      "A": 0.323
-     },
-     "confidence": 0.0,
-     "reasoning": null,
-     "leaned_on": [],
-     "spend": 0.027
-    },
-    {
-     "ts": "2026-09-04T13:14:20.908Z",
-     "kind": "buy",
-     "source": "formline",
-     "domain": "laliga",
-     "cost": 0.003,
-     "trust": 0.1833,
-     "market": "laliga:2026-09-04:Betis:Real_Madrid"
-    },
-    {
-     "ts": "2026-09-04T13:14:20.941Z",
-     "kind": "buy",
-     "source": "boot_room",
-     "domain": "laliga",
-     "cost": 0.012,
-     "trust": null,
-     "market": "laliga:2026-09-04:Betis:Real_Madrid"
-    },
-    {
-     "ts": "2026-09-04T13:14:20.969Z",
-     "kind": "buy",
-     "source": "calcio_desk",
-     "domain": "laliga",
-     "cost": 0.012,
-     "trust": null,
-     "market": "laliga:2026-09-04:Betis:Real_Madrid"
-    },
-    {
-     "ts": "2026-09-04T13:14:33.413Z",
-     "kind": "forecast",
-     "domain": "laliga",
-     "market": "laliga:2026-09-04:Betis:Real_Madrid",
-     "probabilities": {
-      "H": 0.456,
-      "D": 0.264,
-      "A": 0.28
-     },
-     "confidence": 0.031,
-     "reasoning": null,
-     "leaned_on": [
-      "formline"
-     ],
-     "spend": 0.027
-    },
-    {
-     "ts": "2026-09-04T13:14:59.788Z",
-     "kind": "resolved",
-     "market": "crypto_24h:BTCUSDT:1788440400000",
-     "domain": "crypto_24h",
-     "outcome": "UP",
-     "brier": 0.4743,
-     "sources": []
-    },
-    {
-     "ts": "2026-09-04T13:35:08.078Z",
-     "kind": "buy",
-     "source": "formline",
-     "domain": "ligue1",
-     "cost": 0.003,
-     "trust": null,
-     "market": "ligue1:2026-09-04:Lyon:Auxerre"
-    },
-    {
-     "ts": "2026-09-04T13:35:08.104Z",
-     "kind": "buy",
-     "source": "boot_room",
-     "domain": "ligue1",
-     "cost": 0.012,
-     "trust": null,
-     "market": "ligue1:2026-09-04:Lyon:Auxerre"
-    },
-    {
-     "ts": "2026-09-04T13:35:08.129Z",
-     "kind": "buy",
-     "source": "calcio_desk",
-     "domain": "ligue1",
-     "cost": 0.012,
-     "trust": null,
-     "market": "ligue1:2026-09-04:Lyon:Auxerre"
-    },
-    {
-     "ts": "2026-09-04T13:35:19.570Z",
-     "kind": "forecast",
-     "domain": "ligue1",
-     "market": "ligue1:2026-09-04:Lyon:Auxerre",
-     "probabilities": {
-      "H": 0.442,
-      "D": 0.231,
-      "A": 0.327
-     },
-     "confidence": 0.0,
-     "reasoning": null,
-     "leaned_on": [],
-     "spend": 0.027
-    },
-    {
-     "ts": "2026-09-04T13:56:03.257Z",
-     "kind": "buy",
-     "source": "formline",
-     "domain": "laliga",
-     "cost": 0.003,
-     "trust": 0.1823,
-     "market": "laliga:2026-09-05:Ath_Bilbao:Ath_Madrid"
-    },
     {
      "ts": "2026-09-04T13:56:03.283Z",
      "kind": "buy",
@@ -1408,6 +1271,135 @@
      "ts": "2026-09-05T08:56:33.563Z",
      "kind": "resolved",
      "market": "crypto_24h:BTCUSDT:1788465600000",
+     "domain": "crypto_24h",
+     "outcome": "DOWN",
+     "brier": 0.5263,
+     "sources": []
+    },
+    {
+     "ts": "2026-09-05T13:10:34.081Z",
+     "kind": "buy",
+     "source": "formline",
+     "domain": "ligue1",
+     "cost": 0.003,
+     "trust": null,
+     "market": "ligue1:2026-09-05:Le_Havre:Brest"
+    },
+    {
+     "ts": "2026-09-05T13:10:35.281Z",
+     "kind": "buy",
+     "source": "boot_room",
+     "domain": "ligue1",
+     "cost": 0.012,
+     "trust": null,
+     "market": "ligue1:2026-09-05:Le_Havre:Brest"
+    },
+    {
+     "ts": "2026-09-05T13:10:36.520Z",
+     "kind": "buy",
+     "source": "calcio_desk",
+     "domain": "ligue1",
+     "cost": 0.012,
+     "trust": null,
+     "market": "ligue1:2026-09-05:Le_Havre:Brest"
+    },
+    {
+     "ts": "2026-09-05T13:13:45.572Z",
+     "kind": "buy",
+     "source": "formline",
+     "domain": "ligue1",
+     "cost": 0.003,
+     "trust": null,
+     "market": "ligue1:2026-09-05:Le_Havre:Brest"
+    },
+    {
+     "ts": "2026-09-05T13:13:46.122Z",
+     "kind": "buy",
+     "source": "formline",
+     "domain": "ligue1",
+     "cost": 0.003,
+     "trust": null,
+     "market": "ligue1:2026-09-05:Le_Havre:Brest"
+    },
+    {
+     "ts": "2026-09-05T13:13:46.864Z",
+     "kind": "buy",
+     "source": "boot_room",
+     "domain": "ligue1",
+     "cost": 0.012,
+     "trust": null,
+     "market": "ligue1:2026-09-05:Le_Havre:Brest"
+    },
+    {
+     "ts": "2026-09-05T13:13:47.295Z",
+     "kind": "buy",
+     "source": "boot_room",
+     "domain": "ligue1",
+     "cost": 0.012,
+     "trust": null,
+     "market": "ligue1:2026-09-05:Le_Havre:Brest"
+    },
+    {
+     "ts": "2026-09-05T13:13:48.189Z",
+     "kind": "buy",
+     "source": "calcio_desk",
+     "domain": "ligue1",
+     "cost": 0.012,
+     "trust": null,
+     "market": "ligue1:2026-09-05:Le_Havre:Brest"
+    },
+    {
+     "ts": "2026-09-05T13:13:48.329Z",
+     "kind": "buy",
+     "source": "calcio_desk",
+     "domain": "ligue1",
+     "cost": 0.012,
+     "trust": null,
+     "market": "ligue1:2026-09-05:Le_Havre:Brest"
+    },
+    {
+     "ts": "2026-09-05T13:14:02.028Z",
+     "kind": "forecast",
+     "domain": "ligue1",
+     "market": "ligue1:2026-09-05:Le_Havre:Brest",
+     "probabilities": {
+      "H": 0.442,
+      "D": 0.231,
+      "A": 0.327
+     },
+     "confidence": 0.0,
+     "reasoning": null,
+     "leaned_on": [],
+     "spend": 0.027
+    },
+    {
+     "ts": "2026-09-05T13:14:06.059Z",
+     "kind": "forecast",
+     "domain": "ligue1",
+     "market": "ligue1:2026-09-05:Le_Havre:Brest",
+     "probabilities": {
+      "H": 0.442,
+      "D": 0.231,
+      "A": 0.327
+     },
+     "confidence": 0.0,
+     "reasoning": null,
+     "leaned_on": [],
+     "spend": 0.027
+    },
+    {
+     "ts": "2026-09-05T13:15:23.105Z",
+     "kind": "resolved",
+     "market": "crypto_24h:ETHUSDT:1788516000000",
+     "domain": "crypto_24h",
+     "outcome": "DOWN",
+     "brier": 0.5263,
+     "sources": []
+    },
+    {
+     "ts": "2026-09-05T13:15:23.121Z",
+     "kind": "resolved",
+     "market": "crypto_24h:BTCUSDT:1788516000000",
      "domain": "crypto_24h",
      "outcome": "DOWN",
      "brier": 0.5263,
@@ -3650,11 +3642,11 @@
   },
   {
    "id": "pundit_2",
-   "forecasts": 138,
-   "resolutions": 110,
-   "spend": 2.457,
-   "buys": 261,
-   "brier": 0.5751,
+   "forecasts": 139,
+   "resolutions": 113,
+   "spend": 2.484,
+   "buys": 264,
+   "brier": 0.5738,
    "cells": {
     "formline|crypto_1h": {
      "source": "formline",
@@ -3734,7 +3726,7 @@
      "n": 7,
      "skill": 0.1553,
      "skill_shrunk": 0.0403,
-     "trust": 0.1516,
+     "trust": 0.1505,
      "spend": 0.021,
      "misses": 0,
      "state": "established",
@@ -3746,7 +3738,7 @@
      "n": 4,
      "skill": 0.1613,
      "skill_shrunk": 0.0269,
-     "trust": 0.0771,
+     "trust": 0.0766,
      "spend": 0.048,
      "misses": 0,
      "state": "established",
@@ -4086,75 +4078,6 @@
     }
    },
    "feed": [
-    {
-     "ts": "2026-09-04T13:15:00.307Z",
-     "kind": "resolved",
-     "market": "crypto_24h:BTCUSDT:1788440400000",
-     "domain": "crypto_24h",
-     "outcome": "UP",
-     "brier": 0.4743,
-     "sources": []
-    },
-    {
-     "ts": "2026-09-04T13:35:20.358Z",
-     "kind": "buy",
-     "source": "formline",
-     "domain": "epl",
-     "cost": 0.003,
-     "trust": null,
-     "market": "epl:2026-09-05:Brentford:Sunderland"
-    },
-    {
-     "ts": "2026-09-04T13:35:20.398Z",
-     "kind": "buy",
-     "source": "boot_room",
-     "domain": "epl",
-     "cost": 0.012,
-     "trust": null,
-     "market": "epl:2026-09-05:Brentford:Sunderland"
-    },
-    {
-     "ts": "2026-09-04T13:35:20.434Z",
-     "kind": "buy",
-     "source": "calcio_desk",
-     "domain": "epl",
-     "cost": 0.012,
-     "trust": null,
-     "market": "epl:2026-09-05:Brentford:Sunderland"
-    },
-    {
-     "ts": "2026-09-04T13:35:24.579Z",
-     "kind": "forecast",
-     "domain": "epl",
-     "market": "epl:2026-09-05:Brentford:Sunderland",
-     "probabilities": {
-      "H": 0.433,
-      "D": 0.244,
-      "A": 0.323
-     },
-     "confidence": 0.0,
-     "reasoning": null,
-     "leaned_on": [],
-     "spend": 0.027
-    },
-    {
-     "ts": "2026-09-04T13:56:18.586Z",
-     "kind": "buy",
-     "source": "formline",
-     "domain": "laliga",
-     "cost": 0.003,
-     "trust": 0.1823,
-     "market": "laliga:2026-09-05:Ath_Bilbao:Ath_Madrid"
-    },
-    {
-     "ts": "2026-09-04T13:56:18.613Z",
-     "kind": "buy",
-     "source": "boot_room",
-     "domain": "laliga",
-     "cost": 0.012,
-     "trust": null,
-     "market": "laliga:2026-09-05:Ath_Bilbao:Ath_Madrid"
-    },
     {
      "ts": "2026-09-04T13:56:18.642Z",
      "kind": "buy",
@@ -4937,6 +4860,75 @@
      "ts": "2026-09-05T08:56:34.760Z",
      "kind": "resolved",
      "market": "crypto_24h:BTCUSDT:1788494400000",
+     "domain": "crypto_24h",
+     "outcome": "DOWN",
+     "brier": 0.5263,
+     "sources": []
+    },
+    {
+     "ts": "2026-09-05T13:14:03.868Z",
+     "kind": "buy",
+     "source": "formline",
+     "domain": "seriea",
+     "cost": 0.003,
+     "trust": null,
+     "market": "seriea:2026-09-06:Frosinone:Venezia"
+    },
+    {
+     "ts": "2026-09-05T13:14:04.739Z",
+     "kind": "buy",
+     "source": "boot_room",
+     "domain": "seriea",
+     "cost": 0.012,
+     "trust": null,
+     "market": "seriea:2026-09-06:Frosinone:Venezia"
+    },
+    {
+     "ts": "2026-09-05T13:14:05.558Z",
+     "kind": "buy",
+     "source": "calcio_desk",
+     "domain": "seriea",
+     "cost": 0.012,
+     "trust": null,
+     "market": "seriea:2026-09-06:Frosinone:Venezia"
+    },
+    {
+     "ts": "2026-09-05T13:14:12.471Z",
+     "kind": "forecast",
+     "domain": "seriea",
+     "market": "seriea:2026-09-06:Frosinone:Venezia",
+     "probabilities": {
+      "H": 0.46,
+      "D": 0.29,
+      "A": 0.25
+     },
+     "confidence": 0.108,
+     "reasoning": null,
+     "leaned_on": [],
+     "spend": 0.027
+    },
+    {
+     "ts": "2026-09-05T13:15:24.808Z",
+     "kind": "resolved",
+     "market": "crypto_24h:BTCUSDT:1788516000000",
+     "domain": "crypto_24h",
+     "outcome": "DOWN",
+     "brier": 0.5263,
+     "sources": []
+    },
+    {
+     "ts": "2026-09-05T13:15:24.821Z",
+     "kind": "resolved",
+     "market": "crypto_24h:ETHUSDT:1788512400000",
+     "domain": "crypto_24h",
+     "outcome": "DOWN",
+     "brier": 0.5263,
+     "sources": []
+    },
+    {
+     "ts": "2026-09-05T13:15:24.836Z",
+     "kind": "resolved",
+     "market": "crypto_24h:BTCUSDT:1788512400000",
      "domain": "crypto_24h",
      "outcome": "DOWN",
      "brier": 0.5263,
@@ -7044,11 +7036,11 @@
   },
   {
    "id": "pundit_3",
-   "forecasts": 151,
-   "resolutions": 122,
-   "spend": 2.899,
-   "buys": 298,
-   "brier": 0.5611,
+   "forecasts": 152,
+   "resolutions": 125,
+   "spend": 2.926,
+   "buys": 301,
+   "brier": 0.5602,
    "cells": {
     "flowdesk|crypto_24h": {
      "source": "flowdesk",
@@ -7092,7 +7084,7 @@
      "n": 19,
      "skill": 0.0067,
      "skill_shrunk": 0.0033,
-     "trust": 0.0169,
+     "trust": 0.0168,
      "spend": 0.057,
      "misses": 0,
      "state": "established",
@@ -7128,7 +7120,7 @@
      "n": 7,
      "skill": 0.1553,
      "skill_shrunk": 0.0403,
-     "trust": 0.1516,
+     "trust": 0.1505,
      "spend": 0.021,
      "misses": 0,
      "state": "established",
@@ -7140,7 +7132,7 @@
      "n": 4,
      "skill": 0.1613,
      "skill_shrunk": 0.0269,
-     "trust": 0.0771,
+     "trust": 0.0766,
      "spend": 0.048,
      "misses": 0,
      "state": "established",
@@ -7469,85 +7461,6 @@
     }
    },
    "feed": [
-    {
-     "ts": "2026-09-04T13:56:24.923Z",
-     "kind": "buy",
-     "source": "calcio_desk",
-     "domain": "bundesliga",
-     "cost": 0.012,
-     "trust": null,
-     "market": "bundesliga:2026-09-05:Leverkusen:Union_Berlin"
-    },
-    {
-     "ts": "2026-09-04T13:56:30.048Z",
-     "kind": "forecast",
-     "domain": "bundesliga",
-     "market": "bundesliga:2026-09-05:Leverkusen:Union_Berlin",
-     "probabilities": {
-      "H": 0.48,
-      "D": 0.24,
-      "A": 0.28
-     },
-     "confidence": 0.369,
-     "reasoning": null,
-     "leaned_on": [
-      "boot_room"
-     ],
-     "spend": 0.027
-    },
-    {
-     "ts": "2026-09-04T14:17:15.790Z",
-     "kind": "buy",
-     "source": "formline",
-     "domain": "epl",
-     "cost": 0.003,
-     "trust": null,
-     "market": "epl:2026-09-05:Brentford:Sunderland"
-    },
-    {
-     "ts": "2026-09-04T14:17:15.820Z",
-     "kind": "buy",
-     "source": "boot_room",
-     "domain": "epl",
-     "cost": 0.012,
-     "trust": null,
-     "market": "epl:2026-09-05:Brentford:Sunderland"
-    },
-    {
-     "ts": "2026-09-04T14:17:15.846Z",
-     "kind": "buy",
-     "source": "calcio_desk",
-     "domain": "epl",
-     "cost": 0.012,
-     "trust": null,
-     "market": "epl:2026-09-05:Brentford:Sunderland"
-    },
-    {
-     "ts": "2026-09-04T14:17:19.658Z",
-     "kind": "forecast",
-     "domain": "epl",
-     "market": "epl:2026-09-05:Brentford:Sunderland",
-     "probabilities": {
-      "H": 0.433,
-      "D": 0.244,
-      "A": 0.323
-     },
-     "confidence": 0.0,
-     "reasoning": null,
-     "leaned_on": [],
-     "spend": 0.027
-    },
-    {
-     "ts": "2026-09-04T14:17:40.970Z",
-     "kind": "resolved",
-     "market": "crypto_24h:BTCUSDT:1788444000000",
-     "domain": "crypto_24h",
-     "outcome": "DOWN",
-     "brier": 0.5121,
-     "sources": [
-      "flowdesk"
-     ]
-    },
     {
      "ts": "2026-09-04T14:38:08.001Z",
      "kind": "buy",
@@ -8328,6 +8241,77 @@
      "reasoning": null,
      "leaned_on": [],
      "spend": 0.027
+    },
+    {
+     "ts": "2026-09-05T13:14:14.275Z",
+     "kind": "buy",
+     "source": "formline",
+     "domain": "laliga",
+     "cost": 0.003,
+     "trust": 0.1506,
+     "market": "laliga:2026-09-06:Valencia:Barcelona"
+    },
+    {
+     "ts": "2026-09-05T13:14:15.191Z",
+     "kind": "buy",
+     "source": "boot_room",
+     "domain": "laliga",
+     "cost": 0.012,
+     "trust": null,
+     "market": "laliga:2026-09-06:Valencia:Barcelona"
+    },
+    {
+     "ts": "2026-09-05T13:14:16.086Z",
+     "kind": "buy",
+     "source": "calcio_desk",
+     "domain": "laliga",
+     "cost": 0.012,
+     "trust": null,
+     "market": "laliga:2026-09-06:Valencia:Barcelona"
+    },
+    {
+     "ts": "2026-09-05T13:14:21.448Z",
+     "kind": "forecast",
+     "domain": "laliga",
+     "market": "laliga:2026-09-06:Valencia:Barcelona",
+     "probabilities": {
+      "H": 0.456,
+      "D": 0.264,
+      "A": 0.28
+     },
+     "confidence": 0.031,
+     "reasoning": null,
+     "leaned_on": [
+      "formline"
+     ],
+     "spend": 0.027
+    },
+    {
+     "ts": "2026-09-05T13:15:24.883Z",
+     "kind": "resolved",
+     "market": "crypto_24h:BTCUSDT:1788516000000",
+     "domain": "crypto_24h",
+     "outcome": "DOWN",
+     "brier": 0.5263,
+     "sources": []
+    },
+    {
+     "ts": "2026-09-05T13:15:24.894Z",
+     "kind": "resolved",
+     "market": "crypto_24h:ETHUSDT:1788512400000",
+     "domain": "crypto_24h",
+     "outcome": "DOWN",
+     "brier": 0.5263,
+     "sources": []
+    },
+    {
+     "ts": "2026-09-05T13:15:24.908Z",
+     "kind": "resolved",
+     "market": "crypto_24h:BTCUSDT:1788512400000",
+     "domain": "crypto_24h",
+     "outcome": "DOWN",
+     "brier": 0.5263,
+     "sources": []
     }
    ],
    "frames": [
@@ -10828,23 +10812,23 @@
   },
   {
    "id": "pundit_4",
-   "forecasts": 197,
-   "resolutions": 157,
-   "spend": 3.275,
-   "buys": 370,
+   "forecasts": 198,
+   "resolutions": 160,
+   "spend": 3.302,
+   "buys": 373,
    "brier": 0.5527,
    "cells": {
     "formline|crypto_24h": {
      "source": "formline",
      "domain": "crypto_24h",
-     "n": 48,
-     "skill": 0.0127,
-     "skill_shrunk": 0.009,
-     "trust": 0.0662,
-     "spend": 0.144,
+     "n": 51,
+     "skill": 0.0109,
+     "skill_shrunk": 0.0078,
+     "trust": 0.0592,
+     "spend": 0.153,
      "misses": 0,
      "state": "established",
-     "last_seen": "2026-09-05T08:56:37.337066+00:00"
+     "last_seen": "2026-09-05T13:15:24.998240+00:00"
     },
     "formline|championship": {
      "source": "formline",
@@ -10888,7 +10872,7 @@
      "n": 4,
      "skill": 0.2104,
      "skill_shrunk": 0.0351,
-     "trust": 0.1006,
+     "trust": 0.0999,
      "spend": 0.048,
      "misses": 0,
      "state": "established",
@@ -11264,87 +11248,6 @@
     }
    },
    "feed": [
-    {
-     "ts": "2026-09-04T17:27:18.135Z",
-     "kind": "forecast",
-     "domain": "ligue1",
-     "market": "ligue1:2026-09-05:Le_Havre:Brest",
-     "probabilities": {
-      "H": 0.442,
-      "D": 0.231,
-      "A": 0.327
-     },
-     "confidence": 0.0,
-     "reasoning": null,
-     "leaned_on": [],
-     "spend": 0.027
-    },
-    {
-     "ts": "2026-09-04T17:27:40.716Z",
-     "kind": "resolved",
-     "market": "crypto_24h:BTCUSDT:1788454800000",
-     "domain": "crypto_24h",
-     "outcome": "DOWN",
-     "brier": 0.5263,
-     "sources": [
-      "formline"
-     ]
-    },
-    {
-     "ts": "2026-09-04T17:48:13.031Z",
-     "kind": "buy",
-     "source": "formline",
-     "domain": "seriea",
-     "cost": 0.003,
-     "trust": null,
-     "market": "seriea:2026-09-05:Roma:Atalanta"
-    },
-    {
-     "ts": "2026-09-04T17:48:13.068Z",
-     "kind": "buy",
-     "source": "boot_room",
-     "domain": "seriea",
-     "cost": 0.012,
-     "trust": null,
-     "market": "seriea:2026-09-05:Roma:Atalanta"
-    },
-    {
-     "ts": "2026-09-04T17:48:13.098Z",
-     "kind": "buy",
-     "source": "calcio_desk",
-     "domain": "seriea",
-     "cost": 0.012,
-     "trust": null,
-     "market": "seriea:2026-09-05:Roma:Atalanta"
-    },
-    {
-     "ts": "2026-09-04T17:48:17.620Z",
-     "kind": "forecast",
-     "domain": "seriea",
-     "market": "seriea:2026-09-05:Roma:Atalanta",
-     "probabilities": {
-      "H": 0.46,
-      "D": 0.29,
-      "A": 0.25
-     },
-     "confidence": 0.32,
-     "reasoning": null,
-     "leaned_on": [
-      "formline",
-      "boot_room",
-      "calcio_desk"
-     ],
-     "spend": 0.027
-    },
-    {
-     "ts": "2026-09-04T18:08:55.589Z",
-     "kind": "buy",
-     "source": "formline",
-     "domain": "bundesliga",
-     "cost": 0.003,
-     "trust": null,
-     "market": "bundesliga:2026-09-05:Paderborn:Freiburg"
-    },
     {
      "ts": "2026-09-04T18:08:55.619Z",
      "kind": "buy",
@@ -12138,6 +12041,84 @@
      "reasoning": null,
      "leaned_on": [],
      "spend": 0.012
+    },
+    {
+     "ts": "2026-09-05T13:14:23.128Z",
+     "kind": "buy",
+     "source": "formline",
+     "domain": "seriea",
+     "cost": 0.003,
+     "trust": null,
+     "market": "seriea:2026-09-06:Bologna:Sassuolo"
+    },
+    {
+     "ts": "2026-09-05T13:14:24.051Z",
+     "kind": "buy",
+     "source": "boot_room",
+     "domain": "seriea",
+     "cost": 0.012,
+     "trust": null,
+     "market": "seriea:2026-09-06:Bologna:Sassuolo"
+    },
+    {
+     "ts": "2026-09-05T13:14:24.912Z",
+     "kind": "buy",
+     "source": "calcio_desk",
+     "domain": "seriea",
+     "cost": 0.012,
+     "trust": null,
+     "market": "seriea:2026-09-06:Bologna:Sassuolo"
+    },
+    {
+     "ts": "2026-09-05T13:14:30.809Z",
+     "kind": "forecast",
+     "domain": "seriea",
+     "market": "seriea:2026-09-06:Bologna:Sassuolo",
+     "probabilities": {
+      "H": 0.48,
+      "D": 0.29,
+      "A": 0.23
+     },
+     "confidence": 0.179,
+     "reasoning": null,
+     "leaned_on": [
+      "formline",
+      "boot_room"
+     ],
+     "spend": 0.027
+    },
+    {
+     "ts": "2026-09-05T13:15:24.981Z",
+     "kind": "resolved",
+     "market": "crypto_24h:ETHUSDT:1788516000000",
+     "domain": "crypto_24h",
+     "outcome": "DOWN",
+     "brier": 0.5408,
+     "sources": [
+      "formline"
+     ]
+    },
+    {
+     "ts": "2026-09-05T13:15:24.997Z",
+     "kind": "resolved",
+     "market": "crypto_24h:BTCUSDT:1788516000000",
+     "domain": "crypto_24h",
+     "outcome": "DOWN",
+     "brier": 0.5576,
+     "sources": [
+      "formline"
+     ]
+    },
+    {
+     "ts": "2026-09-05T13:15:25.021Z",
+     "kind": "resolved",
+     "market": "crypto_24h:BTCUSDT:1788512400000",
+     "domain": "crypto_24h",
+     "outcome": "DOWN",
+     "brier": 0.5471,
+     "sources": [
+      "formline"
+     ]
     }
    ],
    "frames": [
@@ -15144,29 +15125,80 @@
        "state": "established"
       }
      }
+    },
+    {
+     "ts": "2026-09-05T13:15:24.981Z",
+     "market": "crypto_24h:ETHUSDT:1788516000000",
+     "domain": "crypto_24h",
+     "outcome": "DOWN",
+     "changed": {
+      "formline|crypto_24h": {
+       "source": "formline",
+       "domain": "crypto_24h",
+       "n": 49,
+       "skill": 0.0142,
+       "skill_shrunk": 0.0101,
+       "trust": 0.1074,
+       "state": "established"
+      }
+     }
+    },
+    {
+     "ts": "2026-09-05T13:15:24.997Z",
+     "market": "crypto_24h:BTCUSDT:1788516000000",
+     "domain": "crypto_24h",
+     "outcome": "DOWN",
+     "changed": {
+      "formline|crypto_24h": {
+       "source": "formline",
+       "domain": "crypto_24h",
+       "n": 50,
+       "skill": 0.0114,
+       "skill_shrunk": 0.0081,
+       "trust": 0.0864,
+       "state": "established"
+      }
+     }
+    },
+    {
+     "ts": "2026-09-05T13:15:25.021Z",
+     "market": "crypto_24h:BTCUSDT:1788512400000",
+     "domain": "crypto_24h",
+     "outcome": "DOWN",
+     "changed": {
+      "formline|crypto_24h": {
+       "source": "formline",
+       "domain": "crypto_24h",
+       "n": 51,
+       "skill": 0.0115,
+       "skill_shrunk": 0.0083,
+       "trust": 0.0873,
+       "state": "established"
+      }
+     }
     }
    ],
    "memory_pct": 77.578
   },
   {
    "id": "pundit_5",
-   "forecasts": 215,
-   "resolutions": 158,
-   "spend": 3.885,
-   "buys": 427,
-   "brier": 0.5505,
+   "forecasts": 216,
+   "resolutions": 161,
+   "spend": 3.924,
+   "buys": 431,
+   "brier": 0.5502,
    "cells": {
     "formline|crypto_24h": {
      "source": "formline",
      "domain": "crypto_24h",
-     "n": 48,
-     "skill": 0.0173,
-     "skill_shrunk": 0.0122,
-     "trust": 0.0898,
-     "spend": 0.144,
+     "n": 51,
+     "skill": 0.0154,
+     "skill_shrunk": 0.0111,
+     "trust": 0.0842,
+     "spend": 0.153,
      "misses": 0,
      "state": "established",
-     "last_seen": "2026-09-05T08:56:38.572058+00:00"
+     "last_seen": "2026-09-05T13:15:25.109763+00:00"
     },
     "formline|crypto_1h": {
      "source": "formline",
@@ -15234,7 +15266,7 @@
      "n": 4,
      "skill": 0.2104,
      "skill_shrunk": 0.0351,
-     "trust": 0.1006,
+     "trust": 0.0999,
      "spend": 0.048,
      "misses": 0,
      "state": "established",
@@ -15608,90 +15640,6 @@
     }
    },
    "feed": [
-    {
-     "ts": "2026-09-04T18:09:00.431Z",
-     "kind": "buy",
-     "source": "formline",
-     "domain": "bundesliga",
-     "cost": 0.003,
-     "trust": null,
-     "market": "bundesliga:2026-09-05:Paderborn:Freiburg"
-    },
-    {
-     "ts": "2026-09-04T18:09:00.461Z",
-     "kind": "buy",
-     "source": "boot_room",
-     "domain": "bundesliga",
-     "cost": 0.012,
-     "trust": null,
-     "market": "bundesliga:2026-09-05:Paderborn:Freiburg"
-    },
-    {
-     "ts": "2026-09-04T18:09:00.488Z",
-     "kind": "buy",
-     "source": "calcio_desk",
-     "domain": "bundesliga",
-     "cost": 0.012,
-     "trust": null,
-     "market": "bundesliga:2026-09-05:Paderborn:Freiburg"
-    },
-    {
-     "ts": "2026-09-04T18:09:04.163Z",
-     "kind": "forecast",
-     "domain": "bundesliga",
-     "market": "bundesliga:2026-09-05:Paderborn:Freiburg",
-     "probabilities": {
-      "H": 0.418,
-      "D": 0.255,
-      "A": 0.327
-     },
-     "confidence": 0.0,
-     "reasoning": null,
-     "leaned_on": [],
-     "spend": 0.027
-    },
-    {
-     "ts": "2026-09-04T18:30:41.713Z",
-     "kind": "buy",
-     "source": "formline",
-     "domain": "epl",
-     "cost": 0.003,
-     "trust": null,
-     "market": "epl:2026-09-05:Fulham:Crystal_Palace"
-    },
-    {
-     "ts": "2026-09-04T18:30:41.753Z",
-     "kind": "buy",
-     "source": "boot_room",
-     "domain": "epl",
-     "cost": 0.012,
-     "trust": null,
-     "market": "epl:2026-09-05:Fulham:Crystal_Palace"
-    },
-    {
-     "ts": "2026-09-04T18:30:41.788Z",
-     "kind": "buy",
-     "source": "calcio_desk",
-     "domain": "epl",
-     "cost": 0.012,
-     "trust": null,
-     "market": "epl:2026-09-05:Fulham:Crystal_Palace"
-    },
-    {
-     "ts": "2026-09-04T18:30:46.168Z",
-     "kind": "forecast",
-     "domain": "epl",
-     "market": "epl:2026-09-05:Fulham:Crystal_Palace",
-     "probabilities": {
-      "H": 0.433,
-      "D": 0.244,
-      "A": 0.323
-     },
-     "confidence": 0.0,
-     "reasoning": null,
-     "leaned_on": [],
-     "spend": 0.027
-    },
     {
      "ts": "2026-09-04T18:31:26.492Z",
      "kind": "resolved",
@@ -16469,6 +16417,90 @@
       "boot_room"
      ],
      "spend": 0.027
+    },
+    {
+     "ts": "2026-09-05T13:14:32.682Z",
+     "kind": "buy",
+     "source": "hexagon_desk",
+     "domain": "laliga",
+     "cost": 0.012,
+     "trust": 0.0999,
+     "market": "laliga:2026-09-06:Espanol:Sevilla"
+    },
+    {
+     "ts": "2026-09-05T13:14:33.620Z",
+     "kind": "buy",
+     "source": "formline",
+     "domain": "laliga",
+     "cost": 0.003,
+     "trust": null,
+     "market": "laliga:2026-09-06:Espanol:Sevilla"
+    },
+    {
+     "ts": "2026-09-05T13:14:34.539Z",
+     "kind": "buy",
+     "source": "boot_room",
+     "domain": "laliga",
+     "cost": 0.012,
+     "trust": null,
+     "market": "laliga:2026-09-06:Espanol:Sevilla"
+    },
+    {
+     "ts": "2026-09-05T13:14:35.434Z",
+     "kind": "buy",
+     "source": "calcio_desk",
+     "domain": "laliga",
+     "cost": 0.012,
+     "trust": null,
+     "market": "laliga:2026-09-06:Espanol:Sevilla"
+    },
+    {
+     "ts": "2026-09-05T13:14:41.550Z",
+     "kind": "forecast",
+     "domain": "laliga",
+     "market": "laliga:2026-09-06:Espanol:Sevilla",
+     "probabilities": {
+      "H": 0.455,
+      "D": 0.264,
+      "A": 0.281
+     },
+     "confidence": 0.076,
+     "reasoning": null,
+     "leaned_on": [],
+     "spend": 0.039
+    },
+    {
+     "ts": "2026-09-05T13:15:25.090Z",
+     "kind": "resolved",
+     "market": "crypto_24h:BTCUSDT:1788516000000",
+     "domain": "crypto_24h",
+     "outcome": "DOWN",
+     "brier": 0.5325,
+     "sources": [
+      "formline"
+     ]
+    },
+    {
+     "ts": "2026-09-05T13:15:25.108Z",
+     "kind": "resolved",
+     "market": "crypto_24h:ETHUSDT:1788512400000",
+     "domain": "crypto_24h",
+     "outcome": "DOWN",
+     "brier": 0.5243,
+     "sources": [
+      "formline"
+     ]
+    },
+    {
+     "ts": "2026-09-05T13:15:25.136Z",
+     "kind": "resolved",
+     "market": "crypto_24h:BTCUSDT:1788512400000",
+     "domain": "crypto_24h",
+     "outcome": "DOWN",
+     "brier": 0.5471,
+     "sources": [
+      "formline"
+     ]
     }
    ],
    "frames": [
@@ -19539,17 +19571,68 @@
        "state": "established"
       }
      }
+    },
+    {
+     "ts": "2026-09-05T13:15:25.090Z",
+     "market": "crypto_24h:BTCUSDT:1788516000000",
+     "domain": "crypto_24h",
+     "outcome": "DOWN",
+     "changed": {
+      "formline|crypto_24h": {
+       "source": "formline",
+       "domain": "crypto_24h",
+       "n": 49,
+       "skill": 0.0152,
+       "skill_shrunk": 0.0108,
+       "trust": 0.1149,
+       "state": "established"
+      }
+     }
+    },
+    {
+     "ts": "2026-09-05T13:15:25.108Z",
+     "market": "crypto_24h:ETHUSDT:1788512400000",
+     "domain": "crypto_24h",
+     "outcome": "DOWN",
+     "changed": {
+      "formline|crypto_24h": {
+       "source": "formline",
+       "domain": "crypto_24h",
+       "n": 50,
+       "skill": 0.016,
+       "skill_shrunk": 0.0114,
+       "trust": 0.1212,
+       "state": "established"
+      }
+     }
+    },
+    {
+     "ts": "2026-09-05T13:15:25.136Z",
+     "market": "crypto_24h:BTCUSDT:1788512400000",
+     "domain": "crypto_24h",
+     "outcome": "DOWN",
+     "changed": {
+      "formline|crypto_24h": {
+       "source": "formline",
+       "domain": "crypto_24h",
+       "n": 51,
+       "skill": 0.0161,
+       "skill_shrunk": 0.0116,
+       "trust": 0.1222,
+       "state": "established"
+      }
+     }
     }
    ],
    "memory_pct": 79.141
   },
   {
    "id": "pundit_6",
-   "forecasts": 198,
-   "resolutions": 157,
-   "spend": 3.056,
-   "buys": 326,
-   "brier": 0.5523,
+   "forecasts": 199,
+   "resolutions": 162,
+   "spend": 3.083,
+   "buys": 329,
+   "brier": 0.5515,
    "cells": {
     "flowdesk|crypto_1h": {
      "source": "flowdesk",
@@ -19605,7 +19688,7 @@
      "n": 4,
      "skill": 0.2104,
      "skill_shrunk": 0.0351,
-     "trust": 0.1006,
+     "trust": 0.0999,
      "spend": 0.048,
      "misses": 0,
      "state": "established",
@@ -19982,120 +20065,16 @@
     "peer:pundit_5|crypto_24h": {
      "source": "peer:pundit_5",
      "domain": "crypto_24h",
-     "n": 1,
+     "n": 2,
      "skill": -0.0657,
      "trust": null,
-     "spend": 0.008,
+     "spend": 0.016,
      "misses": 0,
      "state": "provisional",
-     "last_seen": "2026-09-05T08:56:38.845411+00:00"
+     "last_seen": "2026-09-05T13:15:25.176129+00:00"
     }
    },
    "feed": [
-    {
-     "ts": "2026-09-04T17:48:28.500Z",
-     "kind": "forecast",
-     "domain": "laliga",
-     "market": "laliga:2026-09-05:Villarreal:La_Coruna",
-     "probabilities": {
-      "H": 0.46,
-      "D": 0.26,
-      "A": 0.28
-     },
-     "confidence": 0.179,
-     "reasoning": null,
-     "leaned_on": [
-      "calcio_desk"
-     ],
-     "spend": 0.039
-    },
-    {
-     "ts": "2026-09-04T18:09:04.858Z",
-     "kind": "buy",
-     "source": "formline",
-     "domain": "ligue1",
-     "cost": 0.003,
-     "trust": null,
-     "market": "ligue1:2026-09-05:Le_Havre:Brest"
-    },
-    {
-     "ts": "2026-09-04T18:09:04.889Z",
-     "kind": "buy",
-     "source": "boot_room",
-     "domain": "ligue1",
-     "cost": 0.012,
-     "trust": null,
-     "market": "ligue1:2026-09-05:Le_Havre:Brest"
-    },
-    {
-     "ts": "2026-09-04T18:09:04.920Z",
-     "kind": "buy",
-     "source": "calcio_desk",
-     "domain": "ligue1",
-     "cost": 0.012,
-     "trust": null,
-     "market": "ligue1:2026-09-05:Le_Havre:Brest"
-    },
-    {
-     "ts": "2026-09-04T18:09:08.815Z",
-     "kind": "forecast",
-     "domain": "ligue1",
-     "market": "ligue1:2026-09-05:Le_Havre:Brest",
-     "probabilities": {
-      "H": 0.442,
-      "D": 0.231,
-      "A": 0.327
-     },
-     "confidence": 0.0,
-     "reasoning": null,
-     "leaned_on": [],
-     "spend": 0.027
-    },
-    {
-     "ts": "2026-09-04T18:30:47.214Z",
-     "kind": "buy",
-     "source": "formline",
-     "domain": "seriea",
-     "cost": 0.003,
-     "trust": null,
-     "market": "seriea:2026-09-06:Frosinone:Venezia"
-    },
-    {
-     "ts": "2026-09-04T18:30:47.249Z",
-     "kind": "buy",
-     "source": "boot_room",
-     "domain": "seriea",
-     "cost": 0.012,
-     "trust": null,
-     "market": "seriea:2026-09-06:Frosinone:Venezia"
-    },
-    {
-     "ts": "2026-09-04T18:30:47.296Z",
-     "kind": "buy",
-     "source": "calcio_desk",
-     "domain": "seriea",
-     "cost": 0.012,
-     "trust": null,
-     "market": "seriea:2026-09-06:Frosinone:Venezia"
-    },
-    {
-     "ts": "2026-09-04T18:30:53.363Z",
-     "kind": "forecast",
-     "domain": "seriea",
-     "market": "seriea:2026-09-06:Frosinone:Venezia",
-     "probabilities": {
-      "H": 0.46,
-      "D": 0.29,
-      "A": 0.25
-     },
-     "confidence": 0.18,
-     "reasoning": null,
-     "leaned_on": [
-      "formline",
-      "boot_room"
-     ],
-     "spend": 0.027
-    },
     {
      "ts": "2026-09-04T18:31:26.559Z",
      "kind": "resolved",
@@ -20859,6 +20838,98 @@
       "calcio_desk"
      ],
      "spend": 0.012
+    },
+    {
+     "ts": "2026-09-05T13:14:43.255Z",
+     "kind": "buy",
+     "source": "formline",
+     "domain": "epl",
+     "cost": 0.003,
+     "trust": null,
+     "market": "epl:2026-09-05:Hull:Aston_Villa"
+    },
+    {
+     "ts": "2026-09-05T13:14:44.167Z",
+     "kind": "buy",
+     "source": "boot_room",
+     "domain": "epl",
+     "cost": 0.012,
+     "trust": null,
+     "market": "epl:2026-09-05:Hull:Aston_Villa"
+    },
+    {
+     "ts": "2026-09-05T13:14:45.280Z",
+     "kind": "buy",
+     "source": "calcio_desk",
+     "domain": "epl",
+     "cost": 0.012,
+     "trust": null,
+     "market": "epl:2026-09-05:Hull:Aston_Villa"
+    },
+    {
+     "ts": "2026-09-05T13:14:51.290Z",
+     "kind": "forecast",
+     "domain": "epl",
+     "market": "epl:2026-09-05:Hull:Aston_Villa",
+     "probabilities": {
+      "H": 0.5,
+      "D": 0.244,
+      "A": 0.256
+     },
+     "confidence": 0.167,
+     "reasoning": null,
+     "leaned_on": [
+      "formline",
+      "boot_room"
+     ],
+     "spend": 0.027
+    },
+    {
+     "ts": "2026-09-05T13:15:25.204Z",
+     "kind": "resolved",
+     "market": "crypto_24h:BTCUSDT:1788516000000",
+     "domain": "crypto_24h",
+     "outcome": "DOWN",
+     "brier": 0.5243,
+     "sources": [
+      "peer:pundit_5"
+     ]
+    },
+    {
+     "ts": "2026-09-05T13:15:25.214Z",
+     "kind": "resolved",
+     "market": "crypto_24h:ETHUSDT:1788512400000",
+     "domain": "crypto_24h",
+     "outcome": "DOWN",
+     "brier": 0.5263,
+     "sources": []
+    },
+    {
+     "ts": "2026-09-05T13:15:25.229Z",
+     "kind": "resolved",
+     "market": "crypto_24h:BTCUSDT:1788512400000",
+     "domain": "crypto_24h",
+     "outcome": "DOWN",
+     "brier": 0.5263,
+     "sources": []
+    },
+    {
+     "ts": "2026-09-05T13:15:25.922Z",
+     "kind": "resolved",
+     "market": "crypto_24h:ETHUSDT:1788512400000",
+     "domain": "crypto_24h",
+     "outcome": "DOWN",
+     "brier": 0.5263,
+     "sources": []
+    },
+    {
+     "ts": "2026-09-05T13:15:25.936Z",
+     "kind": "resolved",
+     "market": "crypto_24h:BTCUSDT:1788512400000",
+     "domain": "crypto_24h",
+     "outcome": "DOWN",
+     "brier": 0.5263,
+     "sources": []
     }
    ],
    "frames": [
@@ -23261,12 +23332,603 @@
        "state": "provisional"
       }
      }
+    },
+    {
+     "ts": "2026-09-05T13:15:25.204Z",
+     "market": "crypto_24h:BTCUSDT:1788516000000",
+     "domain": "crypto_24h",
+     "outcome": "DOWN",
+     "changed": {
+      "peer:pundit_5|crypto_24h": {
+       "source": "peer:pundit_5",
+       "domain": "crypto_24h",
+       "n": 2,
+       "skill": -0.065,
+       "skill_shrunk": -0.0059,
+       "trust": 0.0,
+       "state": "provisional"
+      }
+     }
     }
    ],
    "memory_pct": 65.469
   }
  ],
  "feed": [
+  {
+   "ts": "2026-09-05T13:15:25.936Z",
+   "kind": "resolved",
+   "market": "crypto_24h:BTCUSDT:1788512400000",
+   "domain": "crypto_24h",
+   "outcome": "DOWN",
+   "brier": 0.5263,
+   "sources": [],
+   "pundit": "pundit_6"
+  },
+  {
+   "ts": "2026-09-05T13:15:25.922Z",
+   "kind": "resolved",
+   "market": "crypto_24h:ETHUSDT:1788512400000",
+   "domain": "crypto_24h",
+   "outcome": "DOWN",
+   "brier": 0.5263,
+   "sources": [],
+   "pundit": "pundit_6"
+  },
+  {
+   "ts": "2026-09-05T13:15:25.229Z",
+   "kind": "resolved",
+   "market": "crypto_24h:BTCUSDT:1788512400000",
+   "domain": "crypto_24h",
+   "outcome": "DOWN",
+   "brier": 0.5263,
+   "sources": [],
+   "pundit": "pundit_6"
+  },
+  {
+   "ts": "2026-09-05T13:15:25.214Z",
+   "kind": "resolved",
+   "market": "crypto_24h:ETHUSDT:1788512400000",
+   "domain": "crypto_24h",
+   "outcome": "DOWN",
+   "brier": 0.5263,
+   "sources": [],
+   "pundit": "pundit_6"
+  },
+  {
+   "ts": "2026-09-05T13:15:25.204Z",
+   "kind": "resolved",
+   "market": "crypto_24h:BTCUSDT:1788516000000",
+   "domain": "crypto_24h",
+   "outcome": "DOWN",
+   "brier": 0.5243,
+   "sources": [
+    "peer:pundit_5"
+   ],
+   "pundit": "pundit_6"
+  },
+  {
+   "ts": "2026-09-05T13:15:25.136Z",
+   "kind": "resolved",
+   "market": "crypto_24h:BTCUSDT:1788512400000",
+   "domain": "crypto_24h",
+   "outcome": "DOWN",
+   "brier": 0.5471,
+   "sources": [
+    "formline"
+   ],
+   "pundit": "pundit_5"
+  },
+  {
+   "ts": "2026-09-05T13:15:25.108Z",
+   "kind": "resolved",
+   "market": "crypto_24h:ETHUSDT:1788512400000",
+   "domain": "crypto_24h",
+   "outcome": "DOWN",
+   "brier": 0.5243,
+   "sources": [
+    "formline"
+   ],
+   "pundit": "pundit_5"
+  },
+  {
+   "ts": "2026-09-05T13:15:25.090Z",
+   "kind": "resolved",
+   "market": "crypto_24h:BTCUSDT:1788516000000",
+   "domain": "crypto_24h",
+   "outcome": "DOWN",
+   "brier": 0.5325,
+   "sources": [
+    "formline"
+   ],
+   "pundit": "pundit_5"
+  },
+  {
+   "ts": "2026-09-05T13:15:25.021Z",
+   "kind": "resolved",
+   "market": "crypto_24h:BTCUSDT:1788512400000",
+   "domain": "crypto_24h",
+   "outcome": "DOWN",
+   "brier": 0.5471,
+   "sources": [
+    "formline"
+   ],
+   "pundit": "pundit_4"
+  },
+  {
+   "ts": "2026-09-05T13:15:24.997Z",
+   "kind": "resolved",
+   "market": "crypto_24h:BTCUSDT:1788516000000",
+   "domain": "crypto_24h",
+   "outcome": "DOWN",
+   "brier": 0.5576,
+   "sources": [
+    "formline"
+   ],
+   "pundit": "pundit_4"
+  },
+  {
+   "ts": "2026-09-05T13:15:24.981Z",
+   "kind": "resolved",
+   "market": "crypto_24h:ETHUSDT:1788516000000",
+   "domain": "crypto_24h",
+   "outcome": "DOWN",
+   "brier": 0.5408,
+   "sources": [
+    "formline"
+   ],
+   "pundit": "pundit_4"
+  },
+  {
+   "ts": "2026-09-05T13:15:24.908Z",
+   "kind": "resolved",
+   "market": "crypto_24h:BTCUSDT:1788512400000",
+   "domain": "crypto_24h",
+   "outcome": "DOWN",
+   "brier": 0.5263,
+   "sources": [],
+   "pundit": "pundit_3"
+  },
+  {
+   "ts": "2026-09-05T13:15:24.894Z",
+   "kind": "resolved",
+   "market": "crypto_24h:ETHUSDT:1788512400000",
+   "domain": "crypto_24h",
+   "outcome": "DOWN",
+   "brier": 0.5263,
+   "sources": [],
+   "pundit": "pundit_3"
+  },
+  {
+   "ts": "2026-09-05T13:15:24.883Z",
+   "kind": "resolved",
+   "market": "crypto_24h:BTCUSDT:1788516000000",
+   "domain": "crypto_24h",
+   "outcome": "DOWN",
+   "brier": 0.5263,
+   "sources": [],
+   "pundit": "pundit_3"
+  },
+  {
+   "ts": "2026-09-05T13:15:24.836Z",
+   "kind": "resolved",
+   "market": "crypto_24h:BTCUSDT:1788512400000",
+   "domain": "crypto_24h",
+   "outcome": "DOWN",
+   "brier": 0.5263,
+   "sources": [],
+   "pundit": "pundit_2"
+  },
+  {
+   "ts": "2026-09-05T13:15:24.821Z",
+   "kind": "resolved",
+   "market": "crypto_24h:ETHUSDT:1788512400000",
+   "domain": "crypto_24h",
+   "outcome": "DOWN",
+   "brier": 0.5263,
+   "sources": [],
+   "pundit": "pundit_2"
+  },
+  {
+   "ts": "2026-09-05T13:15:24.808Z",
+   "kind": "resolved",
+   "market": "crypto_24h:BTCUSDT:1788516000000",
+   "domain": "crypto_24h",
+   "outcome": "DOWN",
+   "brier": 0.5263,
+   "sources": [],
+   "pundit": "pundit_2"
+  },
+  {
+   "ts": "2026-09-05T13:15:23.121Z",
+   "kind": "resolved",
+   "market": "crypto_24h:BTCUSDT:1788516000000",
+   "domain": "crypto_24h",
+   "outcome": "DOWN",
+   "brier": 0.5263,
+   "sources": [],
+   "pundit": "pundit_1"
+  },
+  {
+   "ts": "2026-09-05T13:15:23.105Z",
+   "kind": "resolved",
+   "market": "crypto_24h:ETHUSDT:1788516000000",
+   "domain": "crypto_24h",
+   "outcome": "DOWN",
+   "brier": 0.5263,
+   "sources": [],
+   "pundit": "pundit_1"
+  },
+  {
+   "ts": "2026-09-05T13:14:51.290Z",
+   "kind": "forecast",
+   "domain": "epl",
+   "market": "epl:2026-09-05:Hull:Aston_Villa",
+   "probabilities": {
+    "H": 0.5,
+    "D": 0.244,
+    "A": 0.256
+   },
+   "confidence": 0.167,
+   "reasoning": null,
+   "leaned_on": [
+    "formline",
+    "boot_room"
+   ],
+   "spend": 0.027,
+   "pundit": "pundit_6"
+  },
+  {
+   "ts": "2026-09-05T13:14:45.280Z",
+   "kind": "buy",
+   "source": "calcio_desk",
+   "domain": "epl",
+   "cost": 0.012,
+   "trust": null,
+   "market": "epl:2026-09-05:Hull:Aston_Villa",
+   "pundit": "pundit_6"
+  },
+  {
+   "ts": "2026-09-05T13:14:44.167Z",
+   "kind": "buy",
+   "source": "boot_room",
+   "domain": "epl",
+   "cost": 0.012,
+   "trust": null,
+   "market": "epl:2026-09-05:Hull:Aston_Villa",
+   "pundit": "pundit_6"
+  },
+  {
+   "ts": "2026-09-05T13:14:43.255Z",
+   "kind": "buy",
+   "source": "formline",
+   "domain": "epl",
+   "cost": 0.003,
+   "trust": null,
+   "market": "epl:2026-09-05:Hull:Aston_Villa",
+   "pundit": "pundit_6"
+  },
+  {
+   "ts": "2026-09-05T13:14:41.550Z",
+   "kind": "forecast",
+   "domain": "laliga",
+   "market": "laliga:2026-09-06:Espanol:Sevilla",
+   "probabilities": {
+    "H": 0.455,
+    "D": 0.264,
+    "A": 0.281
+   },
+   "confidence": 0.076,
+   "reasoning": null,
+   "leaned_on": [],
+   "spend": 0.039,
+   "pundit": "pundit_5"
+  },
+  {
+   "ts": "2026-09-05T13:14:35.434Z",
+   "kind": "buy",
+   "source": "calcio_desk",
+   "domain": "laliga",
+   "cost": 0.012,
+   "trust": null,
+   "market": "laliga:2026-09-06:Espanol:Sevilla",
+   "pundit": "pundit_5"
+  },
+  {
+   "ts": "2026-09-05T13:14:34.539Z",
+   "kind": "buy",
+   "source": "boot_room",
+   "domain": "laliga",
+   "cost": 0.012,
+   "trust": null,
+   "market": "laliga:2026-09-06:Espanol:Sevilla",
+   "pundit": "pundit_5"
+  },
+  {
+   "ts": "2026-09-05T13:14:33.620Z",
+   "kind": "buy",
+   "source": "formline",
+   "domain": "laliga",
+   "cost": 0.003,
+   "trust": null,
+   "market": "laliga:2026-09-06:Espanol:Sevilla",
+   "pundit": "pundit_5"
+  },
+  {
+   "ts": "2026-09-05T13:14:32.682Z",
+   "kind": "buy",
+   "source": "hexagon_desk",
+   "domain": "laliga",
+   "cost": 0.012,
+   "trust": 0.0999,
+   "market": "laliga:2026-09-06:Espanol:Sevilla",
+   "pundit": "pundit_5"
+  },
+  {
+   "ts": "2026-09-05T13:14:30.809Z",
+   "kind": "forecast",
+   "domain": "seriea",
+   "market": "seriea:2026-09-06:Bologna:Sassuolo",
+   "probabilities": {
+    "H": 0.48,
+    "D": 0.29,
+    "A": 0.23
+   },
+   "confidence": 0.179,
+   "reasoning": null,
+   "leaned_on": [
+    "formline",
+    "boot_room"
+   ],
+   "spend": 0.027,
+   "pundit": "pundit_4"
+  },
+  {
+   "ts": "2026-09-05T13:14:24.912Z",
+   "kind": "buy",
+   "source": "calcio_desk",
+   "domain": "seriea",
+   "cost": 0.012,
+   "trust": null,
+   "market": "seriea:2026-09-06:Bologna:Sassuolo",
+   "pundit": "pundit_4"
+  },
+  {
+   "ts": "2026-09-05T13:14:24.051Z",
+   "kind": "buy",
+   "source": "boot_room",
+   "domain": "seriea",
+   "cost": 0.012,
+   "trust": null,
+   "market": "seriea:2026-09-06:Bologna:Sassuolo",
+   "pundit": "pundit_4"
+  },
+  {
+   "ts": "2026-09-05T13:14:23.128Z",
+   "kind": "buy",
+   "source": "formline",
+   "domain": "seriea",
+   "cost": 0.003,
+   "trust": null,
+   "market": "seriea:2026-09-06:Bologna:Sassuolo",
+   "pundit": "pundit_4"
+  },
+  {
+   "ts": "2026-09-05T13:14:21.448Z",
+   "kind": "forecast",
+   "domain": "laliga",
+   "market": "laliga:2026-09-06:Valencia:Barcelona",
+   "probabilities": {
+    "H": 0.456,
+    "D": 0.264,
+    "A": 0.28
+   },
+   "confidence": 0.031,
+   "reasoning": null,
+   "leaned_on": [
+    "formline"
+   ],
+   "spend": 0.027,
+   "pundit": "pundit_3"
+  },
+  {
+   "ts": "2026-09-05T13:14:16.086Z",
+   "kind": "buy",
+   "source": "calcio_desk",
+   "domain": "laliga",
+   "cost": 0.012,
+   "trust": null,
+   "market": "laliga:2026-09-06:Valencia:Barcelona",
+   "pundit": "pundit_3"
+  },
+  {
+   "ts": "2026-09-05T13:14:15.191Z",
+   "kind": "buy",
+   "source": "boot_room",
+   "domain": "laliga",
+   "cost": 0.012,
+   "trust": null,
+   "market": "laliga:2026-09-06:Valencia:Barcelona",
+   "pundit": "pundit_3"
+  },
+  {
+   "ts": "2026-09-05T13:14:14.275Z",
+   "kind": "buy",
+   "source": "formline",
+   "domain": "laliga",
+   "cost": 0.003,
+   "trust": 0.1506,
+   "market": "laliga:2026-09-06:Valencia:Barcelona",
+   "pundit": "pundit_3"
+  },
+  {
+   "ts": "2026-09-05T13:14:12.471Z",
+   "kind": "forecast",
+   "domain": "seriea",
+   "market": "seriea:2026-09-06:Frosinone:Venezia",
+   "probabilities": {
+    "H": 0.46,
+    "D": 0.29,
+    "A": 0.25
+   },
+   "confidence": 0.108,
+   "reasoning": null,
+   "leaned_on": [],
+   "spend": 0.027,
+   "pundit": "pundit_2"
+  },
+  {
+   "ts": "2026-09-05T13:14:06.059Z",
+   "kind": "forecast",
+   "domain": "ligue1",
+   "market": "ligue1:2026-09-05:Le_Havre:Brest",
+   "probabilities": {
+    "H": 0.442,
+    "D": 0.231,
+    "A": 0.327
+   },
+   "confidence": 0.0,
+   "reasoning": null,
+   "leaned_on": [],
+   "spend": 0.027,
+   "pundit": "pundit_1"
+  },
+  {
+   "ts": "2026-09-05T13:14:05.558Z",
+   "kind": "buy",
+   "source": "calcio_desk",
+   "domain": "seriea",
+   "cost": 0.012,
+   "trust": null,
+   "market": "seriea:2026-09-06:Frosinone:Venezia",
+   "pundit": "pundit_2"
+  },
+  {
+   "ts": "2026-09-05T13:14:04.739Z",
+   "kind": "buy",
+   "source": "boot_room",
+   "domain": "seriea",
+   "cost": 0.012,
+   "trust": null,
+   "market": "seriea:2026-09-06:Frosinone:Venezia",
+   "pundit": "pundit_2"
+  },
+  {
+   "ts": "2026-09-05T13:14:03.868Z",
+   "kind": "buy",
+   "source": "formline",
+   "domain": "seriea",
+   "cost": 0.003,
+   "trust": null,
+   "market": "seriea:2026-09-06:Frosinone:Venezia",
+   "pundit": "pundit_2"
+  },
+  {
+   "ts": "2026-09-05T13:14:02.028Z",
+   "kind": "forecast",
+   "domain": "ligue1",
+   "market": "ligue1:2026-09-05:Le_Havre:Brest",
+   "probabilities": {
+    "H": 0.442,
+    "D": 0.231,
+    "A": 0.327
+   },
+   "confidence": 0.0,
+   "reasoning": null,
+   "leaned_on": [],
+   "spend": 0.027,
+   "pundit": "pundit_1"
+  },
+  {
+   "ts": "2026-09-05T13:13:48.329Z",
+   "kind": "buy",
+   "source": "calcio_desk",
+   "domain": "ligue1",
+   "cost": 0.012,
+   "trust": null,
+   "market": "ligue1:2026-09-05:Le_Havre:Brest",
+   "pundit": "pundit_1"
+  },
+  {
+   "ts": "2026-09-05T13:13:48.189Z",
+   "kind": "buy",
+   "source": "calcio_desk",
+   "domain": "ligue1",
+   "cost": 0.012,
+   "trust": null,
+   "market": "ligue1:2026-09-05:Le_Havre:Brest",
+   "pundit": "pundit_1"
+  },
+  {
+   "ts": "2026-09-05T13:13:47.295Z",
+   "kind": "buy",
+   "source": "boot_room",
+   "domain": "ligue1",
+   "cost": 0.012,
+   "trust": null,
+   "market": "ligue1:2026-09-05:Le_Havre:Brest",
+   "pundit": "pundit_1"
+  },
+  {
+   "ts": "2026-09-05T13:13:46.864Z",
+   "kind": "buy",
+   "source": "boot_room",
+   "domain": "ligue1",
+   "cost": 0.012,
+   "trust": null,
+   "market": "ligue1:2026-09-05:Le_Havre:Brest",
+   "pundit": "pundit_1"
+  },
+  {
+   "ts": "2026-09-05T13:13:46.122Z",
+   "kind": "buy",
+   "source": "formline",
+   "domain": "ligue1",
+   "cost": 0.003,
+   "trust": null,
+   "market": "ligue1:2026-09-05:Le_Havre:Brest",
+   "pundit": "pundit_1"
+  },
+  {
+   "ts": "2026-09-05T13:13:45.572Z",
+   "kind": "buy",
+   "source": "formline",
+   "domain": "ligue1",
+   "cost": 0.003,
+   "trust": null,
+   "market": "ligue1:2026-09-05:Le_Havre:Brest",
+   "pundit": "pundit_1"
+  },
+  {
+   "ts": "2026-09-05T13:10:36.520Z",
+   "kind": "buy",
+   "source": "calcio_desk",
+   "domain": "ligue1",
+   "cost": 0.012,
+   "trust": null,
+   "market": "ligue1:2026-09-05:Le_Havre:Brest",
+   "pundit": "pundit_1"
+  },
+  {
+   "ts": "2026-09-05T13:10:35.281Z",
+   "kind": "buy",
+   "source": "boot_room",
+   "domain": "ligue1",
+   "cost": 0.012,
+   "trust": null,
+   "market": "ligue1:2026-09-05:Le_Havre:Brest",
+   "pundit": "pundit_1"
+  },
+  {
+   "ts": "2026-09-05T13:10:34.081Z",
+   "kind": "buy",
+   "source": "formline",
+   "domain": "ligue1",
+   "cost": 0.003,
+   "trust": null,
+   "market": "ligue1:2026-09-05:Le_Havre:Brest",
+   "pundit": "pundit_1"
+  },
   {
    "ts": "2026-09-05T12:28:54.836Z",
    "kind": "forecast",
@@ -27370,617 +28032,12 @@
    "trust": null,
    "market": "bundesliga:2026-09-05:Paderborn:Freiburg",
    "pundit": "pundit_3"
-  },
-  {
-   "ts": "2026-09-04T17:27:08.257Z",
-   "kind": "buy",
-   "source": "boot_room",
-   "domain": "bundesliga",
-   "cost": 0.012,
-   "trust": null,
-   "market": "bundesliga:2026-09-05:Paderborn:Freiburg",
-   "pundit": "pundit_3"
-  },
-  {
-   "ts": "2026-09-04T17:27:08.230Z",
-   "kind": "buy",
-   "source": "formline",
-   "domain": "bundesliga",
-   "cost": 0.003,
-   "trust": null,
-   "market": "bundesliga:2026-09-05:Paderborn:Freiburg",
-   "pundit": "pundit_3"
-  },
-  {
-   "ts": "2026-09-04T17:27:07.413Z",
-   "kind": "forecast",
-   "domain": "bundesliga",
-   "market": "bundesliga:2026-09-05:Paderborn:Freiburg",
-   "probabilities": {
-    "H": 0.409,
-    "D": 0.207,
-    "A": 0.384
-   },
-   "confidence": 0.167,
-   "reasoning": null,
-   "leaned_on": [
-    "boot_room",
-    "calcio_desk"
-   ],
-   "spend": 0.027,
-   "pundit": "pundit_2"
-  },
-  {
-   "ts": "2026-09-04T17:27:02.091Z",
-   "kind": "buy",
-   "source": "calcio_desk",
-   "domain": "bundesliga",
-   "cost": 0.012,
-   "trust": null,
-   "market": "bundesliga:2026-09-05:Paderborn:Freiburg",
-   "pundit": "pundit_2"
-  },
-  {
-   "ts": "2026-09-04T17:27:02.062Z",
-   "kind": "buy",
-   "source": "boot_room",
-   "domain": "bundesliga",
-   "cost": 0.012,
-   "trust": null,
-   "market": "bundesliga:2026-09-05:Paderborn:Freiburg",
-   "pundit": "pundit_2"
-  },
-  {
-   "ts": "2026-09-04T17:27:02.033Z",
-   "kind": "buy",
-   "source": "formline",
-   "domain": "bundesliga",
-   "cost": 0.003,
-   "trust": null,
-   "market": "bundesliga:2026-09-05:Paderborn:Freiburg",
-   "pundit": "pundit_2"
-  },
-  {
-   "ts": "2026-09-04T17:27:01.153Z",
-   "kind": "forecast",
-   "domain": "seriea",
-   "market": "seriea:2026-09-05:Roma:Atalanta",
-   "probabilities": {
-    "H": 0.46,
-    "D": 0.29,
-    "A": 0.25
-   },
-   "confidence": 0.32,
-   "reasoning": null,
-   "leaned_on": [
-    "formline",
-    "boot_room",
-    "calcio_desk"
-   ],
-   "spend": 0.027,
-   "pundit": "pundit_1"
-  },
-  {
-   "ts": "2026-09-04T17:26:45.872Z",
-   "kind": "buy",
-   "source": "calcio_desk",
-   "domain": "seriea",
-   "cost": 0.012,
-   "trust": null,
-   "market": "seriea:2026-09-05:Roma:Atalanta",
-   "pundit": "pundit_1"
-  },
-  {
-   "ts": "2026-09-04T17:26:45.845Z",
-   "kind": "buy",
-   "source": "boot_room",
-   "domain": "seriea",
-   "cost": 0.012,
-   "trust": null,
-   "market": "seriea:2026-09-05:Roma:Atalanta",
-   "pundit": "pundit_1"
-  },
-  {
-   "ts": "2026-09-04T17:26:45.817Z",
-   "kind": "buy",
-   "source": "formline",
-   "domain": "seriea",
-   "cost": 0.003,
-   "trust": null,
-   "market": "seriea:2026-09-05:Roma:Atalanta",
-   "pundit": "pundit_1"
-  },
-  {
-   "ts": "2026-09-04T17:06:30.950Z",
-   "kind": "resolved",
-   "market": "crypto_24h:ETHUSDT:1788454800000",
-   "domain": "crypto_24h",
-   "outcome": "DOWN",
-   "brier": 0.5263,
-   "sources": [],
-   "pundit": "pundit_6"
-  },
-  {
-   "ts": "2026-09-04T17:06:30.904Z",
-   "kind": "resolved",
-   "market": "crypto_24h:ETHUSDT:1788454800000",
-   "domain": "crypto_24h",
-   "outcome": "DOWN",
-   "brier": 0.5263,
-   "sources": [
-    "formline"
-   ],
-   "pundit": "pundit_5"
-  },
-  {
-   "ts": "2026-09-04T17:06:30.851Z",
-   "kind": "resolved",
-   "market": "crypto_24h:ETHUSDT:1788454800000",
-   "domain": "crypto_24h",
-   "outcome": "DOWN",
-   "brier": 0.496,
-   "sources": [
-    "formline"
-   ],
-   "pundit": "pundit_4"
-  },
-  {
-   "ts": "2026-09-04T17:06:30.787Z",
-   "kind": "resolved",
-   "market": "crypto_24h:ETHUSDT:1788454800000",
-   "domain": "crypto_24h",
-   "outcome": "DOWN",
-   "brier": 0.5408,
-   "sources": [
-    "flowdesk"
-   ],
-   "pundit": "pundit_3"
-  },
-  {
-   "ts": "2026-09-04T17:06:28.011Z",
-   "kind": "resolved",
-   "market": "crypto_24h:ETHUSDT:1788454800000",
-   "domain": "crypto_24h",
-   "outcome": "DOWN",
-   "brier": 0.5263,
-   "sources": [],
-   "pundit": "pundit_1"
-  },
-  {
-   "ts": "2026-09-04T17:06:27.093Z",
-   "kind": "forecast",
-   "domain": "seriea",
-   "market": "seriea:2026-09-05:Roma:Atalanta",
-   "probabilities": {
-    "H": 0.46,
-    "D": 0.29,
-    "A": 0.25
-   },
-   "confidence": 0.32,
-   "reasoning": null,
-   "leaned_on": [
-    "formline",
-    "boot_room",
-    "calcio_desk"
-   ],
-   "spend": 0.027,
-   "pundit": "pundit_6"
-  },
-  {
-   "ts": "2026-09-04T17:06:22.224Z",
-   "kind": "buy",
-   "source": "calcio_desk",
-   "domain": "seriea",
-   "cost": 0.012,
-   "trust": null,
-   "market": "seriea:2026-09-05:Roma:Atalanta",
-   "pundit": "pundit_6"
-  },
-  {
-   "ts": "2026-09-04T17:06:22.199Z",
-   "kind": "buy",
-   "source": "boot_room",
-   "domain": "seriea",
-   "cost": 0.012,
-   "trust": null,
-   "market": "seriea:2026-09-05:Roma:Atalanta",
-   "pundit": "pundit_6"
-  },
-  {
-   "ts": "2026-09-04T17:06:22.165Z",
-   "kind": "buy",
-   "source": "formline",
-   "domain": "seriea",
-   "cost": 0.003,
-   "trust": null,
-   "market": "seriea:2026-09-05:Roma:Atalanta",
-   "pundit": "pundit_6"
-  },
-  {
-   "ts": "2026-09-04T17:06:21.359Z",
-   "kind": "forecast",
-   "domain": "laliga",
-   "market": "laliga:2026-09-05:Villarreal:La_Coruna",
-   "probabilities": {
-    "H": 0.46,
-    "D": 0.26,
-    "A": 0.28
-   },
-   "confidence": 0.179,
-   "reasoning": null,
-   "leaned_on": [
-    "calcio_desk"
-   ],
-   "spend": 0.039,
-   "pundit": "pundit_5"
-  },
-  {
-   "ts": "2026-09-04T17:06:15.970Z",
-   "kind": "buy",
-   "source": "calcio_desk",
-   "domain": "laliga",
-   "cost": 0.012,
-   "trust": null,
-   "market": "laliga:2026-09-05:Villarreal:La_Coruna",
-   "pundit": "pundit_5"
-  },
-  {
-   "ts": "2026-09-04T17:06:15.944Z",
-   "kind": "buy",
-   "source": "boot_room",
-   "domain": "laliga",
-   "cost": 0.012,
-   "trust": null,
-   "market": "laliga:2026-09-05:Villarreal:La_Coruna",
-   "pundit": "pundit_5"
-  },
-  {
-   "ts": "2026-09-04T17:06:15.915Z",
-   "kind": "buy",
-   "source": "formline",
-   "domain": "laliga",
-   "cost": 0.003,
-   "trust": null,
-   "market": "laliga:2026-09-05:Villarreal:La_Coruna",
-   "pundit": "pundit_5"
-  },
-  {
-   "ts": "2026-09-04T17:06:15.879Z",
-   "kind": "buy",
-   "source": "hexagon_desk",
-   "domain": "laliga",
-   "cost": 0.012,
-   "trust": 0.1181,
-   "market": "laliga:2026-09-05:Villarreal:La_Coruna",
-   "pundit": "pundit_5"
-  },
-  {
-   "ts": "2026-09-04T17:06:15.159Z",
-   "kind": "forecast",
-   "domain": "ligue1",
-   "market": "ligue1:2026-09-05:Lens:Lorient",
-   "probabilities": {
-    "H": 0.442,
-    "D": 0.231,
-    "A": 0.327
-   },
-   "confidence": 0.0,
-   "reasoning": null,
-   "leaned_on": [],
-   "spend": 0.027,
-   "pundit": "pundit_4"
-  },
-  {
-   "ts": "2026-09-04T17:06:11.015Z",
-   "kind": "buy",
-   "source": "calcio_desk",
-   "domain": "ligue1",
-   "cost": 0.012,
-   "trust": null,
-   "market": "ligue1:2026-09-05:Lens:Lorient",
-   "pundit": "pundit_4"
-  },
-  {
-   "ts": "2026-09-04T17:06:10.984Z",
-   "kind": "buy",
-   "source": "boot_room",
-   "domain": "ligue1",
-   "cost": 0.012,
-   "trust": null,
-   "market": "ligue1:2026-09-05:Lens:Lorient",
-   "pundit": "pundit_4"
-  },
-  {
-   "ts": "2026-09-04T17:06:10.952Z",
-   "kind": "buy",
-   "source": "formline",
-   "domain": "ligue1",
-   "cost": 0.003,
-   "trust": null,
-   "market": "ligue1:2026-09-05:Lens:Lorient",
-   "pundit": "pundit_4"
-  },
-  {
-   "ts": "2026-09-04T17:06:10.183Z",
-   "kind": "forecast",
-   "domain": "seriea",
-   "market": "seriea:2026-09-05:Roma:Atalanta",
-   "probabilities": {
-    "H": 0.46,
-    "D": 0.29,
-    "A": 0.25
-   },
-   "confidence": 0.32,
-   "reasoning": null,
-   "leaned_on": [
-    "formline",
-    "boot_room",
-    "calcio_desk"
-   ],
-   "spend": 0.027,
-   "pundit": "pundit_3"
-  },
-  {
-   "ts": "2026-09-04T17:06:06.067Z",
-   "kind": "buy",
-   "source": "calcio_desk",
-   "domain": "seriea",
-   "cost": 0.012,
-   "trust": null,
-   "market": "seriea:2026-09-05:Roma:Atalanta",
-   "pundit": "pundit_3"
-  },
-  {
-   "ts": "2026-09-04T17:06:06.035Z",
-   "kind": "buy",
-   "source": "boot_room",
-   "domain": "seriea",
-   "cost": 0.012,
-   "trust": null,
-   "market": "seriea:2026-09-05:Roma:Atalanta",
-   "pundit": "pundit_3"
-  },
-  {
-   "ts": "2026-09-04T17:06:06.005Z",
-   "kind": "buy",
-   "source": "formline",
-   "domain": "seriea",
-   "cost": 0.003,
-   "trust": null,
-   "market": "seriea:2026-09-05:Roma:Atalanta",
-   "pundit": "pundit_3"
-  },
-  {
-   "ts": "2026-09-04T17:06:05.281Z",
-   "kind": "forecast",
-   "domain": "seriea",
-   "market": "seriea:2026-09-05:Roma:Atalanta",
-   "probabilities": {
-    "H": 0.46,
-    "D": 0.29,
-    "A": 0.25
-   },
-   "confidence": 0.32,
-   "reasoning": null,
-   "leaned_on": [
-    "formline",
-    "boot_room",
-    "calcio_desk"
-   ],
-   "spend": 0.027,
-   "pundit": "pundit_2"
-  },
-  {
-   "ts": "2026-09-04T17:06:00.459Z",
-   "kind": "buy",
-   "source": "calcio_desk",
-   "domain": "seriea",
-   "cost": 0.012,
-   "trust": null,
-   "market": "seriea:2026-09-05:Roma:Atalanta",
-   "pundit": "pundit_2"
-  },
-  {
-   "ts": "2026-09-04T17:06:00.434Z",
-   "kind": "buy",
-   "source": "boot_room",
-   "domain": "seriea",
-   "cost": 0.012,
-   "trust": null,
-   "market": "seriea:2026-09-05:Roma:Atalanta",
-   "pundit": "pundit_2"
-  },
-  {
-   "ts": "2026-09-04T17:06:00.404Z",
-   "kind": "buy",
-   "source": "formline",
-   "domain": "seriea",
-   "cost": 0.003,
-   "trust": null,
-   "market": "seriea:2026-09-05:Roma:Atalanta",
-   "pundit": "pundit_2"
-  },
-  {
-   "ts": "2026-09-04T17:05:59.586Z",
-   "kind": "forecast",
-   "domain": "ligue1",
-   "market": "ligue1:2026-09-05:Lens:Lorient",
-   "probabilities": {
-    "H": 0.442,
-    "D": 0.231,
-    "A": 0.327
-   },
-   "confidence": 0.0,
-   "reasoning": null,
-   "leaned_on": [],
-   "spend": 0.027,
-   "pundit": "pundit_1"
-  },
-  {
-   "ts": "2026-09-04T17:05:46.498Z",
-   "kind": "buy",
-   "source": "calcio_desk",
-   "domain": "ligue1",
-   "cost": 0.012,
-   "trust": null,
-   "market": "ligue1:2026-09-05:Lens:Lorient",
-   "pundit": "pundit_1"
-  },
-  {
-   "ts": "2026-09-04T17:05:46.471Z",
-   "kind": "buy",
-   "source": "boot_room",
-   "domain": "ligue1",
-   "cost": 0.012,
-   "trust": null,
-   "market": "ligue1:2026-09-05:Lens:Lorient",
-   "pundit": "pundit_1"
-  },
-  {
-   "ts": "2026-09-04T17:05:46.436Z",
-   "kind": "buy",
-   "source": "formline",
-   "domain": "ligue1",
-   "cost": 0.003,
-   "trust": null,
-   "market": "ligue1:2026-09-05:Lens:Lorient",
-   "pundit": "pundit_1"
-  },
-  {
-   "ts": "2026-09-04T16:45:29.002Z",
-   "kind": "forecast",
-   "domain": "bundesliga",
-   "market": "bundesliga:2026-09-05:M'gladbach:Elversberg",
-   "probabilities": {
-    "H": 0.418,
-    "D": 0.255,
-    "A": 0.327
-   },
-   "confidence": 0.092,
-   "reasoning": null,
-   "leaned_on": [],
-   "spend": 0.027,
-   "pundit": "pundit_6"
-  },
-  {
-   "ts": "2026-09-04T16:45:24.194Z",
-   "kind": "buy",
-   "source": "calcio_desk",
-   "domain": "bundesliga",
-   "cost": 0.012,
-   "trust": null,
-   "market": "bundesliga:2026-09-05:M'gladbach:Elversberg",
-   "pundit": "pundit_6"
-  },
-  {
-   "ts": "2026-09-04T16:45:24.163Z",
-   "kind": "buy",
-   "source": "boot_room",
-   "domain": "bundesliga",
-   "cost": 0.012,
-   "trust": null,
-   "market": "bundesliga:2026-09-05:M'gladbach:Elversberg",
-   "pundit": "pundit_6"
-  },
-  {
-   "ts": "2026-09-04T16:45:24.128Z",
-   "kind": "buy",
-   "source": "formline",
-   "domain": "bundesliga",
-   "cost": 0.003,
-   "trust": null,
-   "market": "bundesliga:2026-09-05:M'gladbach:Elversberg",
-   "pundit": "pundit_6"
-  },
-  {
-   "ts": "2026-09-04T16:45:23.321Z",
-   "kind": "forecast",
-   "domain": "epl",
-   "market": "epl:2026-09-05:Brighton:Leeds",
-   "probabilities": {
-    "H": 0.433,
-    "D": 0.244,
-    "A": 0.323
-   },
-   "confidence": 0.0,
-   "reasoning": null,
-   "leaned_on": [],
-   "spend": 0.027,
-   "pundit": "pundit_5"
-  },
-  {
-   "ts": "2026-09-04T16:45:19.008Z",
-   "kind": "buy",
-   "source": "calcio_desk",
-   "domain": "epl",
-   "cost": 0.012,
-   "trust": null,
-   "market": "epl:2026-09-05:Brighton:Leeds",
-   "pundit": "pundit_5"
-  },
-  {
-   "ts": "2026-09-04T16:45:18.985Z",
-   "kind": "buy",
-   "source": "boot_room",
-   "domain": "epl",
-   "cost": 0.012,
-   "trust": null,
-   "market": "epl:2026-09-05:Brighton:Leeds",
-   "pundit": "pundit_5"
-  },
-  {
-   "ts": "2026-09-04T16:45:18.960Z",
-   "kind": "buy",
-   "source": "formline",
-   "domain": "epl",
-   "cost": 0.003,
-   "trust": null,
-   "market": "epl:2026-09-05:Brighton:Leeds",
-   "pundit": "pundit_5"
-  },
-  {
-   "ts": "2026-09-04T16:45:18.250Z",
-   "kind": "forecast",
-   "domain": "laliga",
-   "market": "laliga:2026-09-05:Villarreal:La_Coruna",
-   "probabilities": {
-    "H": 0.46,
-    "D": 0.26,
-    "A": 0.28
-   },
-   "confidence": 0.179,
-   "reasoning": null,
-   "leaned_on": [
-    "calcio_desk"
-   ],
-   "spend": 0.039,
-   "pundit": "pundit_4"
-  },
-  {
-   "ts": "2026-09-04T16:45:13.090Z",
-   "kind": "buy",
-   "source": "calcio_desk",
-   "domain": "laliga",
-   "cost": 0.012,
-   "trust": null,
-   "market": "laliga:2026-09-05:Villarreal:La_Coruna",
-   "pundit": "pundit_4"
-  },
-  {
-   "ts": "2026-09-04T16:45:13.065Z",
-   "kind": "buy",
-   "source": "boot_room",
-   "domain": "laliga",
-   "cost": 0.012,
-   "trust": null,
-   "market": "laliga:2026-09-05:Villarreal:La_Coruna",
-   "pundit": "pundit_4"
   }
  ],
  "totals": {
-  "forecasts": 1038,
-  "resolutions": 818,
-  "spend": 17.865,
-  "buys": 1942
+  "forecasts": 1045,
+  "resolutions": 837,
+  "spend": 18.093,
+  "buys": 1967
  }
 }
