@@ -40,21 +40,34 @@ NEEDS POSTING — drafts in prep/buildlog/day1.md, day2.md, day3.md
 more, use **Version B**, which gives a judge line-level references and needs no
 video.*
 
-### Version A — three lines, ~110 words
+### Version A — three lines, paste this first
 
-> **Persist:** one entity per `(informant, domain)` holding what that source cost,
-> how often it was right, and the trust it earned — written only when a market
-> resolves, never seeded. Plus a journal of every purchase and forecast.
+> **What we persist.** One entity per `(informant, domain)` holding what that
+> source cost, how often it was right, and the trust it earned — written only
+> when a market resolves, never seeded and never configured. **216 cells are
+> scored right now and the agents have written off 119 of them as worse than
+> guessing.** Alongside it: a journal of every purchase and forecast, and a
+> shared Commons where each agent publishes its earned trust for the other five
+> to read.
 >
-> **Recall:** every forecast runs in its own process that is killed when it
-> finishes, so each one cold-starts. It reads the trust map back with
-> `list_entities`/`get_entity` and FTS-searches its own journal for this fixture,
-> which returns how it has called these teams before and at what Brier.
+> **How a fresh session recalls it.** Every forecast runs in its own process
+> that is killed the moment it finishes, so each one cold-starts with an empty
+> context — nothing survives but what reached Sibyl. On boot it reads the trust
+> map back (`list_entities` / `get_entity`), FTS-searches its own journal for the
+> teams in this market, and pulls peers' trust from the Commons, inheriting what
+> another agent paid to learn about a source it has never bought itself. In the
+> demo you can watch one process write and die, and the next one read what it
+> left: **journal 654 → 656 events, 168 → 169 forecasts, across a process
+> boundary with no shared state.**
 >
-> **Changes:** which informants it pays for. With memory it bought 1 of 8 for
-> 0.0120 USDC; with memory deleted, the same agent on the same market bought 5 of
-> 8 for 0.0590, tagging every purchase "no basis to choose". Over 1,000 events
-> that is $5.28 against $53.00 for the same Brier.
+> **The decision it changes.** Which informants it pays for, and how much it
+> believes them. With memory, on a live market: **bought 1 of 8 available
+> informants for 0.0120 USDC and skipped 7.** Same agent, same market, same
+> model, same prompt, same budget, memory deleted: **5 of 8 for 0.0590, every
+> purchase tagged "no basis to choose"** — because without a record there
+> genuinely is none. Across 1,000 held-out events that is **$5.28 against $53.00
+> for a statistically identical forecast** (Brier 0.5658 vs 0.5664). Reproduce it
+> with `python -m bench.run --runs 1000`, no API key required.
 
 ### Version B — full, with line references
 
