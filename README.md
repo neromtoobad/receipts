@@ -36,14 +36,14 @@ So it buys everything, every time, forever.
 
 ```mermaid
 flowchart LR
-    subgraph N ["one forecast · its own process · killed when done"]
+    subgraph N1["one forecast · its own process · killed when done"]
         direction TB
         R["read the trust map"] --> C["choose what to buy"]
         C --> P["pay USDC over x402"]
         P --> F["forecast"]
         F --> W["write what happened"]
     end
-    subgraph N2 ["the next forecast · a different process · shares no state"]
+    subgraph N2["the next forecast · a different process · shares no state"]
         direction TB
         R2["read the trust map"] --> C2["choose what to buy"]
     end
@@ -118,10 +118,10 @@ back down if it goes silent:
 
 ```mermaid
 flowchart TD
-    B["agent pays for a source"] --> H["<b>HOT</b> · set_state<br/>provisional, under 3 resolutions"]
-    H -->|"3rd resolved observation"| W["<b>WARM</b> · set_entity<br/>source_reliability per (source, domain)"]
+    B["agent pays for a source"] --> H["HOT · set_state<br/>provisional, under 3 resolutions"]
+    H -->|"3rd resolved observation"| W["WARM · set_entity<br/>source_reliability per source and domain"]
     H -.->|"never resolves"| X["dropped"]
-    W -->|"3 days silent"| A["<b>ARCHIVE</b> · archive_entity<br/>recoverable, not deleted"]
+    W -->|"3 days silent"| A["ARCHIVE · archive_entity<br/>recoverable, not deleted"]
     A -->|"speaks again"| W
     W --> D{"skill above the floor<br/>after shrinkage?"}
     D -->|yes| Y["buy it again"]
