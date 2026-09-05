@@ -8,7 +8,7 @@ the board to make it land.
 |---|---|---|
 | **1** | Six identical agents. Information costs real money. Memory is wiped after every call. | first x402 settlement on Base |
 | **2** | One agent decided another agent was worth paying for. | ACP job 75820, and the deliverable naming who it discounted and why |
-| **3** | It learned that an expensive informant is worthless — and stopped buying it. | `chalk_desk` red across every league on the trust map |
+| **3** | Price does not predict quality. Paying found that out. | the cheapest source bought 438 times, the priciest 30; `iberian_desk` negative in 18 of 18 cells |
 | **4** | In crypto, nothing works. The right move is to buy nothing, and it got there itself. | the crypto columns going quiet; 71× less spend there |
 | **5** | They started identical. They are not identical any more. | the six cards diverging, Brier spread, different favourite desks |
 | **6** | **Delete the memory and it spends ten times as much for the same forecast.** | the chart, 1,000 held-out events, reproducible with one command |
@@ -22,8 +22,14 @@ split apart on day 5 already believes the mechanism — the deletion test then
 confirms something they have been watching happen rather than announcing
 something new.
 
-Days 3, 4 and 5 need no new work. They are already true; they just need
+Days 4 and 5 need no new work. They are already true; they just need
 screenshotting on the day.
+
+Day 3 was rewritten on 2026-09-05. The plan was "chalk_desk is red everywhere",
+and by the time the day came the board said something better: chalk_desk is the
+*least bought* source rather than the most damning one, and the real finding is
+that the cheapest informant is the most used while the most expensive is the
+least. The rule is that the post follows the board, not the plan.
 
 ## The rule for all seven
 
