@@ -6,12 +6,22 @@ Six agents forecast real matches and real markets. Same model, same prompt, same
 budget. Every piece of evidence they use costs real money, bought from informants
 on Base, each with a real price and a real, unadvertised reliability.
 
+![The six pundits](assets/roster.png)
+
+*Six seats, one model, one prompt. The names are labels — what separates them is
+what each has paid for and been burned by.*
+
 Nobody tells them which informant is any good. They find out by getting it wrong
 and paying for it.
 
 **The process dies after every single forecast.** Fresh boot, empty context, no
 state but what was written to disk. The only thing that survives is a private map
 of who to trust, on what — and that map is the entire edge.
+
+**[See it running →](https://neromtoobad.github.io/receipts/)** · the league ticks
+every twenty minutes, and every number on it is read back out of Sibyl Memory.
+
+[![The live board](assets/board.png)](https://neromtoobad.github.io/receipts/)
 
 ---
 
@@ -23,6 +33,29 @@ not slower, impossible. There is no basis to rank an informant, no basis to stop
 buying, and no way to learn that a source has never once beaten a coin flip.
 
 So it buys everything, every time, forever.
+
+```mermaid
+flowchart LR
+    subgraph N ["one forecast · its own process · killed when done"]
+        direction TB
+        R["read the trust map"] --> C["choose what to buy"]
+        C --> P["pay USDC over x402"]
+        P --> F["forecast"]
+        F --> W["write what happened"]
+    end
+    subgraph N2 ["the next forecast · a different process · shares no state"]
+        direction TB
+        R2["read the trust map"] --> C2["choose what to buy"]
+    end
+    W ==> M[("Sibyl Memory")]
+    M ==> R2
+
+    style M fill:#E8A33D,stroke:#E8A33D,color:#1a1a1a
+```
+
+**Nothing else crosses the boundary.** No context window, no globals, no warm
+cache. Cut the arrow marked Sibyl Memory and the second process is the first one
+again, buying blind, forever.
 
 That is the core function failing, not an optimisation being lost. An agent that
 cannot budget cannot be left running: at these prices the amnesiac burns its
@@ -40,6 +73,8 @@ each arm is allowed to remember.
 | domain-scoped memory | 0.55 | 0.0053 USDC | **$5.28** |
 | memory without domain scoping | 0.08 | 0.0009 USDC | $0.89 |
 | no memory | 4.50 | 0.0530 USDC | **$53.00** |
+
+![The deletion test](assets/deletion_test.png)
 
 **10.0x on spend, for the same forecast quality.** Football alone is 6.0x. Crypto
 alone is **71x**, because the memory arm learns there is nothing there worth
@@ -77,6 +112,30 @@ imports the Sibyl SDK.
 | COLD | `write_event` | every purchase and every forecast, with its reasoning |
 | REFERENCE | `set_reference` | the informant catalogue and pricing |
 | ARCHIVE | `archive_entity` | informants that went quiet, recoverable |
+
+A source is not trusted the moment it is bought. It earns its way up, and decays
+back down if it goes silent:
+
+```mermaid
+flowchart TD
+    B["agent pays for a source"] --> H["<b>HOT</b> · set_state<br/>provisional, under 3 resolutions"]
+    H -->|"3rd resolved observation"| W["<b>WARM</b> · set_entity<br/>source_reliability per (source, domain)"]
+    H -.->|"never resolves"| X["dropped"]
+    W -->|"3 days silent"| A["<b>ARCHIVE</b> · archive_entity<br/>recoverable, not deleted"]
+    A -->|"speaks again"| W
+    W --> D{"skill above the floor<br/>after shrinkage?"}
+    D -->|yes| Y["buy it again"]
+    D -->|no| Z["stop paying for it"]
+
+    style W fill:#35C47F,stroke:#35C47F,color:#0E0D0B
+    style Z fill:#E0645A,stroke:#E0645A,color:#0E0D0B
+```
+
+That map, live, for one agent — informants down the side, domains across the top.
+Green is trust earned, red is a source measured as worse than the base rate,
+hatched is bought but not yet promoted:
+
+![The trust map](assets/trust_map.png)
 
 A source enters as HOT state. After three resolved observations it is **promoted**
 to a WARM entity. Trust decays with staleness. After three silent days it is
@@ -135,14 +194,28 @@ Every claim below is a transaction hash, a block number, or a measured figure.
 
 **Base is load-bearing.** There is no free path to evidence: every informant call
 returns HTTP 402 until paid. Gas on that settlement was paid by the facilitator,
-not the agent — pundit_1's ETH is unchanged across the transaction and only its
-USDC moved. That is EIP-3009 `transferWithAuthorization`, and it means the agent
-needs USDC and no ETH.
+not the agent — AUGUR's ETH is unchanged across the transaction and only its USDC
+moved. That is EIP-3009 `transferWithAuthorization`, and it means the agent needs
+USDC and no ETH.
 
-**Virtuals is load-bearing.** Job 75249 is one pundit hiring another: `pundit_5`
-paid `pundit_1` into escrow, received a forecast produced by the real runtime, and
-released it. The first attempt reverted because an agent cannot hire itself, which
-forced a second agent — and one pundit paying another *is* the opinion market.
+![The x402 settlement on Base Sepolia](assets/base_x402_tx.png)
+
+*Sent by the facilitator at `0xd407e409…`. The agent's **Value is 0 ETH** — only
+its USDC moved.*
+
+**Virtuals is load-bearing.** VERTEX hired AUGUR: it posted an ACP job, funded
+escrow, received a forecast produced by the real runtime, and released payment.
+Job `75249` ran on day one before AUGUR had a record, and correctly returned the
+base rate at confidence 0.00. Job `75820` is the same flow two days later, and the
+difference is the whole project — it named which source moved it and which it
+discounted by trust weight. The very first attempt reverted because an agent
+cannot hire itself, which forced a second agent, and one pundit paying another
+*is* the opinion market.
+
+![The ACP jobs settling on Base mainnet](assets/virtuals_acp_onchain.png)
+
+*Base mainnet. The buyer is an ERC-4337 smart account, so the job settlements
+appear under token transfers: 0.01 USDC out and 0.0005 back, once per job.*
 
 ---
 
@@ -157,13 +230,13 @@ sibyl init
 ollama serve & ollama pull qwen2.5:7b-instruct   # or set an API key, see .env.example
 
 uvicorn evidence.app:app --port 8402 &           # ten x402-gated informants
-python -m agent.run_once --agent pundit_1 --pick # one forecast, then the process dies
+python -m agent.run_once --agent vertex --pick   # one forecast, then the process dies
 python -m resolver.loop --once                   # score outcomes, update reliability
-python -m web.build_site                         # -> web/index.html, the trust map
+python -m agent.showmem --agent vertex           # what that agent has learned
 
 ./scripts/league.sh                              # six pundits, every twenty minutes
 python -m bench.run --runs 1000                  # the deletion test
-pytest                                           # 62 tests, offline, ~15s
+pytest                                           # 83 tests, offline, ~20s
 ```
 
 `./scripts/settle_once.sh` reproduces the onchain payment in one command.
@@ -204,14 +277,6 @@ Arc) — `agent/src/paying/x402.ts` rewritten in Python as
 stack also come from LONGSHOT, though the dashboard here was deliberately replaced
 with a static generator. Everything else is new.
 
-## AI tools used
-
-Built with Claude Code (Opus). It wrote most of the implementation, and the
-research it did before the build changed the design twice: measuring that crypto
-direction has no learnable signal turned a weak domain into the strongest argument
-for domain-scoped memory, and measuring the informant spread on real matches
-caught that the first two roster designs had nothing to learn. Forecasts run on
-`qwen2.5:7b-instruct` locally, so the benchmark is reproducible without an API key.
 
 ## Licence
 
