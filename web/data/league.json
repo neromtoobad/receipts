@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-05T16:31:53.951947+00:00",
+ "generated": "2026-09-05T16:53:38.441854+00:00",
  "domains": [
   "epl",
   "championship",
@@ -231,7 +231,7 @@
      "n": 7,
      "skill": 0.1553,
      "skill_shrunk": 0.0403,
-     "trust": 0.1461,
+     "trust": 0.1456,
      "spend": 0.021,
      "misses": 0,
      "state": "established",
@@ -243,7 +243,7 @@
      "n": 4,
      "skill": 0.1613,
      "skill_shrunk": 0.0269,
-     "trust": 0.0743,
+     "trust": 0.0741,
      "spend": 0.048,
      "misses": 0,
      "state": "established",
@@ -3726,7 +3726,7 @@
      "n": 7,
      "skill": 0.1553,
      "skill_shrunk": 0.0403,
-     "trust": 0.1461,
+     "trust": 0.1456,
      "spend": 0.021,
      "misses": 0,
      "state": "established",
@@ -3738,7 +3738,7 @@
      "n": 4,
      "skill": 0.1613,
      "skill_shrunk": 0.0269,
-     "trust": 0.0743,
+     "trust": 0.0741,
      "spend": 0.048,
      "misses": 0,
      "state": "established",
@@ -7037,7 +7037,7 @@
   },
   {
    "id": "pundit_3",
-   "forecasts": 161,
+   "forecasts": 162,
    "resolutions": 125,
    "spend": 3.142,
    "buys": 325,
@@ -7085,7 +7085,7 @@
      "n": 19,
      "skill": 0.0067,
      "skill_shrunk": 0.0033,
-     "trust": 0.0163,
+     "trust": 0.0162,
      "spend": 0.057,
      "misses": 0,
      "state": "established",
@@ -7121,7 +7121,7 @@
      "n": 7,
      "skill": 0.1553,
      "skill_shrunk": 0.0403,
-     "trust": 0.1461,
+     "trust": 0.1456,
      "spend": 0.021,
      "misses": 0,
      "state": "established",
@@ -7133,7 +7133,7 @@
      "n": 4,
      "skill": 0.1613,
      "skill_shrunk": 0.0269,
-     "trust": 0.0743,
+     "trust": 0.0741,
      "spend": 0.048,
      "misses": 0,
      "state": "established",
@@ -7462,25 +7462,6 @@
     }
    },
    "feed": [
-    {
-     "ts": "2026-09-04T17:06:10.183Z",
-     "kind": "forecast",
-     "domain": "seriea",
-     "market": "seriea:2026-09-05:Roma:Atalanta",
-     "probabilities": {
-      "H": 0.46,
-      "D": 0.29,
-      "A": 0.25
-     },
-     "confidence": 0.32,
-     "reasoning": null,
-     "leaned_on": [
-      "formline",
-      "boot_room",
-      "calcio_desk"
-     ],
-     "spend": 0.027
-    },
     {
      "ts": "2026-09-04T17:06:30.787Z",
      "kind": "resolved",
@@ -8324,6 +8305,20 @@
      "probabilities": {
       "UP": 0.513,
       "DOWN": 0.487
+     },
+     "confidence": 0.0,
+     "reasoning": null,
+     "leaned_on": [],
+     "spend": 0.0
+    },
+    {
+     "ts": "2026-09-05T16:53:10.379Z",
+     "kind": "forecast",
+     "domain": "crypto_1h",
+     "market": "crypto_1h:BTCUSDT:1788624000000",
+     "probabilities": {
+      "UP": 0.497,
+      "DOWN": 0.503
      },
      "confidence": 0.0,
      "reasoning": null,
@@ -10829,7 +10824,7 @@
   },
   {
    "id": "pundit_4",
-   "forecasts": 207,
+   "forecasts": 208,
    "resolutions": 160,
    "spend": 3.47,
    "buys": 390,
@@ -10841,7 +10836,7 @@
      "n": 51,
      "skill": 0.0109,
      "skill_shrunk": 0.0078,
-     "trust": 0.0579,
+     "trust": 0.0577,
      "spend": 0.153,
      "misses": 0,
      "state": "established",
@@ -10889,7 +10884,7 @@
      "n": 4,
      "skill": 0.2104,
      "skill_shrunk": 0.0351,
-     "trust": 0.097,
+     "trust": 0.0966,
      "spend": 0.048,
      "misses": 0,
      "state": "established",
@@ -11265,15 +11260,6 @@
     }
    },
    "feed": [
-    {
-     "ts": "2026-09-05T05:08:45.582Z",
-     "kind": "buy",
-     "source": "boot_room",
-     "domain": "epl",
-     "cost": 0.012,
-     "trust": null,
-     "market": "epl:2026-09-05:Man_City:Coventry"
-    },
     {
      "ts": "2026-09-05T05:08:45.611Z",
      "kind": "buy",
@@ -12147,6 +12133,20 @@
      "kind": "forecast",
      "domain": "crypto_1h",
      "market": "crypto_1h:BTCUSDT:1788624000000",
+     "probabilities": {
+      "UP": 0.497,
+      "DOWN": 0.503
+     },
+     "confidence": 0.0,
+     "reasoning": null,
+     "leaned_on": [],
+     "spend": 0.0
+    },
+    {
+     "ts": "2026-09-05T16:53:14.537Z",
+     "kind": "forecast",
+     "domain": "crypto_1h",
+     "market": "crypto_1h:ETHUSDT:1788624000000",
      "probabilities": {
       "UP": 0.497,
       "DOWN": 0.503
@@ -15218,10 +15218,10 @@
   },
   {
    "id": "pundit_5",
-   "forecasts": 225,
+   "forecasts": 226,
    "resolutions": 161,
-   "spend": 4.164,
-   "buys": 457,
+   "spend": 4.167,
+   "buys": 458,
    "brier": 0.5502,
    "cells": {
     "formline|crypto_24h": {
@@ -15230,7 +15230,7 @@
      "n": 51,
      "skill": 0.0154,
      "skill_shrunk": 0.0111,
-     "trust": 0.0823,
+     "trust": 0.0821,
      "spend": 0.153,
      "misses": 0,
      "state": "established",
@@ -15302,7 +15302,7 @@
      "n": 4,
      "skill": 0.2104,
      "skill_shrunk": 0.0351,
-     "trust": 0.097,
+     "trust": 0.0966,
      "spend": 0.048,
      "misses": 0,
      "state": "established",
@@ -15676,33 +15676,6 @@
     }
    },
    "feed": [
-    {
-     "ts": "2026-09-05T07:04:56.100Z",
-     "kind": "forecast",
-     "domain": "seriea",
-     "market": "seriea:2026-09-06:Parma:Monza",
-     "probabilities": {
-      "H": 0.45,
-      "D": 0.28,
-      "A": 0.27
-     },
-     "confidence": 0.12,
-     "reasoning": null,
-     "leaned_on": [
-      "formline",
-      "boot_room"
-     ],
-     "spend": 0.027
-    },
-    {
-     "ts": "2026-09-05T07:33:18.474Z",
-     "kind": "buy",
-     "source": "formline",
-     "domain": "bundesliga",
-     "cost": 0.003,
-     "trust": null,
-     "market": "bundesliga:2026-09-05:Schalke_04:Bayern_Munich"
-    },
     {
      "ts": "2026-09-05T07:33:18.501Z",
      "kind": "buy",
@@ -16547,6 +16520,31 @@
      "reasoning": null,
      "leaned_on": [],
      "spend": 0.0
+    },
+    {
+     "ts": "2026-09-05T16:53:23.629Z",
+     "kind": "buy",
+     "source": "formline",
+     "domain": "crypto_24h",
+     "cost": 0.003,
+     "trust": 0.0821,
+     "market": "crypto_24h:BTCUSDT:1788624000000"
+    },
+    {
+     "ts": "2026-09-05T16:53:28.489Z",
+     "kind": "forecast",
+     "domain": "crypto_24h",
+     "market": "crypto_24h:BTCUSDT:1788624000000",
+     "probabilities": {
+      "UP": 0.523,
+      "DOWN": 0.477
+     },
+     "confidence": 0.01,
+     "reasoning": null,
+     "leaned_on": [
+      "formline"
+     ],
+     "spend": 0.003
     }
    ],
    "frames": [
@@ -19674,7 +19672,7 @@
   },
   {
    "id": "pundit_6",
-   "forecasts": 208,
+   "forecasts": 209,
    "resolutions": 162,
    "spend": 3.251,
    "buys": 346,
@@ -19734,7 +19732,7 @@
      "n": 4,
      "skill": 0.2104,
      "skill_shrunk": 0.0351,
-     "trust": 0.097,
+     "trust": 0.0966,
      "spend": 0.048,
      "misses": 0,
      "state": "established",
@@ -20121,23 +20119,6 @@
     }
    },
    "feed": [
-    {
-     "ts": "2026-09-05T05:41:33.417Z",
-     "kind": "forecast",
-     "domain": "ligue1",
-     "market": "ligue1:2026-09-05:Nice:Le_Mans",
-     "probabilities": {
-      "H": 0.4206,
-      "D": 0.2693,
-      "A": 0.3101
-     },
-     "confidence": 0.1585,
-     "reasoning": null,
-     "leaned_on": [
-      "calcio_desk"
-     ],
-     "spend": 0.027
-    },
     {
      "ts": "2026-09-05T06:13:42.729Z",
      "kind": "buy",
@@ -20989,6 +20970,20 @@
      "kind": "forecast",
      "domain": "crypto_24h",
      "market": "crypto_24h:BTCUSDT:1788624000000",
+     "probabilities": {
+      "UP": 0.513,
+      "DOWN": 0.487
+     },
+     "confidence": 0.0,
+     "reasoning": null,
+     "leaned_on": [],
+     "spend": 0.0
+    },
+    {
+     "ts": "2026-09-05T16:53:32.687Z",
+     "kind": "forecast",
+     "domain": "crypto_24h",
+     "market": "crypto_24h:ETHUSDT:1788624000000",
      "probabilities": {
       "UP": 0.513,
       "DOWN": 0.487
@@ -23422,6 +23417,78 @@
   }
  ],
  "feed": [
+  {
+   "ts": "2026-09-05T16:53:32.687Z",
+   "kind": "forecast",
+   "domain": "crypto_24h",
+   "market": "crypto_24h:ETHUSDT:1788624000000",
+   "probabilities": {
+    "UP": 0.513,
+    "DOWN": 0.487
+   },
+   "confidence": 0.0,
+   "reasoning": null,
+   "leaned_on": [],
+   "spend": 0.0,
+   "pundit": "pundit_6"
+  },
+  {
+   "ts": "2026-09-05T16:53:28.489Z",
+   "kind": "forecast",
+   "domain": "crypto_24h",
+   "market": "crypto_24h:BTCUSDT:1788624000000",
+   "probabilities": {
+    "UP": 0.523,
+    "DOWN": 0.477
+   },
+   "confidence": 0.01,
+   "reasoning": null,
+   "leaned_on": [
+    "formline"
+   ],
+   "spend": 0.003,
+   "pundit": "pundit_5"
+  },
+  {
+   "ts": "2026-09-05T16:53:23.629Z",
+   "kind": "buy",
+   "source": "formline",
+   "domain": "crypto_24h",
+   "cost": 0.003,
+   "trust": 0.0821,
+   "market": "crypto_24h:BTCUSDT:1788624000000",
+   "pundit": "pundit_5"
+  },
+  {
+   "ts": "2026-09-05T16:53:14.537Z",
+   "kind": "forecast",
+   "domain": "crypto_1h",
+   "market": "crypto_1h:ETHUSDT:1788624000000",
+   "probabilities": {
+    "UP": 0.497,
+    "DOWN": 0.503
+   },
+   "confidence": 0.0,
+   "reasoning": null,
+   "leaned_on": [],
+   "spend": 0.0,
+   "pundit": "pundit_4"
+  },
+  {
+   "ts": "2026-09-05T16:53:10.379Z",
+   "kind": "forecast",
+   "domain": "crypto_1h",
+   "market": "crypto_1h:BTCUSDT:1788624000000",
+   "probabilities": {
+    "UP": 0.497,
+    "DOWN": 0.503
+   },
+   "confidence": 0.0,
+   "reasoning": null,
+   "leaned_on": [],
+   "spend": 0.0,
+   "pundit": "pundit_3"
+  },
   {
    "ts": "2026-09-05T16:31:52.689Z",
    "kind": "forecast",
@@ -28105,70 +28172,12 @@
    "trust": null,
    "market": "ligue1:2026-09-05:Nice:Le_Mans",
    "pundit": "pundit_5"
-  },
-  {
-   "ts": "2026-09-04T19:38:38.278Z",
-   "kind": "buy",
-   "source": "formline",
-   "domain": "ligue1",
-   "cost": 0.003,
-   "trust": null,
-   "market": "ligue1:2026-09-05:Nice:Le_Mans",
-   "pundit": "pundit_5"
-  },
-  {
-   "ts": "2026-09-04T19:38:37.444Z",
-   "kind": "forecast",
-   "domain": "ligue1",
-   "market": "ligue1:2026-09-05:Nice:Le_Mans",
-   "probabilities": {
-    "H": 0.4206,
-    "D": 0.2693,
-    "A": 0.3101
-   },
-   "confidence": 0.1585,
-   "reasoning": null,
-   "leaned_on": [
-    "calcio_desk"
-   ],
-   "spend": 0.027,
-   "pundit": "pundit_4"
-  },
-  {
-   "ts": "2026-09-04T19:38:31.884Z",
-   "kind": "buy",
-   "source": "calcio_desk",
-   "domain": "ligue1",
-   "cost": 0.012,
-   "trust": null,
-   "market": "ligue1:2026-09-05:Nice:Le_Mans",
-   "pundit": "pundit_4"
-  },
-  {
-   "ts": "2026-09-04T19:38:31.862Z",
-   "kind": "buy",
-   "source": "boot_room",
-   "domain": "ligue1",
-   "cost": 0.012,
-   "trust": null,
-   "market": "ligue1:2026-09-05:Nice:Le_Mans",
-   "pundit": "pundit_4"
-  },
-  {
-   "ts": "2026-09-04T19:38:31.837Z",
-   "kind": "buy",
-   "source": "formline",
-   "domain": "ligue1",
-   "cost": 0.003,
-   "trust": null,
-   "market": "ligue1:2026-09-05:Nice:Le_Mans",
-   "pundit": "pundit_4"
   }
  ],
  "totals": {
-  "forecasts": 1082,
+  "forecasts": 1086,
   "resolutions": 837,
-  "spend": 18.912,
-  "buys": 2054
+  "spend": 18.915,
+  "buys": 2055
  }
 }
