@@ -384,6 +384,30 @@ def _report(ordered, results, events, model, elapsed, budget) -> str:
         lines.append(f"| {s['arm']} | {s['hit']/s['n']:.1%} | {s['brier']/s['n']:.4f} | "
                      f"{s['bought']/s['n']:.2f} | {s['spend']/s['n']:.4f} | "
                      f"${s['spend']:.2f} |")
+    # Per-domain, because the headline hides the whole story: football is a 6x
+    # saving and crypto is 71x, and the reason they differ is the argument for
+    # scoping memory by domain at all. Printing it to the console and leaving it
+    # out of the published file meant the site cited a number the proof did not.
+    fam_rows = []
+    for fam in ("football", "crypto"):
+        rows = [(s_["arm"], s_["by_family"].get(fam)) for s_ in ordered]
+        rows = [(n, f) for n, f in rows if f and f["n"]]
+        if rows:
+            fam_rows.append((fam, rows))
+    if fam_rows:
+        lines += ["", "## By domain", ""]
+        for fam, rows in fam_rows:
+            lines += [f"**{fam}** ({rows[0][1]['n']} events)", "",
+                      "| arm | bought/call | spend/call | total | brier |",
+                      "|---|---|---|---|---|"]
+            for n, f in rows:
+                lines.append(f"| {n} | {f['bought']/f['n']:.2f} | {f['spend']/f['n']:.4f} | "
+                             f"${f['spend']:.2f} | {f['brier']/f['n']:.4f} |")
+            sib = dict(rows).get("sibyl"); amn = dict(rows).get("amnesiac")
+            if sib and amn and sib["spend"]:
+                lines += ["", f"Deletion test on spend, {fam} only: "
+                              f"**{amn['spend']/sib['spend']:.0f}x**.", ""]
+
     if "sibyl" in results and "amnesiac" in results:
         b, m = results["sibyl"], results["amnesiac"]
         lines += ["", "## Deletion test", "",
