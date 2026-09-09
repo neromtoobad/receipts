@@ -66,3 +66,7 @@ backups/
 
 # demo video working files — large binaries, not part of the build
 /video/
+
+# macOS AppleDouble sidecars, created because the drive is not HFS+
+._*
+.DS_Store
