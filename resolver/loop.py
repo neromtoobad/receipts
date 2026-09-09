@@ -51,7 +51,8 @@ def pundit_ids() -> list[str]:
     return sorted(p.stem for p in MEMORY_DIR.glob("*.db")
                   if p.stem not in NOT_A_PUNDIT
                   and not p.stem.startswith(TEST_PREFIXES)
-                  and not p.stem.startswith("demo"))
+                  and not p.stem.startswith("demo")
+                  and not p.stem.startswith("."))   # ._ sidecars on non-HFS drives
 
 
 def _preload_crypto(market_ids) -> dict[str, dict[int, float]]:

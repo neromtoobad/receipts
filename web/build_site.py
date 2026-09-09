@@ -30,7 +30,8 @@ SKIP = {"commons", "probe", "scratch", "demo", "demo2"}
 
 def pundits() -> list[str]:
     return sorted(p.stem for p in MEMORY_DIR.glob("*.db")
-                  if p.stem not in SKIP and not p.stem.startswith(("t_", "s_", "p_", "arm_", "bench_")))
+                  if p.stem not in SKIP and not p.stem.startswith(("t_", "s_", "p_", "arm_", "bench_"))
+                  and not p.stem.startswith("."))   # ._ sidecars on non-HFS drives
 
 
 def collect(pid: str) -> dict:

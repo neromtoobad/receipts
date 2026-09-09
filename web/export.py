@@ -31,7 +31,8 @@ TEST_PREFIXES = ("t_", "s_", "p_", "arm_", "bench_", "probe", "scratch", "demo",
 
 def pundit_ids() -> list[str]:
     return sorted(p.stem for p in (ROOT / "memory").glob("*.db")
-                  if p.stem not in SKIP and not p.stem.startswith(TEST_PREFIXES))
+                  if p.stem not in SKIP and not p.stem.startswith(TEST_PREFIXES)
+                  and not p.stem.startswith("."))   # ._ sidecars on non-HFS drives
 
 
 def trust_of(skill: float, n: int) -> float:
