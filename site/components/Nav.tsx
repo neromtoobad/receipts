@@ -18,29 +18,47 @@ export function Nav() {
     <nav style={{ position: 'sticky', top: 0, zIndex: 20,
                   background: 'rgba(10,9,8,.72)', backdropFilter: 'blur(14px)',
                   borderBottom: `1px solid ${RC.line}` }}>
-      <div className="wrap" style={{ display: 'flex', alignItems: 'center', gap: 22,
-                                     height: 58 }}>
+      <div className="wrap nav-row">
         <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 9 }}>
           <Mark />
           <span className="mono" style={{ fontSize: 13.5, letterSpacing: '.16em',
                                           color: RC.ink, fontWeight: 700 }}>RECEIPTS</span>
         </Link>
-        <div style={{ display: 'flex', gap: 4, marginLeft: 16 }} className="nav-links">
+        <div className="nav-links scroll-x">
           {LINKS.map(l => {
             const on = path.startsWith(l.href)
             return (
               <Link key={l.href} href={l.href}
-                style={{ fontSize: 13.5, padding: '6px 11px', borderRadius: 7,
-                         color: on ? RC.ink : RC.ink3,
-                         background: on ? alpha(RC.brand, .12) : 'transparent',
-                         transition: 'color 180ms, background 180ms' }}>{l.label}</Link>
+                style={{ color: on ? RC.ink : RC.ink3,
+                         background: on ? alpha(RC.brand, .12) : 'transparent' }}>{l.label}</Link>
             )
           })}
         </div>
-        <a className="btn btn-ghost" style={{ marginLeft: 'auto', padding: '7px 14px' }}
-           href="https://github.com/neromtoobad/receipts">View the code</a>
+        <a className="btn btn-ghost nav-code" href="https://github.com/neromtoobad/receipts">
+          <span className="nav-code-long">View the code</span>
+          <span className="nav-code-short">Code</span>
+        </a>
       </div>
-      <style>{`@media (max-width:820px){ .nav-links{display:none} }`}</style>
+      {/* The links used to be hidden below 820px, which left a phone with a
+          logo and no way through the site. They stay, and scroll if they must.
+          Every rule that a breakpoint has to change lives here rather than
+          inline, because an inline style beats a media query. */}
+      <style>{`
+        .nav-row{ display:flex; align-items:center; gap:22px; height:58px }
+        .nav-links{ display:flex; gap:4px; margin-left:16px; min-width:0 }
+        .nav-links a{ font-size:13.5px; padding:6px 11px; border-radius:7px; white-space:nowrap;
+          transition:color 180ms, background 180ms }
+        .nav-code{ margin-left:auto; padding:7px 14px; flex:0 0 auto }
+        .nav-code-short{ display:none }
+        @media (max-width:820px){
+          .nav-row{ gap:10px; height:54px }
+          .nav-links{ margin-left:4px; gap:2px }
+          .nav-links a{ font-size:12.5px; padding:6px 8px }
+          .nav-code{ padding:8px 12px; font-size:12.5px }
+          .nav-code-long{ display:none }
+          .nav-code-short{ display:inline }
+        }
+      `}</style>
     </nav>
   )
 }

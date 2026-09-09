@@ -26,7 +26,8 @@ export default function Home() {
                       maskImage: 'radial-gradient(58% 58% at 52% 46%, #000 42%, transparent 76%)',
                       WebkitMaskImage: 'radial-gradient(58% 58% at 52% 46%, #000 42%, transparent 76%)',
                       pointerEvents: 'none' }} />
-        <div className="wrap" style={{ padding: '76px 24px 52px', position: 'relative' }}>
+        <div className="wrap" style={{ paddingTop: 'clamp(46px,9vw,76px)',
+                                       paddingBottom: 'clamp(34px,7vw,52px)', position: 'relative' }}>
           <div className="eyebrow" style={{ color: RC.brand }}>Sibyl Labs Hackathon · live league</div>
           <h1 className="serif" style={{ fontSize: 'clamp(38px,5.6vw,68px)', margin: '14px 0 0',
                                          maxWidth: 800, lineHeight: 1.02 }}>
@@ -118,7 +119,7 @@ export default function Home() {
 
 function Stat({ k, v, unit }: { k: string; v: string; unit?: string }) {
   return (
-    <div className="card lift" style={{ padding: '13px 17px', minWidth: 128 }}>
+    <div className="card lift" style={{ padding: '13px 17px', flex: '1 1 140px', minWidth: 128 }}>
       <div className="mono display" style={{ fontSize: 30, color: RC.ink, lineHeight: 1,
                                              letterSpacing: '-.02em' }}>
         {v}{unit && <span style={{ fontSize: 11, color: RC.ink4 }}> {unit}</span>}

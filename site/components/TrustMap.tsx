@@ -25,12 +25,20 @@ export function TrustMap({ cells, domains, catalogue }: Props) {
 
   return (
     <div>
-      <div style={{ overflowX: 'auto' }}>
+      <style>{`
+        .tm-src{ width:172px }
+        @media (max-width:820px){ .tm-src{ width:124px; font-size:11.5px } }
+      `}</style>
+      {/* The map is eight domains wide and will not fit a phone. It scrolls
+          inside this box, with the informant column pinned, rather than making
+          the page scroll — the informant name is what a cell means nothing
+          without. */}
+      <div className="scroll-x">
         <table style={{ borderCollapse: 'separate', borderSpacing: 0, width: '100%',
-                        background: 'transparent' }}>
+                        minWidth: 520, background: 'transparent' }}>
           <thead>
             <tr>
-              <th style={{ ...th, textAlign: 'left', width: 172, position: 'sticky', left: 0,
+              <th className="tm-src" style={{ ...th, textAlign: 'left', position: 'sticky', left: 0,
                            background: RC.bg, zIndex: 1 }}>informant</th>
               {domains.map(d => (
                 <th key={d} style={th} title={d}>{shortDomain(d)}</th>
@@ -42,8 +50,8 @@ export function TrustMap({ cells, domains, catalogue }: Props) {
               const covers = new Set(catalogue[src].answers_on)
               return (
                 <tr key={src}>
-                  <th style={{ ...td, textAlign: 'left', fontWeight: 500, color: RC.ink2,
-                               padding: '3px 10px 3px 0', fontSize: 12.5,
+                  <th className="tm-src" style={{ ...td, textAlign: 'left', fontWeight: 500,
+                               color: RC.ink2, padding: '3px 10px 3px 0', fontSize: 12.5,
                                position: 'sticky', left: 0, background: RC.bg, zIndex: 1 }}>
                     {src}
                     <span className="mono" style={{ float: 'right', color: RC.ink4, fontSize: 11 }}>
@@ -58,7 +66,8 @@ export function TrustMap({ cells, domains, catalogue }: Props) {
                     return (
                       <td key={d} style={td}
                           onMouseEnter={() => c && setHover({ key, src, dom: d })}
-                          onMouseLeave={() => setHover(null)}>
+                          onMouseLeave={() => setHover(null)}
+                          onClick={() => c && setHover(h => h?.key === key ? null : { key, src, dom: d })}>
                         <div className="mono" style={{
                           height: 36, borderRadius: 7, display: 'grid', placeItems: 'center',
                           color: s.fg, fontSize: 11.5, fontWeight: 600,
@@ -94,7 +103,7 @@ export function TrustMap({ cells, domains, catalogue }: Props) {
           <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap', alignItems: 'center',
                         color: RC.ink4, fontSize: 12 }}>
             <span className="eyebrow">the receipt</span>
-            <span>Hover any cell to see what it was paid for and what it proved.</span>
+            <span>Tap or hover any cell to see what it was paid for and what it proved.</span>
             <span style={{ display: 'flex', gap: 16, flexWrap: 'wrap', marginLeft: 'auto' }}>
               <Key c={RC.green} t="trusted" />
               <Key c={RC.red} t="worse than the base rate" />
@@ -106,7 +115,7 @@ export function TrustMap({ cells, domains, catalogue }: Props) {
         {active && hover && (
           <div style={{ display: 'flex', gap: 26, flexWrap: 'wrap', alignItems: 'flex-start',
                         fontSize: 12 }}>
-            <div style={{ minWidth: 168 }}>
+            <div style={{ minWidth: 0 }}>
               <div className="eyebrow">{hover.dom}</div>
               <div className="display" style={{ fontSize: 19, margin: '3px 0 1px' }}>{hover.src}</div>
               <div style={{ color: RC.ink4 }}>
@@ -124,7 +133,7 @@ export function TrustMap({ cells, domains, catalogue }: Props) {
               {active.misses > 0 && <Fact k="paid, no data" v={String(active.misses)} c={RC.amber} />}
             </div>
             <p style={{ color: RC.ink4, margin: 0, lineHeight: 1.55, flex: '1 1 240px',
-                        minWidth: 220 }}>
+                        minWidth: 0 }}>
               {active.skill != null && active.skill <= 0
                 ? 'Measured worse than simply knowing how often each outcome happens. It will not be bought here again.'
                 : active.state === 'provisional'
@@ -149,6 +158,10 @@ const td: React.CSSProperties = {
 function Fact({ k, v, c }: { k: string; v: string; c?: string }) {
   return (
     <div>
+      <style>{`
+        .tm-src{ width:172px }
+        @media (max-width:820px){ .tm-src{ width:124px; font-size:11.5px } }
+      `}</style>
       <div className="eyebrow" style={{ fontSize: 9.5 }}>{k}</div>
       <div className="mono" style={{ color: c ?? RC.ink, fontSize: 14, marginTop: 2 }}>{v}</div>
     </div>

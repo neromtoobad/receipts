@@ -84,7 +84,23 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           button:focus-visible, a:focus-visible, input:focus-visible {
             outline:2px solid var(--rc-brand); outline-offset:2px; border-radius:8px }
           input[type=range]{ height:22px }
-          @media (max-width:820px){ .wrap{padding:0 16px} }
+          /* Anything wider than a hand scrolls inside its own box rather than
+             widening the page. A page one pixel too wide is zoomed out whole. */
+          .scroll-x { overflow-x:auto; -webkit-overflow-scrolling:touch;
+            scrollbar-width:thin; scrollbar-color:var(--rc-line-2) transparent }
+          .scroll-x::-webkit-scrollbar { height:6px }
+          .scroll-x::-webkit-scrollbar-thumb { background:var(--rc-line-2); border-radius:99px }
+          @media (max-width:820px){
+            .wrap{padding:0 16px}
+            .sect{padding:38px 0 8px}
+            .h-sect{font-size:clamp(25px,6.4vw,34px)}
+            .lede{font-size:14.5px}
+          }
+          /* A tap target is a finger, not a cursor. */
+          @media (hover:none){
+            .btn{padding:12px 18px}
+            .lift:hover{transform:none}
+          }
         `}</style>
       </head>
       <body>{children}</body>

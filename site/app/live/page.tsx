@@ -40,7 +40,7 @@ export default function Live() {
 
 function Tile({ k, v }: { k: string; v: number }) {
   return (
-    <div className="card lift" style={{ padding: '12px 16px', minWidth: 124 }}>
+    <div className="card lift" style={{ padding: '12px 16px', flex: '1 1 136px', minWidth: 124 }}>
       <div className="mono display" style={{ fontSize: 26, color: RC.ink, lineHeight: 1 }}>{v}</div>
       <div className="eyebrow" style={{ marginTop: 6 }}>{k}</div>
     </div>

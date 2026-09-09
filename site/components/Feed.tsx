@@ -24,6 +24,18 @@ export function Feed({ items }: { items: FeedItem[] }) {
 
   return (
     <div className="card" style={{ overflow: 'hidden' }}>
+      {/* Four columns of market ids do not fit a phone. Below 560 the row
+          becomes two lines: who and what kind, then the market itself. */}
+      <style>{`
+        .feed-when{ width:62px } .feed-who{ width:66px } .feed-kind{ width:66px }
+        .feed-what{ min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap }
+        @media (max-width:560px){
+          .feed-row{ flex-wrap:wrap; gap:8px }
+          .feed-kind{ width:auto }
+          .feed-what{ flex:1 0 100%; white-space:normal; overflow:visible;
+            text-overflow:clip; word-break:break-word }
+        }
+      `}</style>
       <div style={{ display: 'flex', gap: 6, padding: 10, borderBottom: `1px solid ${RC.line}`,
                     flexWrap: 'wrap' }}>
         {['all', 'buy', 'forecast', 'resolved', 'promotion'].map(k => (
@@ -44,18 +56,17 @@ export function Feed({ items }: { items: FeedItem[] }) {
         {shown.map((it, n) => {
           const k = KINDS[it.kind] ?? { c: RC.ink3, label: it.kind }
           return (
-            <div key={n} style={{ display: 'flex', gap: 10, padding: '9px 13px',
+            <div key={n} className="feed-row" style={{ display: 'flex', gap: 10, padding: '9px 13px',
                                   borderBottom: `1px solid ${RC.line}`, fontSize: 12,
                                   alignItems: 'baseline' }}>
-              <span className="mono" style={{ color: RC.ink4, width: 62, flex: '0 0 auto' }}>
+              <span className="mono feed-when" style={{ color: RC.ink4, flex: '0 0 auto' }}>
                 {relTime(it.ts)}
               </span>
-              <span className="mono" style={{ color: RC.ink3, width: 66, flex: '0 0 auto' }}>
+              <span className="mono feed-who" style={{ color: RC.ink3, flex: '0 0 auto' }}>
                 {identityOf(it.pundit).name}
               </span>
-              <span style={{ color: k.c, width: 66, flex: '0 0 auto' }}>{k.label}</span>
-              <span style={{ color: RC.ink2, minWidth: 0, overflow: 'hidden',
-                             textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+              <span className="feed-kind" style={{ color: k.c, flex: '0 0 auto' }}>{k.label}</span>
+              <span className="feed-what" style={{ color: RC.ink2 }}>
                 {it.kind === 'buy' && <>
                   <b style={{ color: RC.ink }}>{it.source}</b>
                   <span className="mono" style={{ color: RC.ink4 }}> {it.cost?.toFixed(4)} </span>

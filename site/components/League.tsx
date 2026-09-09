@@ -27,7 +27,7 @@ export function League({ league, frames }: { league: L; frames: Frames }) {
   return (
     <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) 372px', gap: 26,
                   alignItems: 'start' }} className="home-grid">
-      <div>
+      <div style={{ minWidth: 0 }}>
         <AgentCards pundits={league.pundits} selected={sel} onSelect={setSel} />
 
         {p && (
@@ -55,7 +55,7 @@ export function League({ league, frames }: { league: L; frames: Frames }) {
         )}
       </div>
 
-      <div style={{ position: 'sticky', top: 18 }}>
+      <div className="home-side" style={{ position: 'sticky', top: 18, minWidth: 0 }}>
         <div className="eyebrow" style={{ marginBottom: 10 }}>Live</div>
         <Feed items={league.feed} />
         <p style={{ fontSize: 11.5, color: RC.ink4, marginTop: 12, lineHeight: 1.6 }}>
@@ -64,7 +64,13 @@ export function League({ league, frames }: { league: L; frames: Frames }) {
           resolved outcomes, never declared.
         </p>
       </div>
-      <style>{`@media (max-width:980px){ .home-grid{ grid-template-columns:1fr !important } }`}</style>
+      {/* minmax(0,1fr), not 1fr: a bare 1fr takes its minimum from the widest
+          thing inside it, so the trust map's min-content dragged the whole page
+          out to 614px on a phone and the browser zoomed the lot out to fit. */}
+      <style>{`@media (max-width:980px){
+        .home-grid{ grid-template-columns:minmax(0,1fr) !important; gap:20px !important }
+        .home-side{ position:static !important }
+      }`}</style>
     </div>
   )
 }

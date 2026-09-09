@@ -29,8 +29,15 @@ export function AgentCards({ pundits, selected, onSelect }:
           reality has answered, they are the same agent six times. Divergence is earned.
         </div>
       )}
-      <div style={{ display: 'grid', gap: 14,
-                    gridTemplateColumns: 'repeat(auto-fill,minmax(212px,1fr))' }}>
+      <style>{`
+        .seat-grid{ display:grid; gap:14px;
+          grid-template-columns:repeat(auto-fill,minmax(212px,1fr)) }
+        @media (max-width:560px){
+          .seat-grid{ gap:10px; grid-template-columns:repeat(2,minmax(0,1fr)) }
+          .seat-grid p{ min-height:0 !important }
+        }
+      `}</style>
+      <div className="seat-grid">
         {ranked.map((p, i) => {
           const id = identityOf(p.id)
           const on = p.id === selected
